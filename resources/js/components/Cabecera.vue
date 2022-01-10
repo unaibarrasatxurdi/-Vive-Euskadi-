@@ -35,8 +35,9 @@ export default {
     src: url('/fonts/Astral-Sisters.ttf');
   }
 *{
-    background-color: #1498C2;
     font-family: 'Astral Sisters';
     font-size: 30px;
+    padding-top: 0;
+    background-color: #1498C2;
 }
 </style>
