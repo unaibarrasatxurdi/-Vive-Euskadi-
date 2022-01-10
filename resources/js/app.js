@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 Vue.component('cabecera', require('./components/Cabecera.vue').default);
 Vue.component('sobre-nosotros', require('./components/SobreNosotros.vue').default);
 Vue.component('piepagina', require('./components/Footer.vue').default);
+Vue.component('comp-admin', require('./components/adminComp.vue').default);
 
 const app = new Vue({
     el: '#app'
