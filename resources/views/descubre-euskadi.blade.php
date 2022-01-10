@@ -23,11 +23,11 @@
         <div class="container">
             <h1 class="text-center">Euskadi: un pequeño pais con una gran identidad</h1>      
             <div class="card flex-column mt-5">
-                <div class="card-header w-100 text-muted">
+                <div class="card-header w-100 text-white">
                     Álava
                 </div>
                 <div class="card flex-row ">
-                    <div class="card-header border-0">
+                    <div class="card-image border-0">
                         <img src="//placehold.it/200" alt="">
                     </div>
                     
@@ -42,11 +42,11 @@
             </div>
             
             <div class="card flex-column mt-5">
-                <div class="card-header w-100 text-muted">
+                <div class="card-header w-100 text-white">
                     Gipuzcoa
                 </div>
                 <div class="card flex-row">
-                    <div class="card-header border-0">
+                    <div class="card-image border-0">
                         <img src="//placehold.it/200" alt="">
                     </div>
                     
@@ -63,11 +63,11 @@
             </div> 
 
             <div class="card flex-column mt-5">
-                <div class="card-header w-100 text-muted">
+                <div class="card-header w-100 text-white">
                     Vizcaya
                 </div>
                 <div class="card flex-row">
-                    <div class="card-header border-0">
+                    <div class="card-image border-0">
                         <img src="//placehold.it/200" alt="">
                     </div>
                     
