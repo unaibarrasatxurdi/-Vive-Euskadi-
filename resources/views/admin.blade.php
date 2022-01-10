@@ -13,7 +13,10 @@
 
         <div id="app">
 
-            <comp-admin />
+            <cabecera></cabecera>
+            <main>
+                
+            </main>
 
         </div>
 

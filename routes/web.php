@@ -22,5 +22,5 @@ Route::get('/', function () {
     return view('sobre-nosotros');
 }); */
 Route::get('/', function () {
-    return view('comp-admin');
+    return view('admin');
 });
