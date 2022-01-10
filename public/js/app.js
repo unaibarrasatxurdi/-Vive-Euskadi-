@@ -28570,9 +28570,14 @@ var staticRenderFns = [
             [
               _c("ul", { staticClass: "navbar-nav ms-auto mb-2 mb-lg-0" }, [
                 _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Descubre Euskadi"),
-                  ]),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: "/descubre_euskadi" },
+                    },
+                    [_vm._v("Descubre Euskadi")]
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("li", { staticClass: "nav-item" }, [

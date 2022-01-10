@@ -21,3 +21,6 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('sobre-nosotros');
 });
+Route::get('/descubre_euskadi', function () {
+    return view('descubre-euskadi');
+});
