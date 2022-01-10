@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 */
 Route::get('/', function () {
-    return view('sobre-nosotros');
+    return view('index');
 });
