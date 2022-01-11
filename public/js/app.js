@@ -5344,6 +5344,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /***/ }),
 
@@ -10567,7 +10569,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n*[data-v-61a7c374]{\r\n    background-color: #1498C2;\r\n    font-family: 'Astral Sisters';\r\n    font-size: 20px;\r\n    margin: 0;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n*[data-v-61a7c374]{\r\n    background-color: #1498C2;\r\n    font-family: 'Astral Sisters';\r\n    font-size: 25px;\r\n    margin: 0;\n}\n.redes[data-v-61a7c374]{\r\n    width: 15%;\r\n    height: auto;\n}\n.patrocinadores[data-v-61a7c374]{\r\n    width: 20%;\r\n    height: auto;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29008,48 +29010,91 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row align-items-center" }, [
-        _c("div", { staticClass: "col 4" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col 5" }, [
           _c("div", { staticClass: "row" }, [
             _c("p", [_vm._v("Patrocinadores:")]),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: { src: "/images/euskadi-basque-country.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: { src: "/images/Bilbao.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: { src: "/images/r01ClaimH_white_es.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: {
+                src: "/images/ayuntamiento-de-vitoria-gasteiz-logo-vector.png",
+              },
+            }),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: { src: "/images/españa.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: { src: "/images/Logo-Orain-Ingurumena.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: { src: "/images/Captura.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: {
+                src: "/images/ayuntamiento-de-vitoria-gasteiz-vitoria-gasteizko-udala-logo-vector.png",
+              },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid patrocinadores",
+              attrs: { src: "/images/Gobierno-Vasco-Eusko-Jaurlaritza.png" },
+            }),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col 4" }, [
+        _c("div", { staticClass: "col 3 align-self-center" }, [
           _c("div", { staticClass: "row" }, [
-            _c("p", [
+            _c("p", { staticClass: "text-center" }, [
               _vm._v("©Todos los derechos reservados. Vive Euskadi S.L"),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("img", { attrs: { src: "" } }),
+          _c("div", { staticClass: "row justify-content-center" }, [
+            _c("img", {
+              staticClass: "img-fluid redes",
+              attrs: { src: "/images/Insta.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid redes",
+              attrs: { src: "/images/facebook.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid redes",
+              attrs: { src: "/images/TikTok.png" },
+            }),
             _vm._v(" "),
-            _c("img", { attrs: { src: "" } }),
+            _c("img", {
+              staticClass: "img-fluid redes",
+              attrs: { src: "/images/youtube.png" },
+            }),
           ]),
         ]),
         _vm._v(" "),
@@ -29057,14 +29102,20 @@ var staticRenderFns = [
           _c("div", { staticClass: "row" }, [_c("p", [_vm._v("Contacto:")])]),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c("iframe"),
+            _c("iframe", {
+              staticClass: "w-50 mb-2 mt-1",
+              staticStyle: { border: "0" },
+              attrs: {
+                src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11622.807170302627!2d-2.9024069!3d43.2576713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x364f27e82def0130!2sCIFP%20Txurdinaga%20LHII!5e0!3m2!1ses!2ses!4v1641889218826!5m2!1ses!2ses",
+                allowfullscreen: "",
+                loading: "lazy",
+              },
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "w-50" }, [
               _c("p", [_vm._v("Tel: +34 6469481434")]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("p", [_vm._v("Email: cotacto@viveeuskadi.com")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Email: contacto@viveeuskadi.com")]),
             ]),
           ]),
         ]),
