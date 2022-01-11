@@ -12,7 +12,7 @@
         <li class="nav-item">
             <a class="nav-link" href="/descubre_euskadi">Descubre Euskadi</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none d-lg-block">
           <img src="/images/linea.png" alt="" width="40" height="60">
         </li>
         <li class="nav-item">

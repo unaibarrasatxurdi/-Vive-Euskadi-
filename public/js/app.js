@@ -28599,7 +28599,7 @@ var staticRenderFns = [
                   ),
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
+                _c("li", { staticClass: "nav-item d-none d-lg-block" }, [
                   _c("img", {
                     attrs: {
                       src: "/images/linea.png",
