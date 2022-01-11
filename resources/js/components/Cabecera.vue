@@ -4,8 +4,11 @@
     <a class="navbar-brand" href="/">
          <img src="/images/logo.png" alt="" width="200" height="100">
     </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto  mb-lg-0">
         <li class="nav-item">
             <a class="nav-link" href="/descubre_euskadi">Descubre Euskadi</a>
         </li>
@@ -38,6 +41,7 @@ export default {
     font-family: 'Astral Sisters';
     font-size: 30px;
     padding-top: 0;
+    padding-bottom: 0;
     background-color: #1498C2;
 }
 </style>

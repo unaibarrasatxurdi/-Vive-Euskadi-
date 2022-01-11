@@ -5286,6 +5286,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log("This is cabecera");
@@ -10453,7 +10456,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n*[data-v-5497f71d]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\r\n    padding-top: 0;\r\n    background-color: #1498C2;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n*[data-v-5497f71d]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\r\n    padding-top: 0;\r\n    padding-bottom: 0;\r\n    background-color: #1498C2;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28562,13 +28565,29 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c(
+            "button",
+            {
+              staticClass: "navbar-toggler",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#navbarSupportedContent",
+                "aria-controls": "navbarSupportedContent",
+                "aria-expanded": "false",
+                "aria-label": "Toggle navigation",
+              },
+            },
+            [_c("span", { staticClass: "navbar-toggler-icon" })]
+          ),
+          _vm._v(" "),
+          _c(
             "div",
             {
               staticClass: "collapse navbar-collapse",
               attrs: { id: "navbarSupportedContent" },
             },
             [
-              _c("ul", { staticClass: "navbar-nav ms-auto mb-2 mb-lg-0" }, [
+              _c("ul", { staticClass: "navbar-nav ms-auto  mb-lg-0" }, [
                 _c("li", { staticClass: "nav-item" }, [
                   _c(
                     "a",
