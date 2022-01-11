@@ -19,7 +19,7 @@
             <cabecera></cabecera>
            
 
-        </div>
+        
         <div class="container">
             <h1 class="text-center text-white mt-3">Euskadi: un pequeño pais con una gran identidad</h1>      
             <div class="card flex-column mt-5">
@@ -87,7 +87,8 @@
                 
             </div>   
           </div>
-        
+          <piepagina></piepagina>
+        </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
