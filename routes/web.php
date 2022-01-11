@@ -26,5 +26,7 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('comp-admin');
 // });
-
+Route::get('/descubre_euskadi', function () {
+    return view('descubre-euskadi');
+});
 ?>

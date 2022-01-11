@@ -1,0 +1,28 @@
+@font-face {
+    font-family: Astral Sisters;
+    src: url('/fonts/Astral-Sisters.ttf');
+  }
+  @font-face {
+    font-family: PlayfairDisplay;
+    src: url('/fonts/PlayfairDisplay-Regular.ttf');
+  }
+ 
+body{
+    background-image: url(/images/Imagenes/bodyDescubre.jpg);
+    background-size: cover;
+}
+h1{
+    font-family: Astral Sisters;
+}
+.card-header{
+    background-color: #1498C2 !important;
+    font-family: Astral Sisters;
+}
+.card{
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    font-family: PlayfairDisplay;
+}
+.descubre-img{
+    width: 200px;
+    height: 200px;
+}
