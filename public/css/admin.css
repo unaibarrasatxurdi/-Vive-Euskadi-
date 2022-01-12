@@ -6,6 +6,9 @@ main {
     -o-background-size: cover;
     background-size: cover;
 }
+#sidebar {
+    background-color: #e1ecf0ff;
+}
 #sidebar-nav {
     width: 300px;
 }
@@ -13,33 +16,26 @@ main {
     width: 25%;
 }
 #backAdmin {
-    z-index: 2;
+    opacity: 0.4;
 }
-.hero {
-    position: relative; 
-    height: 100vh;
+#sidebarAdmin {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: fit-content;
+    display: inline-block;
+    position: relative;
 }
-
-.hero::before {    
-    content: "";
-    background-image: url('https://placekitten.com/1200/800');
-    background-size: auto;
+#datosAdmin {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.75;
+    font-style: normal;
+    top: 15%;
+    font-weight: bold;
+}
+#menuAdmin {
+    background-color: #e1ecf0ff;
 }
 
-h1 {
-  position: relative;
-  color: #ffffff;  
-  font-size: 14rem;
-  line-height: 0.9;
-  text-align: center;
+#sidebar button {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #D3ECF4;
 }

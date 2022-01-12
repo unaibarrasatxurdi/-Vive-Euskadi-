@@ -20,20 +20,16 @@
                         <div class="col-auto px-0">
                             <div id="sidebar" class="collapse collapse-horizontal show border-end">
                                 <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
-                                    {{-- APARTADO DATOS ADMINISTRADOR --}}
-                                    <div class="img bg-wrap text-center py-4">
-                                        <div class="hero">
-                                            <h1>Cute kittehs everywhere!</h1>
+                                    <!-- APARTADO DATOS ADMINISTRADOR -->
+                                    <div class="img bg-wrap text-center" id="sidebarAdmin">
+                                        <div>
+                                            <img src="../../images/adminPrueba.jpg" class="img-fluid" id="backAdmin">
                                         </div>
-
-
-
-
-                                        {{-- <div class="user-logo">
-                                            <div><img src="../images\login1.png" id="imgAdmin"></div>
+                                        <div id="datosAdmin">
+                                            <img src="../../images/login1.png" id="imgAdmin">
                                             <h3>Administrador</h3>
                                             <h5>Email</h5>
-                                        </div> --}}
+                                        </div>
                                     </div>
                                     <a href="#" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
