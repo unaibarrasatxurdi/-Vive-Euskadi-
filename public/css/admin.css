@@ -1,5 +1,4 @@
-main {
-    padding-top: 0;
+body {
     background-image: url(../images/bodyAdmin.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -28,14 +27,39 @@ main {
     position: absolute;
     font-style: normal;
     top: 15%;
-    font-weight: bold;
 }
 #menuAdmin {
     background-color: #e1ecf0ff;
 }
 
-#sidebar button {
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #D3ECF4;
+#btnMenuAdmin a {
+    background-color: transparent;
+    font-size: 1.4em;
+    border: transparent;
 }
+
+#btnMenuAdmin a:hover {
+    background-color: gray;
+    color: black;
+    font-size: 1.4em;
+    border: transparent;
+    font-weight: 600;
+}
+#logOut {
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 150px;
+    height: 40px;
+    font-size: 1.3em;
+}
+#logOut:hover {
+   background-color: #1498C2;
+   font-weight: 700;
+}
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+

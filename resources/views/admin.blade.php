@@ -13,39 +13,59 @@
         <div id="app">
 
             <cabecera></cabecera>
-
-            <main>
-                <div class="container-fluid">
-                    <div class="row flex-nowrap">
-                        <div class="col-auto px-0">
-                            <div id="sidebar" class="collapse collapse-horizontal show border-end">
-                                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
-                                    <!-- APARTADO DATOS ADMINISTRADOR -->
-                                    <div class="img bg-wrap text-center" id="sidebarAdmin">
-                                        <div>
-                                            <img src="../../images/adminPrueba.jpg" class="img-fluid" id="backAdmin">
-                                        </div>
-                                        <div id="datosAdmin">
-                                            <img src="../../images/login1.png" id="imgAdmin">
-                                            <h3>Administrador</h3>
-                                            <h5>Email</h5>
-                                        </div>
+            <div class="container-fluid">
+                <div class="row flex-nowrap">
+                    <div class="col-auto px-0">
+                        <div id="sidebar" class="collapse collapse-horizontal show border-end">
+                            <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                                <!-- APARTADO DATOS ADMINISTRADOR -->
+                                <div class="img bg-wrap text-center" id="sidebarAdmin">
+                                    <div>
+                                        <img src="../../images/adminPrueba.jpg" class="img-fluid" id="backAdmin">
                                     </div>
-                                    <a href="#" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <div id="datosAdmin">
+                                        <img src="../../images/login1.png" id="imgAdmin">
+                                        <h3>Administrador</h3>
+                                        <h5>Email</h5>
+                                    </div>
+                                </div>
+                                <div id="btnMenuAdmin">
+                                    <a href="#"  class="list-group-item border-end-0 d-inline-block text-truncate mt-5" data-bs-parent="#sidebar">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                      </svg> <span>Gestión de usuarios</span></a>
-                                    <a href="#" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
+                                    </svg> <span>Gestión de usuarios</span></a>
+                                    <a href="#" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
                                         <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
                                         <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                                      </svg> <span>Gestión de comentarios</span></a>
+                                    </svg> <span>Gestión de comentarios</span></a>
                                 </div>
-                                <button>Cerrar sesión</button>
-                            </div>
+                                <div class="text-center">
+                                    <button id="logOut" class="mt-5 border border-dark">Cerrar sesión</button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <main class="col ps-md-2 pt-2">
+                        <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                          </svg></a>
+                        <div class="page-header mt-5 ms-5 ps-4 pt-1" id="titApartado">
+                                <h2>Gestión de usuarios</h2>
                         </div>
                         
-                    </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>This is a simple collapsing sidebar menu for Bootstrap 5. Unlike the Offcanvas component that overlays the content, this sidebar will "push" the content. Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
+                                <p>Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.</p>
+                            </div>
+                        </div>
+                    </main>
                 </div>
-            </main>
+            </div>
+                
+                    
+                
 
         </div>
 
