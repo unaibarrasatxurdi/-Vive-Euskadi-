@@ -38,6 +38,7 @@ export default {
     font-family: 'Astral Sisters';
     font-size: 30px;
     padding-top: 0;
+    padding-bottom: 0;
     background-color: #1498C2;
 }
 </style>
