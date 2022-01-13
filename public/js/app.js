@@ -29397,7 +29397,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col 3 align-self-center" }, [
           _c("div", { staticClass: "row" }, [
             _c("p", { staticClass: "text-center" }, [
-              _vm._v("©Todos los derechos reservados. Vive Euskadi S.L"),
+              _vm._v("©Todos los derechos reservados. Vive Euskadi S.L."),
             ]),
           ]),
           _vm._v(" "),

@@ -19,7 +19,7 @@
         </div>
         <div class="col 3 align-self-center">
             <div class="row">
-                <p class="text-center">&copy;Todos los derechos reservados. Vive Euskadi S.L</p>
+                <p class="text-center">&copy;Todos los derechos reservados. Vive Euskadi S.L.</p>
             </div>
             <div class="row justify-content-center col-md">
                 <img src="/images/Insta.png" class="img-fluid redes">
