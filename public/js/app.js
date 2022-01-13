@@ -5264,6 +5264,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log("This is cabecera");
@@ -5278,6 +5303,52 @@ __webpack_require__.r(__webpack_exports__);
   \*************************************************************************************************************************************************************************************************************/
 /***/ (() => {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -5292,7 +5363,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log("This is about component");
@@ -5307,6 +5393,81 @@ __webpack_require__.r(__webpack_exports__);
   \*******************************************************************************************************************************************************************************************************************************/
 /***/ (() => {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gestionUsuarios-admin.vue?vue&type=script&lang=js&":
@@ -5314,6 +5475,86 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gestionUsuarios-admin.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************************************************************************************************************************************/
 /***/ (() => {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -5336,8 +5577,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('cabecera', (__webpack_require__(/*! ./components/Cabecera.vue */ "./resources/js/components/Cabecera.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('sobre-nosotros', (__webpack_require__(/*! ./components/SobreNosotros.vue */ "./resources/js/components/SobreNosotros.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('comp-admin', (__webpack_require__(/*! ./components/adminComp.vue */ "./resources/js/components/adminComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"])); // Vue.component('comp-admin', require('./components/adminComp.vue').default);
+
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('gestionusuarios-admin', (__webpack_require__(/*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('gestioncomentarios-admin', (__webpack_require__(/*! ./components/gestionComentarios-admin.vue */ "./resources/js/components/gestionComentarios-admin.vue")["default"]));
 var app = new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({
