@@ -16,7 +16,7 @@
        
 
         <div id="app">
-            <cabecera></cabecera>
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  sobre-nosotros="{{ url('')}}"></cabecera>
            
 
         </div>
