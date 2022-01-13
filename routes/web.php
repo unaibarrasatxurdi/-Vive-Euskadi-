@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanesController;
 use App\Http\Controllers\DescubreEuskadiController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +19,6 @@ use App\Http\Controllers\DescubreEuskadiController;
 Route::get('/', function () {
     return view('index');
 }); 
-
-Route::get('/descubre_euskadi', function () {
-    return view('descubre-euskadi');
-});
 
 Route::get('/inicio_sesion', function () {
     return view('inicio-sesion');
@@ -48,12 +43,9 @@ Route::get('/loquete', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
-?>
-    return view('welcome');
-});
-*/
+
 Route::resources(['' => PlanesController::class,
     'descubre-euskadi' => DescubreEuskadiController::class,
     'user' => UserController::class, 
 ]);
-
+?>
