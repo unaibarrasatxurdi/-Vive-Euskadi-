@@ -50,13 +50,13 @@
 
 <style scoped>
 @font-face {
-    font-family: Astral Sisters;
-    src: url('/fonts/Astral-Sisters.ttf');
+    font-family: PlayfairDisplay;
+    src: url('/fonts/PlayfairDisplay.ttf');
   }
 *{
     background-color: #1498C2;
-    font-family: 'Astral Sisters';
-    font-size: 25px;
+    font-family: 'PlayfairDisplay';
+    font-size: 20px;
     margin: 0;
 }
 .redes{
