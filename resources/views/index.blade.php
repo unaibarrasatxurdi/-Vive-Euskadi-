@@ -12,7 +12,7 @@
     <div id="app">
         <main class="flex-row" id="contentIndex">
             {{-- Cabecera --}}
-            <cabecera></cabecera>
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  sobre-nosotros="{{ url('')}}"></cabecera>
             {{-- Vídeo --}}
             <section class="videoWrapper" id="videoIndex">
                 <video playsinline autoplay muted loop>
@@ -39,6 +39,7 @@
                 <index-comp></index-comp>
             </section>
         </main>
+        <piepagina></piepagina>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

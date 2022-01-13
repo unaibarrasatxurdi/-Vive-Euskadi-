@@ -12,7 +12,7 @@
 
         <div id="app">
 
-            <cabecera></cabecera>
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  sobre-nosotros="{{ url('')}}"></cabecera>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <div class="col-auto px-0">
@@ -56,7 +56,7 @@
                     <gestioncomentarios-admin></gestioncomentarios-admin>
                 </div>
             </div>
-                
+            <piepagina></piepagina>
                     
                 
 
