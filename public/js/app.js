@@ -10572,7 +10572,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n*[data-v-61a7c374]{\r\n    background-color: #1498C2;\r\n    font-family: 'Astral Sisters';\r\n    font-size: 25px;\r\n    margin: 0;\n}\n.redes[data-v-61a7c374]{\r\n    width: 15%;\r\n    height: auto;\n}\n.patrocinadores[data-v-61a7c374]{\r\n    width: 20%;\r\n    height: auto;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n*[data-v-61a7c374]{\r\n    background-color: #1498C2;\r\n    font-family: 'Astral Sisters';\r\n    font-size: 25px;\r\n    margin: 0;\n}\n.redes[data-v-61a7c374]{\r\n    width: 71px;\r\n    height: 55px;\n}\n.patrocinadores[data-v-61a7c374]{\r\n    width: 92px;\r\n    height: 70px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29099,7 +29099,7 @@ var staticRenderFns = [
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "row justify-content-center col-md" }, [
             _c("img", {
               staticClass: "img-fluid redes",
               attrs: { src: "/images/Insta.png" },

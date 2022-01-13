@@ -13,20 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
 Route::get('/', function () {
     return view('index');
-/* Route::get('/', function () {
-    return view('sobre-nosotros');*/
 }); 
-// Route::get('/', function () {
-//     return view('comp-admin');
-// });
+
 Route::get('/descubre_euskadi', function () {
     return view('descubre-euskadi');
 });
+
+Route::get('/inicio_sesion', function () {
+    return view('inicio-sesion');
+});
+
+Route::get('/usuario', function () {
+    return view('usuario');
+});
+
+Route::get('/planes', function () {
+    return view('planes');
+});
+
+Route::get('/planes/detalle/{id}', function ($id) {
+    return 'Detalle del plan '.$id;
+});
+
+Route::get('/loquete', function () {
+    return view('loquete');
+})
 ?>

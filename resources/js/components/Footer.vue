@@ -21,7 +21,7 @@
             <div class="row">
                 <p class="text-center">&copy;Todos los derechos reservados. Vive Euskadi S.L</p>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center col-md">
                 <img src="/images/Insta.png" class="img-fluid redes">
                 <img src="/images/facebook.png" class="img-fluid redes">
                 <img src="/images/TikTok.png"  class="img-fluid redes">
@@ -60,11 +60,11 @@
     margin: 0;
 }
 .redes{
-    width: 15%;
-    height: auto;
+    width: 71px;
+    height: 55px;
 }
 .patrocinadores{
-    width: 20%;
-    height: auto;
+    width: 92px;
+    height: 70px;
 }
 </style>
