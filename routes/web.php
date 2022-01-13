@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlanesController;
+use App\Http\Controllers\DescubreEuskadiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +49,11 @@ Route::get('/admin', function () {
     return view('admin');
 });
 ?>
+    return view('welcome');
+});
+*/
+Route::resources(['' => PlanesController::class,
+    'descubre-euskadi' => DescubreEuskadiController::class,
+    'user' => UserController::class, 
+]);
+
