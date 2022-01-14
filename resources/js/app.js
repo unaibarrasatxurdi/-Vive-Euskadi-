@@ -16,6 +16,7 @@ Vue.component('planesuser', require('./components/planesUsuario.vue').default);
 Vue.component('planescerca', require('./components/planesCercaUsuario.vue').default);
 Vue.component('planesfav', require('./components/planesFavUsuario.vue').default);
 Vue.component('gestioncomentariosuser', require('./components/gestionComentariosUsuario.vue').default);
+Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 
 const app = new Vue({
     el: '#app'

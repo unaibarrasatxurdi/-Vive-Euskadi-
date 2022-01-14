@@ -24,13 +24,14 @@ class PlanesController extends Controller
      */
     public function show($id)
     {
-        return view('planes');
+        return view('busqueda')->with('id', $id);
     }
 
     public function getPlan($plan)
     {
-        return view('planes')->with('id', $plan);
+        return view('plan')->with('id', $plan);
     }
+    
 
 
     /**
