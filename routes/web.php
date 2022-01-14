@@ -41,6 +41,10 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+Route::get('/usuario', function () {
+    return view('usuario');
+});
+
 Route::resources(['' => PlanesController::class,
     'descubre-euskadi' => DescubreEuskadiController::class,
     'user' => UserController::class, 
