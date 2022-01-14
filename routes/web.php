@@ -40,6 +40,9 @@ Route::get('/planes/detalle/{id}', function ($id) {
 Route::get('/admin', function () {
     return view('admin');
 });
+Route::get('/busqueda', function () {
+    return view('busqueda');
+});
 
 Route::resources(['' => PlanesController::class,
     'descubre-euskadi' => DescubreEuskadiController::class,
