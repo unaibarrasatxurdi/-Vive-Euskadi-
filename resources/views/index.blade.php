@@ -36,13 +36,11 @@
                     </div>
                 </form>
                 {{-- Complemento --}}
-                {{-- <index-comp></index-comp> --}}
-                <plan-comp></plan-comp>
+                <index-comp></index-comp>
             </section>
             {{-- Pie de página --}}
             <piepagina></piepagina>
         </main>
-        <piepagina></piepagina>
     </div>
     {{-- Script --}}
     <script src="{{ asset('js/app.js') }}"></script>
