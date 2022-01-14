@@ -5417,6 +5417,97 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    console.log("This is about component");
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/datosUsuario.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/datosUsuario.vue?vue&type=script&lang=js& ***!
@@ -5957,6 +6048,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  // crear instancia vue
 
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('index-comp', (__webpack_require__(/*! ./components/IndexComp.vue */ "./resources/js/components/IndexComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('plan-comp', (__webpack_require__(/*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('cabecera', (__webpack_require__(/*! ./components/Cabecera.vue */ "./resources/js/components/Cabecera.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"])); // Vue.component('comp-admin', require('./components/adminComp.vue').default);
 
@@ -11146,6 +11238,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n#cartasIndex[data-v-3a45d4a6] {\n    width: 100%;\n}\n#cartasIndex > .container[data-v-3a45d4a6] {\n    width: 100%;\n}\n#vizcayaIndex[data-v-3a45d4a6] {\n    width: 18rem;\n}\n#vizcayaIndex > .card[data-v-3a45d4a6] {\n    min-height: 48vh;\n    background-color: rgba(102, 102, 102, 0.664);\n    color: black;\n}\n#guipuzcoaIndex[data-v-3a45d4a6] {\n    width: 18rem;\n}\n#guipuzcoaIndex > .card[data-v-3a45d4a6] {\n    min-height: 48vh;\n    background-color: rgba(102, 102, 102, 0.664);\n    color: black;\n}\n#alavaIndex[data-v-3a45d4a6] {\n    width: 18rem;\n}\n#alavaIndex > .card[data-v-3a45d4a6] {\n    min-height: 48vh;\n    background-color: rgba(102, 102, 102, 0.664);\n    color: black;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    width: 50%;\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28965,6 +29081,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_style_index_0_id_6db35b43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_style_index_0_id_6db35b43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_style_index_0_id_6db35b43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/datosUsuario.vue?vue&type=style&index=0&id=da822d84&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/datosUsuario.vue?vue&type=style&index=0&id=da822d84&scoped=true&lang=css& ***!
@@ -29619,6 +29765,47 @@ component.options.__file = "resources/js/components/IndexComp.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/PlanComp.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/PlanComp.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _PlanComp_vue_vue_type_template_id_6db35b43_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PlanComp.vue?vue&type=template&id=6db35b43&scoped=true& */ "./resources/js/components/PlanComp.vue?vue&type=template&id=6db35b43&scoped=true&");
+/* harmony import */ var _PlanComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PlanComp.vue?vue&type=script&lang=js& */ "./resources/js/components/PlanComp.vue?vue&type=script&lang=js&");
+/* harmony import */ var _PlanComp_vue_vue_type_style_index_0_id_6db35b43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css& */ "./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _PlanComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PlanComp_vue_vue_type_template_id_6db35b43_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _PlanComp_vue_vue_type_template_id_6db35b43_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "6db35b43",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PlanComp.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/datosUsuario.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/datosUsuario.vue ***!
@@ -29979,6 +30166,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/PlanComp.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/PlanComp.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PlanComp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/datosUsuario.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/datosUsuario.vue?vue&type=script&lang=js& ***!
@@ -30171,6 +30374,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_style_index_0_id_6db35b43_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=style&index=0&id=6db35b43&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/datosUsuario.vue?vue&type=style&index=0&id=da822d84&scoped=true&lang=css&":
 /*!***********************************************************************************************************!*\
   !*** ./resources/js/components/datosUsuario.vue?vue&type=style&index=0&id=da822d84&scoped=true&lang=css& ***!
@@ -30326,6 +30542,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComp_vue_vue_type_template_id_3a45d4a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComp_vue_vue_type_template_id_3a45d4a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./IndexComp.vue?vue&type=template&id=3a45d4a6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/IndexComp.vue?vue&type=template&id=3a45d4a6&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PlanComp.vue?vue&type=template&id=6db35b43&scoped=true&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/PlanComp.vue?vue&type=template&id=6db35b43&scoped=true& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_template_id_6db35b43_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_template_id_6db35b43_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanComp_vue_vue_type_template_id_6db35b43_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PlanComp.vue?vue&type=template&id=6db35b43&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=template&id=6db35b43&scoped=true&");
 
 
 /***/ }),
@@ -31297,6 +31530,164 @@ var staticRenderFns = [
               ]),
             ]),
           ]),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=template&id=6db35b43&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=template&id=6db35b43&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "container", attrs: { id: "contenedorPlan" } },
+    [
+      _c("div", { staticClass: "row" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { attrs: { id: "datosPlan" } }, [
+              _c("h3", [_vm._v("DATOS DE INTERÉS")]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "bi bi-people-fill",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    width: "16",
+                    height: "16",
+                    fill: "white",
+                    viewBox: "0 0 16 16",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: { d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }),
+        ]),
+      ]),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12", attrs: { id: "infoPlan" } }, [
+      _c("div", { staticClass: "card", attrs: { id: "headerPlan" } }, [
+        _c("img", {
+          staticClass: "img-overlay",
+          attrs: { src: "images/temporales/plan1.jpg" },
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row m-1", attrs: { id: "tituloPlan" } }, [
+          _c("h3", { staticClass: "col" }, [
+            _vm._v("Tres días en la Rioja Alavesa"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col justify-content-end" }, [
+            _c("i", {
+              staticClass: "fa fa-heart col",
+              attrs: { "aria-hidden": "true", id: "iconoFavPlan" },
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-bookmark col",
+              attrs: { "aria-hidden": "true", id: "iconoGuardarPlan" },
+            }),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-3 m-1", attrs: { id: "textoPlan" } }, [
+        _c("p", [
+          _vm._v(
+            "\n                    Entre los viñedos que caracterizan a Rioja Alavesa, podemos encontrar uno de los grandes desconocidos de la comarca: el \n                    olivo y el aceite."
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n\n                    Éste es un plan perfecto de dos días para descubrir dos de los tesoros de Rioja Alavesa: el aceite y el vino."
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v("\n\n                    DÍA 1"),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n\n                    Dedicaremos la jornada de hoy a conocer al hermano mayor de la vid en Rioja Alavesa: el olivo. Durante siglos, más o \n                    menos enraizado, el olivo nos ofrece su hermoso fruto y su rico zumo, conocido como el oro líquido."
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n\n                    Nos adentraremos en Lanciego, una villa de algo más de 660 habitantes, donde contrastaremos modernidad y tradición en \n                    uno de sus trujales y nos sumergiremos en la historia del olivo en Rioja Alavesa. Conoce la evolución del olivo y de \n                    las diversas formas de transformación en aceite y disfruta del vivo sabor del aceite de variedad Arróniz. También \n                    existen trujales que pueden visitarse en las localidades de Barriobusto, Moreda y Oyón."
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n\n                    Te recomendamos que dediques parte de la jornada a visitar también las calles de Moreda de Álava, ya que seguro que \n                    te sorprende esta villa repleta de casas blasonadas y los restos de su antigua muralla. No dejes de visitar la Iglesia \n                    Parroquial de Santa María, con su destacado retablo Mayor de estilo barroco y sus pinturas. Muy cerca de Moreda, puedes \n                    encontrar Labraza, una villa medieval espectacular que conserva intacta su muralla y su encantador trazado de la Edad \n                    Media."
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v("\n\n                    DÍA 2"),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n\n                    El plan de hoy estará enfocado a descubrir el vino y la gastronomía de esta comarca. Hoy no puedes dejar de visitar \n                    alguna de las muchas bodegas de Rioja Alavesa. Hay una infinidad de opciones para elegir. Te recomendamos que visites \n                    dos bodegas contrastadas."
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n\n                    Una más antigua o familiar, y otra más moderna e innovadora. Si te pierdes con tanta oferta, te recomendamos que \n                    contactes con alguna de las agencias y empresas especializadas de Rioja Alavesa que estarán encantadas de diseñar \n                    tu ruta y asesorarte. Y nada como maridar el vino con la deliciosa gastronomía de la comarca. Puedes comer en una \n                    de las bodegas que ofrecen comidas o decantarte por alguno de los numerosos restaurantes que hay en la zona."
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n\n                    En Rioja Alavesa encontrarás desde la cocina más tradicional hasta las propuestas culinarias más innovadoras. No \n                    dejes de probar las patatas a la riojana, las pochas y las famosas chuletillas al sarmiento"
+          ),
+          _c("br"),
+          _c("br"),
         ]),
       ]),
     ])

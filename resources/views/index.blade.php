@@ -20,7 +20,7 @@
                 </video>
             </section>
             {{-- Contenido del index --}}
-            <section class="row bg-image mt-5" id="contenidoPrincipalIndex">
+            <section class="row bg-image pt-5 pb-5" id="contenidoPrincipalIndex">
                 {{-- Barra de búsqueda --}}
                 <form action="" class="d-flex justify-content-center" id="busquedaIndex">
                     <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4" id="barraBusquedaIndex">
@@ -36,11 +36,15 @@
                     </div>
                 </form>
                 {{-- Complemento --}}
-                <index-comp></index-comp>
+                {{-- <index-comp></index-comp> --}}
+                <plan-comp></plan-comp>
             </section>
+            {{-- Pie de página --}}
+            <piepagina></piepagina>
         </main>
         <piepagina></piepagina>
     </div>
+    {{-- Script --}}
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
