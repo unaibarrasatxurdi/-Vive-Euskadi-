@@ -36,9 +36,6 @@ Route::get('/planes/detalle/{id}', function ($id) {
     return 'Detalle del plan '.$id;
 });
 
-Route::get('/loquete', function () {
-    return view('loquete');
-});
 
 Route::get('/admin', function () {
     return view('admin');
