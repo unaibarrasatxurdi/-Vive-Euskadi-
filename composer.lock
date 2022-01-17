@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f73264fe59047ebf73229a963e05d221",
+    "content-hash": "992b1d850ec3822dfb59523e7edff692",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5827,22 +5827,22 @@
         },
         {
             "name": "laravel/breeze",
-            "version": "v1.6.1",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/breeze.git",
-                "reference": "516b5377a27b9cc3efbdffdba42cef74987ee53a"
+                "reference": "b64ed761df1d1572525d6bbed04c54e8309437b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/516b5377a27b9cc3efbdffdba42cef74987ee53a",
-                "reference": "516b5377a27b9cc3efbdffdba42cef74987ee53a",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/b64ed761df1d1572525d6bbed04c54e8309437b5",
+                "reference": "b64ed761df1d1572525d6bbed04c54e8309437b5",
                 "shasum": ""
             },
             "require": {
-                "illuminate/filesystem": "^8.42",
-                "illuminate/support": "^8.42",
-                "illuminate/validation": "^8.42",
+                "illuminate/filesystem": "^8.42|^9.0",
+                "illuminate/support": "^8.42|^9.0",
+                "illuminate/validation": "^8.42|^9.0",
                 "php": "^7.3|^8.0"
             },
             "type": "library",
@@ -5880,7 +5880,7 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2022-01-02T21:46:28+00:00"
+            "time": "2022-01-12T18:02:04+00:00"
         },
         {
             "name": "laravel/sail",
@@ -7942,5 +7942,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
