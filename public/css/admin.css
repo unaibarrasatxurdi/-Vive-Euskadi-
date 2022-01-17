@@ -32,13 +32,13 @@ body {
     background-color: #e1ecf0ff;
 }
 
-#btnMenuAdmin a {
+#btnMenuAdmin button {
     background-color: transparent;
     font-size: 1.4em;
     border: transparent;
 }
 
-#btnMenuAdmin a:hover {
+#btnMenuAdmin button:hover {
     background-color: gray;
     color: black;
     font-size: 1.4em;
