@@ -1,8 +1,6 @@
 require('./bootstrap');
 
-import Vue from 'vue'
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Alpine from 'alpinejs';
 
 // crear instancia vue
 Vue.component('index-comp', require('./components/IndexComp.vue').default);
@@ -19,6 +17,6 @@ Vue.component('planesfav', require('./components/planesFavUsuario.vue').default)
 Vue.component('gestioncomentariosuser', require('./components/gestionComentariosUsuario.vue').default);
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 
-const app = new Vue({
-    el: '#app'
-});
+window.Alpine = Alpine;
+
+Alpine.start();
