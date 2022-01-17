@@ -27,7 +27,7 @@ class PlanesController extends Controller
         return view('busqueda')->with('id', $id);
     }
 
-    public function getPlan($plan)
+    public function edit($plan)
     {
         return view('plan')->with('id', $plan);
     }
@@ -47,16 +47,7 @@ class PlanesController extends Controller
 
     
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
