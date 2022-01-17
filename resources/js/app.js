@@ -1,14 +1,7 @@
 require('./bootstrap');
 
-import Vue from 'vue'
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Alpine from 'alpinejs';
 
-// crear instancia vue
-Vue.component('cabecera', require('./components/Cabecera.vue').default);
-Vue.component('sobre-nosotros', require('./components/SobreNosotros.vue').default);
-Vue.component('comp-admin', require('./components/adminComp.vue').default);
+window.Alpine = Alpine;
 
-const app = new Vue({
-    el: '#app'
-});
+Alpine.start();
