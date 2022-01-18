@@ -1,8 +1,9 @@
 require('./bootstrap');
+
+import Alpine from 'alpinejs';
 import Vue from 'vue'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Alpine from 'alpinejs';
 
 // crear instancia vue
 Vue.component('index-comp', require('./components/IndexComp.vue').default);
