@@ -1,0 +1,61 @@
+body {
+    background-image: url(../images/bodyAdmin.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#sidebar {
+    background-color: #e1ecf0ff;
+}
+#sidebar-nav {
+    width: 300px;
+}
+#imgAdmin {
+    width: 25%;
+}
+#backAdmin {
+    opacity: 0.4;
+}
+#sidebarAdmin {
+    width: 100%;
+    height: fit-content;
+    display: inline-block;
+    position: relative;
+}
+#datosAdmin {
+    position: absolute;
+    font-style: normal;
+    top: 15%;
+}
+#menuAdmin {
+    background-color: #e1ecf0ff;
+}
+
+#btnMenuAdmin a {
+    background-color: transparent;
+    font-size: 1.4em;
+    border: transparent;
+}
+
+#btnMenuAdmin a:hover {
+    background-color: gray;
+    color: black;
+    font-size: 1.4em;
+    border: transparent;
+    font-weight: 600;
+}
+#logOut {
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 150px;
+    height: 40px;
+    font-size: 1.3em;
+}
+#logOut:hover {
+   background-color: #1498C2;
+   font-weight: 700;
+}
+
+
+
