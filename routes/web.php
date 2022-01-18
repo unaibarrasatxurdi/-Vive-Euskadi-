@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlanesController;
+use App\Http\Controllers\DescubreEuskadiController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
-*/
-/* Route::get('/', function () {
-    return view('sobre-nosotros');
-}); */
-Route::get('/', function () {
-    return view('admin');
-});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::resource('home', PlanesController::class, ['names' => ['show' => 'busqueda', 'edit' => 'plan']]);
+Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only(['index']);
+Route::resource('user', UserController::class)->only(['index', 'show']);
+
+require __DIR__.'/auth.php';
