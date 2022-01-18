@@ -1,15 +1,31 @@
 require('./bootstrap');
 import Vue from 'vue'
+window.Vue = Vue;
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Alpine from 'alpinejs';
+
+
+//Importamos Axios
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+//Importamos y configuramos el vue-router
+import VueRouter from 'vue-router';
+import { routes } from './routes';
+Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
+
+const router = new VueRouter ({
+    mode: 'history',
+    routes: routes
+});
 
 // crear instancia vue
 Vue.component('index-comp', require('./components/IndexComp.vue').default);
 Vue.component('plan-comp', require('./components/PlanComp.vue').default);
 Vue.component('cabecera', require('./components/Cabecera.vue').default);
 Vue.component('piepagina', require('./components/Footer.vue').default);
-// Vue.component('comp-admin', require('./components/adminComp.vue').default);
 Vue.component('gestionusuarios-admin', require('./components/gestionUsuarios-admin.vue').default);
 Vue.component('gestioncomentarios-admin', require('./components/gestionComentarios-admin.vue').default);
 Vue.component('datosuser', require('./components/datosUsuario.vue').default);
@@ -20,7 +36,9 @@ Vue.component('gestioncomentariosuser', require('./components/gestionComentarios
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router:router,
+    render: h => h(App)
 });
 
 window.Alpine = Alpine;

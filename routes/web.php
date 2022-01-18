@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanesController;
 use App\Http\Controllers\DescubreEuskadiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,8 @@ Route::get('/dashboard', function () {
 Route::resource('home', PlanesController::class, ['names' => ['show' => 'busqueda', 'edit' => 'plan']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only(['index']);
 Route::resource('user', UserController::class)->only(['index', 'show']);
+Route::resource('admin', AdminController::class)->only(['index']);
+
+
 
 require __DIR__.'/auth.php';

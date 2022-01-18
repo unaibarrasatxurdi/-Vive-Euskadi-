@@ -5,12 +5,12 @@ const adminUsuarios = () => import('./components/gestionUsuarios-admin.vue')
 export const routes = [
     {
         name: 'gestionComentarios',
-        path: '/admin',
+        path: '/gestionComentarios',
         component: adminComentarios
     },
     {
         name: 'gestionUsuarios',
-        path: '/admin',
+        path: '/gestionUsuario',
         component: adminUsuarios
     },
 ]
