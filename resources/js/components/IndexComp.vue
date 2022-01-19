@@ -41,6 +41,7 @@
                       </div>
                   </article>
               </div>
+              <p>{{this.$store.state.planes}}</p>
           </div>
       </div>
   </div>
@@ -48,9 +49,19 @@
 
 <script>
 export default {
-  mounted() {
-    console.log("This is about component");
+
+  data: () =>{ 
+      return{
+          json: null
+    }
   },
+    async created() { 
+        delete axios.defaults.headers.common['X-Requested-With'];
+        let response =await axios.get('https://opendata.euskadi.eus/contenidos/ds_recursos_turisticos/planes_experiencias_euskadi/opendata/planes.json');
+        this.json = response.data;
+        console.log(this.json);
+        this.$store.commit('change', this.json);
+    }
 };
 </script>
 

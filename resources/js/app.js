@@ -1,9 +1,11 @@
 require('./bootstrap');
 
 import Alpine from 'alpinejs';
-import Vue from 'vue'
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Vue from 'vue';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Vuex from 'vuex';
+Vue.use(Vuex);
 
 // crear instancia vue
 Vue.component('index-comp', require('./components/IndexComp.vue').default);
@@ -20,9 +22,23 @@ Vue.component('planesfav', require('./components/planesFavUsuario.vue').default)
 Vue.component('gestioncomentariosuser', require('./components/gestionComentariosUsuario.vue').default);
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 
-const app = new Vue({
-    el: '#app'
+const store = new Vuex.Store({
+    state: {
+        planes:[]
+    },
+    mutations: {
+        change(state, plan) {
+        state.planes = plan;
+        }
+    },
 });
+
+const app = new Vue({
+    el: '#app',   
+    store,
+});
+
+
 
 window.Alpine = Alpine;
 
