@@ -1,11 +1,19 @@
 require('./bootstrap');
 
 import Alpine from 'alpinejs';
+<<<<<<< HEAD
 import Vue from 'vue';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Vuex from 'vuex';
 Vue.use(Vuex);
+=======
+import VueAxios from 'vue-axios';
+import Axios from 'axios';
+import VueRouter from 'vue-router';
+import {routes} from './routes'
+
+>>>>>>> Ekaitz
 
 // crear instancia vue
 Vue.component('index-comp', require('./components/IndexComp.vue').default);
@@ -22,6 +30,7 @@ Vue.component('planesfav', require('./components/planesFavUsuario.vue').default)
 Vue.component('gestioncomentariosuser', require('./components/gestionComentariosUsuario.vue').default);
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 
+<<<<<<< HEAD
 const store = new Vuex.Store({
     state: {
         planes:[]
@@ -36,6 +45,20 @@ const store = new Vuex.Store({
 const app = new Vue({
     el: '#app',   
     store,
+=======
+Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
+const router = new VueRouter(
+    {
+        mode: 'history',
+        routes: routes
+    }
+);
+const app = new Vue({
+    el: '#app',
+    router: router,
+
+>>>>>>> Ekaitz
 });
 
 

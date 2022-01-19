@@ -13,7 +13,13 @@
     <body>
   
         <div id="app">
-            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  sobre-nosotros="{{ url('')}}"></cabecera>
+            @if (Route::has('login') && Route::has('register'))
+            @auth
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-route="{{url('user')}}" user-name="<?php echo Auth::user()->name;?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin?>" admin-route="{{url('admin')}}"></cabecera>
+            @else
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-login="{{ route('login') }}" user-register="{{ route('register') }}"></cabecera>
+            @endauth
+            @endif
         
         <div class="container">
             <h1 class="text-center text-white mt-3">Euskadi: un pequeño pais con una gran identidad</h1>      
