@@ -15,10 +15,11 @@
         <li class="nav-item d-none d-lg-block">
           <img src="/images/linea.png" alt="" width="40" height="60">
         </li>
-        <li class="nav-item dropdown" v-if="this.userRoute">
+        <li class="nav-item dropdown" v-if="this.userRoute !=null">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> {{this.userName}} </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" :href="this.userRoute">Mi Perfil</a></li>
+            <li v-if="this.userAdmin ==1"><a class="dropdown-item" :href="this.adminRoute">Administrador</a></li>
             <li><a class="dropdown-item" :href="this.logOut">Cerrar Sesión</a></li>
           </ul>
         </li>
@@ -40,7 +41,11 @@
 
 <script>
 export default {
-  props: ['descubreEuskadi', 'indexRoute', 'userLogin', 'userRegister', 'userRoute', 'userName', 'logOut'],
+  props: ['descubreEuskadi', 'indexRoute', 'userLogin', 'userRegister', 'userRoute', 'userName', 'logOut', 'userAdmin', 'adminRoute'],
+  mounted(){
+    console.log(this.userAdmin);
+  },
+  
 };
 </script>
 <style scoped>

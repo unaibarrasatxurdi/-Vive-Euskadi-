@@ -6,6 +6,7 @@ use App\Http\Controllers\DescubreEuskadiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,8 @@ Route::group(['middleware' => ['auth']], function() {
  });
 Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['index' => '', 'show' => 'plan']]);
-Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only(['index']);
+Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only('index');
 Route::resource('user', UserController::class)->only(['index', 'show']);
+Route::resource('admin', AdminController::class)->only('index');
 
 require __DIR__.'/auth.php';

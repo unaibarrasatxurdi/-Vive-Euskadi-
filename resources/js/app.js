@@ -3,6 +3,11 @@ import Vue from 'vue'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Alpine from 'alpinejs';
+import VueAxios from 'vue-axios';
+import Axios from 'axios';
+import VueRouter from 'vue-router';
+import {routes} from './routes'
+
 
 // crear instancia vue
 Vue.component('index-comp', require('./components/IndexComp.vue').default);
@@ -19,8 +24,18 @@ Vue.component('planesfav', require('./components/planesFavUsuario.vue').default)
 Vue.component('gestioncomentariosuser', require('./components/gestionComentariosUsuario.vue').default);
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 
+Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
+const router = new VueRouter(
+    {
+        mode: 'history',
+        routes: routes
+    }
+);
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router: router,
+
 });
 
 window.Alpine = Alpine;
