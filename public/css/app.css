@@ -654,6 +654,10 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -707,6 +711,9 @@ select {
 }
 .-mr-2 {
   margin-right: -0.5rem;
+}
+.ml-5 {
+  margin-left: 1.25rem;
 }
 .block {
   display: block;

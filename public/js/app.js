@@ -9445,56 +9445,50 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-window.Vue = vue__WEBPACK_IMPORTED_MODULE_0__["default"];
-
-
- //Importamos Axios
-
-
- //Importamos y configuramos el vue-router
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_4__["default"], (axios__WEBPACK_IMPORTED_MODULE_5___default()));
+
+
+
+ // crear instancia vue
+
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('index-comp', (__webpack_require__(/*! ./components/IndexComp.vue */ "./resources/js/components/IndexComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('plan-comp', (__webpack_require__(/*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('cabecera', (__webpack_require__(/*! ./components/Cabecera.vue */ "./resources/js/components/Cabecera.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('gestionusuarios-admin', (__webpack_require__(/*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('gestioncomentarios-admin', (__webpack_require__(/*! ./components/gestionComentarios-admin.vue */ "./resources/js/components/gestionComentarios-admin.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('datosuser', (__webpack_require__(/*! ./components/datosUsuario.vue */ "./resources/js/components/datosUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('planesuser', (__webpack_require__(/*! ./components/planesUsuario.vue */ "./resources/js/components/planesUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('planescerca', (__webpack_require__(/*! ./components/planesCercaUsuario.vue */ "./resources/js/components/planesCercaUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('planesfav', (__webpack_require__(/*! ./components/planesFavUsuario.vue */ "./resources/js/components/planesFavUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('gestioncomentariosuser', (__webpack_require__(/*! ./components/gestionComentariosUsuario.vue */ "./resources/js/components/gestionComentariosUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('busqueda-comp', (__webpack_require__(/*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_3__["default"], axios);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]({
   mode: 'history',
-  routes: _routes__WEBPACK_IMPORTED_MODULE_6__.routes
-}); // crear instancia vue
-
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('index-comp', (__webpack_require__(/*! ./components/IndexComp.vue */ "./resources/js/components/IndexComp.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('plan-comp', (__webpack_require__(/*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('cabecera', (__webpack_require__(/*! ./components/Cabecera.vue */ "./resources/js/components/Cabecera.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('gestionusuarios-admin', (__webpack_require__(/*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('gestioncomentarios-admin', (__webpack_require__(/*! ./components/gestionComentarios-admin.vue */ "./resources/js/components/gestionComentarios-admin.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('datosuser', (__webpack_require__(/*! ./components/datosUsuario.vue */ "./resources/js/components/datosUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('planesuser', (__webpack_require__(/*! ./components/planesUsuario.vue */ "./resources/js/components/planesUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('planescerca', (__webpack_require__(/*! ./components/planesCercaUsuario.vue */ "./resources/js/components/planesCercaUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('planesfav', (__webpack_require__(/*! ./components/planesFavUsuario.vue */ "./resources/js/components/planesFavUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('gestioncomentariosuser', (__webpack_require__(/*! ./components/gestionComentariosUsuario.vue */ "./resources/js/components/gestionComentariosUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('busqueda-comp', (__webpack_require__(/*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue")["default"]));
-var app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  el: '#app',
-  router: router,
-  render: function render(h) {
-    return h(App);
-  }
+  routes: _routes__WEBPACK_IMPORTED_MODULE_5__.routes
 });
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_3__["default"].start();
+var app = new vue__WEBPACK_IMPORTED_MODULE_6__["default"]({
+  el: '#app',
+  router: router
+});
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].start();
 
 /***/ }),
 
@@ -9541,22 +9535,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
 /* CREAMOS LAS RUTAS PARA LOS COMPONENTES DE ADMIN */
-var adminComentarios = function adminComentarios() {
+
+/* const adminComentarios = () => import('./components/gestionComentarios-admin.vue')
+const adminUsuarios = () => import('./components/gestionUsuarios-admin.vue')
+
+export const routes = [
+    {
+        name: 'gestionComentarios',
+        path: '/gestionComentarios',
+        component: adminComentarios
+    },
+    {
+        name: 'gestionUsuarios',
+        path: '/gestionUsuario',
+        component: adminUsuarios
+    },
+] */
+var gestionComentarios = function gestionComentarios() {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/gestionComentarios-admin.vue */ "./resources/js/components/gestionComentarios-admin.vue"));
 };
 
-var adminUsuarios = function adminUsuarios() {
+var gestionUsuarios = function gestionUsuarios() {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue"));
 };
 
 var routes = [{
-  name: 'gestionComentarios',
-  path: '/gestionComentarios',
-  component: adminComentarios
+  name: 'gestion-comentarios',
+  path: '/admin/gestion-comentarios',
+  component: gestionComentarios
 }, {
-  name: 'gestionUsuarios',
-  path: '/gestionUsuario',
-  component: adminUsuarios
+  name: 'gestion-usuarios',
+  path: '/admin/gestion-usuarios',
+  component: gestionUsuarios
 }];
 
 /***/ }),

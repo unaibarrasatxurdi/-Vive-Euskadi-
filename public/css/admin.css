@@ -45,6 +45,10 @@ body {
     border: transparent;
     font-weight: 600;
 }
+.router-link.active {
+    color: orange;
+}
+
 #logOut {
     border-radius: 10px;
     background-color: #ffffff;
