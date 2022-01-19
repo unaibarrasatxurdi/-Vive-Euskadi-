@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanesController;
 use App\Http\Controllers\DescubreEuskadiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +22,14 @@ Route::get('/', function () {
     return redirect('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::resource('home', PlanesController::class, ['names' => ['show' => 'busqueda', 'edit' => 'plan']]);
+Route::group(['middleware' => ['auth']], function() {
+    /**
+    * Logout Route
+    */
+    Route::get('/logout', [LogoutController::class,'perform']);
+ });
+Route::resource('home', HomeController::class)->only('index');
+Route::resource('busqueda', PlanesController::class, ['names' => ['index' => '', 'show' => 'plan']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only(['index']);
 Route::resource('user', UserController::class)->only(['index', 'show']);
 

@@ -11,7 +11,13 @@
     <div id="app">
         <main class="flex-row" id="contentIndex">
             {{-- Cabecera --}}
-            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  sobre-nosotros="{{ url('')}}"></cabecera>
+            @if (Route::has('login') && Route::has('register'))
+            @auth
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-route="{{url('user')}}" user-name="<?php echo Auth::user()->name;?>" log-out="{{route('logout')}}"></cabecera>
+            @else
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-login="{{ route('login') }}" user-register="{{ route('register') }}"></cabecera>
+            @endauth
+            @endif
             {{-- Vídeo --}}
             <section class="videoWrapper" id="videoIndex">
                 <video playsinline autoplay muted loop>
