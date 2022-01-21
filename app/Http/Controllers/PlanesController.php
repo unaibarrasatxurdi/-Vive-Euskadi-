@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Facades\App\Repository\Posts;
 class PlanesController extends Controller
 {
     /**
@@ -15,6 +15,7 @@ class PlanesController extends Controller
     {
         // return view('busqueda')->with('id',$id);
     }
+    
 
     /**
      * Display the specified resource.
@@ -26,7 +27,6 @@ class PlanesController extends Controller
     {
         return view('busqueda')->with('id', $id);
     }
-
     public function edit($plan)
     {
         

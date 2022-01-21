@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [LogoutController::class,'perform']);
  });
 Route::resource('home', HomeController::class)->only('index');
-Route::resource('busqueda', PlanesController::class, ['names' => ['index' => '', 'show' => 'plan']]);
+Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'plan']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only('index');
 Route::resource('user', UserController::class)->only(['index', 'show']);
 Route::resource('admin', AdminController::class)->only('index');

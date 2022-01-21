@@ -31,12 +31,12 @@
             {{-- Contenido del index --}}
             <section class="row bg-image pt-5 pb-5" id="contenidoPrincipalIndex">
                 {{-- Barra de búsqueda --}}
-                <form action="" class="d-flex justify-content-center" id="busquedaIndex">
+                <form  class="d-flex justify-content-center" id="busquedaIndex" onkeydown="return event.key != 'Enter';">
                     <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4" id="barraBusquedaIndex">
                         <div class="input-group">
-                        <input type="search" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                        <input type="search" aria-describedby="button-addon1" class="form-control border-0 bg-light" id="search-input" value="{{ request()->get('textoBusqueda') }}">
                         <div class="input-group-append">
-                            <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                            <button type="button" id="button-addon1" class="btn btn-link" onclick="buscar()"><i class="fa fa-search"></i></button>
                         </div>
                         </div>
                     </div>
@@ -53,5 +53,25 @@
     </div>
     {{-- Script --}}
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript">
+        $(window).ready(function() {
+        $("#busquedaIndex").on("keyup", function (event) {
+            if (event.keyCode === 13) {
+                buscar();
+            }
+        });
+        });
+
+        function buscar(){
+            var textoBuscar = document.getElementById('search-input').value;
+            if(textoBuscar==""){
+                alert('EL CAMPO DE BUSQUEDA NO PUEDE ESTAR VACIO')
+            }else{
+                window.location.replace("/busqueda/"+textoBuscar);
+            }
+            
+           
+        }
+    </script>
 </body>
 </html>

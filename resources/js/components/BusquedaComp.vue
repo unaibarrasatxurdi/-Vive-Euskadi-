@@ -94,7 +94,7 @@
   </tbody>
 </table>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
-  <div v-for="(item, index) in this.planes" :key="index" class="col mb-2">
+  <div v-for="(item, index) in this.resultado" :key="index" class="col mb-2">
     <div class="card text-white">
         <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img " alt="">
         <div class="card-img-overlay">
@@ -109,6 +109,9 @@
   </div>
 </div>
 </div>
+
+
+
     
 </template>
 
@@ -116,11 +119,15 @@
 export default {
     data (){
         return {
-          planes: null  
+          planes: null ,
+          resultado: []
         } 
     },
     mounted (){
         this.planes=JSON.parse(localStorage.getItem("planes"));
+        const url= window.location.href;
+        const id =url.substring(url.lastIndexOf('/') + 1);
+       this.resultado= this.planes.filter(plan => plan.documentName.includes(id));
     }
 }
 </script>

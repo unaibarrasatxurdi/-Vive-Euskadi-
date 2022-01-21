@@ -56,4 +56,6 @@ const router = new VueRouter(
 
 window.Alpine = Alpine;
 
+const $ = require('jquery');
+window.$ = $;
 Alpine.start();
