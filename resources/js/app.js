@@ -34,7 +34,7 @@ const app = new Vue({
       }
     },
     async mounted() {
-        if(isEmpty(localStorage.getItem("planes"))) {
+        if(localStorage.getItem("planes")===null) {
             delete axios.defaults.headers.common['X-Requested-With'];
             let response =await axios.get('https://opendata.euskadi.eus/contenidos/ds_recursos_turisticos/planes_experiencias_euskadi/opendata/planes.json');
             this.jsonp = response.data;

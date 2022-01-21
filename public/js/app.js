@@ -9723,7 +9723,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_6__["default"]({
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              if (!isEmpty(localStorage.getItem("planes"))) {
+              if (!(localStorage.getItem("planes") === null)) {
                 _context.next = 8;
                 break;
               }
@@ -35257,14 +35257,16 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                },
-                [_vm._v(_vm._s(this.planes[0]))]
-              ),
+              this.planes
+                ? _c(
+                    "p",
+                    {
+                      staticClass:
+                        "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                    },
+                    [_vm._v(_vm._s(this.planes[0].documentName))]
+                  )
+                : _vm._e(),
             ]),
           ]),
         ]),
