@@ -8801,59 +8801,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -35225,53 +35172,8 @@ var render = function () {
     _c(
       "div",
       { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5" },
-      [
-        _c("div", { staticClass: "col mb-2" }, [
-          _c("div", { staticClass: "card text-white" }, [
-            _c("img", {
-              staticClass: "card-img ",
-              attrs: { src: "/images/Imagenes/alavaDescubre.jpg", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-img-overlay" }, [
-              _c("h5", { staticClass: "card-title float-end" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "bi bi-heart",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "40",
-                      height: "40",
-                      fill: "currentColor",
-                      viewBox: "0 0 16 16",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              this.planes
-                ? _c(
-                    "p",
-                    {
-                      staticClass:
-                        "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                    },
-                    [_vm._v(_vm._s(this.planes[0].documentName))]
-                  )
-                : _vm._e(),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-2" }, [
+      _vm._l(this.planes, function (item, index) {
+        return _c("div", { key: index, staticClass: "col mb-2" }, [
           _c("div", { staticClass: "card text-white" }, [
             _c("img", {
               staticClass: "card-img ",
@@ -35308,144 +35210,13 @@ var render = function () {
                   staticClass:
                     "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
                 },
-                [_vm._v("Urdaibai, bosque, txakoli y Museo de la Paz")]
+                [_vm._v(_vm._s(item.documentName))]
               ),
             ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-2" }, [
-          _c("div", { staticClass: "card text-white " }, [
-            _c("img", {
-              staticClass: "card-img ",
-              attrs: { src: "/images/Imagenes/gipuzcoaDescubre.jpg", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-img-overlay" }, [
-              _c("h5", { staticClass: "card-title float-end" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "bi bi-heart-fill",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "40",
-                      height: "40",
-                      fill: "red",
-                      viewBox: "0 0 16 16",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                },
-                [_vm._v("Urdaibai, bosque, txakoli y Museo de la Paz")]
-              ),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-2" }, [
-          _c("div", { staticClass: "card text-white" }, [
-            _c("img", {
-              staticClass: "card-img ",
-              attrs: { src: "/images/Imagenes/vizcayaDescubre.jpg", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-img-overlay" }, [
-              _c("h5", { staticClass: "card-title float-end" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "bi bi-heart-fill",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "40",
-                      height: "40",
-                      fill: "red",
-                      viewBox: "0 0 16 16",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                },
-                [_vm._v("Urdaibai, bosque, txakoli y Museo de la Paz")]
-              ),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-2" }, [
-          _c("div", { staticClass: "card text-white" }, [
-            _c("img", {
-              staticClass: "card-img ",
-              attrs: { src: "/images/Imagenes/vizcayaDescubre.jpg", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-img-overlay" }, [
-              _c("h5", { staticClass: "card-title float-end" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "bi bi-heart-fill",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "40",
-                      height: "40",
-                      fill: "red",
-                      viewBox: "0 0 16 16",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                },
-                [_vm._v("Urdaibai, bosque, txakoli y Museo de la Paz")]
-              ),
-            ]),
-          ]),
-        ]),
-      ]
+        ])
+      }),
+      0
     ),
   ])
 }

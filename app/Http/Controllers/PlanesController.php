@@ -13,7 +13,7 @@ class PlanesController extends Controller
      */
     public function index($id)
     {
-        return view('busqueda')->with('id',$id);
+        // return view('busqueda')->with('id',$id);
     }
 
     /**
@@ -24,7 +24,7 @@ class PlanesController extends Controller
      */
     public function show($id)
     {
-        return view('plan')->with('id', $id);
+        return view('busqueda')->with('id', $id);
     }
 
     public function edit($plan)
