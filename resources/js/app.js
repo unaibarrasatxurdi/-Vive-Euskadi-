@@ -1,8 +1,13 @@
 require('./bootstrap');
-import Vue from 'vue'
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 import Alpine from 'alpinejs';
+import Vue from 'vue';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import VueAxios from 'vue-axios';
+import VueRouter from 'vue-router';
+import {routes} from './routes';
+
 
 // crear instancia vue
 Vue.component('index-comp', require('./components/IndexComp.vue').default);
@@ -20,8 +25,34 @@ Vue.component('gestioncomentariosuser', require('./components/gestionComentarios
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',   
+    router: router,
+    data: () =>{ 
+        return{
+            json: null,
+            jsonp: null
+      }
+    },
+    async mounted() {
+        if(localStorage.getItem("planes")===null) {
+            delete axios.defaults.headers.common['X-Requested-With'];
+            let response =await axios.get('https://opendata.euskadi.eus/contenidos/ds_recursos_turisticos/planes_experiencias_euskadi/opendata/planes.json');
+            this.jsonp = response.data;
+            this.json = this.jsonp.substring(this.jsonp.indexOf("(") + 1, this.jsonp.lastIndexOf(")"));
+            localStorage.setItem("planes", this.json); 
+        }
+      },
 });
+
+Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
+const router = new VueRouter(
+    {
+        mode: 'history',
+        routes: routes,
+    }
+);
+
 
 window.Alpine = Alpine;
 

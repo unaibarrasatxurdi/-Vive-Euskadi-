@@ -48,9 +48,7 @@
 
 <script>
 export default {
-  mounted() {
-    console.log("This is about component");
-  },
+  
 };
 </script>
 
