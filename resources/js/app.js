@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
 import {routes} from './routes';
+import {$,jQuery} from 'jquery';
 
 
 // crear instancia vue
@@ -23,6 +24,7 @@ Vue.component('planescerca', require('./components/planesCercaUsuario.vue').defa
 Vue.component('planesfav', require('./components/planesFavUsuario.vue').default);
 Vue.component('gestioncomentariosuser', require('./components/gestionComentariosUsuario.vue').default);
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
+Vue.component('barra-busqueda', require('./components/BarraBusquedaComp.vue').default);
 
 const app = new Vue({
     el: '#app',   
@@ -56,6 +58,5 @@ const router = new VueRouter(
 
 window.Alpine = Alpine;
 
-const $ = require('jquery');
 window.$ = $;
 Alpine.start();
