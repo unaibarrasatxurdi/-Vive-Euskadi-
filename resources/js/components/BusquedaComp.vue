@@ -12,19 +12,19 @@
     <tr>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAlava">
+                <input class="form-check-input" type="checkbox" value="Araba" id="checkAlava">
                 <label class="form-check-label" for="checkAlava">
                     Álava
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGipuzcoa">
+                <input class="form-check-input" type="checkbox" value="Gipuzkoa" id="checkGipuzcoa">
                 <label class="form-check-label" for="checkGipuzcoa">
-                    Gipuzcoa
+                    Guipúzcoa
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkVizcaya">
+                <input class="form-check-input" type="checkbox" value="Bizkaia" id="checkVizcaya">
                 <label class="form-check-label" for="checkVizcaya">
                     Vizcaya
                 </label>
@@ -32,19 +32,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkPareja">
+                <input class="form-check-input" type="checkbox" value="couple" id="checkPareja">
                 <label class="form-check-label" for="checkPareja">
                     Planes en pareja
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGrupo">
+                <input class="form-check-input" type="checkbox" value="friends" id="checkGrupo">
                 <label class="form-check-label" for="checkGrupo">
                     Planes en grupo
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkNiños">
+                <input class="form-check-input" type="checkbox" value="children" id="checkNiños">
                 <label class="form-check-label" for="checkNiños">
                     Planes con niños
                 </label>
@@ -52,19 +52,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkCultura">
+                <input class="form-check-input" type="checkbox" value="culture" id="checkCultura">
                 <label class="form-check-label" for="checkCultura">
                     Cultura
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkDeporte">
+                <input class="form-check-input" type="checkbox" value="water" id="checkDeporte">
                 <label class="form-check-label" for="checkDeporte">
-                    Deporte
+                    Agua
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGastronomia">
+                <input class="form-check-input" type="checkbox" value="cuisine" id="checkGastronomia">
                 <label class="form-check-label" for="checkGastronomia">
                     Gastronomía
                 </label>
@@ -72,19 +72,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAventura">
+                <input class="form-check-input" type="checkbox" value="landscape" id="checkAventura">
                 <label class="form-check-label" for="checkAventura">
-                    Aventura
+                    Naturaleza y paisajes
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkPequeAventura">
+                <input class="form-check-input" type="checkbox" value="children-landscape" id="checkPequeAventura">
                 <label class="form-check-label" for="checkPequeAventura">
                     Peque-Aventura
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkUrbanos">
+                <input class="form-check-input" type="checkbox" value="culture-cuisine" id="checkUrbanos">
                 <label class="form-check-label" for="checkUrbanos">
                     Planes urbanos
                 </label>
@@ -116,11 +116,13 @@
 </template>
 
 <script>
+import $ from 'jquery';
 export default {
     data (){
         return {
           planes: null ,
-          resultado: []
+          resultado: [],
+          filtro: null
         } 
     },
     mounted (){
@@ -128,8 +130,37 @@ export default {
         const url= window.location.href;
         const id =url.substring(url.lastIndexOf('/') + 1);
        this.resultado= this.planes.filter(plan => plan.documentName.includes(id));
+       this.checkbox();
+    },
+
+    methods: {
+        
+        filtrar: function(filtro) {
+            for(var i=0;i<filtro.length;i++){
+                if(filtro[i]=="Araba"||filtro[i]=="Gipuzkoa"||filtro[i]=="Bizkaia"){
+                    this.resultado=this.planes.filter(plan => plan.territory.includes(filtro[i]));
+                } else{
+                    this.resultado=this.planes.filter(plan => plan.filtro[i].includes(1));
+                }                
+            }
+        },
+        checkbox: function(){
+            var s=this;
+            $(document).ready(function() {
+                var filtro=[];
+                $("input:checkbox").on("change", function() {
+                    if(this.checked) {
+                        filtro.push($(this).val());
+                        s.filtrar(filtro);
+                    }
+                });
+                
+            });
+        },
     }
 }
+
+
 </script>
 
 

@@ -8685,6 +8685,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -8802,11 +8804,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       planes: null,
-      resultado: []
+      resultado: [],
+      filtro: null
     };
   },
   mounted: function mounted() {
@@ -8816,6 +8820,34 @@ __webpack_require__.r(__webpack_exports__);
     this.resultado = this.planes.filter(function (plan) {
       return plan.documentName.includes(id);
     });
+    this.checkbox();
+  },
+  methods: {
+    filtrar: function filtrar(filtro) {
+      for (var i = 0; i < filtro.length; i++) {
+        if (filtro[i] == "Araba" || filtro[i] == "Gipuzkoa" || filtro[i] == "Bizkaia") {
+          this.resultado = this.planes.filter(function (plan) {
+            return plan.territory.includes(filtro[i]);
+          });
+        } else {
+          this.resultado = this.planes.filter(function (plan) {
+            return plan.filtro[i].includes(1);
+          });
+        }
+      }
+    },
+    checkbox: function checkbox() {
+      var s = this;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+        var filtro = [];
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("input:checkbox").on("change", function () {
+          if (this.checked) {
+            filtro.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            s.filtrar(filtro);
+          }
+        });
+      });
+    }
   }
 });
 
@@ -8875,9 +8907,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['descubreEuskadi', 'indexRoute', 'userLogin', 'userRegister', 'userRoute', 'userName', 'logOut', 'userAdmin', 'adminRoute'],
-  mounted: function mounted() {
-    console.log(this.userAdmin);
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -46145,7 +46175,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkAlava" },
+                attrs: { type: "checkbox", value: "Araba", id: "checkAlava" },
               }),
               _vm._v(" "),
               _c(
@@ -46161,7 +46191,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkGipuzcoa" },
+                attrs: {
+                  type: "checkbox",
+                  value: "Gipuzkoa",
+                  id: "checkGipuzcoa",
+                },
               }),
               _vm._v(" "),
               _c(
@@ -46170,14 +46204,22 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkGipuzcoa" },
                 },
-                [_vm._v("\r\n                    Gipuzcoa\r\n                ")]
+                [
+                  _vm._v(
+                    "\r\n                    Guipúzcoa\r\n                "
+                  ),
+                ]
               ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkVizcaya" },
+                attrs: {
+                  type: "checkbox",
+                  value: "Bizkaia",
+                  id: "checkVizcaya",
+                },
               }),
               _vm._v(" "),
               _c(
@@ -46195,7 +46237,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkPareja" },
+                attrs: { type: "checkbox", value: "couple", id: "checkPareja" },
               }),
               _vm._v(" "),
               _c(
@@ -46215,7 +46257,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkGrupo" },
+                attrs: { type: "checkbox", value: "friends", id: "checkGrupo" },
               }),
               _vm._v(" "),
               _c(
@@ -46235,7 +46277,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkNiños" },
+                attrs: {
+                  type: "checkbox",
+                  value: "children",
+                  id: "checkNiños",
+                },
               }),
               _vm._v(" "),
               _c(
@@ -46257,7 +46303,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkCultura" },
+                attrs: {
+                  type: "checkbox",
+                  value: "culture",
+                  id: "checkCultura",
+                },
               }),
               _vm._v(" "),
               _c(
@@ -46273,7 +46323,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkDeporte" },
+                attrs: { type: "checkbox", value: "water", id: "checkDeporte" },
               }),
               _vm._v(" "),
               _c(
@@ -46282,14 +46332,18 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkDeporte" },
                 },
-                [_vm._v("\r\n                    Deporte\r\n                ")]
+                [_vm._v("\r\n                    Agua\r\n                ")]
               ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkGastronomia" },
+                attrs: {
+                  type: "checkbox",
+                  value: "cuisine",
+                  id: "checkGastronomia",
+                },
               }),
               _vm._v(" "),
               _c(
@@ -46311,7 +46365,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkAventura" },
+                attrs: {
+                  type: "checkbox",
+                  value: "landscape",
+                  id: "checkAventura",
+                },
               }),
               _vm._v(" "),
               _c(
@@ -46320,7 +46378,11 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkAventura" },
                 },
-                [_vm._v("\r\n                    Aventura\r\n                ")]
+                [
+                  _vm._v(
+                    "\r\n                    Naturaleza y paisajes\r\n                "
+                  ),
+                ]
               ),
             ]),
             _vm._v(" "),
@@ -46329,7 +46391,7 @@ var staticRenderFns = [
                 staticClass: "form-check-input",
                 attrs: {
                   type: "checkbox",
-                  value: "",
+                  value: "children-landscape",
                   id: "checkPequeAventura",
                 },
               }),
@@ -46351,7 +46413,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "", id: "checkUrbanos" },
+                attrs: {
+                  type: "checkbox",
+                  value: "culture-cuisine",
+                  id: "checkUrbanos",
+                },
               }),
               _vm._v(" "),
               _c(
