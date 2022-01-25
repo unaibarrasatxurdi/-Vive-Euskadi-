@@ -29,12 +29,14 @@
             <section class="row bg-image pt-5" id="contenidoPrincipalIndex">
                 {{-- Barra de búsqueda --}}
                 <barra-busqueda request-busqueda="{{ request()->get('textoBusqueda') }}"></barra-busqueda>
+                
                 {{-- Complemento --}}
-                <busqueda-comp></busqueda-comp>
+                <router-view/>
+
             </section>
         </main>
         <piepagina></piepagina>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>    
 </body>
 </html>

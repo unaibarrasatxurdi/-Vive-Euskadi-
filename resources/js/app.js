@@ -26,6 +26,15 @@ Vue.component('gestioncomentariosuser', require('./components/gestionComentarios
 Vue.component('busqueda-comp', require('./components/BusquedaComp.vue').default);
 Vue.component('barra-busqueda', require('./components/BarraBusquedaComp.vue').default);
 
+Vue.use(VueRouter);
+Vue.use(VueAxios, axios);
+const router = new VueRouter(
+    {
+        mode: 'history',
+        routes: routes
+    }
+);
+
 const app = new Vue({
     el: '#app',   
     router: router,
@@ -46,14 +55,7 @@ const app = new Vue({
       },
 });
 
-Vue.use(VueRouter);
-Vue.use(VueAxios, axios);
-const router = new VueRouter(
-    {
-        mode: 'history',
-        routes: routes,
-    }
-);
+
 
 
 window.Alpine = Alpine;

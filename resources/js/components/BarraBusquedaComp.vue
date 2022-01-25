@@ -22,23 +22,22 @@ export default {
   props: ['requestBusqueda'],
   mounted(){
     $(window).ready(function() {
-        $("#busquedaIndex").on("keyup", function (event) {
-            if (event.keyCode === 13) {
-                buscar();
-            }
-        },
+         $("#busquedaIndex").submit(function (e) {
+            e.preventDefault();
+            buscar();
+        });
         $('#button-addon1').on("click", function () {
             buscar();
         }
 
-        )
         );
         });
 
         function buscar(){
             var textoBuscar = document.getElementById('search-input').value;
             if(textoBuscar==""){
-                alert('EL CAMPO DE BUSQUEDA NO PUEDE ESTAR VACIO')
+                alert('El campo de busqueda no puede estar vacio')
+
             }else{
                 window.location.replace("/busqueda/"+textoBuscar);
             }

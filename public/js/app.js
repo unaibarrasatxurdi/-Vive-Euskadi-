@@ -8709,20 +8709,20 @@ __webpack_require__.r(__webpack_exports__);
   props: ['requestBusqueda'],
   mounted: function mounted() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).ready(function () {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#busquedaIndex").on("keyup", function (event) {
-        if (event.keyCode === 13) {
-          buscar();
-        }
-      }, jquery__WEBPACK_IMPORTED_MODULE_0___default()('#button-addon1').on("click", function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#busquedaIndex").submit(function (e) {
+        e.preventDefault();
         buscar();
-      }));
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#button-addon1').on("click", function () {
+        buscar();
+      });
     });
 
     function buscar() {
       var textoBuscar = document.getElementById('search-input').value;
 
       if (textoBuscar == "") {
-        alert('EL CAMPO DE BUSQUEDA NO PUEDE ESTAR VACIO');
+        alert('El campo de busqueda no puede estar vacio');
       } else {
         window.location.replace("/busqueda/" + textoBuscar);
       }
@@ -8860,19 +8860,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       planes: null,
-      resultado: []
+      resultado: [],
+      id: null
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.planes = JSON.parse(localStorage.getItem("planes"));
     var url = window.location.href;
-    var id = url.substring(url.lastIndexOf('/') + 1);
+    this.id = url.substring(url.lastIndexOf('/') + 1);
     this.resultado = this.planes.filter(function (plan) {
-      return plan.documentName.includes(id);
+      return plan.documentName.includes(_this.id);
     });
   }
 });
@@ -9138,9 +9146,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      planes: null,
+      resultado: []
+    };
+  },
   mounted: function mounted() {
-    console.log("This is about component");
+    this.planes = JSON.parse(localStorage.getItem("planes"));
+    var url = window.location.href;
+    var nombre = url.substring(url.lastIndexOf('/') + 1);
+    nombre = decodeURI(nombre);
+    this.resultado = this.planes.filter(function (plan) {
+      return plan.documentName.includes(nombre);
+    });
   }
 });
 
@@ -9718,6 +9751,12 @@ vue__WEBPACK_IMPORTED_MODULE_7__["default"].component('planesfav', (__webpack_re
 vue__WEBPACK_IMPORTED_MODULE_7__["default"].component('gestioncomentariosuser', (__webpack_require__(/*! ./components/gestionComentariosUsuario.vue */ "./resources/js/components/gestionComentariosUsuario.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_7__["default"].component('busqueda-comp', (__webpack_require__(/*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_7__["default"].component('barra-busqueda', (__webpack_require__(/*! ./components/BarraBusquedaComp.vue */ "./resources/js/components/BarraBusquedaComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_7__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_8__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_7__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_4__["default"], axios);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_8__["default"]({
+  mode: 'history',
+  routes: _routes__WEBPACK_IMPORTED_MODULE_5__.routes
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_7__["default"]({
   el: '#app',
   router: router,
@@ -9759,12 +9798,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_7__["default"]({
       }, _callee);
     }))();
   }
-});
-vue__WEBPACK_IMPORTED_MODULE_7__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_8__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_7__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_4__["default"], axios);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_8__["default"]({
-  mode: 'history',
-  routes: _routes__WEBPACK_IMPORTED_MODULE_5__.routes
 });
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
 window.$ = jquery__WEBPACK_IMPORTED_MODULE_6__.$;
@@ -9822,6 +9855,14 @@ var gestionUsuarios = function gestionUsuarios() {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue"));
 };
 
+var busquedaComp = function busquedaComp() {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue"));
+};
+
+var planComp = function planComp() {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue"));
+};
+
 var routes = [{
   name: 'gestion-comentarios',
   path: '/admin/gestion-comentarios',
@@ -9830,6 +9871,14 @@ var routes = [{
   name: 'gestion-usuarios',
   path: '/admin/gestion-usuarios',
   component: gestionUsuarios
+}, {
+  name: 'busqueda-comp',
+  path: '/busqueda/:textoBusqueda',
+  component: busquedaComp
+}, {
+  name: 'plan-comp',
+  path: '/busqueda/:textoBusqueda/plan/:plan',
+  component: planComp
 }];
 
 /***/ }),
@@ -25890,7 +25939,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    width: 50%;\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n    margin-left: 0;\n    margin-right: 0;\n    right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43]{\n    background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43], #plandatos[data-v-6db35b43]{\n    max-width: 300px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46282,48 +46331,68 @@ var render = function () {
       "div",
       { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5" },
       _vm._l(this.resultado, function (item, index) {
-        return _c("div", { key: index, staticClass: "col mb-2" }, [
-          _c("div", { staticClass: "card text-white" }, [
-            _c("img", {
-              staticClass: "card-img ",
-              attrs: { src: "/images/Imagenes/alavaDescubre.jpg", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-img-overlay" }, [
-              _c("h5", { staticClass: "card-title float-end" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "bi bi-heart",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "40",
-                      height: "40",
-                      fill: "currentColor",
-                      viewBox: "0 0 16 16",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+        return _c(
+          "div",
+          { key: index, staticClass: "col mb-2" },
+          [
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  "exact-active-class": "active",
+                  to: "/busqueda/" + _vm.id + "/plan/" + item.documentName,
+                  "aria-current": "page",
                 },
-                [_vm._v(_vm._s(item.documentName))]
-              ),
-            ]),
-          ]),
-        ])
+              },
+              [
+                _c("div", { staticClass: "card text-white" }, [
+                  _c("img", {
+                    staticClass: "card-img ",
+                    attrs: {
+                      src: "/images/Imagenes/alavaDescubre.jpg",
+                      alt: "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title float-end" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "bi bi-heart",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "40",
+                            height: "40",
+                            fill: "currentColor",
+                            viewBox: "0 0 16 16",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                      },
+                      [_vm._v(_vm._s(item.documentName))]
+                    ),
+                  ]),
+                ]),
+              ]
+            ),
+          ],
+          1
+        )
       }),
       0
     ),
@@ -47053,51 +47122,305 @@ var render = function () {
     "section",
     { staticClass: "container", attrs: { id: "contenedorPlan" } },
     [
-      _c("div", { staticClass: "row" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { attrs: { id: "datosPlan" } }, [
-              _c("h3", [_vm._v("DATOS DE INTERÉS")]),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(this.resultado, function (item, index) {
+          return _c("div", { key: index, staticClass: "row mb-2" }, [
+            _c("div", { staticClass: "col-6", attrs: { id: "infoPlan" } }, [
+              _c("div", { staticClass: "card", attrs: { id: "headerPlan" } }, [
+                _c("img", {
+                  staticClass: "img-overlay",
+                  attrs: { src: "/images/temporales/plan1.jpg" },
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row h-100 w-100 ms-0",
+                    attrs: { id: "tituloPlan" },
+                  },
+                  [
+                    _c(
+                      "h3",
+                      {
+                        staticClass:
+                          "position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white ",
+                      },
+                      [_vm._v(_vm._s(item.documentName))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "container d-flex justify-content-end" },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-heart pe-3 pt-1",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "50",
+                              height: "50",
+                              fill: "white",
+                              viewBox: "0 0 16 16",
+                              id: "iconoFavPlan",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-bookmark pe-1 pt-1",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "40",
+                              height: "40",
+                              fill: "currentColor",
+                              viewBox: "0 0 16 16",
+                              id: "iconoGuardarPlan",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
               _c(
-                "svg",
-                {
-                  staticClass: "bi bi-people-fill",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "16",
-                    height: "16",
-                    fill: "white",
-                    viewBox: "0 0 16 16",
-                  },
-                },
+                "div",
+                { staticClass: "mt-3 m-1", attrs: { id: "textoPlan" } },
                 [
-                  _c("path", {
-                    attrs: {
-                      d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      "fill-rule": "evenodd",
-                      d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: { d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" },
+                  _c("p", {
+                    domProps: { innerHTML: _vm._s(item.turismDescription) },
                   }),
                 ]
               ),
             ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }),
-        ]),
-      ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6" }, [
+              _c(
+                "div",
+                { staticClass: "row ms-3", attrs: { id: "plandatos" } },
+                [
+                  _c("div", { attrs: { id: "datosPlan" } }, [
+                    _c("h3", [_vm._v("DATOS DE INTERÉS")]),
+                    _vm._v(" "),
+                    _c("h4", [_vm._v("Para ir con:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-people-fill",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "30",
+                              height: "30",
+                              fill: "white",
+                              viewBox: "0 0 16 16",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Amigos")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "svg-inline--fa fa-child fa-w-12",
+                            attrs: {
+                              "aria-hidden": "true",
+                              width: "30",
+                              height: "30",
+                              fill: "white",
+                              focusable: "false",
+                              "data-prefix": "fas",
+                              "data-icon": "child",
+                              role: "img",
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 384 512",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                fill: "currentColor",
+                                d: "M120 72c0-39.765 32.235-72 72-72s72 32.235 72 72c0 39.764-32.235 72-72 72s-72-32.236-72-72zm254.627 1.373c-12.496-12.497-32.758-12.497-45.254 0L242.745 160H141.254L54.627 73.373c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255L104 213.254V480c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V368h16v112c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V213.254l94.627-94.627c12.497-12.497 12.497-32.757 0-45.254z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Niños")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-heart-fill",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "30",
+                              height: "30",
+                              fill: "currentColor",
+                              viewBox: "0 0 16 16",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Pareja")]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h4", [_vm._v("Temática:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-bank2",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "30",
+                              height: "30",
+                              fill: "white",
+                              viewBox: "0 0 16 16",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Cultura")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "svg-inline--fa fa-mountain fa-w-20",
+                            attrs: {
+                              "aria-hidden": "true",
+                              width: "30",
+                              height: "30",
+                              fill: "white",
+                              focusable: "false",
+                              "data-prefix": "fas",
+                              "data-icon": "mountain",
+                              role: "img",
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 640 512",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                fill: "currentColor",
+                                d: "M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Naturaleza")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "svg-inline--fa fa-utensils fa-w-13",
+                            attrs: {
+                              "aria-hidden": "true",
+                              width: "30",
+                              height: "30",
+                              fill: "white",
+                              focusable: "false",
+                              "data-prefix": "fas",
+                              "data-icon": "utensils",
+                              role: "img",
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 416 512",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                fill: "currentColor",
+                                d: "M207.9 15.2c.8 4.7 16.1 94.5 16.1 128.8 0 52.3-27.8 89.6-68.9 104.6L168 486.7c.7 13.7-10.2 25.3-24 25.3H80c-13.7 0-24.7-11.5-24-25.3l12.9-238.1C27.7 233.6 0 196.2 0 144 0 109.6 15.3 19.9 16.1 15.2 19.3-5.1 61.4-5.4 64 16.3v141.2c1.3 3.4 15.1 3.2 16 0 1.4-25.3 7.9-139.2 8-141.8 3.3-20.8 44.7-20.8 47.9 0 .2 2.7 6.6 116.5 8 141.8.9 3.2 14.8 3.4 16 0V16.3c2.6-21.6 44.8-21.4 48-1.1zm119.2 285.7l-15 185.1c-1.2 14 9.9 26 23.9 26h56c13.3 0 24-10.7 24-24V24c0-13.2-10.7-24-24-24-82.5 0-221.4 178.5-64.9 300.9z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Gastronomía")]),
+                      ]),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(0, true),
+            ]),
+          ])
+        }),
+        0
+      ),
     ]
   )
 }
@@ -47106,81 +47429,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12", attrs: { id: "infoPlan" } }, [
-      _c("div", { staticClass: "card", attrs: { id: "headerPlan" } }, [
-        _c("img", {
-          staticClass: "img-overlay",
-          attrs: { src: "images/temporales/plan1.jpg" },
-        }),
+    return _c("div", { staticClass: "row ms-3", attrs: { id: "ubicacion" } }, [
+      _c("div", { staticClass: "p-0 mt-2", attrs: { id: "ubicacionPlan" } }, [
+        _c(
+          "h3",
+          { staticClass: "text-white text-center", attrs: { id: "dondeEsta" } },
+          [_vm._v("DÓNDE ESTÁ")]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "row m-1", attrs: { id: "tituloPlan" } }, [
-          _c("h3", { staticClass: "col" }, [
-            _vm._v("Tres días en la Rioja Alavesa"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col justify-content-end" }, [
-            _c("i", {
-              staticClass: "fa fa-heart col",
-              attrs: { "aria-hidden": "true", id: "iconoFavPlan" },
-            }),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "fa fa-bookmark col",
-              attrs: { "aria-hidden": "true", id: "iconoGuardarPlan" },
-            }),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mt-3 m-1", attrs: { id: "textoPlan" } }, [
-        _c("p", [
-          _vm._v(
-            "\n                    Entre los viñedos que caracterizan a Rioja Alavesa, podemos encontrar uno de los grandes desconocidos de la comarca: el \n                    olivo y el aceite."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Éste es un plan perfecto de dos días para descubrir dos de los tesoros de Rioja Alavesa: el aceite y el vino."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v("\n\n                    DÍA 1"),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Dedicaremos la jornada de hoy a conocer al hermano mayor de la vid en Rioja Alavesa: el olivo. Durante siglos, más o \n                    menos enraizado, el olivo nos ofrece su hermoso fruto y su rico zumo, conocido como el oro líquido."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Nos adentraremos en Lanciego, una villa de algo más de 660 habitantes, donde contrastaremos modernidad y tradición en \n                    uno de sus trujales y nos sumergiremos en la historia del olivo en Rioja Alavesa. Conoce la evolución del olivo y de \n                    las diversas formas de transformación en aceite y disfruta del vivo sabor del aceite de variedad Arróniz. También \n                    existen trujales que pueden visitarse en las localidades de Barriobusto, Moreda y Oyón."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Te recomendamos que dediques parte de la jornada a visitar también las calles de Moreda de Álava, ya que seguro que \n                    te sorprende esta villa repleta de casas blasonadas y los restos de su antigua muralla. No dejes de visitar la Iglesia \n                    Parroquial de Santa María, con su destacado retablo Mayor de estilo barroco y sus pinturas. Muy cerca de Moreda, puedes \n                    encontrar Labraza, una villa medieval espectacular que conserva intacta su muralla y su encantador trazado de la Edad \n                    Media."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v("\n\n                    DÍA 2"),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    El plan de hoy estará enfocado a descubrir el vino y la gastronomía de esta comarca. Hoy no puedes dejar de visitar \n                    alguna de las muchas bodegas de Rioja Alavesa. Hay una infinidad de opciones para elegir. Te recomendamos que visites \n                    dos bodegas contrastadas."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Una más antigua o familiar, y otra más moderna e innovadora. Si te pierdes con tanta oferta, te recomendamos que \n                    contactes con alguna de las agencias y empresas especializadas de Rioja Alavesa que estarán encantadas de diseñar \n                    tu ruta y asesorarte. Y nada como maridar el vino con la deliciosa gastronomía de la comarca. Puedes comer en una \n                    de las bodegas que ofrecen comidas o decantarte por alguno de los numerosos restaurantes que hay en la zona."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    En Rioja Alavesa encontrarás desde la cocina más tradicional hasta las propuestas culinarias más innovadoras. No \n                    dejes de probar las patatas a la riojana, las pochas y las famosas chuletillas al sarmiento"
-          ),
-          _c("br"),
-          _c("br"),
-        ]),
+        _c("iframe", {
+          staticStyle: { border: "0" },
+          attrs: {
+            id: "mapaPlan",
+            src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11622.807170302627!2d-2.9024069!3d43.2576713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x364f27e82def0130!2sCIFP%20Txurdinaga%20LHII!5e0!3m2!1ses!2ses!4v1641889218826!5m2!1ses!2ses",
+            allowfullscreen: "",
+            loading: "lazy",
+          },
+        }),
       ]),
     ])
   },
