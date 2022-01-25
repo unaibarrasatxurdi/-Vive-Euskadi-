@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
 import {routes} from './routes';
+import VuePaginate from 'vue-paginate'
 import {$,jQuery} from 'jquery';
 
 
@@ -28,6 +29,7 @@ Vue.component('barra-busqueda', require('./components/BarraBusquedaComp.vue').de
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+Vue.use(VuePaginate);
 const router = new VueRouter(
     {
         mode: 'history',

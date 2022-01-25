@@ -94,7 +94,8 @@
   </tbody>
 </table>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
-  <div v-for="(item, index) in this.resultado" :key="index" class="col mb-2">
+
+  <div v-for="(item, index) in paginated('resultado')" :key="index" class="col mb-2">
       
     <router-link exact-active-class="active" :to="`/busqueda/${id}/plan/${item.documentName}`" aria-current="page">
         <div class="card text-white">
@@ -111,8 +112,12 @@
     </router-link>
 
     
-  </div>
-</div>
+    </div>
+    </div>
+    <paginate name="resultado" :list="this.resultado" :per="15" tag="div">
+    </paginate>
+    <paginate-links for="resultado" :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}"></paginate-links>
+
 </div>
 
 
@@ -121,12 +126,14 @@
 </template>
 
 <script>
+
 export default {
     data (){
         return {
           planes: null ,
           resultado: [],
-          id:null
+          id:null,
+          paginate: ['resultado']
         } 
     },
     mounted (){
