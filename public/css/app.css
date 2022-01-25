@@ -1296,7 +1296,7 @@ select {
     overflow: hidden;
   }
   .col-sm-8 img{
-    min-height: 768pxs;
+    min-height: 768px;
     min-width: 1024px;
     
   }
