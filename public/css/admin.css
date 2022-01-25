@@ -32,22 +32,40 @@ body {
     background-color: #e1ecf0ff;
 }
 
-#btnMenuAdmin button {
-    background-color: transparent;
-    font-size: 1.4em;
-    border: transparent;
-}
-
-#btnMenuAdmin button:hover {
-    background-color: gray;
+#btnMenuAdmin a {
     color: black;
     font-size: 1.4em;
-    border: transparent;
-    font-weight: 600;
 }
-.router-link.active {
-    color: orange;
+#btnMenuAdmin a:hover {
+    background-color: gray;
+    color: black;
 }
+a.router-link-active {
+    background-color: rgb(170, 165, 165);
+    color: black;
+}
+
+
+
+
+/* #btnMenuAdmin {
+    margin: 25% 0 0 5%;
+    
+}
+
+#btnMenuAdmin a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4em;
+} */
+
+
+
+
+
+
+
+
 
 #logOut {
     border-radius: 10px;

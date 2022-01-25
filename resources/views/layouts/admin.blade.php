@@ -30,24 +30,21 @@
                                     </div>
                                 </div>
                                 <div id="btnMenuAdmin">
-                                    <router-link tag="button" to="/admin/gestion-usuarios" aria-current="page" class="list-group-item border-end-0 d-inline-block text-truncate mt-4" >
+                                    <router-link to="/admin/gestion-usuarios" class="nav-link mt-5">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                        </svg> 
-                                        <span>Gestión de usuarios</span>
+                                        </svg>
+                                        Gestión de usuarios
                                     </router-link>
-                                    {{-- <button href="#"  class="list-group-item border-end-0 d-inline-block text-truncate mt-5" data-bs-parent="#sidebar">
-                                       
-                                    </button> --}}
-
-                                    <router-link tag="button" to="/admin/gestion-comentarios" aria-current="page" class="list-group-item border-end-0 d-inline-block text-truncate ml-5" data-bs-parent="#sidebar">
+                                    <router-link to="/admin/gestion-comentarios" class="nav-link mt-3 pl-3">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
                                             <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
                                             <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
                                         </svg>
-                                        <span>Gestión de comentarios</span>
+                                        Gestión de comentarios
                                     </router-link>
                                 </div>
+
                                 <div class="text-center">
                                     <button id="logOut" class="mt-5 border border-dark">Cerrar sesión</button>
                                 </div>
@@ -60,7 +57,11 @@
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                           </svg>
                         </a>
-                        <router-view></router-view>
+                        {{-- @include('gestionUsuarios-admin') --}}
+                        <div>
+                            @yield('contentAdmin')
+                        </div>
+                        
                 </div>
             </div>
             <piepagina></piepagina>
@@ -69,6 +70,7 @@
 
         </div>
 
+        
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
