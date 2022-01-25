@@ -28,7 +28,12 @@ Route::get('/dashboard', function () {
 Route::resource('home', PlanesController::class, ['names' => ['show' => 'busqueda', 'edit' => 'plan']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only(['index']);
 Route::resource('user', UserController::class)->only(['index', 'show']);
-Route::resource('admin', AdminController::class)->only(['index']);
+Route::get('/admin/gestion-usuarios', [AdminController::class, 'adminUsuario']);
+Route::get('/admin/gestion-comentarios', [AdminController::class, 'adminComent']);
+/* Route::resource('admin', AdminController::class, ['names' => ['show' => 'busqueda', 'edit' => 'plan']]); */
+Route::resource('admin', AdminController::class);
+//Route::get('/admin', [AdminController::class, 'index']);
+
 
 
 

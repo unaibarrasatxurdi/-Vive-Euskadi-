@@ -16,6 +16,18 @@ class AdminController extends Controller
         return view('layouts.admin');
     }
 
+    public function adminComent()
+    {
+        return view('admin.comenAd');
+    }
+
+    public function adminUsuario()
+    {
+        return view('admin.usuAd');
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

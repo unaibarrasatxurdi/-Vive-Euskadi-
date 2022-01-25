@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
-@section('contentAdmin')
+@section('content')
+    
 
 
-<body>
     <main class="col ps-md-2 pt-2">                    
         <div class="page-header mt-5 ms-5 ps-4 pt-1" id="titApartado">
                 <h2>Gestión de usuarios</h2>
@@ -40,7 +40,4 @@
         </div>
     </main>
 
-</body>
-</html>
-
-@stop
+@endsection
