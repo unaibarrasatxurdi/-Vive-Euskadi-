@@ -42,8 +42,7 @@
 <script>
 export default {
   props: ['descubreEuskadi', 'indexRoute', 'userLogin', 'userRegister', 'userRoute', 'userName', 'logOut', 'userAdmin', 'adminRoute'],
-  mounted(){
-  },
+  
   
 };
 </script>

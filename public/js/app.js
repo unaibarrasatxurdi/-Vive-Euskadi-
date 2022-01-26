@@ -8674,10 +8674,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8704,188 +8704,193 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['requestBusqueda'],
+  mounted: function mounted() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).ready(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#busquedaIndex").submit(function (e) {
+        e.preventDefault();
+        buscar();
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#button-addon1').on("click", function () {
+        buscar();
+      });
+    });
+
+    function buscar() {
+      var textoBuscar = document.getElementById('search-input').value;
+
+      if (textoBuscar == "") {
+        alert('El campo de busqueda no puede estar vacio');
+      } else {
+        window.location.replace("/busqueda/" + textoBuscar);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       planes: null,
       resultado: [],
-      filtro: null
+      id: null,
+      paginate: ['resultado'],
+      cantidadTotal: 0
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.planes = JSON.parse(localStorage.getItem("planes"));
     var url = window.location.href;
-    var id = url.substring(url.lastIndexOf('/') + 1);
+    this.id = url.substring(url.lastIndexOf('/') + 1);
     this.resultado = this.planes.filter(function (plan) {
-      return plan.documentName.includes(id);
+      return plan.documentName.toLowerCase().includes(_this.id.toLowerCase());
     });
-    this.checkbox();
-  },
-  methods: {
-    filtrar: function filtrar(filtro) {
-      if (filtro.length != 0) {
-        for (var a = 0; a < filtro.length; a++) {
-          if (filtro[a] !== 0) {
-            for (var b = 0; b < filtro[a].length; b++) {
-              if (a == 0) {
-                this.resultado = this.planes.filter(function (plan) {
-                  return plan.territory.includes(filtro[0][b]);
-                });
-              } else {
-                this.resultado = this.planes.filter(function (plan) {
-                  return plan[filtro[1][b]].includes(1);
-                });
-              }
-            }
-          } else {
-            this.resultado = this.planes;
-          }
-        }
-      } else {
-        this.resultado = this.planes;
-      }
-    },
-    checkbox: function checkbox() {
-      var s = this;
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-        var filtro = [[], []];
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("input:checkbox").on("change", function () {
-          if (this.checked) {
-            if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Araba" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Gipuzkoa" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Bizkaia") {
-              filtro[0].push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
-            } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
-              var separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
-              filtro[1].push(separado[0]);
-              filtro[1].push(separado[1]);
-            } else {
-              filtro[1].push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
-            }
-
-            s.filtrar(filtro);
-          } else {
-            for (var i = 0; i < filtro.length; i++) {
-              for (var j = 0; j < filtro[i].length; j++) {
-                if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
-                  var _separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
-
-                  if (filtro[i][j] == _separado[0] || filtro[i][j] == _separado[1]) {
-                    filtro[i].splice([j + 1], 1);
-                    filtro[i].splice([j], 1);
-                  }
-                }
-
-                if (filtro[i][j] == jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val()) {
-                  filtro[i].splice([j], 1);
-                }
-              }
-            }
-
-            s.filtrar(filtro);
-          }
-        });
-      });
-    }
   }
 });
 
@@ -8944,8 +8949,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['descubreEuskadi', 'indexRoute', 'userLogin', 'userRegister', 'userRoute', 'userName', 'logOut', 'userAdmin', 'adminRoute'],
-  mounted: function mounted() {}
+  props: ['descubreEuskadi', 'indexRoute', 'userLogin', 'userRegister', 'userRoute', 'userName', 'logOut', 'userAdmin', 'adminRoute']
 });
 
 /***/ }),
@@ -9151,9 +9155,91 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      planes: null,
+      resultado: [],
+      gastronomia: false,
+      agua: false,
+      cultura: false,
+      naturaleza: false,
+      amigos: false,
+      pareja: false,
+      ninios: false
+    };
+  },
   mounted: function mounted() {
-    console.log("This is about component");
+    this.planes = JSON.parse(localStorage.getItem("planes"));
+    var url = window.location.href;
+    var nombre = url.substring(url.lastIndexOf('/') + 1);
+    nombre = decodeURI(nombre);
+    this.resultado = this.planes.filter(function (plan) {
+      return plan.documentName.includes(nombre);
+    });
+
+    if (this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1") {
+      this.gastronomia = true;
+    }
+
+    ;
+
+    if (this.resultado[0].water == "1") {
+      this.agua = true;
+    }
+
+    ;
+
+    if (this.resultado[0].landscape == "1") {
+      this.naturaleza = true;
+    }
+
+    ;
+
+    if (this.resultado[0].culture == "1") {
+      this.cultura = true;
+    }
+
+    ;
+
+    if (this.resultado[0].friends == "1") {
+      this.amigos = true;
+    }
+
+    ;
+
+    if (this.resultado[0].couple == "1") {
+      this.pareja = true;
+    }
+
+    ;
+
+    if (this.resultado[0].children == "1") {
+      this.ninios = true;
+    }
+
+    ;
+    console.log(this.amigos);
   }
 });
 
@@ -9692,12 +9778,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
 /* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.esm.min.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var vue_paginate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-paginate */ "./node_modules/vue-paginate/dist/vue-paginate.js");
+/* harmony import */ var vue_paginate__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_paginate__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_7__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -9712,22 +9802,32 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
+
  // crear instancia vue
 
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('index-comp', (__webpack_require__(/*! ./components/IndexComp.vue */ "./resources/js/components/IndexComp.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('plan-comp', (__webpack_require__(/*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('cabecera', (__webpack_require__(/*! ./components/Cabecera.vue */ "./resources/js/components/Cabecera.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"])); // Vue.component('comp-admin', require('./components/adminComp.vue').default);
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('index-comp', (__webpack_require__(/*! ./components/IndexComp.vue */ "./resources/js/components/IndexComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('plan-comp', (__webpack_require__(/*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('cabecera', (__webpack_require__(/*! ./components/Cabecera.vue */ "./resources/js/components/Cabecera.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"])); // Vue.component('comp-admin', require('./components/adminComp.vue').default);
 
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('gestionusuarios-admin', (__webpack_require__(/*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('gestioncomentarios-admin', (__webpack_require__(/*! ./components/gestionComentarios-admin.vue */ "./resources/js/components/gestionComentarios-admin.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('datosuser', (__webpack_require__(/*! ./components/datosUsuario.vue */ "./resources/js/components/datosUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('planesuser', (__webpack_require__(/*! ./components/planesUsuario.vue */ "./resources/js/components/planesUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('planescerca', (__webpack_require__(/*! ./components/planesCercaUsuario.vue */ "./resources/js/components/planesCercaUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('planesfav', (__webpack_require__(/*! ./components/planesFavUsuario.vue */ "./resources/js/components/planesFavUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('gestioncomentariosuser', (__webpack_require__(/*! ./components/gestionComentariosUsuario.vue */ "./resources/js/components/gestionComentariosUsuario.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].component('busqueda-comp', (__webpack_require__(/*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue")["default"]));
-var app = new vue__WEBPACK_IMPORTED_MODULE_6__["default"]({
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('gestionusuarios-admin', (__webpack_require__(/*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('gestioncomentarios-admin', (__webpack_require__(/*! ./components/gestionComentarios-admin.vue */ "./resources/js/components/gestionComentarios-admin.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('datosuser', (__webpack_require__(/*! ./components/datosUsuario.vue */ "./resources/js/components/datosUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('planesuser', (__webpack_require__(/*! ./components/planesUsuario.vue */ "./resources/js/components/planesUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('planescerca', (__webpack_require__(/*! ./components/planesCercaUsuario.vue */ "./resources/js/components/planesCercaUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('planesfav', (__webpack_require__(/*! ./components/planesFavUsuario.vue */ "./resources/js/components/planesFavUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('gestioncomentariosuser', (__webpack_require__(/*! ./components/gestionComentariosUsuario.vue */ "./resources/js/components/gestionComentariosUsuario.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('busqueda-comp', (__webpack_require__(/*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('barra-busqueda', (__webpack_require__(/*! ./components/BarraBusquedaComp.vue */ "./resources/js/components/BarraBusquedaComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_4__["default"], axios);
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].use((vue_paginate__WEBPACK_IMPORTED_MODULE_6___default()));
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]({
+  mode: 'history',
+  routes: _routes__WEBPACK_IMPORTED_MODULE_5__.routes
+});
+var app = new vue__WEBPACK_IMPORTED_MODULE_8__["default"]({
   el: '#app',
   router: router,
   data: function data() {
@@ -9769,17 +9869,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_6__["default"]({
     }))();
   }
 });
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_4__["default"], axios);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]({
-  mode: 'history',
-  routes: _routes__WEBPACK_IMPORTED_MODULE_5__.routes
-});
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
-
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-window.$ = $;
+window.$ = jquery__WEBPACK_IMPORTED_MODULE_7__.$;
 alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
 
 /***/ }),
@@ -9834,6 +9925,14 @@ var gestionUsuarios = function gestionUsuarios() {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/gestionUsuarios-admin.vue */ "./resources/js/components/gestionUsuarios-admin.vue"));
 };
 
+var busquedaComp = function busquedaComp() {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue"));
+};
+
+var planComp = function planComp() {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue"));
+};
+
 var routes = [{
   name: 'gestion-comentarios',
   path: '/admin/gestion-comentarios',
@@ -9842,6 +9941,14 @@ var routes = [{
   name: 'gestion-usuarios',
   path: '/admin/gestion-usuarios',
   component: gestionUsuarios
+}, {
+  name: 'busqueda-comp',
+  path: '/busqueda/:textoBusqueda',
+  component: busquedaComp
+}, {
+  name: 'plan-comp',
+  path: '/busqueda/:textoBusqueda/plan/:plan',
+  component: planComp
 }];
 
 /***/ }),
@@ -25806,7 +25913,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n@font-face {\r\n    font-family: PlayfairDisplay;\r\n    src: url('/fonts/PlayfairDisplay.ttf');\n}\ntable[data-v-517fb218]{\r\n    background-color:rgba(209, 220, 225, 0.9);\n}\nth[data-v-517fb218]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\n}\ntd[data-v-517fb218]{\r\n    font-family: PlayFairDisplay;\n}\n.card-text[data-v-517fb218]{\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    font-family: PlayFairDisplay;\n}\n.card[data-v-517fb218] {\r\n    width: 20rem;\r\n    height: 15rem;\n}\n.card-img[data-v-517fb218]{\r\n    height: 15rem;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n@font-face {\r\n    font-family: PlayfairDisplay;\r\n    src: url('/fonts/PlayfairDisplay.ttf');\n}\ntable[data-v-517fb218]{\r\n    background-color:rgba(209, 220, 225, 0.9);\n}\nth[data-v-517fb218]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\n}\ntd[data-v-517fb218]{\r\n    font-family: PlayFairDisplay;\n}\n.card-text[data-v-517fb218]{\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    font-family: PlayFairDisplay;\n}\n.card[data-v-517fb218] {\r\n    width: 20rem;\r\n    height: 15rem;\n}\n.card-img[data-v-517fb218]{\r\n    height: 15rem;\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25902,7 +26009,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    width: 50%;\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n    margin-left: 0;\n    margin-right: 0;\n    right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43]{\n    background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43], #plandatos[data-v-6db35b43]{\n    max-width: 300px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45021,6 +45128,45 @@ function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof S
 
 /***/ }),
 
+/***/ "./resources/js/components/BarraBusquedaComp.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/BarraBusquedaComp.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BarraBusquedaComp.vue?vue&type=template&id=43de4618& */ "./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&");
+/* harmony import */ var _BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BarraBusquedaComp.vue?vue&type=script&lang=js& */ "./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/BarraBusquedaComp.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/BusquedaComp.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/BusquedaComp.vue ***!
@@ -45537,6 +45683,22 @@ component.options.__file = "resources/js/components/planesUsuario.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BarraBusquedaComp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js& ***!
@@ -45917,6 +46079,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BarraBusquedaComp.vue?vue&type=template&id=43de4618& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/BusquedaComp.vue?vue&type=template&id=517fb218&scoped=true&":
 /*!*********************************************************************************************!*\
   !*** ./resources/js/components/BusquedaComp.vue?vue&type=template&id=517fb218&scoped=true& ***!
@@ -46121,6 +46300,84 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      staticClass: "d-flex justify-content-center",
+      attrs: { id: "busquedaIndex" },
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "p-1 bg-light rounded rounded-pill shadow-sm mb-4",
+          attrs: { id: "barraBusquedaIndex" },
+        },
+        [
+          _c("div", { staticClass: "input-group" }, [
+            _c(
+              "input",
+              _vm._b(
+                {
+                  staticClass: "form-control border-0 bg-light",
+                  attrs: {
+                    type: "search",
+                    "aria-describedby": "button-addon1",
+                    id: "search-input",
+                  },
+                },
+                "input",
+                this.requestBusqueda,
+                false
+              )
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+          ]),
+        ]
+      ),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-append" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-link",
+          attrs: { type: "button", id: "button-addon1" },
+        },
+        [_c("i", { staticClass: "fa fa-search" })]
+      ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=template&id=517fb218&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=template&id=517fb218&scoped=true& ***!
@@ -46142,52 +46399,98 @@ var render = function () {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5" },
-      _vm._l(this.resultado, function (item, index) {
-        return _c("div", { key: index, staticClass: "col mb-2" }, [
-          _c("div", { staticClass: "card text-white" }, [
-            _c("img", {
-              staticClass: "card-img ",
-              attrs: { src: "/images/Imagenes/alavaDescubre.jpg", alt: "" },
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-img-overlay" }, [
-              _c("h5", { staticClass: "card-title float-end" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "bi bi-heart",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "40",
-                      height: "40",
-                      fill: "currentColor",
-                      viewBox: "0 0 16 16",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+      {
+        staticClass:
+          "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center",
+      },
+      _vm._l(_vm.paginated("resultado"), function (item, index) {
+        return _c(
+          "div",
+          { key: index, staticClass: "d-flex justify-content-center mb-2" },
+          [
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  "exact-active-class": "active",
+                  to: "/busqueda/" + _vm.id + "/plan/" + item.documentName,
+                  "aria-current": "page",
                 },
-                [_vm._v(_vm._s(item.documentName))]
-              ),
-            ]),
-          ]),
-        ])
+              },
+              [
+                _c("div", { staticClass: "card text-white" }, [
+                  _c("img", {
+                    staticClass: "card-img ",
+                    attrs: {
+                      src: "/images/Imagenes/alavaDescubre.jpg",
+                      alt: "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title float-end" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "bi bi-heart",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "40",
+                            height: "40",
+                            fill: "currentColor",
+                            viewBox: "0 0 16 16",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                      },
+                      [_vm._v(_vm._s(item.documentName))]
+                    ),
+                  ]),
+                ]),
+              ]
+            ),
+          ],
+          1
+        )
       }),
       0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-12 text-center align-items-center" },
+      [
+        _c("paginate", {
+          ref: "paginator",
+          attrs: { name: "resultado", list: this.resultado, per: 15 },
+        }),
+        _vm._v(" "),
+        _c("paginate-links", {
+          staticClass: "justify-content-center",
+          attrs: {
+            for: "resultado",
+            "hide-single-page": true,
+            "show-step-links": true,
+            limit: 5,
+            classes: { ul: "pagination", li: "page-item", a: "page-link" },
+          },
+        }),
+      ],
+      1
     ),
   ])
 }
@@ -46213,7 +46516,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "Araba", id: "checkAlava" },
+                attrs: { type: "checkbox", value: "", id: "checkAlava" },
               }),
               _vm._v(" "),
               _c(
@@ -46229,11 +46532,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  value: "Gipuzkoa",
-                  id: "checkGipuzcoa",
-                },
+                attrs: { type: "checkbox", value: "", id: "checkGipuzcoa" },
               }),
               _vm._v(" "),
               _c(
@@ -46242,22 +46541,14 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkGipuzcoa" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Guipúzcoa\r\n                "
-                  ),
-                ]
+                [_vm._v("\r\n                    Gipuzcoa\r\n                ")]
               ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  value: "Bizkaia",
-                  id: "checkVizcaya",
-                },
+                attrs: { type: "checkbox", value: "", id: "checkVizcaya" },
               }),
               _vm._v(" "),
               _c(
@@ -46275,7 +46566,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "couple", id: "checkPareja" },
+                attrs: { type: "checkbox", value: "", id: "checkPareja" },
               }),
               _vm._v(" "),
               _c(
@@ -46295,7 +46586,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "friends", id: "checkGrupo" },
+                attrs: { type: "checkbox", value: "", id: "checkGrupo" },
               }),
               _vm._v(" "),
               _c(
@@ -46315,11 +46606,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  value: "children",
-                  id: "checkNiños",
-                },
+                attrs: { type: "checkbox", value: "", id: "checkNiños" },
               }),
               _vm._v(" "),
               _c(
@@ -46341,11 +46628,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  value: "culture",
-                  id: "checkCultura",
-                },
+                attrs: { type: "checkbox", value: "", id: "checkCultura" },
               }),
               _vm._v(" "),
               _c(
@@ -46361,7 +46644,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: { type: "checkbox", value: "water", id: "checkDeporte" },
+                attrs: { type: "checkbox", value: "", id: "checkDeporte" },
               }),
               _vm._v(" "),
               _c(
@@ -46370,18 +46653,14 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkDeporte" },
                 },
-                [_vm._v("\r\n                    Agua\r\n                ")]
+                [_vm._v("\r\n                    Deporte\r\n                ")]
               ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  value: "cuisine",
-                  id: "checkGastronomia",
-                },
+                attrs: { type: "checkbox", value: "", id: "checkGastronomia" },
               }),
               _vm._v(" "),
               _c(
@@ -46403,11 +46682,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  value: "landscape",
-                  id: "checkAventura",
-                },
+                attrs: { type: "checkbox", value: "", id: "checkAventura" },
               }),
               _vm._v(" "),
               _c(
@@ -46416,11 +46691,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkAventura" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Naturaleza y paisajes\r\n                "
-                  ),
-                ]
+                [_vm._v("\r\n                    Aventura\r\n                ")]
               ),
             ]),
             _vm._v(" "),
@@ -46429,7 +46700,7 @@ var staticRenderFns = [
                 staticClass: "form-check-input",
                 attrs: {
                   type: "checkbox",
-                  value: "children-landscape",
+                  value: "",
                   id: "checkPequeAventura",
                 },
               }),
@@ -46451,11 +46722,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  value: "culture-cuisine",
-                  id: "checkUrbanos",
-                },
+                attrs: { type: "checkbox", value: "", id: "checkUrbanos" },
               }),
               _vm._v(" "),
               _c(
@@ -46951,51 +47218,354 @@ var render = function () {
     "section",
     { staticClass: "container", attrs: { id: "contenedorPlan" } },
     [
-      _c("div", { staticClass: "row" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { attrs: { id: "datosPlan" } }, [
-              _c("h3", [_vm._v("DATOS DE INTERÉS")]),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(this.resultado, function (item, index) {
+          return _c("div", { key: index, staticClass: "row mb-2" }, [
+            _c("div", { staticClass: "col-6", attrs: { id: "infoPlan" } }, [
+              _c("div", { staticClass: "card", attrs: { id: "headerPlan" } }, [
+                _c("img", {
+                  staticClass: "img-overlay",
+                  attrs: { src: "/images/temporales/plan1.jpg" },
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row h-100 w-100 ms-0",
+                    attrs: { id: "tituloPlan" },
+                  },
+                  [
+                    _c(
+                      "h3",
+                      {
+                        staticClass:
+                          "position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white ",
+                      },
+                      [_vm._v(_vm._s(item.documentName))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "container d-flex justify-content-end" },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-heart pe-3 pt-1",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "50",
+                              height: "50",
+                              fill: "white",
+                              viewBox: "0 0 16 16",
+                              id: "iconoFavPlan",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-bookmark pe-1 pt-1",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "40",
+                              height: "40",
+                              fill: "currentColor",
+                              viewBox: "0 0 16 16",
+                              id: "iconoGuardarPlan",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
               _c(
-                "svg",
-                {
-                  staticClass: "bi bi-people-fill",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "16",
-                    height: "16",
-                    fill: "white",
-                    viewBox: "0 0 16 16",
-                  },
-                },
+                "div",
+                { staticClass: "mt-3 m-1", attrs: { id: "textoPlan" } },
                 [
-                  _c("path", {
-                    attrs: {
-                      d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      "fill-rule": "evenodd",
-                      d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: { d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" },
+                  _c("p", {
+                    domProps: { innerHTML: _vm._s(item.turismDescription) },
                   }),
                 ]
               ),
             ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }),
-        ]),
-      ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6" }, [
+              _c(
+                "div",
+                { staticClass: "row ms-3", attrs: { id: "plandatos" } },
+                [
+                  _c("div", { attrs: { id: "datosPlan" } }, [
+                    _c("h3", [_vm._v("DATOS DE INTERÉS")]),
+                    _vm._v(" "),
+                    _c("h4", [_vm._v("Para ir con:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _vm.amigos
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-people-fill",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Amigos")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.ninios
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "svg-inline--fa fa-child fa-w-12",
+                                attrs: {
+                                  "aria-hidden": "true",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  focusable: "false",
+                                  "data-prefix": "fas",
+                                  "data-icon": "child",
+                                  role: "img",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  viewBox: "0 0 384 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d: "M120 72c0-39.765 32.235-72 72-72s72 32.235 72 72c0 39.764-32.235 72-72 72s-72-32.236-72-72zm254.627 1.373c-12.496-12.497-32.758-12.497-45.254 0L242.745 160H141.254L54.627 73.373c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255L104 213.254V480c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V368h16v112c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V213.254l94.627-94.627c12.497-12.497 12.497-32.757 0-45.254z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Niños")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.pareja
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-heart-fill",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Pareja")]),
+                          ])
+                        : _vm._e(),
+                    ]),
+                    _vm._v(" "),
+                    _c("h4", [_vm._v("Temática:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _vm.cultura
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-bank2",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Cultura")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.naturaleza
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "svg-inline--fa fa-mountain fa-w-20",
+                                attrs: {
+                                  "aria-hidden": "true",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  focusable: "false",
+                                  "data-prefix": "fas",
+                                  "data-icon": "mountain",
+                                  role: "img",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  viewBox: "0 0 640 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d: "M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Naturaleza")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.gastronomia
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "svg-inline--fa fa-utensils fa-w-13",
+                                attrs: {
+                                  "aria-hidden": "true",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  focusable: "false",
+                                  "data-prefix": "fas",
+                                  "data-icon": "utensils",
+                                  role: "img",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  viewBox: "0 0 416 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d: "M207.9 15.2c.8 4.7 16.1 94.5 16.1 128.8 0 52.3-27.8 89.6-68.9 104.6L168 486.7c.7 13.7-10.2 25.3-24 25.3H80c-13.7 0-24.7-11.5-24-25.3l12.9-238.1C27.7 233.6 0 196.2 0 144 0 109.6 15.3 19.9 16.1 15.2 19.3-5.1 61.4-5.4 64 16.3v141.2c1.3 3.4 15.1 3.2 16 0 1.4-25.3 7.9-139.2 8-141.8 3.3-20.8 44.7-20.8 47.9 0 .2 2.7 6.6 116.5 8 141.8.9 3.2 14.8 3.4 16 0V16.3c2.6-21.6 44.8-21.4 48-1.1zm119.2 285.7l-15 185.1c-1.2 14 9.9 26 23.9 26h56c13.3 0 24-10.7 24-24V24c0-13.2-10.7-24-24-24-82.5 0-221.4 178.5-64.9 300.9z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Gastronomía")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.agua
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-droplet",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z",
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Agua")]),
+                          ])
+                        : _vm._e(),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(0, true),
+            ]),
+          ])
+        }),
+        0
+      ),
     ]
   )
 }
@@ -47004,81 +47574,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12", attrs: { id: "infoPlan" } }, [
-      _c("div", { staticClass: "card", attrs: { id: "headerPlan" } }, [
-        _c("img", {
-          staticClass: "img-overlay",
-          attrs: { src: "images/temporales/plan1.jpg" },
-        }),
+    return _c("div", { staticClass: "row ms-3", attrs: { id: "ubicacion" } }, [
+      _c("div", { staticClass: "p-0 mt-2", attrs: { id: "ubicacionPlan" } }, [
+        _c(
+          "h3",
+          { staticClass: "text-white text-center", attrs: { id: "dondeEsta" } },
+          [_vm._v("DÓNDE ESTÁ")]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "row m-1", attrs: { id: "tituloPlan" } }, [
-          _c("h3", { staticClass: "col" }, [
-            _vm._v("Tres días en la Rioja Alavesa"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col justify-content-end" }, [
-            _c("i", {
-              staticClass: "fa fa-heart col",
-              attrs: { "aria-hidden": "true", id: "iconoFavPlan" },
-            }),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "fa fa-bookmark col",
-              attrs: { "aria-hidden": "true", id: "iconoGuardarPlan" },
-            }),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mt-3 m-1", attrs: { id: "textoPlan" } }, [
-        _c("p", [
-          _vm._v(
-            "\n                    Entre los viñedos que caracterizan a Rioja Alavesa, podemos encontrar uno de los grandes desconocidos de la comarca: el \n                    olivo y el aceite."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Éste es un plan perfecto de dos días para descubrir dos de los tesoros de Rioja Alavesa: el aceite y el vino."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v("\n\n                    DÍA 1"),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Dedicaremos la jornada de hoy a conocer al hermano mayor de la vid en Rioja Alavesa: el olivo. Durante siglos, más o \n                    menos enraizado, el olivo nos ofrece su hermoso fruto y su rico zumo, conocido como el oro líquido."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Nos adentraremos en Lanciego, una villa de algo más de 660 habitantes, donde contrastaremos modernidad y tradición en \n                    uno de sus trujales y nos sumergiremos en la historia del olivo en Rioja Alavesa. Conoce la evolución del olivo y de \n                    las diversas formas de transformación en aceite y disfruta del vivo sabor del aceite de variedad Arróniz. También \n                    existen trujales que pueden visitarse en las localidades de Barriobusto, Moreda y Oyón."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Te recomendamos que dediques parte de la jornada a visitar también las calles de Moreda de Álava, ya que seguro que \n                    te sorprende esta villa repleta de casas blasonadas y los restos de su antigua muralla. No dejes de visitar la Iglesia \n                    Parroquial de Santa María, con su destacado retablo Mayor de estilo barroco y sus pinturas. Muy cerca de Moreda, puedes \n                    encontrar Labraza, una villa medieval espectacular que conserva intacta su muralla y su encantador trazado de la Edad \n                    Media."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v("\n\n                    DÍA 2"),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    El plan de hoy estará enfocado a descubrir el vino y la gastronomía de esta comarca. Hoy no puedes dejar de visitar \n                    alguna de las muchas bodegas de Rioja Alavesa. Hay una infinidad de opciones para elegir. Te recomendamos que visites \n                    dos bodegas contrastadas."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    Una más antigua o familiar, y otra más moderna e innovadora. Si te pierdes con tanta oferta, te recomendamos que \n                    contactes con alguna de las agencias y empresas especializadas de Rioja Alavesa que estarán encantadas de diseñar \n                    tu ruta y asesorarte. Y nada como maridar el vino con la deliciosa gastronomía de la comarca. Puedes comer en una \n                    de las bodegas que ofrecen comidas o decantarte por alguno de los numerosos restaurantes que hay en la zona."
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(
-            "\n\n                    En Rioja Alavesa encontrarás desde la cocina más tradicional hasta las propuestas culinarias más innovadoras. No \n                    dejes de probar las patatas a la riojana, las pochas y las famosas chuletillas al sarmiento"
-          ),
-          _c("br"),
-          _c("br"),
-        ]),
+        _c("iframe", {
+          staticStyle: { border: "0" },
+          attrs: {
+            id: "mapaPlan",
+            src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11622.807170302627!2d-2.9024069!3d43.2576713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x364f27e82def0130!2sCIFP%20Txurdinaga%20LHII!5e0!3m2!1ses!2ses!4v1641889218826!5m2!1ses!2ses",
+            allowfullscreen: "",
+            loading: "lazy",
+          },
+        }),
       ]),
     ])
   },
@@ -48417,6 +48929,609 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-paginate/dist/vue-paginate.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vue-paginate/dist/vue-paginate.js ***!
+  \********************************************************/
+/***/ (function(module) {
+
+/**
+ * vue-paginate v3.6.0
+ * (c) 2018 Taha Shashtari
+ * @license MIT
+ */
+(function (global, factory) {
+   true ? module.exports = factory() :
+  0;
+}(this, function () { 'use strict';
+
+  var warn = function () {}
+  var formatComponentName
+
+  var hasConsole = typeof console !== 'undefined'
+
+  warn = function (msg, vm, type) {
+    if ( type === void 0 ) type = 'error';
+
+    if (hasConsole) {
+      console[type]("[vue-paginate]: " + msg + " " + (
+        vm ? formatLocation(formatComponentName(vm)) : ''
+        ))
+    }
+  }
+
+  formatComponentName = function (vm) {
+    if (vm.$root === vm) {
+      return 'root instance'
+    }
+    var name = vm._isVue
+    ? vm.$options.name || vm.$options._componentTag
+    : vm.name
+    return (
+      (name ? ("component <" + name + ">") : "anonymous component") +
+      (vm._isVue && vm.$options.__file ? (" at " + (vm.$options.__file)) : '')
+      )
+  }
+
+  var formatLocation = function (str) {
+    if (str === 'anonymous component') {
+      str += " - use the \"name\" option for better debugging messages."
+    }
+    return ("\n(found in " + str + ")")
+  }
+
+  var Paginate = {
+    name: 'paginate',
+    props: {
+      name: {
+        type: String,
+        required: true
+      },
+      list: {
+        type: Array,
+        required: true
+      },
+      per: {
+        type: Number,
+        default: 3,
+        validator: function validator (value) {
+          return value > 0
+        }
+      },
+      tag: {
+        type: String,
+        default: 'ul'
+      },
+      container: {
+        type: Object,
+        default: null
+      }
+    },
+    data: function data () {
+      return {
+        initialListSize: this.list.length
+      }
+    },
+    computed: {
+      parent: function parent () {
+        return this.container ? this.container : this.$parent
+      },
+      currentPage: {
+        get: function get () {
+          if (this.parent.paginate[this.name]) {
+            return this.parent.paginate[this.name].page
+          }
+        },
+        set: function set (page) {
+          this.parent.paginate[this.name].page = page
+        }
+      },
+      pageItemsCount: function pageItemsCount () {
+        var numOfItems = this.list.length
+        var first = this.currentPage * this.per + 1
+        var last = Math.min((this.currentPage * this.per) + this.per, numOfItems)
+        return (first + "-" + last + " of " + numOfItems)
+      },
+
+      lastPage: function lastPage () {
+        return Math.ceil(this.list.length / this.per)
+      }
+    },
+    mounted: function mounted () {
+      if (this.per <= 0) {
+        warn(("<paginate name=\"" + (this.name) + "\"> 'per' prop can't be 0 or less."), this.parent)
+      }
+      if (!this.parent.paginate[this.name]) {
+        warn(("'" + (this.name) + "' is not registered in 'paginate' array."), this.parent)
+        return
+      }
+      this.paginateList()
+    },
+    watch: {
+      currentPage: function currentPage () {
+        this.paginateList()
+      },
+      list: function list () {
+        if (this.currentPage >= this.lastPage) {
+          this.currentPage = this.lastPage - 1
+        }
+        this.paginateList()
+      },
+      per: function per () {
+        this.currentPage = 0
+        this.paginateList()
+      }
+    },
+    methods: {
+      paginateList: function paginateList () {
+        var index = this.currentPage * this.per
+        var paginatedList = this.list.slice(index, index + this.per)
+        this.parent.paginate[this.name].list = paginatedList
+      },
+      goToPage: function goToPage (page) {
+        var lastPage = Math.ceil(this.list.length / this.per)
+        if (page > lastPage) {
+          warn(("You cannot go to page " + page + ". The last page is " + lastPage + "."), this.parent)
+          return
+        }
+        this.currentPage = page - 1
+      }
+    },
+    render: function render (h) {
+      return h(this.tag, {}, this.$slots.default)
+    }
+  }
+
+  var LEFT_ARROW = '«'
+  var RIGHT_ARROW = '»'
+  var ELLIPSES = '…'
+
+  var LimitedLinksGenerator = function LimitedLinksGenerator (listOfPages, currentPage, limit) {
+    this.listOfPages = listOfPages
+    this.lastPage = listOfPages.length - 1
+    this.currentPage = currentPage === this.lastPage
+      ? this.lastPage - 1
+      : currentPage
+    this.limit = limit
+  };
+
+  LimitedLinksGenerator.prototype.generate = function generate () {
+    var firstHalf = this._buildFirstHalf()
+    var secondHalf = this._buildSecondHalf()
+    return firstHalf.concat( secondHalf)
+  };
+
+  LimitedLinksGenerator.prototype._buildFirstHalf = function _buildFirstHalf () {
+    var firstHalf = this._allPagesButLast()
+      .slice(
+        this._currentChunkIndex(),
+        this._currentChunkIndex() + this.limit
+      )
+    // Add backward ellipses with first page if needed
+    if (this.currentPage >= this.limit) {
+      firstHalf.unshift(ELLIPSES)
+      firstHalf.unshift(0)
+    }
+    // Add ellipses if needed
+    if (this.lastPage - this.limit > this._currentChunkIndex()) {
+      firstHalf.push(ELLIPSES)
+    }
+    return firstHalf
+  };
+
+  LimitedLinksGenerator.prototype._buildSecondHalf = function _buildSecondHalf () {
+    var secondHalf = [this.lastPage]
+    return secondHalf
+  };
+
+  LimitedLinksGenerator.prototype._currentChunkIndex = function _currentChunkIndex () {
+    var currentChunk = Math.floor(this.currentPage / this.limit)
+    return currentChunk * this.limit 
+  };
+
+  LimitedLinksGenerator.prototype._allPagesButLast = function _allPagesButLast () {
+      var this$1 = this;
+
+    return this.listOfPages.filter(function (n) { return n !== this$1.lastPage; })
+  };
+
+  var PaginateLinks = {
+    name: 'paginate-links',
+    props: {
+      for: {
+        type: String,
+        required: true
+      },
+      limit: {
+        type: Number,
+        default: 0
+      },
+      simple: {
+        type: Object,
+        default: null,
+        validator: function validator (obj) {
+          return obj.prev && obj.next
+        }
+      },
+      stepLinks: {
+        type: Object,
+        default: function () {
+          return {
+            prev: LEFT_ARROW,
+            next: RIGHT_ARROW
+          }
+        },
+        validator: function validator$1 (obj) {
+          return obj.prev && obj.next
+        }
+      },
+      showStepLinks: {
+        type: Boolean
+      },
+      hideSinglePage: {
+        type: Boolean
+      },
+      classes: {
+        type: Object,
+        default: null
+      },
+      async: {
+        type: Boolean,
+        default: false
+      },
+      container: {
+        type: Object,
+        default: null
+      }
+    },
+    data: function data () {
+      return {
+        listOfPages: [],
+        numberOfPages: 0,
+        target: null
+      }
+    },
+    computed: {
+      parent: function parent () {
+        return this.container ? this.container.el : this.$parent
+      },
+      state: function state () {
+        return this.container ? this.container.state : this.$parent.paginate[this.for]
+      },
+      currentPage: {
+        get: function get () {
+          if (this.state) {
+            return this.state.page
+          }
+        },
+        set: function set (page) {
+          this.state.page = page
+        }
+      }
+    },
+    mounted: function mounted () {
+      var this$1 = this;
+
+      if (this.simple && this.limit) {
+        warn(("<paginate-links for=\"" + (this.for) + "\"> 'simple' and 'limit' props can't be used at the same time. In this case, 'simple' will take precedence, and 'limit' will be ignored."), this.parent, 'warn')
+      }
+      if (this.simple && !this.simple.next) {
+        warn(("<paginate-links for=\"" + (this.for) + "\"> 'simple' prop doesn't contain 'next' value."), this.parent)
+      }
+      if (this.simple && !this.simple.prev) {
+        warn(("<paginate-links for=\"" + (this.for) + "\"> 'simple' prop doesn't contain 'prev' value."), this.parent)
+      }
+      if (this.stepLinks && !this.stepLinks.next) {
+        warn(("<paginate-links for=\"" + (this.for) + "\"> 'step-links' prop doesn't contain 'next' value."), this.parent)
+      }
+      if (this.stepLinks && !this.stepLinks.prev) {
+        warn(("<paginate-links for=\"" + (this.for) + "\"> 'step-links' prop doesn't contain 'prev' value."), this.parent)
+      }
+      this.$nextTick(function () {
+        this$1.updateListOfPages()
+      })
+    },
+    watch: {
+      'state': {
+        handler: function handler () {
+          this.updateListOfPages()
+        },
+        deep: true
+      },
+      currentPage: function currentPage (toPage, fromPage) {
+        this.$emit('change', toPage + 1, fromPage + 1)
+      }
+    },
+    methods: {
+      updateListOfPages: function updateListOfPages () {
+        this.target = getTargetPaginateComponent(this.parent.$children, this.for)
+        if (!this.target) {
+          if (this.async) { return }
+          warn(("<paginate-links for=\"" + (this.for) + "\"> can't be used without its companion <paginate name=\"" + (this.for) + "\">"), this.parent)
+          warn("To fix that issue you may need to use :async=\"true\" on <paginate-links> component to allow for asyncronous rendering", this.parent, 'warn')
+          return
+        }
+        this.numberOfPages = Math.ceil(this.target.list.length / this.target.per)
+        this.listOfPages = getListOfPageNumbers(this.numberOfPages)
+      }
+    },
+    render: function render (h) {
+      var this$1 = this;
+
+      if (!this.target && this.async) { return null }
+
+      var links = this.simple
+        ? getSimpleLinks(this, h)
+        : this.limit > 1
+        ? getLimitedLinks(this, h)
+        : getFullLinks(this, h)
+
+      if (this.hideSinglePage && this.numberOfPages <= 1) {
+        return null
+      }
+
+      var el = h('ul', {
+        class: ['paginate-links', this.for]
+      }, links)
+
+      if (this.classes) {
+        this.$nextTick(function () {
+          addAdditionalClasses(el.elm, this$1.classes)
+        })
+      }
+      return el
+    }
+  }
+
+  function getFullLinks (vm, h) {
+    var allLinks = vm.showStepLinks
+      ? [vm.stepLinks.prev ].concat( vm.listOfPages, [vm.stepLinks.next])
+      : vm.listOfPages
+    return allLinks.map(function (link) {
+      var data = {
+        on: {
+          click: function (e) {
+            e.preventDefault()
+            vm.currentPage = getTargetPageForLink(
+              link,
+              vm.limit,
+              vm.currentPage,
+              vm.listOfPages,
+              vm.stepLinks
+            )
+          }
+        }
+      }
+      var liClasses = getClassesForLink(
+        link,
+        vm.currentPage,
+        vm.listOfPages.length - 1,
+        vm.stepLinks
+      )
+      var linkText = link === vm.stepLinks.next || link === vm.stepLinks.prev
+        ? link
+        : link + 1 // it means it's a number
+      return h('li', { class: liClasses }, [h('a', data, linkText)])
+    })
+  }
+
+  function getLimitedLinks (vm, h) {
+    var limitedLinks = new LimitedLinksGenerator(
+      vm.listOfPages,
+      vm.currentPage,
+      vm.limit,
+      vm.stepLinks
+    ).generate()
+
+    limitedLinks = vm.showStepLinks
+      ? [vm.stepLinks.prev ].concat( limitedLinks, [vm.stepLinks.next])
+      : limitedLinks
+
+    var limitedLinksMetadata = getLimitedLinksMetadata(limitedLinks)
+
+    return limitedLinks.map(function (link, index) {
+      var data = {
+        on: {
+          click: function (e) {
+            e.preventDefault()
+            vm.currentPage = getTargetPageForLink(
+              link,
+              vm.limit,
+              vm.currentPage,
+              vm.listOfPages,
+              vm.stepLinks,
+              limitedLinksMetadata[index]
+            )
+          }
+        }
+      }
+      var liClasses = getClassesForLink(
+        link,
+        vm.currentPage,
+        vm.listOfPages.length - 1,
+        vm.stepLinks
+      )
+      // If the link is a number,
+      // then incremented by 1 (since it's 0 based).
+      // otherwise, do nothing (so, it's a symbol).
+      var text = (link === parseInt(link, 10)) ? link + 1 : link
+      return h('li', { class: liClasses }, [h('a', data, text)])
+    })
+  }
+
+  function getSimpleLinks (vm, h) {
+    var lastPage = vm.listOfPages.length - 1
+    var prevData = {
+      on: {
+        click: function (e) {
+          e.preventDefault()
+          if (vm.currentPage > 0) { vm.currentPage -= 1 }
+        }
+      }
+    }
+    var nextData = {
+      on: {
+        click: function (e) {
+          e.preventDefault()
+          if (vm.currentPage < lastPage) { vm.currentPage += 1 }
+        }
+      }
+    }
+    var nextListData = { class: ['next', vm.currentPage >= lastPage ? 'disabled' : ''] }
+    var prevListData = { class: ['prev', vm.currentPage <= 0 ? 'disabled' : ''] }
+    var prevLink = h('li', prevListData, [h('a', prevData, vm.simple.prev)])
+    var nextLink = h('li', nextListData, [h('a', nextData, vm.simple.next)])
+    return [prevLink, nextLink]
+  }
+
+  function getTargetPaginateComponent (children, targetName) {
+    return children
+      .filter(function (child) { return (child.$vnode.componentOptions.tag === 'paginate'); })
+      .find(function (child) { return child.name === targetName; })
+  }
+
+  function getListOfPageNumbers (numberOfPages) {
+    // converts number of pages into an array
+    // that contains each individual page number
+    // For Example: 4 => [0, 1, 2, 3]
+    return Array.apply(null, { length: numberOfPages })
+      .map(function (val, index) { return index; })
+  }
+
+  function getClassesForLink(link, currentPage, lastPage, ref) {
+    var prev = ref.prev;
+    var next = ref.next;
+
+    var liClass = []
+    if (link === prev) {
+      liClass.push('left-arrow')
+    } else if (link === next) {
+      liClass.push('right-arrow')
+    } else if (link === ELLIPSES) {
+      liClass.push('ellipses')
+    } else {
+      liClass.push('number')
+    }
+
+    if (link === currentPage) {
+      liClass.push('active')
+    }
+
+    if (link === prev && currentPage <= 0) {
+      liClass.push('disabled')
+    } else if (link === next && currentPage >= lastPage) {
+      liClass.push('disabled')
+    }
+    return liClass
+  }
+
+  function getTargetPageForLink (link, limit, currentPage, listOfPages, ref, metaData) {
+    var prev = ref.prev;
+    var next = ref.next;
+    if ( metaData === void 0 ) metaData = null;
+
+    var currentChunk = Math.floor(currentPage / limit)
+    if (link === prev) {
+      return (currentPage - 1) < 0 ? 0 : currentPage - 1
+    } else if (link === next) {
+      return (currentPage + 1 > listOfPages.length - 1)
+        ? listOfPages.length - 1
+        : currentPage + 1
+    } else if (metaData && metaData === 'right-ellipses') {
+      return (currentChunk + 1) * limit
+    } else if (metaData && metaData === 'left-ellipses') {
+      var chunkContent = listOfPages.slice(currentChunk * limit, currentChunk * limit + limit)
+      var isLastPage = currentPage === listOfPages.length - 1
+      if (isLastPage && chunkContent.length === 1) {
+        currentChunk--
+      }
+      return (currentChunk - 1) * limit + limit - 1
+    }
+    // which is number
+    return link
+  }
+
+  /**
+   * Mainly used here to check whether the displayed
+   * ellipses is for showing previous or next links
+   */
+  function getLimitedLinksMetadata (limitedLinks) {
+    return limitedLinks.map(function (link, index) {
+      if (link === ELLIPSES && limitedLinks[index - 1] === 0) {
+        return 'left-ellipses'
+      } else if (link === ELLIPSES && limitedLinks[index - 1] !== 0) {
+        return 'right-ellipses'
+      }
+      return link
+    })
+  }
+
+  function addAdditionalClasses (linksContainer, classes) {
+    Object.keys(classes).forEach(function (selector) {
+      if (selector === 'ul') {
+        var selectorValue = classes['ul']
+        if (Array.isArray(selectorValue)) {
+          selectorValue.forEach(function (c) { return linksContainer.classList.add(c); })
+        } else {
+          linksContainer.classList.add(selectorValue)
+        }
+      }
+      linksContainer.querySelectorAll(selector).forEach(function (node) {
+        var selectorValue = classes[selector]
+        if (Array.isArray(selectorValue)) {
+          selectorValue.forEach(function (c) { return node.classList.add(c); })
+        } else {
+          node.classList.add(selectorValue)
+        }
+      })
+    })
+  }
+
+  function paginateDataGenerator (listNames) {
+    if ( listNames === void 0 ) listNames = [];
+
+    return listNames.reduce(function (curr, listName) {
+      curr[listName] = {
+        list: [],
+        page: 0
+      }
+      return curr
+    }, {})
+  }
+
+  var vuePaginate = {}
+
+  vuePaginate.install = function (Vue) {
+    Vue.mixin({
+      created: function created () {
+        if (this.paginate !== 'undefined' && this.paginate instanceof Array) {
+          this.paginate = paginateDataGenerator(this.paginate)
+        }
+      },
+      methods: {
+        paginated: function paginated (listName) {
+          if (!this.paginate || !this.paginate[listName]) {
+            warn(("'" + listName + "' is not registered in 'paginate' array."), this)
+            return
+          }
+          return this.paginate[listName].list
+        }
+      }
+    })
+    Vue.component('paginate', Paginate)
+    Vue.component('paginate-links', PaginateLinks)
+  }
+
+  if (typeof window !== 'undefined' && window.Vue) {
+    window.Vue.use(vuePaginate)
+  }
+
+  return vuePaginate;
+
+}));
 
 /***/ }),
 
