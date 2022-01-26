@@ -134,25 +134,60 @@ export default {
     },
 
     methods: {
-        
         filtrar: function(filtro) {
-            for(var i=0;i<filtro.length;i++){
-                if(filtro[i]=="Araba"||filtro[i]=="Gipuzkoa"||filtro[i]=="Bizkaia"){
-                    this.resultado=this.planes.filter(plan => plan.territory.includes(filtro[i]));
-                } else{
-                    this.resultado=this.planes.filter(plan => plan.filtro[i].includes(1));
-                }                
+            if(filtro.length!=0){
+                for(var a=0;a<filtro.length;a++){
+                    if(filtro[a]!==0){
+                        for(var b=0;b<filtro[a].length;b++){
+                            if(a==0){
+                                this.resultado=this.planes.filter(plan => plan.territory.includes(filtro[0][b]));
+                            } else {
+                                this.resultado=this.planes.filter(plan => plan[filtro[1][b]].includes(1));
+                            }
+                        }
+                    } else {
+                        this.resultado=this.planes 
+                    }
+                    
+                } 
+            } else {
+                this.resultado=this.planes  
             }
         },
         checkbox: function(){
             var s=this;
             $(document).ready(function() {
-                var filtro=[];
+                var filtro=[[],[]];
                 $("input:checkbox").on("change", function() {
                     if(this.checked) {
-                        filtro.push($(this).val());
+                        if($(this).val()=="Araba"||$(this).val()=="Gipuzkoa"||$(this).val()=="Bizkaia"){
+                            filtro[0].push($(this).val());
+                        } else if($(this).val().includes("-")){
+                            let separado=$(this).val().split("-");
+                            filtro[1].push(separado[0]);
+                            filtro[1].push(separado[1]);
+                        } else {
+                            filtro[1].push($(this).val());
+                            }
                         s.filtrar(filtro);
-                    }
+                    } else {
+                        for(var i=0;i<filtro.length;i++){
+                            for(var j=0;j<filtro[i].length;j++){
+                                if($(this).val().includes("-")){
+                                    let separado=$(this).val().split("-");
+                                    if(filtro[i][j]==separado[0]||filtro[i][j]==separado[1]){
+                                        filtro[i].splice([j+1],1);
+                                        filtro[i].splice([j],1);
+                                        
+                                    }
+                                }
+                                if(filtro[i][j]==$(this).val()){
+                                    filtro[i].splice([j],1);
+                                }
+                            }
+                        }
+                        s.filtrar(filtro);
+                    } 
                 });
                 
             });

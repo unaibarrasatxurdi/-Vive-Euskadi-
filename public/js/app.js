@@ -8824,25 +8824,63 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     filtrar: function filtrar(filtro) {
-      for (var i = 0; i < filtro.length; i++) {
-        if (filtro[i] == "Araba" || filtro[i] == "Gipuzkoa" || filtro[i] == "Bizkaia") {
-          this.resultado = this.planes.filter(function (plan) {
-            return plan.territory.includes(filtro[i]);
-          });
-        } else {
-          this.resultado = this.planes.filter(function (plan) {
-            return plan.filtro[i].includes(1);
-          });
+      if (filtro.length != 0) {
+        for (var a = 0; a < filtro.length; a++) {
+          if (filtro[a] !== 0) {
+            for (var b = 0; b < filtro[a].length; b++) {
+              if (a == 0) {
+                this.resultado = this.planes.filter(function (plan) {
+                  return plan.territory.includes(filtro[0][b]);
+                });
+              } else {
+                this.resultado = this.planes.filter(function (plan) {
+                  return plan[filtro[1][b]].includes(1);
+                });
+              }
+            }
+          } else {
+            this.resultado = this.planes;
+          }
         }
+      } else {
+        this.resultado = this.planes;
       }
     },
     checkbox: function checkbox() {
       var s = this;
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-        var filtro = [];
+        var filtro = [[], []];
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("input:checkbox").on("change", function () {
           if (this.checked) {
-            filtro.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Araba" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Gipuzkoa" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Bizkaia") {
+              filtro[0].push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
+              var separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
+              filtro[1].push(separado[0]);
+              filtro[1].push(separado[1]);
+            } else {
+              filtro[1].push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            }
+
+            s.filtrar(filtro);
+          } else {
+            for (var i = 0; i < filtro.length; i++) {
+              for (var j = 0; j < filtro[i].length; j++) {
+                if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
+                  var _separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
+
+                  if (filtro[i][j] == _separado[0] || filtro[i][j] == _separado[1]) {
+                    filtro[i].splice([j + 1], 1);
+                    filtro[i].splice([j], 1);
+                  }
+                }
+
+                if (filtro[i][j] == jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val()) {
+                  filtro[i].splice([j], 1);
+                }
+              }
+            }
+
             s.filtrar(filtro);
           }
         });
