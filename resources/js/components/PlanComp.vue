@@ -27,7 +27,7 @@
                             <h3>DATOS DE INTERÉS</h3>
                             <h4>Para ir con:</h4>
                             <div class="row">
-                                <div class="col">
+                                <div class="col" v-if="amigos">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-people-fill" viewBox="0 0 16 16">
                                         <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                         <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
@@ -35,13 +35,13 @@
                                     </svg>
                                     <p>Amigos</p>
                                 </div>
-                                <div class="col">
+                                <div class="col" v-if="ninios">
                                     <svg aria-hidden="true" width="30" height="30" fill="white" focusable="false" data-prefix="fas" data-icon="child" class="svg-inline--fa fa-child fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                                         <path fill="currentColor" d="M120 72c0-39.765 32.235-72 72-72s72 32.235 72 72c0 39.764-32.235 72-72 72s-72-32.236-72-72zm254.627 1.373c-12.496-12.497-32.758-12.497-45.254 0L242.745 160H141.254L54.627 73.373c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255L104 213.254V480c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V368h16v112c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V213.254l94.627-94.627c12.497-12.497 12.497-32.757 0-45.254z"></path>
                                     </svg>
                                     <p>Niños</p>
                                 </div>
-                                <div class="col">
+                                <div class="col" v-if="pareja">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                     </svg>
@@ -50,23 +50,30 @@
                             </div>
                             <h4>Temática:</h4>
                             <div class="row">
-                                <div class="col">
+                                <div class="col" v-if="cultura">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-bank2" viewBox="0 0 16 16">
                                         <path d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z"/>
                                     </svg>
                                     <p>Cultura</p>
                                 </div>
-                                <div class="col">
+                                <div class="col" v-if="naturaleza">
                                     <svg aria-hidden="true" width="30" height="30" fill="white" focusable="false" data-prefix="fas" data-icon="mountain" class="svg-inline--fa fa-mountain fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                                         <path fill="currentColor" d="M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z"></path>
                                     </svg>
                                     <p>Naturaleza</p>
                                 </div>
-                                <div class="col">
+                                <div class="col" v-if="gastronomia">
                                     <svg aria-hidden="true" width="30" height="30" fill="white" focusable="false" data-prefix="fas" data-icon="utensils" class="svg-inline--fa fa-utensils fa-w-13" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 512">
                                         <path fill="currentColor" d="M207.9 15.2c.8 4.7 16.1 94.5 16.1 128.8 0 52.3-27.8 89.6-68.9 104.6L168 486.7c.7 13.7-10.2 25.3-24 25.3H80c-13.7 0-24.7-11.5-24-25.3l12.9-238.1C27.7 233.6 0 196.2 0 144 0 109.6 15.3 19.9 16.1 15.2 19.3-5.1 61.4-5.4 64 16.3v141.2c1.3 3.4 15.1 3.2 16 0 1.4-25.3 7.9-139.2 8-141.8 3.3-20.8 44.7-20.8 47.9 0 .2 2.7 6.6 116.5 8 141.8.9 3.2 14.8 3.4 16 0V16.3c2.6-21.6 44.8-21.4 48-1.1zm119.2 285.7l-15 185.1c-1.2 14 9.9 26 23.9 26h56c13.3 0 24-10.7 24-24V24c0-13.2-10.7-24-24-24-82.5 0-221.4 178.5-64.9 300.9z"></path>
                                     </svg>
                                     <p>Gastronomía</p>
+                                </div>
+                                <div class="col" v-if="agua">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-droplet" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
+                                    <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"/>
+                                    </svg>
+                                    <p>Agua</p>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +95,15 @@ export default {
     data (){
         return {
           planes: null ,
-          resultado: []
+          resultado: [],
+          gastronomia: false,
+          agua:false,
+          cultura:false,
+          naturaleza:false,
+          amigos:false,
+          pareja:false,
+          ninios:false
+
         } 
     },
     mounted (){
@@ -97,6 +112,28 @@ export default {
         var nombre =url.substring(url.lastIndexOf('/') + 1);
         nombre=decodeURI(nombre);
        this.resultado= this.planes.filter(plan => plan.documentName.includes(nombre));
+       if(this.resultado[0].gastronomical=="1" || this.resultado[0].cuisine=="1"){
+           this.gastronomia=true;
+       };
+       if(this.resultado[0].water=="1"){
+           this.agua=true;
+       };
+       if(this.resultado[0].landscape=="1"){
+           this.naturaleza=true;
+       };
+       if(this.resultado[0].culture=="1"){
+           this.cultura=true;
+       };
+       if(this.resultado[0].friends=="1"){
+           this.amigos=true;
+       };
+       if(this.resultado[0].couple=="1"){
+           this.pareja=true;
+       };
+       if(this.resultado[0].children=="1"){
+           this.ninios=true;
+       };
+       console.log(this.amigos);
     }
 };
 </script>
