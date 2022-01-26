@@ -143,7 +143,7 @@ export default {
         this.planes=JSON.parse(localStorage.getItem("planes"));
         const url= window.location.href;
         this.id =url.substring(url.lastIndexOf('/') + 1);
-       this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(this.id));
+       this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(this.id.toLowerCase()));
     }
 }
 </script>

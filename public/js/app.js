@@ -8889,7 +8889,7 @@ __webpack_require__.r(__webpack_exports__);
     var url = window.location.href;
     this.id = url.substring(url.lastIndexOf('/') + 1);
     this.resultado = this.planes.filter(function (plan) {
-      return plan.documentName.toLowerCase().includes(_this.id);
+      return plan.documentName.toLowerCase().includes(_this.id.toLowerCase());
     });
   }
 });
