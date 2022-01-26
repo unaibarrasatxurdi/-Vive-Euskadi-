@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class AdminController extends Controller
 {
     /**
@@ -23,7 +23,8 @@ class AdminController extends Controller
 
     public function adminUsuario()
     {
-        return view('admin.usuAd');
+        $users = User::all();
+        return view('admin.usuAd')->with('users', $users);
     }
 
 

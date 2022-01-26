@@ -21,10 +21,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($users as $user)
                         <tr>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
                             <td>
                                 <button class="btn btn-outline-dark">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -34,6 +35,7 @@
                                 </button> 
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

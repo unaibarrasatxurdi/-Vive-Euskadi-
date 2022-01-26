@@ -35,13 +35,13 @@ body {
 #btnMenuAdmin a {
     color: black;
     font-size: 1.4em;
+    text-decoration: none;
+    margin-left: 3%;
 }
+
+
 #btnMenuAdmin a:hover {
     background-color: gray;
-    color: black;
-}
-a.router-link-active {
-    background-color: rgb(170, 165, 165);
     color: black;
 }
 
