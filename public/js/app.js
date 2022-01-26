@@ -8870,13 +8870,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       planes: null,
       resultado: [],
       id: null,
-      paginate: ['resultado']
+      paginate: ['resultado'],
+      cantidadTotal: 0
     };
   },
   mounted: function mounted() {
@@ -25853,7 +25856,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n@font-face {\r\n    font-family: PlayfairDisplay;\r\n    src: url('/fonts/PlayfairDisplay.ttf');\n}\ntable[data-v-517fb218]{\r\n    background-color:rgba(209, 220, 225, 0.9);\n}\nth[data-v-517fb218]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\n}\ntd[data-v-517fb218]{\r\n    font-family: PlayFairDisplay;\n}\n.card-text[data-v-517fb218]{\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    font-family: PlayFairDisplay;\n}\n.card[data-v-517fb218] {\r\n    width: 20rem;\r\n    height: 15rem;\n}\n.card-img[data-v-517fb218]{\r\n    height: 15rem;\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n@font-face {\r\n    font-family: PlayfairDisplay;\r\n    src: url('/fonts/PlayfairDisplay.ttf');\n}\ntable[data-v-517fb218]{\r\n    background-color:rgba(209, 220, 225, 0.9);\n}\nth[data-v-517fb218]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\n}\ntd[data-v-517fb218]{\r\n    font-family: PlayFairDisplay;\n}\n.card-text[data-v-517fb218]{\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    font-family: PlayFairDisplay;\n}\n.card[data-v-517fb218] {\r\n    width: 20rem;\r\n    height: 15rem;\n}\n.card-img[data-v-517fb218]{\r\n    height: 15rem;\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46334,95 +46337,105 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container-fluid" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5" },
-        _vm._l(_vm.paginated("resultado"), function (item, index) {
-          return _c(
-            "div",
-            { key: index, staticClass: "col mb-2" },
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    "exact-active-class": "active",
-                    to: "/busqueda/" + _vm.id + "/plan/" + item.documentName,
-                    "aria-current": "page",
-                  },
+  return _c("div", { staticClass: "container-fluid" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center",
+      },
+      _vm._l(_vm.paginated("resultado"), function (item, index) {
+        return _c(
+          "div",
+          { key: index, staticClass: "d-flex justify-content-center mb-2" },
+          [
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  "exact-active-class": "active",
+                  to: "/busqueda/" + _vm.id + "/plan/" + item.documentName,
+                  "aria-current": "page",
                 },
-                [
-                  _c("div", { staticClass: "card text-white" }, [
-                    _c("img", {
-                      staticClass: "card-img ",
-                      attrs: {
-                        src: "/images/Imagenes/alavaDescubre.jpg",
-                        alt: "",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-img-overlay" }, [
-                      _c("h5", { staticClass: "card-title float-end" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "bi bi-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "40",
-                              height: "40",
-                              fill: "currentColor",
-                              viewBox: "0 0 16 16",
-                            },
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
-                              },
-                            }),
-                          ]
-                        ),
-                      ]),
-                      _vm._v(" "),
+              },
+              [
+                _c("div", { staticClass: "card text-white" }, [
+                  _c("img", {
+                    staticClass: "card-img ",
+                    attrs: {
+                      src: "/images/Imagenes/alavaDescubre.jpg",
+                      alt: "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c("h5", { staticClass: "card-title float-end" }, [
                       _c(
-                        "p",
+                        "svg",
                         {
-                          staticClass:
-                            "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                          staticClass: "bi bi-heart",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "40",
+                            height: "40",
+                            fill: "currentColor",
+                            viewBox: "0 0 16 16",
+                          },
                         },
-                        [_vm._v(_vm._s(item.documentName))]
+                        [
+                          _c("path", {
+                            attrs: {
+                              d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                            },
+                          }),
+                        ]
                       ),
                     ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                      },
+                      [_vm._v(_vm._s(item.documentName))]
+                    ),
                   ]),
-                ]
-              ),
-            ],
-            1
-          )
+                ]),
+              ]
+            ),
+          ],
+          1
+        )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-12 text-center align-items-center" },
+      [
+        _c("paginate", {
+          ref: "paginator",
+          attrs: { name: "resultado", list: this.resultado, per: 15 },
         }),
-        0
-      ),
-      _vm._v(" "),
-      _c("paginate", {
-        attrs: { name: "resultado", list: this.resultado, per: 15, tag: "div" },
-      }),
-      _vm._v(" "),
-      _c("paginate-links", {
-        attrs: {
-          for: "resultado",
-          classes: { ul: "pagination", li: "page-item", a: "page-link" },
-        },
-      }),
-    ],
-    1
-  )
+        _vm._v(" "),
+        _c("paginate-links", {
+          staticClass: "justify-content-center",
+          attrs: {
+            for: "resultado",
+            "hide-single-page": true,
+            "show-step-links": true,
+            limit: 5,
+            classes: { ul: "pagination", li: "page-item", a: "page-link" },
+          },
+        }),
+      ],
+      1
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {

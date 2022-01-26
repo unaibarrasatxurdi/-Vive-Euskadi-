@@ -93,9 +93,9 @@
     </tr>
   </tbody>
 </table>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center">
 
-  <div v-for="(item, index) in paginated('resultado')" :key="index" class="col mb-2">
+  <div v-for="(item, index) in paginated('resultado')" :key="index" class="d-flex justify-content-center mb-2">
       
     <router-link exact-active-class="active" :to="`/busqueda/${id}/plan/${item.documentName}`" aria-current="page">
         <div class="card text-white">
@@ -114,10 +114,12 @@
     
     </div>
     </div>
-    <paginate name="resultado" :list="this.resultado" :per="15" tag="div">
-    </paginate>
-    <paginate-links for="resultado" :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}"></paginate-links>
-
+    <div class="col-12 text-center align-items-center">
+        <paginate ref="paginator" name="resultado" :list="this.resultado" :per="15"></paginate>
+        <paginate-links class="justify-content-center" for="resultado" :hide-single-page="true" :show-step-links="true" :limit="5" :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}"></paginate-links>
+    </div>
+    
+     
 </div>
 
 
@@ -133,7 +135,8 @@ export default {
           planes: null ,
           resultado: [],
           id:null,
-          paginate: ['resultado']
+          paginate: ['resultado'],
+          cantidadTotal: 0
         } 
     },
     mounted (){
@@ -177,6 +180,8 @@ td{
 .card-img{
     height: 15rem;
 }
+
+
 
 
 </style>
