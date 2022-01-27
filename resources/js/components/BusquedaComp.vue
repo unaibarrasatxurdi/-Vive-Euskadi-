@@ -1,16 +1,16 @@
 <template>
 <div class="container-fluid">
 <table class="table table-borderless">
-  <thead>
+<thead>
     <tr>
-      <th scope="col">Zona</th>
-      <th scope="col">Ideal para</th>
-      <th scope="col">Tipo</th>
+    <th scope="col">Zona</th>
+    <th scope="col">Ideal para</th>
+    <th scope="col">Tipo</th>
     </tr>
-  </thead>
-  <tbody>
+</thead>
+<tbody>
     <tr>
-      <td scope="col">
+    <td scope="col">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="Araba" id="checkAlava">
                 <label class="form-check-label" for="checkAlava">
@@ -29,8 +29,8 @@
                     Vizcaya
                 </label>
             </div>
-      </td>
-      <td scope="col">
+    </td>
+    <td scope="col">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="couple" id="checkPareja">
                 <label class="form-check-label" for="checkPareja">
@@ -49,8 +49,8 @@
                     Planes con niños
                 </label>
             </div>
-      </td>
-      <td scope="col">
+    </td>
+    <td scope="col">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="culture" id="checkCultura">
                 <label class="form-check-label" for="checkCultura">
@@ -69,8 +69,8 @@
                     Gastronomía
                 </label>
             </div>
-      </td>
-      <td scope="col">
+    </td>
+    <td scope="col">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="landscape" id="checkAventura">
                 <label class="form-check-label" for="checkAventura">
@@ -89,14 +89,13 @@
                     Planes urbanos
                 </label>
             </div>
-      </td>
+    </td>
     </tr>
-  </tbody>
+</tbody>
 </table>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center">
-
-  <div v-for="(item, index) in paginated('resultado')" :key="index" class="d-flex justify-content-center mb-2">
-      
+    <!-- Generación de planes -->
+  <div v-for="(item, index) in paginated('resultado')" :key="index" class="d-flex justify-content-center mb-2">    
     <router-link exact-active-class="active" :to="`/busqueda/${id}/plan/${item.documentName}`" aria-current="page">
         <div class="card text-white">
             <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img " alt="">
@@ -110,21 +109,13 @@
             </div>
         </div>
     </router-link>
-
-    
     </div>
     </div>
     <div class="col-12 text-center align-items-center">
         <paginate ref="paginator" name="resultado" :list="this.resultado" :per="15"></paginate>
         <paginate-links class="justify-content-center" for="resultado" :hide-single-page="true" :show-step-links="true" :limit="5" :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}"></paginate-links>
-    </div>
-    
-     
+    </div>     
 </div>
-
-
-
-    
 </template>
 
 <script>
@@ -132,76 +123,82 @@ import $ from 'jquery';
 export default {
     data (){
         return {
-          planes: null ,
-          resultado: [],
-          filtro: null,
-          id: null,
-          paginate: ['resultado'],
-          cantidadTotal: 0
+            planes: null ,
+            resultado: [],
+            filtro: null,
+            id: null,
+            paginate: ['resultado'],
+            cantidadTotal: 0,
         } 
     },
     mounted (){
-        this.planes=JSON.parse(localStorage.getItem("planes"));
-        const url= window.location.href;
-        this.id =url.substring(url.lastIndexOf('/') + 1);
-        this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(this.id.toLowerCase()));
+        this.planes = JSON.parse(localStorage.getItem("planes"));
+        const url = window.location.href;
+        this.id = url.substring(url.lastIndexOf('/') + 1); 
+        this.resultado = this.planes.filter(plan => plan.documentName.toLowerCase().includes(this.id.toLowerCase()));
         this.checkbox();
     },
 
     methods: {
         filtrar: function(filtro) {
-            if(filtro.length!=0){
-                for(var a=0;a<filtro.length;a++){
-                    if(filtro[a]!==0){
-                        for(var b=0;b<filtro[a].length;b++){
-                            if(a==0){
-                                this.resultado=this.planes.filter(plan => plan.territory.includes(filtro[0][b]));
+            this.resultado = "";
+            if(filtro[0].length != 0 || filtro[1].length != 0) {
+                for(var a = 0; a < filtro.length; a++) {
+                    if(filtro[a] != 0) {
+                        for(var b = 0; b < filtro[a].length; b++) {
+                            if(a == 0) {
+                                this.resultado = this.planes.filter(plan => plan.territory.includes(filtro[0][b]));
                             } else {
-                                this.resultado=this.planes.filter(plan => plan[filtro[1][b]].includes(1));
+                                this.resultado = this.planes.filter(plan => plan[filtro[1][b]].includes(1));
                             }
                         }
                     } else {
-                        this.resultado=this.planes 
+                        // this.resultado = this.planes
+                        console.log(filtro);
                     }
-                    
-                } 
+                }
             } else {
-                this.resultado=this.planes  
+                this.resultado = this.planes
+                console.log(filtro);
             }
+            // if (filtro[0].length != 0) {
+                
+            // }
         },
-        checkbox: function(){
-            var s=this;
+        checkbox: function() {
+            var s = this;
             $(document).ready(function() {
-                var filtro=[[],[]];
+                var filtro = [[],[]];
                 $("input:checkbox").on("change", function() {
                     if(this.checked) {
-                        if($(this).val()=="Araba"||$(this).val()=="Gipuzkoa"||$(this).val()=="Bizkaia"){
+                        if($(this).val() == "Araba" || $(this).val() == "Gipuzkoa" || $(this).val() == "Bizkaia"){
                             filtro[0].push($(this).val());
-                        } else if($(this).val().includes("-")){
-                            let separado=$(this).val().split("-");
+                        } else if($(this).val().includes("-")) {
+                            let separado = $(this).val().split("-");
                             filtro[1].push(separado[0]);
                             filtro[1].push(separado[1]);
                         } else {
                             filtro[1].push($(this).val());
                             }
                         s.filtrar(filtro);
+                        console.log(filtro);
                     } else {
-                        for(var i=0;i<filtro.length;i++){
-                            for(var j=0;j<filtro[i].length;j++){
-                                if($(this).val().includes("-")){
-                                    let separado=$(this).val().split("-");
-                                    if(filtro[i][j]==separado[0]||filtro[i][j]==separado[1]){
-                                        filtro[i].splice([j+1],1);
-                                        filtro[i].splice([j],1);
-                                        
+                        for(var i = 0; i < filtro.length; i++) {
+                            for(var j = 0; j < filtro[i].length; j++) {
+                                if($(this).val().includes("-")) {
+                                    let separado = $(this).val().split("-");
+                                    if(filtro[i][j] == separado[0]||filtro[i][j] == separado[1]) {
+                                        filtro[i].splice([j + 1], 1);
+                                        filtro[i].splice([j], 1);
                                     }
                                 }
-                                if(filtro[i][j]==$(this).val()){
-                                    filtro[i].splice([j],1);
+                                if(filtro[i][j] == $(this).val()) {
+                                    filtro[i].splice([j], 1);
                                 }
                             }
                         }
                         s.filtrar(filtro);
+                        console.log(filtro.length);
                     } 
                 });
                 

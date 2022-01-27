@@ -8865,15 +8865,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -8899,9 +8890,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     filtrar: function filtrar(filtro) {
-      if (filtro.length != 0) {
+      this.resultado = "";
+
+      if (filtro[0].length != 0 || filtro[1].length != 0) {
         for (var a = 0; a < filtro.length; a++) {
-          if (filtro[a] !== 0) {
+          if (filtro[a] != 0) {
             for (var b = 0; b < filtro[a].length; b++) {
               if (a == 0) {
                 this.resultado = this.planes.filter(function (plan) {
@@ -8914,12 +8907,16 @@ __webpack_require__.r(__webpack_exports__);
               }
             }
           } else {
-            this.resultado = this.planes;
+            // this.resultado = this.planes
+            console.log(filtro);
           }
         }
       } else {
         this.resultado = this.planes;
-      }
+        console.log(filtro);
+      } // if (filtro[0].length != 0) {
+      // }
+
     },
     checkbox: function checkbox() {
       var s = this;
@@ -8938,6 +8935,7 @@ __webpack_require__.r(__webpack_exports__);
             }
 
             s.filtrar(filtro);
+            console.log(filtro);
           } else {
             for (var i = 0; i < filtro.length; i++) {
               for (var j = 0; j < filtro[i].length; j++) {
@@ -8957,6 +8955,7 @@ __webpack_require__.r(__webpack_exports__);
             }
 
             s.filtrar(filtro);
+            console.log(filtro.length);
           }
         });
       });
