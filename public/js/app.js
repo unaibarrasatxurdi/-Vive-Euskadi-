@@ -8743,6 +8743,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -8872,6 +8874,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.busqueda-card').hover(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+      width: "25rem",
+      height: "20rem"
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+      width: "25rem",
+      height: "20rem"
+    });
+  }, function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+      width: "20rem",
+      height: "15rem"
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+      width: "20rem",
+      height: "15rem"
+    });
+  });
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -46418,9 +46442,9 @@ var render = function () {
                 },
               },
               [
-                _c("div", { staticClass: "card text-white" }, [
+                _c("div", { staticClass: "card text-white busqueda-card" }, [
                   _c("img", {
-                    staticClass: "card-img ",
+                    staticClass: "card-img",
                     attrs: {
                       src: "/images/Imagenes/alavaDescubre.jpg",
                       alt: "",
