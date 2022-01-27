@@ -30,9 +30,8 @@ Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only(['in
 Route::resource('user', UserController::class)->only(['index', 'show']);
 Route::get('/admin/gestion-usuarios', [AdminController::class, 'adminUsuario']);
 Route::get('/admin/gestion-comentarios', [AdminController::class, 'adminComent']);
-/* Route::resource('admin', AdminController::class, ['names' => ['show' => 'busqueda', 'edit' => 'plan']]); */
 Route::resource('admin', AdminController::class);
-//Route::get('/admin', [AdminController::class, 'index']);
+
 
 
 
