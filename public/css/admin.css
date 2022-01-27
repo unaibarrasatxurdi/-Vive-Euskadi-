@@ -45,7 +45,15 @@ body {
     color: black;
 }
 
+#titApartado {
+    background-color: #1498C2;
+    width: 30%;
+    height: 50px;
+}
 
+.table {
+    background-color: #e1ecf0ff;
+}
 
 
 /* #btnMenuAdmin {

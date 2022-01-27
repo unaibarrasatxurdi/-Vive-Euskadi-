@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Comentarios;
 class AdminController extends Controller
 {
     /**
@@ -18,6 +19,8 @@ class AdminController extends Controller
 
     public function adminComent()
     {
+        /* $comentarios = Comentarios::all();
+        return view('admin.comenAd')->with('comentarios', $comentarios); */
         return view('admin.comenAd');
     }
 
