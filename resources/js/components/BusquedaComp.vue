@@ -12,19 +12,19 @@
     <tr>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAlava">
+                <input class="form-check-input" type="checkbox" value="Araba" id="checkAlava">
                 <label class="form-check-label" for="checkAlava">
                     Álava
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGipuzcoa">
+                <input class="form-check-input" type="checkbox" value="Gipuzkoa" id="checkGipuzcoa">
                 <label class="form-check-label" for="checkGipuzcoa">
-                    Gipuzcoa
+                    Guipúzcoa
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkVizcaya">
+                <input class="form-check-input" type="checkbox" value="Bizkaia" id="checkVizcaya">
                 <label class="form-check-label" for="checkVizcaya">
                     Vizcaya
                 </label>
@@ -32,19 +32,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkPareja">
+                <input class="form-check-input" type="checkbox" value="couple" id="checkPareja">
                 <label class="form-check-label" for="checkPareja">
                     Planes en pareja
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGrupo">
+                <input class="form-check-input" type="checkbox" value="friends" id="checkGrupo">
                 <label class="form-check-label" for="checkGrupo">
                     Planes en grupo
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkNiños">
+                <input class="form-check-input" type="checkbox" value="children" id="checkNiños">
                 <label class="form-check-label" for="checkNiños">
                     Planes con niños
                 </label>
@@ -52,19 +52,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkCultura">
+                <input class="form-check-input" type="checkbox" value="culture" id="checkCultura">
                 <label class="form-check-label" for="checkCultura">
                     Cultura
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkDeporte">
+                <input class="form-check-input" type="checkbox" value="water" id="checkDeporte">
                 <label class="form-check-label" for="checkDeporte">
-                    Deporte
+                    Agua
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGastronomia">
+                <input class="form-check-input" type="checkbox" value="cuisine" id="checkGastronomia">
                 <label class="form-check-label" for="checkGastronomia">
                     Gastronomía
                 </label>
@@ -72,19 +72,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAventura">
+                <input class="form-check-input" type="checkbox" value="landscape" id="checkAventura">
                 <label class="form-check-label" for="checkAventura">
-                    Aventura
+                    Naturaleza y paisajes
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkPequeAventura">
+                <input class="form-check-input" type="checkbox" value="children-landscape" id="checkPequeAventura">
                 <label class="form-check-label" for="checkPequeAventura">
                     Peque-Aventura
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkUrbanos">
+                <input class="form-check-input" type="checkbox" value="culture-cuisine" id="checkUrbanos">
                 <label class="form-check-label" for="checkUrbanos">
                     Planes urbanos
                 </label>
@@ -93,91 +93,125 @@
     </tr>
   </tbody>
 </table>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5">
-  <div class="col mb-2">
-    <div class="card text-white">
-        <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img " alt="">
-        <div class="card-img-overlay">
-            <h5 class="card-title float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                </svg>
-            </h5>
-            <p v-if="this.planes" class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5">{{this.planes[0].documentName}}</p>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center">
+
+  <div v-for="(item, index) in paginated('resultado')" :key="index" class="d-flex justify-content-center mb-2">
+      
+    <router-link exact-active-class="active" :to="`/busqueda/${id}/plan/${item.documentName}`" aria-current="page">
+        <div class="card text-white">
+            <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img " alt="">
+            <div class="card-img-overlay">
+                <h5 class="card-title float-end">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                    </svg>
+                </h5>
+                <p  class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5" >{{item.documentName}}</p>
+            </div>
         </div>
+    </router-link>
+
+    
     </div>
-  </div>
-  <div class="col mb-2">
-    <div class="card text-white">
-        <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img " alt="">
-        <div class="card-img-overlay">
-            <h5 class="card-title float-end">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                </svg>
-            </h5>
-            <p class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5">Urdaibai, bosque, txakoli y Museo de la Paz</p>
-        </div>
     </div>
-  </div>
-  <div class="col mb-2">
-    <div class="card text-white ">
-        <img src="/images/Imagenes/gipuzcoaDescubre.jpg" class="card-img " alt="">
-        <div class="card-img-overlay">
-            <h5 class="card-title float-end">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-            </svg>
-            </h5>
-            <p class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5">Urdaibai, bosque, txakoli y Museo de la Paz</p>
-        </div>
+    <div class="col-12 text-center align-items-center">
+        <paginate ref="paginator" name="resultado" :list="this.resultado" :per="15"></paginate>
+        <paginate-links class="justify-content-center" for="resultado" :hide-single-page="true" :show-step-links="true" :limit="5" :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}"></paginate-links>
     </div>
-  </div>
-<div class="col mb-2">
-    <div class="card text-white">
-        <img src="/images/Imagenes/vizcayaDescubre.jpg" class="card-img " alt="">
-        <div class="card-img-overlay">
-            <h5 class="card-title float-end">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-            </svg>
-            </h5>
-            <p class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5">Urdaibai, bosque, txakoli y Museo de la Paz</p>
-        </div>
-    </div>
-  </div>
-  
-  <div class="col mb-2">
-    <div class="card text-white">
-        <img src="/images/Imagenes/vizcayaDescubre.jpg" class="card-img " alt="">
-        <div class="card-img-overlay">
-            <h5 class="card-title float-end">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-            </svg>
-            </h5>
-            <p class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5">Urdaibai, bosque, txakoli y Museo de la Paz</p>
-        </div>
-    </div>
-  </div>
+    
+     
 </div>
-</div>
+
 
 
     
 </template>
 
 <script>
+import $ from 'jquery';
 export default {
     data (){
         return {
-          planes: null  
+          planes: null ,
+          resultado: [],
+          filtro: null,
+          id: null,
+          paginate: ['resultado'],
+          cantidadTotal: 0
         } 
     },
     mounted (){
         this.planes=JSON.parse(localStorage.getItem("planes"));
+        const url= window.location.href;
+        this.id =url.substring(url.lastIndexOf('/') + 1);
+        this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(this.id.toLowerCase()));
+        this.checkbox();
+    },
+
+    methods: {
+        filtrar: function(filtro) {
+            if(filtro.length!=0){
+                for(var a=0;a<filtro.length;a++){
+                    if(filtro[a]!==0){
+                        for(var b=0;b<filtro[a].length;b++){
+                            if(a==0){
+                                this.resultado=this.planes.filter(plan => plan.territory.includes(filtro[0][b]));
+                            } else {
+                                this.resultado=this.planes.filter(plan => plan[filtro[1][b]].includes(1));
+                            }
+                        }
+                    } else {
+                        this.resultado=this.planes 
+                    }
+                    
+                } 
+            } else {
+                this.resultado=this.planes  
+            }
+        },
+        checkbox: function(){
+            var s=this;
+            $(document).ready(function() {
+                var filtro=[[],[]];
+                $("input:checkbox").on("change", function() {
+                    if(this.checked) {
+                        if($(this).val()=="Araba"||$(this).val()=="Gipuzkoa"||$(this).val()=="Bizkaia"){
+                            filtro[0].push($(this).val());
+                        } else if($(this).val().includes("-")){
+                            let separado=$(this).val().split("-");
+                            filtro[1].push(separado[0]);
+                            filtro[1].push(separado[1]);
+                        } else {
+                            filtro[1].push($(this).val());
+                            }
+                        s.filtrar(filtro);
+                    } else {
+                        for(var i=0;i<filtro.length;i++){
+                            for(var j=0;j<filtro[i].length;j++){
+                                if($(this).val().includes("-")){
+                                    let separado=$(this).val().split("-");
+                                    if(filtro[i][j]==separado[0]||filtro[i][j]==separado[1]){
+                                        filtro[i].splice([j+1],1);
+                                        filtro[i].splice([j],1);
+                                        
+                                    }
+                                }
+                                if(filtro[i][j]==$(this).val()){
+                                    filtro[i].splice([j],1);
+                                }
+                            }
+                        }
+                        s.filtrar(filtro);
+                    } 
+                });
+                
+            });
+        },
+        
     }
 }
+
+
 </script>
 
 
@@ -212,6 +246,8 @@ td{
 .card-img{
     height: 15rem;
 }
+
+
 
 
 </style>
