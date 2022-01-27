@@ -98,8 +98,8 @@
   <div v-for="(item, index) in paginated('resultado')" :key="index" class="d-flex justify-content-center mb-2">
       
     <router-link exact-active-class="active" :to="`/busqueda/${id}/plan/${item.documentName}`" aria-current="page">
-        <div class="card text-white">
-            <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img " alt="">
+        <div class="card text-white busqueda-card">
+            <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img" alt="">
             <div class="card-img-overlay">
                 <h5 class="card-title float-end">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
@@ -129,6 +129,30 @@
 
 <script>
 import $ from 'jquery';
+<<<<<<< HEAD
+=======
+
+$(document).ready(function(){
+   $('.busqueda-card').hover(
+       function(){
+           $(this).stop().animate(
+                {width: "25rem", height:"20rem"}
+                );
+            $(this).children('.card-img').stop().animate(
+                {width:"25rem", height:"20rem"}
+                );
+        },        
+        function(){
+            $(this).stop().animate(
+                {width: "20rem", height:"15rem"}
+                );
+            $(this).children('.card-img').stop().animate(
+                {width:"20rem", height:"15rem"}
+                );
+        }
+   );
+});
+>>>>>>> Ekaitz
 export default {
     data (){
         return {
@@ -144,6 +168,7 @@ export default {
         this.planes=JSON.parse(localStorage.getItem("planes"));
         const url= window.location.href;
         this.id =url.substring(url.lastIndexOf('/') + 1);
+<<<<<<< HEAD
         this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(this.id.toLowerCase()));
         this.checkbox();
     },
@@ -211,6 +236,12 @@ export default {
     }
 }
 
+=======
+       this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase())));
+       
+    }
+};
+>>>>>>> Ekaitz
 
 </script>
 
