@@ -8674,13 +8674,316 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['requestBusqueda'],
+  mounted: function mounted() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).ready(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#busquedaIndex").submit(function (e) {
+        e.preventDefault();
+        buscar();
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#button-addon1').on("click", function () {
+        buscar();
+      });
+    });
+
+    function buscar() {
+      var textoBuscar = document.getElementById('search-input').value;
+
+      if (textoBuscar == "") {
+        alert('El campo de busqueda no puede estar vacio');
+      } else {
+        window.location.replace("/busqueda/" + textoBuscar);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\resources\\js\\components\\BusquedaComp.vue: Unexpected token (132:0)\n\n\u001b[0m \u001b[90m 130 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 131 |\u001b[39m \u001b[36mimport\u001b[39m $ \u001b[36mfrom\u001b[39m \u001b[32m'jquery'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 132 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 133 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 134 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 135 |\u001b[39m $(document)\u001b[33m.\u001b[39mready(\u001b[36mfunction\u001b[39m(){\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:506:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:499:17)\n    at Parser.raise (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:460:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:3699:16)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:12461:22)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11999:23)\n    at Parser.parseUpdate (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11979:21)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11954:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11751:61)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11758:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11728:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11688:21)\n    at Parser.parseExpressionBase (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11624:23)\n    at C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11618:39\n    at Parser.allowInAnd (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:13646:16)\n    at Parser.parseExpression (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11618:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.busqueda-card').hover(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+      width: "25rem",
+      height: "20rem"
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+      width: "25rem",
+      height: "20rem"
+    });
+  }, function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+      width: "20rem",
+      height: "15rem"
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+      width: "20rem",
+      height: "15rem"
+    });
+  });
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      planes: null,
+      resultado: [],
+      filtro: null,
+      id: null,
+      paginate: ['resultado'],
+      cantidadTotal: 0
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.planes = JSON.parse(localStorage.getItem("planes"));
+    var url = window.location.href;
+    this.id = url.substring(url.lastIndexOf('/') + 1);
+    this.resultado = this.planes.filter(function (plan) {
+      return plan.documentName.toLowerCase().includes(decodeURI(_this.id.toLowerCase()));
+    });
+    this.checkbox();
+  },
+  methods: {
+    filtrar: function filtrar(filtro) {
+      if (filtro.length != 0) {
+        for (var a = 0; a < filtro.length; a++) {
+          if (filtro[a] !== 0) {
+            for (var b = 0; b < filtro[a].length; b++) {
+              if (a == 0) {
+                this.resultado = this.planes.filter(function (plan) {
+                  return plan.territory.includes(filtro[0][b]);
+                });
+              } else {
+                this.resultado = this.planes.filter(function (plan) {
+                  return plan[filtro[1][b]].includes(1);
+                });
+              }
+            }
+          } else {
+            this.resultado = this.planes;
+          }
+        }
+      } else {
+        this.resultado = this.planes;
+      }
+    },
+    checkbox: function checkbox() {
+      var s = this;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+        var filtro = [[], []];
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("input:checkbox").on("change", function () {
+          if (this.checked) {
+            if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Araba" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Gipuzkoa" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Bizkaia") {
+              filtro[0].push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
+              var separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
+              filtro[1].push(separado[0]);
+              filtro[1].push(separado[1]);
+            } else {
+              filtro[1].push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            }
+
+            s.filtrar(filtro);
+          } else {
+            for (var i = 0; i < filtro.length; i++) {
+              for (var j = 0; j < filtro[i].length; j++) {
+                if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
+                  var _separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
+
+                  if (filtro[i][j] == _separado[0] || filtro[i][j] == _separado[1]) {
+                    filtro[i].splice([j + 1], 1);
+                    filtro[i].splice([j], 1);
+                  }
+                }
+
+                if (filtro[i][j] == jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val()) {
+                  filtro[i].splice([j], 1);
+                }
+              }
+            }
+
+            s.filtrar(filtro);
+          }
+        });
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -9607,7 +9910,7 @@ vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('planescerca', (__webpack_
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('planesfav', (__webpack_require__(/*! ./components/planesFavUsuario.vue */ "./resources/js/components/planesFavUsuario.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('gestioncomentariosuser', (__webpack_require__(/*! ./components/gestionComentariosUsuario.vue */ "./resources/js/components/gestionComentariosUsuario.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('busqueda-comp', (__webpack_require__(/*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('barra-busqueda', Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/BarraBusquedaComp.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('barra-busqueda', (__webpack_require__(/*! ./components/BarraBusquedaComp.vue */ "./resources/js/components/BarraBusquedaComp.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_4__["default"], axios);
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].use((vue_paginate__WEBPACK_IMPORTED_MODULE_6___default()));
@@ -44916,6 +45219,45 @@ function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof S
 
 /***/ }),
 
+/***/ "./resources/js/components/BarraBusquedaComp.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/BarraBusquedaComp.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BarraBusquedaComp.vue?vue&type=template&id=43de4618& */ "./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&");
+/* harmony import */ var _BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BarraBusquedaComp.vue?vue&type=script&lang=js& */ "./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/BarraBusquedaComp.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/BusquedaComp.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/BusquedaComp.vue ***!
@@ -45432,6 +45774,22 @@ component.options.__file = "resources/js/components/planesUsuario.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BarraBusquedaComp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js& ***!
@@ -45812,6 +46170,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarraBusquedaComp_vue_vue_type_template_id_43de4618___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BarraBusquedaComp.vue?vue&type=template&id=43de4618& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/BusquedaComp.vue?vue&type=template&id=517fb218&scoped=true&":
 /*!*********************************************************************************************!*\
   !*** ./resources/js/components/BusquedaComp.vue?vue&type=template&id=517fb218&scoped=true& ***!
@@ -46012,6 +46387,84 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_planesUsuario_vue_vue_type_template_id_93a6ac48_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_planesUsuario_vue_vue_type_template_id_93a6ac48_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./planesUsuario.vue?vue&type=template&id=93a6ac48&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/planesUsuario.vue?vue&type=template&id=93a6ac48&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BarraBusquedaComp.vue?vue&type=template&id=43de4618& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      staticClass: "d-flex justify-content-center",
+      attrs: { id: "busquedaIndex" },
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "p-1 bg-light rounded rounded-pill shadow-sm mb-4",
+          attrs: { id: "barraBusquedaIndex" },
+        },
+        [
+          _c("div", { staticClass: "input-group" }, [
+            _c(
+              "input",
+              _vm._b(
+                {
+                  staticClass: "form-control border-0 bg-light",
+                  attrs: {
+                    type: "search",
+                    "aria-describedby": "button-addon1",
+                    id: "search-input",
+                  },
+                },
+                "input",
+                this.requestBusqueda,
+                false
+              )
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+          ]),
+        ]
+      ),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-append" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-link",
+          attrs: { type: "button", id: "button-addon1" },
+        },
+        [_c("i", { staticClass: "fa fa-search" })]
+      ),
+    ])
+  },
+]
+render._withStripped = true
+
 
 
 /***/ }),
