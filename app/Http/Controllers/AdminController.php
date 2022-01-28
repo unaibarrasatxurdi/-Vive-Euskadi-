@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use App\Models\Comentarios;
 class AdminController extends Controller
 {
     /**
@@ -13,8 +14,23 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('layouts.admin');
     }
+
+    public function adminComent()
+    {
+        /* $comentarios = Comentarios::all();
+        return view('admin.comenAd')->with('comentarios', $comentarios); */
+        return view('admin.comenAd');
+    }
+
+    public function adminUsuario()
+    {
+        $users = User::all();
+        return view('admin.usuAd')->with('users', $users);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -79,6 +95,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users = User::find($id)->delete();
+
+        return redirect()->route('admin.usuAd');
     }
 }

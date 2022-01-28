@@ -15,7 +15,7 @@
             {{-- Cabecera --}}
             @if (Route::has('login') && Route::has('register'))
             @auth
-            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-route="{{url('user')}}" user-name="<?php echo Auth::user()->name;?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin?>" admin-route="{{url('admin')}}"></cabecera>
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-route="{{url('user')}}" user-name="<?php echo Auth::user()->name;?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin?>" admin-route="{{url('admin/gestion-usuarios')}}"></cabecera>
             @else
             <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-login="{{ route('login') }}" user-register="{{ route('register') }}"></cabecera>
             @endauth
@@ -31,19 +31,7 @@
             {{-- Contenido del index --}}
             <section class="row bg-image pt-5 pb-5" id="contenidoPrincipalIndex">
                 {{-- Barra de búsqueda --}}
-                <form action="" class="d-flex justify-content-center" id="busquedaIndex">
-                    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4" id="barraBusquedaIndex">
-                        <div class="input-group">
-                        <input type="search" aria-describedby="button-addon1" class="form-control border-0 bg-light">
-                        <div class="input-group-append">
-                            <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                        </div>
-                        </div>
-                    </div>
-                    <div id="busquedaAvanzadaIndex">
-                        
-                    </div>
-                </form>
+                <barra-busqueda request-busqueda="{{ request()->get('textoBusqueda') }}"></barra-busqueda>
                 {{-- Complemento --}}
                 <index-comp></index-comp>
             </section>
