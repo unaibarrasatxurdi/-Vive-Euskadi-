@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Facades\App\Repository\Posts;
+use Illuminate\Support\Facades\DB;
 class PlanesController extends Controller
 {
     /**
@@ -27,6 +28,17 @@ class PlanesController extends Controller
     {
         return view('busqueda')->with('id', $id);
     }
+
+    public function insertarFavoritos( $id, $documentname)
+    {
+        return $this->DB::insert('insert into favoritos (id, name) values (?, ?)', [$id, $documentname]);
+    }
+
+    public function borrarFavoritos($id, $documentname)
+    {
+        return $this->DB::delete('delete from favoritos where id = ? and DocumentName = ?',[$id,$documentname]);
+    }
+
     public function edit($plan)
     {
         
