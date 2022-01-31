@@ -141,99 +141,66 @@ export default {
 
     methods: {
         filtrar: function(filtroTerritorio, filtroResto) {
-            // if(filtro[0].length != 0 || filtro[1].length != 0) {
-            //     for(var a = 0; a < filtro.length; a++) {
-            //         if(filtro[a] != 0) {
-            //             for(var b = 0; b < filtro[a].length; b++) {
-            //                 if(a == 0) {
-            //                     this.resultado = this.planes.filter(plan => plan.territory.includes(filtro[0][b]));
-            //                 } else {
-            //                     this.resultado = this.planes.filter(plan => plan.territory.includes(filtro[0]) && plan[filtro[1][b]].includes(1));
-            //                     console.log(this.resultado = this.planes.filter(plan => plan[filtro[1][b]].includes(1)));
-            //                 }
-            //             }
-            //         } else {
-            //             // this.resultado = this.planes
-            //         }
-            //     }
-            // } else {
-            //     this.resultado = this.planes
-            //     console.log(filtro);
-            // }
             var filtrarTerritorio = [];
-            var filtrarResto = [];
+            var territorioFiltrado = [];
             
-            if(filtroTerritorio.length != 0) {
-                filtrarTerritorio = new Set(filtroTerritorio);
-                if (filtrarResto.length != 0) {
-                    filtrarResto = new Set(filtroResto);
-                    this.resultado = this.planes.filter(plan => filtrarTerritorio.has(plan.territory) && filtrarResto(plan));
-                } else {
-                    this.resultado = this.planes.filter(plan => filtrarTerritorio.has(plan.territory));
-                }
-            } else {
-                if (filtrarResto.length != 0) {
-                    this.resultado = this.planes.filter(plan => plan[filtrarResto[1].includes(1)]);
-                    // Probar a añadir "= 1" a cada opción y ale, a pelo
-                }
-            }
             if (filtroTerritorio.length === 0 && filtroResto.length === 0) {
                 this.resultado = this.planes;
+            } else {
+                if(filtroTerritorio.length !== 0) {
+                    filtrarTerritorio = new Set(filtroTerritorio);
+                    territorioFiltrado = this.planes.filter(plan => filtrarTerritorio.has(plan.territory));
+                    this.resultado = territorioFiltrado;
+                    if (filtroResto.length !== 0) {
+                        for (let a = 0; a < filtroResto.length; a++) {
+                            this.resultado = territorioFiltrado.filter(plan => plan[filtroResto[a]].includes(1));
+                        }
+                    }
+                } else {
+                    for (let a = 0; a < filtroResto.length; a++) {
+                        this.resultado = this.resultado.filter(plan => plan[filtroResto[a]].includes(1));
+                    }
+                }
             }
         },
         checkbox: function() {
             var s = this;
             $(document).ready(function() {
-                // var filtro = [[],[]];
                 var filtroTerritorio = [];
                 var filtroResto = [];
                 $("input:checkbox").on("change", function() {
                     if(this.checked) {
                         if($(this).val() == "Araba" || $(this).val() == "Gipuzkoa" || $(this).val() == "Bizkaia"){
-                            // filtro[0].push($(this).val());
                             filtroTerritorio.push($(this).val());
                         } else if($(this).val().includes("-")) {
                             let separado = $(this).val().split("-");
-                            // filtro[1].push(separado[0]);
-                            // filtro[1].push(separado[1]);
                             filtroResto.push(separado[0]);
                             filtroResto.push(separado[1]);
                         } else {
-                            // filtro[1].push($(this).val());
                             filtroResto.push($(this).val());
                         }
                         s.filtrar(filtroTerritorio, filtroResto);
                     } else {
-                        // for(var i = 0; i < filtro.length; i++) {
-                        //     for(var j = 0; j < filtro[i].length; j++) {
-                        //         if($(this).val().includes("-")) {
-                        //             let separado = $(this).val().split("-");
-                        //             if(filtro[i][j] == separado[0]||filtro[i][j] == separado[1]) {
-                        //                 filtro[i].splice([j + 1], 1);
-                        //                 filtro[i].splice([j], 1);
-                        //             }
-                        //         }
-                        //         if(filtro[i][j] == $(this).val()) {
-                        //             filtro[i].splice([j], 1);
-                        //         }
-                        //     }
-                        // }
-                        // s.filtrar(filtro);
 
                         for (var i = 0; i < filtroTerritorio.length; i++) {
-                            if(filtroTerritorio == $(this).val()) {
+                            if(filtroTerritorio[i] === $(this).val()) {
                                 filtroTerritorio.splice([i], 1);
+                                console.log("funciona");
                             }
                         }
                         for (var j = 0; j < filtroResto.length; j++) {
                             if($(this).val().includes("-")) {
                                 let separado = $(this).val().split("-");
-                                if(filtroResto[j] == separado[0] || filtroResto[j] == separado[1]) {
-                                    filtro.splice([j + 1], 1);
-                                    filtro.splice([j], 1);
+                                if(filtroResto[j] === separado[0] || filtroResto[j] === separado[1]) {
+                                    filtroResto.splice([j + 1], 1);
+                                    filtroResto.splice([j], 1);
                                 }
                             }
+                            if(filtroResto[j] === $(this).val()) {
+                                filtroResto.splice([j], 1);
+                            }
                         }
+                        s.filtrar(filtroTerritorio, filtroResto);
                     } 
                 });
                 
