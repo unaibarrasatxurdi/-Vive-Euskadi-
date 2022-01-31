@@ -12,19 +12,19 @@
     <tr>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAlava">
+                <input class="form-check-input" type="checkbox" value="Araba" id="checkAlava">
                 <label class="form-check-label" for="checkAlava">
                     Álava
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGipuzcoa">
+                <input class="form-check-input" type="checkbox" value="Gipuzkoa" id="checkGipuzcoa">
                 <label class="form-check-label" for="checkGipuzcoa">
-                    Gipuzcoa
+                    Guipúzcoa
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkVizcaya">
+                <input class="form-check-input" type="checkbox" value="Bizkaia" id="checkVizcaya">
                 <label class="form-check-label" for="checkVizcaya">
                     Vizcaya
                 </label>
@@ -32,19 +32,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkPareja">
+                <input class="form-check-input" type="checkbox" value="couple" id="checkPareja">
                 <label class="form-check-label" for="checkPareja">
                     Planes en pareja
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGrupo">
+                <input class="form-check-input" type="checkbox" value="friends" id="checkGrupo">
                 <label class="form-check-label" for="checkGrupo">
                     Planes en grupo
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkNiños">
+                <input class="form-check-input" type="checkbox" value="children" id="checkNiños">
                 <label class="form-check-label" for="checkNiños">
                     Planes con niños
                 </label>
@@ -52,19 +52,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkCultura">
+                <input class="form-check-input" type="checkbox" value="culture" id="checkCultura">
                 <label class="form-check-label" for="checkCultura">
                     Cultura
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkDeporte">
+                <input class="form-check-input" type="checkbox" value="water" id="checkDeporte">
                 <label class="form-check-label" for="checkDeporte">
-                    Deporte
+                    Agua
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkGastronomia">
+                <input class="form-check-input" type="checkbox" value="cuisine" id="checkGastronomia">
                 <label class="form-check-label" for="checkGastronomia">
                     Gastronomía
                 </label>
@@ -72,19 +72,19 @@
       </td>
       <td scope="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAventura">
+                <input class="form-check-input" type="checkbox" value="landscape" id="checkAventura">
                 <label class="form-check-label" for="checkAventura">
-                    Aventura
+                    Naturaleza y paisajes
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkPequeAventura">
+                <input class="form-check-input" type="checkbox" value="children-landscape" id="checkPequeAventura">
                 <label class="form-check-label" for="checkPequeAventura">
                     Peque-Aventura
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkUrbanos">
+                <input class="form-check-input" type="checkbox" value="culture-cuisine" id="checkUrbanos">
                 <label class="form-check-label" for="checkUrbanos">
                     Planes urbanos
                 </label>
@@ -98,8 +98,8 @@
   <div v-for="(item, index) in paginated('resultado')" :key="index" class="d-flex justify-content-center mb-2">
       
     <router-link exact-active-class="active" :to="`/busqueda/${id}/plan/${item.documentName}`" aria-current="page">
-        <div class="card text-white">
-            <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img " alt="">
+        <div class="card text-white busqueda-card">
+            <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img" alt="">
             <div class="card-img-overlay">
                 <h5 class="card-title float-end">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
@@ -128,13 +128,34 @@
 </template>
 
 <script>
-
+$(document).ready(function(){
+   $('.busqueda-card').hover(
+       function(){
+           $(this).stop().animate(
+                {width: "25rem", height:"20rem"}
+                );
+            $(this).children('.card-img').stop().animate(
+                {width:"25rem", height:"20rem"}
+                );
+        },        
+        function(){
+            $(this).stop().animate(
+                {width: "20rem", height:"15rem"}
+                );
+            $(this).children('.card-img').stop().animate(
+                {width:"20rem", height:"15rem"}
+                );
+        }
+   );
+});
+import $ from 'jquery';
 export default {
     data (){
         return {
           planes: null ,
           resultado: [],
-          id:null,
+          filtro: null,
+          id: null,
           paginate: ['resultado'],
           cantidadTotal: 0
         } 
@@ -143,9 +164,74 @@ export default {
         this.planes=JSON.parse(localStorage.getItem("planes"));
         const url= window.location.href;
         this.id =url.substring(url.lastIndexOf('/') + 1);
-       this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase())));
+        this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase())));
+        this.checkbox();
+    },
+
+    methods: {
+        filtrar: function(filtro) {
+            if(filtro.length!=0){
+                for(var a=0;a<filtro.length;a++){
+                    if(filtro[a]!==0){
+                        for(var b=0;b<filtro[a].length;b++){
+                            if(a==0){
+                                this.resultado=this.planes.filter(plan => plan.territory.includes(filtro[0][b]));
+                            } else {
+                                this.resultado=this.planes.filter(plan => plan[filtro[1][b]].includes(1));
+                            }
+                        }
+                    } else {
+                        this.resultado=this.planes 
+                    }
+                    
+                } 
+            } else {
+                this.resultado=this.planes  
+            }
+        },
+        checkbox: function(){
+            var s=this;
+            $(document).ready(function() {
+                var filtro=[[],[]];
+                $("input:checkbox").on("change", function() {
+                    if(this.checked) {
+                        if($(this).val()=="Araba"||$(this).val()=="Gipuzkoa"||$(this).val()=="Bizkaia"){
+                            filtro[0].push($(this).val());
+                        } else if($(this).val().includes("-")){
+                            let separado=$(this).val().split("-");
+                            filtro[1].push(separado[0]);
+                            filtro[1].push(separado[1]);
+                        } else {
+                            filtro[1].push($(this).val());
+                            }
+                        s.filtrar(filtro);
+                    } else {
+                        for(var i=0;i<filtro.length;i++){
+                            for(var j=0;j<filtro[i].length;j++){
+                                if($(this).val().includes("-")){
+                                    let separado=$(this).val().split("-");
+                                    if(filtro[i][j]==separado[0]||filtro[i][j]==separado[1]){
+                                        filtro[i].splice([j+1],1);
+                                        filtro[i].splice([j],1);
+                                        
+                                    }
+                                }
+                                if(filtro[i][j]==$(this).val()){
+                                    filtro[i].splice([j],1);
+                                }
+                            }
+                        }
+                        s.filtrar(filtro);
+                    } 
+                });
+                
+            });
+        },
+        
     }
 }
+
+
 </script>
 
 
