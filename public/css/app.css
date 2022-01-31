@@ -57,9 +57,8 @@ body {
 .col-sm-8{
   margin: 0;
   padding: 0;
-  /*margin-left: -5em;
-  margin-bottom: -10em;*/
-  display: none;
+  visibility: collapse;
+  /*display: none;*/
 }
 .col-sm-4{
   margin: 0;
@@ -1294,6 +1293,7 @@ select {
     display: flex;
     align-items: flex-start;
     overflow: hidden;
+    visibility: visible;
   }
   .col-sm-8 img{
     min-height: 768px;

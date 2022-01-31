@@ -16,8 +16,8 @@ class CreateAgrupaTable extends Migration
         Schema::create('Agrupa', function (Blueprint $table) {
             $table->integer('IdPlanificacion')->unsigned();
             $table->string('DocumentName');
-            $table->foreign('DocumentName')->references('DocumentName')->on('Planes')->onUpdate('cascade');
             $table->foreign('IdPlanificacion')->references('IdPlanificacion')->on('Planificacion')->onUpdate('cascade');
+            $table->foreign('DocumentName')->references('DocumentName')->on('Planes')->onUpdate('cascade');
             $table->primary(['IdPlanificacion', 'DocumentName']);
         });
     }
