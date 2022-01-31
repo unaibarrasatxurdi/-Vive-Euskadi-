@@ -144,9 +144,11 @@ export default {
             var filtrarTerritorio = [];
             var territorioFiltrado = [];
             
+            // En caso de estar vacío muestra todos
             if (filtroTerritorio.length === 0 && filtroResto.length === 0) {
                 this.resultado = this.planes;
             } else {
+                // Filtra los planes por territorio y el resto de filtros se aplican a esos planes ya filtrados
                 if(filtroTerritorio.length !== 0) {
                     filtrarTerritorio = new Set(filtroTerritorio);
                     territorioFiltrado = this.planes.filter(plan => filtrarTerritorio.has(plan.territory));
@@ -156,6 +158,7 @@ export default {
                             this.resultado = territorioFiltrado.filter(plan => plan[filtroResto[a]].includes(1));
                         }
                     }
+                    // En caso de no haber filtro por territorio, el resto se aplican a todos los planes
                 } else {
                     for (let a = 0; a < filtroResto.length; a++) {
                         this.resultado = this.resultado.filter(plan => plan[filtroResto[a]].includes(1));
@@ -168,11 +171,13 @@ export default {
             $(document).ready(function() {
                 var filtroTerritorio = [];
                 var filtroResto = [];
+                // Añadir filtro
                 $("input:checkbox").on("change", function() {
                     if(this.checked) {
+                        // Territorios
                         if($(this).val() == "Araba" || $(this).val() == "Gipuzkoa" || $(this).val() == "Bizkaia"){
                             filtroTerritorio.push($(this).val());
-                        } else if($(this).val().includes("-")) {
+                        } else if($(this).val().includes("-")) {    // Resto
                             let separado = $(this).val().split("-");
                             filtroResto.push(separado[0]);
                             filtroResto.push(separado[1]);
@@ -180,14 +185,15 @@ export default {
                             filtroResto.push($(this).val());
                         }
                         s.filtrar(filtroTerritorio, filtroResto);
-                    } else {
-
+                    } else {    // Quitar filtro
+                        // Territorios
                         for (var i = 0; i < filtroTerritorio.length; i++) {
                             if(filtroTerritorio[i] === $(this).val()) {
                                 filtroTerritorio.splice([i], 1);
                                 console.log("funciona");
                             }
                         }
+                        // Resto
                         for (var j = 0; j < filtroResto.length; j++) {
                             if($(this).val().includes("-")) {
                                 let separado = $(this).val().split("-");

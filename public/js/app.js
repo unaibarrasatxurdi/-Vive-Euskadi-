@@ -8893,11 +8893,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var filtrarTerritorio = [];
-      var territorioFiltrado = [];
+      var territorioFiltrado = []; // En caso de estar vacío muestra todos
 
       if (filtroTerritorio.length === 0 && filtroResto.length === 0) {
         this.resultado = this.planes;
       } else {
+        // Filtra los planes por territorio y el resto de filtros se aplican a esos planes ya filtrados
         if (filtroTerritorio.length !== 0) {
           filtrarTerritorio = new Set(filtroTerritorio);
           territorioFiltrado = this.planes.filter(function (plan) {
@@ -8915,7 +8916,8 @@ __webpack_require__.r(__webpack_exports__);
             for (var a = 0; a < filtroResto.length; a++) {
               _loop(a);
             }
-          }
+          } // En caso de no haber filtro por territorio, el resto se aplican a todos los planes
+
         } else {
           var _loop2 = function _loop2(_a) {
             _this2.resultado = _this2.resultado.filter(function (plan) {
@@ -8933,12 +8935,15 @@ __webpack_require__.r(__webpack_exports__);
       var s = this;
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         var filtroTerritorio = [];
-        var filtroResto = [];
+        var filtroResto = []; // Añadir filtro
+
         jquery__WEBPACK_IMPORTED_MODULE_0___default()("input:checkbox").on("change", function () {
           if (this.checked) {
+            // Territorios
             if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Araba" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Gipuzkoa" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Bizkaia") {
               filtroTerritorio.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
             } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
+              // Resto
               var separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
               filtroResto.push(separado[0]);
               filtroResto.push(separado[1]);
@@ -8948,12 +8953,15 @@ __webpack_require__.r(__webpack_exports__);
 
             s.filtrar(filtroTerritorio, filtroResto);
           } else {
+            // Quitar filtro
+            // Territorios
             for (var i = 0; i < filtroTerritorio.length; i++) {
               if (filtroTerritorio[i] === jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val()) {
                 filtroTerritorio.splice([i], 1);
                 console.log("funciona");
               }
-            }
+            } // Resto
+
 
             for (var j = 0; j < filtroResto.length; j++) {
               if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
