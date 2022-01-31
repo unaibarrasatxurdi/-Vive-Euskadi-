@@ -28,8 +28,13 @@
             {{-- Contenido del index --}}
             <section class="row bg-image pt-5" id="contenidoPrincipalIndex">
                 {{-- Barra de búsqueda --}}
-                <barra-busqueda request-busqueda="{{ request()->get('textoBusqueda') }}"></barra-busqueda>
-                
+                @if (Route::has('login') && Route::has('register'))
+                @auth
+                <barra-busqueda request-busqueda="{{ request()->get('textoBusqueda') }}" user-name="<?php echo Auth::user()->name;?>"></barra-busqueda>
+                @else
+                <barra-busqueda request-busqueda="{{ request()->get('textoBusqueda') }}" ></barra-busqueda>
+                @endauth
+                @endif
                 {{-- Complemento --}}
                 <router-view/>
 

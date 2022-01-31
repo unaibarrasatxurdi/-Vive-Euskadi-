@@ -101,9 +101,9 @@
         <div class="card text-white busqueda-card">
             <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img" alt="">
             <div class="card-img-overlay">
-                <h5 class="card-title float-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart" :id="item.documentName"  viewBox="0 0 16 16">
-                        <path onclick="" d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                <h5 class="card-title float-end"  v-bind:id="item.documentName" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart"   viewBox="0 0 16 16">
+                        <path  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                     </svg>
                 </h5>
                 <p  class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5" >{{item.documentName}}</p>
@@ -149,6 +149,44 @@ $(document).ready(function(){
                 );
         }
    );
+   console.log('hey');
+   $('h5').children('svg').click(function(e){
+       e.stopPropagation();
+       if($(this).hasClass('bi-heart')){
+            $(this).removeClass('bi-heart');
+            $(this).addClass("bi-heart-fill");
+            $(this).children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+            $(this).children('path').attr('fill-rule','evenodd');
+            $(this).css('fill', 'red');
+            
+      }else if($(this).hasClass('bi-heart-fill')){
+            $(this).removeClass('bi-heart-fill');
+            $(this).addClass("bi-heart");
+            $(this).children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+            $(this).children('path').removeAttr('fill-rule');
+            $(this).css('fill', 'white');
+       }
+        return false;
+      
+   });
+   function addFavoritos(documentName, userid) {
+            var user_id = userid;
+            var documentName = documentName;
+
+            $.ajax({
+                type: 'post',
+                url: 'busqueda/insertarFavoritos',
+                data: {
+                    'user_id': user_id,
+                    'DocumentName': documentName,
+                },
+                success: function () {
+                    $('#' + documentName).css({
+                        'color': '#ad1707'
+                    });
+                }
+            });
+        }
 });
 
 export default {
@@ -162,6 +200,9 @@ export default {
           cantidadTotal: 0
         } 
     },
+    props:[
+        "userName"
+    ],
     mounted (){
         this.planes=JSON.parse(localStorage.getItem("planes"));
         const url= window.location.href;
@@ -232,24 +273,7 @@ export default {
                 
             });
         },
-        addFavoritos: function(documentName, userid) {
-            var user_id = userid;
-            var documentName = documentName;
-
-            $.ajax({
-                type: 'post',
-                url: 'busqueda/insertarFavoritos',
-                data: {
-                    'user_id': user_id,
-                    'DocumentName': documentName,
-                },
-                success: function () {
-                    $('#' + documentName).css({
-                        'color': '#ad1707'
-                    });
-                }
-            });
-        }
+        
         
     }
 }
