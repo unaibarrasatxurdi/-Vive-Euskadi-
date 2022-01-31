@@ -8895,44 +8895,47 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       height: "15rem"
     });
   });
-  console.log('hey');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('h5').children('svg').click(function (e) {
     e.stopPropagation();
+    console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
 
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart')) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart');
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart-fill");
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('fill-rule', 'evenodd');
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'red');
-    } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart-fill')) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart-fill');
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart");
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').removeAttr('fill-rule');
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'white');
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
+      var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
+      var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr('id');
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart')) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart-fill");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('fill-rule', 'evenodd');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'red');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+          type: 'get',
+          url: '/busqueda/insertarFavoritos/' + user_id + '/' + documentName,
+          data: {},
+          error: function error(ts) {
+            console.log(ts.responseText);
+          }
+        });
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart-fill')) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart-fill');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').removeAttr('fill-rule');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'white');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+          type: 'get',
+          url: '/busqueda/borrarFavoritos/' + user_id + '/' + documentName,
+          data: {},
+          error: function error(ts) {
+            console.log(ts.responseText);
+          }
+        });
+      }
     }
 
     return false;
   });
-
-  function addFavoritos(documentName, userid) {
-    var user_id = userid;
-    var documentName = documentName;
-    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-      type: 'post',
-      url: 'busqueda/insertarFavoritos',
-      data: {
-        'user_id': user_id,
-        'DocumentName': documentName
-      },
-      success: function success() {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#' + documentName).css({
-          'color': '#ad1707'
-        });
-      }
-    });
-  }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -8945,7 +8948,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       cantidadTotal: 0
     };
   },
-  props: ["userName"],
+  props: ['userId'],
   mounted: function mounted() {
     var _this = this;
 
@@ -8956,7 +8959,6 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       return plan.documentName.toLowerCase().includes(decodeURI(_this.id.toLowerCase()));
     });
     this.checkbox();
-    this.addFavoritos();
   },
   methods: {
     filtrar: function filtrar(filtro) {
@@ -46046,77 +46048,62 @@ var render = function () {
       "div",
       {
         staticClass:
-          "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center",
+          "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center divUserId",
+        attrs: { id: this.userId },
       },
       _vm._l(_vm.paginated("resultado"), function (item, index) {
         return _c(
           "div",
           { key: index, staticClass: "d-flex justify-content-center mb-2" },
           [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  "exact-active-class": "active",
-                  to: "/busqueda/" + _vm.id + "/plan/" + item.documentName,
-                  "aria-current": "page",
-                },
-              },
-              [
-                _c("div", { staticClass: "card text-white busqueda-card" }, [
-                  _c("img", {
-                    staticClass: "card-img",
-                    attrs: {
-                      src: "/images/Imagenes/alavaDescubre.jpg",
-                      alt: "",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-img-overlay" }, [
+            _c("div", { staticClass: "card text-white busqueda-card" }, [
+              _c("img", {
+                staticClass: "card-img",
+                attrs: { src: "/images/Imagenes/alavaDescubre.jpg", alt: "" },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-img-overlay" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "card-title float-end",
+                    attrs: { id: item.documentName },
+                  },
+                  [
                     _c(
-                      "h5",
+                      "svg",
                       {
-                        staticClass: "card-title float-end",
-                        attrs: { id: item.documentName },
+                        staticClass: "bi bi-heart",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "40",
+                          height: "40",
+                          fill: "currentColor",
+                          viewBox: "0 0 16 16",
+                        },
                       },
                       [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "bi bi-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "40",
-                              height: "40",
-                              fill: "currentColor",
-                              viewBox: "0 0 16 16",
-                            },
+                        _c("path", {
+                          attrs: {
+                            d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
                           },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
-                              },
-                            }),
-                          ]
-                        ),
+                        }),
                       ]
                     ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                      },
-                      [_vm._v(_vm._s(item.documentName))]
-                    ),
-                  ]),
-                ]),
-              ]
-            ),
-          ],
-          1
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                  },
+                  [_vm._v(_vm._s(item.documentName))]
+                ),
+              ]),
+            ]),
+          ]
         )
       }),
       0

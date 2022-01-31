@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use Facades\App\Repository\Posts;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
+
 class PlanesController extends Controller
 {
     /**
@@ -31,12 +31,12 @@ class PlanesController extends Controller
 
     public function insertarFavoritos( $id, $documentname)
     {
-        return $this->DB::insert('insert into favoritos (id, name) values (?, ?)', [$id, $documentname]);
+        DB::insert('insert into favoritos (id, DocumentName) values (?, ?) ON DUPLICATE KEY UPDATE DocumentName=DocumentName', [$id, $documentname]);
     }
 
     public function borrarFavoritos($id, $documentname)
     {
-        return $this->DB::delete('delete from favoritos where id = ? and DocumentName = ?',[$id,$documentname]);
+        DB::delete('delete from favoritos where id = ? and DocumentName = ?',[$id,$documentname]);
     }
 
     public function edit($plan)
