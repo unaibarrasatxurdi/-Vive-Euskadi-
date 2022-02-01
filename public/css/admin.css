@@ -33,18 +33,49 @@ body {
 }
 
 #btnMenuAdmin a {
-    background-color: transparent;
+    color: black;
     font-size: 1.4em;
-    border: transparent;
+    text-decoration: none;
+    margin-left: 3%;
 }
+
 
 #btnMenuAdmin a:hover {
     background-color: gray;
     color: black;
-    font-size: 1.4em;
-    border: transparent;
-    font-weight: 600;
 }
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+
+.table {
+    margin: 5% 20% 0 10%;
+    background-color: #e1ecf0ff;
+}
+
+
+/* #btnMenuAdmin {
+    margin: 25% 0 0 5%;
+    
+}
+
+#btnMenuAdmin a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4em;
+} */
+
+
+
+
+
+
+
+
+
 #logOut {
     border-radius: 10px;
     background-color: #ffffff;
