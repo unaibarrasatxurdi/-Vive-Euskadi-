@@ -29,8 +29,8 @@
                                     </div>
                                     <div id="datosAdmin">
                                         <img src="../../images/login1.png" id="imgAdmin">
-                                        <h3>{{-- {{ $user->name }} --}}</h3>
-                                        <h5>{{-- {{ $user->email }} --}}</h5>
+                                        <h3>{{ Auth::user()->name }}</h3>
+                                        <h5>{{Auth::user()->email }}</h5>
                                     </div>
                                 </div>
                                 <div id="btnMenuUser" class="mt-5">

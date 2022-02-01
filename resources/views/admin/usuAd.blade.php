@@ -10,7 +10,7 @@
         </div>
         
         <div class="row">
-            <div class="col-8">
+            <div class="col-4">
                 <table id="myTable" class="table">
                     <thead>
                         <tr>
@@ -43,6 +43,9 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                {!! $users->links() !!}
+
             </div>
         </div>
     </main>

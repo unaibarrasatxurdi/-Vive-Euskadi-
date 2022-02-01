@@ -27,8 +27,8 @@ class AdminController extends Controller
 
     public function adminUsuario()
     {
-        /* $users = User::paginate(10); */
-        $users = User::all();
+       
+        $users = User::paginate(3);
         return view('admin.usuAd')->with('users', $users);
     }
 
