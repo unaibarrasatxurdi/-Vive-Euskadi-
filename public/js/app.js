@@ -9288,6 +9288,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9302,6 +9324,7 @@ __webpack_require__.r(__webpack_exports__);
       ninios: false
     };
   },
+  props: ['userId'],
   mounted: function mounted() {
     this.planes = JSON.parse(localStorage.getItem("planes"));
     var url = window.location.href;
@@ -9310,6 +9333,7 @@ __webpack_require__.r(__webpack_exports__);
     this.resultado = this.planes.filter(function (plan) {
       return plan.documentName.includes(nombre);
     });
+    $ajax({});
 
     if (this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1") {
       this.gastronomia = true;
@@ -9353,6 +9377,11 @@ __webpack_require__.r(__webpack_exports__);
 
     ;
     console.log(this.amigos);
+  },
+  methods: {
+    añadirComentario: function añadirComentario(e) {
+      e.preventDefault();
+    }
   }
 });
 
@@ -25932,7 +25961,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n    margin-left: 0;\n    margin-right: 0;\n    right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43]{\n    background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43], #plandatos[data-v-6db35b43]{\n    max-width: 300px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n    margin-left: 0;\n    margin-right: 0;\n    right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43]{\n    background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43], #plandatos[data-v-6db35b43]{\n    max-width: 300px;\n}\n#comentarios[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\n.comentarioPlan[data-v-6db35b43] {\n    background-color: rgb(73, 73, 73);\n    border-bottom: 1px solid whitesmoke;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46978,248 +47007,257 @@ var render = function () {
                 "div",
                 { staticClass: "row ms-3", attrs: { id: "plandatos" } },
                 [
-                  _c("div", { attrs: { id: "datosPlan" } }, [
-                    _c("h3", [_vm._v("DATOS DE INTERÉS")]),
-                    _vm._v(" "),
-                    _c("h4", [_vm._v("Para ir con:")]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _vm.amigos
-                        ? _c("div", { staticClass: "col" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "bi bi-people-fill",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "30",
-                                  height: "30",
-                                  fill: "white",
-                                  viewBox: "0 0 16 16",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+                  _c(
+                    "div",
+                    { staticClass: "p-0", attrs: { id: "datosPlan" } },
+                    [
+                      _c("h3", { staticClass: "text-white text-center" }, [
+                        _vm._v("DATOS DE INTERÉS"),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "m-2" }, [
+                        _c("h4", [_vm._v("Para ir con:")]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _vm.amigos
+                            ? _c("div", { staticClass: "col" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "bi bi-people-fill",
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "30",
+                                      height: "30",
+                                      fill: "white",
+                                      viewBox: "0 0 16 16",
+                                    },
                                   },
-                                }),
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+                                      },
+                                    }),
+                                  ]
+                                ),
                                 _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
+                                _c("p", [_vm._v("Amigos")]),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.ninios
+                            ? _c("div", { staticClass: "col" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass:
+                                      "svg-inline--fa fa-child fa-w-12",
+                                    attrs: {
+                                      "aria-hidden": "true",
+                                      width: "30",
+                                      height: "30",
+                                      fill: "white",
+                                      focusable: "false",
+                                      "data-prefix": "fas",
+                                      "data-icon": "child",
+                                      role: "img",
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      viewBox: "0 0 384 512",
+                                    },
                                   },
-                                }),
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d: "M120 72c0-39.765 32.235-72 72-72s72 32.235 72 72c0 39.764-32.235 72-72 72s-72-32.236-72-72zm254.627 1.373c-12.496-12.497-32.758-12.497-45.254 0L242.745 160H141.254L54.627 73.373c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255L104 213.254V480c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V368h16v112c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V213.254l94.627-94.627c12.497-12.497 12.497-32.757 0-45.254z",
+                                      },
+                                    }),
+                                  ]
+                                ),
                                 _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+                                _c("p", [_vm._v("Niños")]),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.pareja
+                            ? _c("div", { staticClass: "col" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "bi bi-heart-fill",
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "30",
+                                      height: "30",
+                                      fill: "currentColor",
+                                      viewBox: "0 0 16 16",
+                                    },
                                   },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Amigos")]),
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.ninios
-                        ? _c("div", { staticClass: "col" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "svg-inline--fa fa-child fa-w-12",
-                                attrs: {
-                                  "aria-hidden": "true",
-                                  width: "30",
-                                  height: "30",
-                                  fill: "white",
-                                  focusable: "false",
-                                  "data-prefix": "fas",
-                                  "data-icon": "child",
-                                  role: "img",
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 384 512",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    fill: "currentColor",
-                                    d: "M120 72c0-39.765 32.235-72 72-72s72 32.235 72 72c0 39.764-32.235 72-72 72s-72-32.236-72-72zm254.627 1.373c-12.496-12.497-32.758-12.497-45.254 0L242.745 160H141.254L54.627 73.373c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255L104 213.254V480c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V368h16v112c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V213.254l94.627-94.627c12.497-12.497 12.497-32.757 0-45.254z",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Niños")]),
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.pareja
-                        ? _c("div", { staticClass: "col" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "bi bi-heart-fill",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "30",
-                                  height: "30",
-                                  fill: "currentColor",
-                                  viewBox: "0 0 16 16",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Pareja")]),
-                          ])
-                        : _vm._e(),
-                    ]),
-                    _vm._v(" "),
-                    _c("h4", [_vm._v("Temática:")]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _vm.cultura
-                        ? _c("div", { staticClass: "col" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "bi bi-bank2",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "30",
-                                  height: "30",
-                                  fill: "white",
-                                  viewBox: "0 0 16 16",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d: "M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Cultura")]),
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.naturaleza
-                        ? _c("div", { staticClass: "col" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "svg-inline--fa fa-mountain fa-w-20",
-                                attrs: {
-                                  "aria-hidden": "true",
-                                  width: "30",
-                                  height: "30",
-                                  fill: "white",
-                                  focusable: "false",
-                                  "data-prefix": "fas",
-                                  "data-icon": "mountain",
-                                  role: "img",
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 640 512",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    fill: "currentColor",
-                                    d: "M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Naturaleza")]),
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.gastronomia
-                        ? _c("div", { staticClass: "col" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "svg-inline--fa fa-utensils fa-w-13",
-                                attrs: {
-                                  "aria-hidden": "true",
-                                  width: "30",
-                                  height: "30",
-                                  fill: "white",
-                                  focusable: "false",
-                                  "data-prefix": "fas",
-                                  "data-icon": "utensils",
-                                  role: "img",
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 416 512",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    fill: "currentColor",
-                                    d: "M207.9 15.2c.8 4.7 16.1 94.5 16.1 128.8 0 52.3-27.8 89.6-68.9 104.6L168 486.7c.7 13.7-10.2 25.3-24 25.3H80c-13.7 0-24.7-11.5-24-25.3l12.9-238.1C27.7 233.6 0 196.2 0 144 0 109.6 15.3 19.9 16.1 15.2 19.3-5.1 61.4-5.4 64 16.3v141.2c1.3 3.4 15.1 3.2 16 0 1.4-25.3 7.9-139.2 8-141.8 3.3-20.8 44.7-20.8 47.9 0 .2 2.7 6.6 116.5 8 141.8.9 3.2 14.8 3.4 16 0V16.3c2.6-21.6 44.8-21.4 48-1.1zm119.2 285.7l-15 185.1c-1.2 14 9.9 26 23.9 26h56c13.3 0 24-10.7 24-24V24c0-13.2-10.7-24-24-24-82.5 0-221.4 178.5-64.9 300.9z",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Gastronomía")]),
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.agua
-                        ? _c("div", { staticClass: "col" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "bi bi-droplet",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "30",
-                                  height: "30",
-                                  fill: "white",
-                                  viewBox: "0 0 16 16",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d: "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z",
-                                  },
-                                }),
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
+                                      },
+                                    }),
+                                  ]
+                                ),
                                 _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d: "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z",
+                                _c("p", [_vm._v("Pareja")]),
+                              ])
+                            : _vm._e(),
+                        ]),
+                        _vm._v(" "),
+                        _c("h4", [_vm._v("Temática:")]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _vm.cultura
+                            ? _c("div", { staticClass: "col" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "bi bi-bank2",
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "30",
+                                      height: "30",
+                                      fill: "white",
+                                      viewBox: "0 0 16 16",
+                                    },
                                   },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("Agua")]),
-                          ])
-                        : _vm._e(),
-                    ]),
-                  ]),
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d: "M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("Cultura")]),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.naturaleza
+                            ? _c("div", { staticClass: "col" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass:
+                                      "svg-inline--fa fa-mountain fa-w-20",
+                                    attrs: {
+                                      "aria-hidden": "true",
+                                      width: "30",
+                                      height: "30",
+                                      fill: "white",
+                                      focusable: "false",
+                                      "data-prefix": "fas",
+                                      "data-icon": "mountain",
+                                      role: "img",
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      viewBox: "0 0 640 512",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d: "M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("Naturaleza")]),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.gastronomia
+                            ? _c("div", { staticClass: "col" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass:
+                                      "svg-inline--fa fa-utensils fa-w-13",
+                                    attrs: {
+                                      "aria-hidden": "true",
+                                      width: "30",
+                                      height: "30",
+                                      fill: "white",
+                                      focusable: "false",
+                                      "data-prefix": "fas",
+                                      "data-icon": "utensils",
+                                      role: "img",
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      viewBox: "0 0 416 512",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        fill: "currentColor",
+                                        d: "M207.9 15.2c.8 4.7 16.1 94.5 16.1 128.8 0 52.3-27.8 89.6-68.9 104.6L168 486.7c.7 13.7-10.2 25.3-24 25.3H80c-13.7 0-24.7-11.5-24-25.3l12.9-238.1C27.7 233.6 0 196.2 0 144 0 109.6 15.3 19.9 16.1 15.2 19.3-5.1 61.4-5.4 64 16.3v141.2c1.3 3.4 15.1 3.2 16 0 1.4-25.3 7.9-139.2 8-141.8 3.3-20.8 44.7-20.8 47.9 0 .2 2.7 6.6 116.5 8 141.8.9 3.2 14.8 3.4 16 0V16.3c2.6-21.6 44.8-21.4 48-1.1zm119.2 285.7l-15 185.1c-1.2 14 9.9 26 23.9 26h56c13.3 0 24-10.7 24-24V24c0-13.2-10.7-24-24-24-82.5 0-221.4 178.5-64.9 300.9z",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("Gastronomía")]),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.agua
+                            ? _c("div", { staticClass: "col" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "bi bi-droplet",
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      width: "30",
+                                      height: "30",
+                                      fill: "white",
+                                      viewBox: "0 0 16 16",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d: "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d: "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("Agua")]),
+                              ])
+                            : _vm._e(),
+                        ]),
+                      ]),
+                    ]
+                  ),
                 ]
               ),
               _vm._v(" "),
@@ -47229,6 +47267,56 @@ var render = function () {
         }),
         0
       ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
+        _c(
+          "div",
+          { staticClass: "container p-0" },
+          [
+            _c(
+              "h3",
+              {
+                staticClass: "text-white text-center",
+                attrs: { id: "dondeEsta" },
+              },
+              [_vm._v("COMENTARIOS")]
+            ),
+            _vm._v(" "),
+            _c("h4", [_vm._v("Add comment")]),
+            _vm._v(" "),
+            _c(
+              "form",
+              { staticClass: "p-2", attrs: { method: "post", action: "#" } },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    staticClass: "btn btn-warning",
+                    attrs: { type: "submit", value: "Add Comment" },
+                    on: {
+                      click: function ($event) {
+                        _vm.añadirComentario
+                      },
+                    },
+                  }),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c("hr", { staticClass: "m-4" }),
+            _vm._v(" "),
+            _c("div", { key: _vm.index, staticClass: "comentarioPlan p-2" }, [
+              _c("h4", [_vm._v("Antonio")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v("Vamos a rellenar esta mierda a ver qué tal queda."),
+              ]),
+            ]),
+          ],
+          2
+        ),
+      ]),
     ]
   )
 }
@@ -47255,6 +47343,19 @@ var staticRenderFns = [
           },
         }),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", name: "comment_body" },
+      }),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "hidden", name: "post_id", value: "" } }),
     ])
   },
 ]

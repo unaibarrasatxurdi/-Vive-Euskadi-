@@ -28,6 +28,8 @@ Route::group(['middleware' => ['auth']], function() {
     * Logout Route
     */
     Route::get('/logout', [LogoutController::class,'perform']);
+    Route::get('/busqueda/{routes/textoBusqueda}/plan/{documentName}', [ComentariosController::class, 'insertarComentario'])->name('insertarComentario');
+    Route::get('/busqueda/{routes/textoBusqueda}/plan/{documentName}', [ComentariosController::class, 'borrarComentario'])->name('borrarComentario');
  });
 Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'plan']]);
@@ -36,9 +38,5 @@ Route::resource('user', UserController::class)->only(['index', 'show']);
 Route::get('/admin/gestion-usuarios', [AdminController::class, 'adminUsuario']);
 Route::get('/admin/gestion-comentarios', [AdminController::class, 'adminComent']);
 Route::resource('admin', AdminController::class);
-
-
-
-
 
 require __DIR__.'/auth.php';
