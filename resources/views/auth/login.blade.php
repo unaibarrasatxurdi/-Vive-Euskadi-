@@ -21,7 +21,7 @@
         /*foreach ($decoded_json['documentName'] as $key => $value) {
             echo "$key: $value\n";
         }*/
-        echo 'alert("'.$nombre.'")';
+        /* echo 'alert("'.$nombre.'")'; */
         //echo 'alert("hola")';
 @endphp
 <x-guest-layout>

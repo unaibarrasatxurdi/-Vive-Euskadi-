@@ -25,7 +25,7 @@ class ComentariosFactory extends Factory
         return [
             'id' => $IdUsuarios[$aleatorio1],
             'DocumentName' => $documentNames[$aleatorio2],
-            'Texto' => Str::random(10),
+            'Texto' => $this->faker->text(10),
             'Fecha' => $this->faker->dateTime($max = 'now'),
         ];
     }
