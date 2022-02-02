@@ -95,24 +95,40 @@
                 <h4>Add comment</h4>
                 <form class="p-2" method="post" action="#">
                     <div class="form-group">
-                        <input type="text" name="comment_body" class="form-control" />
+                        <input type="text" name="comment_body" class="form-control" required />
                         <input type="hidden" name="post_id" value="" />
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-warning" value="Add Comment" @click="añadirComentario" />
+                        <input type="button" class="btn btn-warning" id="añadir" value="Añadir comentario" />
                     </div>
                 </form>
                 <hr class="m-4">
-                <div v-for="(item, index) in " :key="index" class="comentarioPlan p-2">
-                    <h4>Antonio</h4>
+                <!-- <div v-for="item, index in Comentario" :key="index" class="comentarioPlan p-2">
+                    <h4>{{ item.user }}</h4>
                     <p>Vamos a rellenar esta mierda a ver qué tal queda.</p>
-                </div>
+                    <p class="fw-light text-end">2/09/1880</p>
+                </div> -->
             </div>
         </div>
     </section>
 </template>
 
 <script>
+import $ from 'jquery';
+
+$(document).ready(function() {
+    $('#añadir').click(function(e) {
+        e.stopPropagation();
+        console.log("funciona");
+        $.ajax({
+            type: 'get',
+            url: '/comentario.add',
+            data: {},
+            error: function(ts) {console.log(ts.responseText)}
+        });
+    });
+});
+
 export default {
     data () {
         return {
@@ -137,10 +153,7 @@ export default {
         var nombre = url.substring(url.lastIndexOf('/') + 1);
         nombre = decodeURI(nombre);
         this.resultado = this.planes.filter(plan => plan.documentName.includes(nombre))
-
-        $ajax({
-            
-        });
+        this.fetchComments();
 
         if(this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1"){
             this.gastronomia = true;
@@ -167,11 +180,30 @@ export default {
     },
 
     methods: {
-        añadirComentario: function(e) {
-            e.preventDefault();
-
+        fetchComments() {
+        // const t = this;
+        // axios.get('/comentarios/get', {
+        //     params: {
+        //         DocumentName: this.resultado.documentName
+        //     }
+        // })
+        //     .then(response => {
+        //         console.log(response);
+        //     }).catch(e => {
+        //         console.log(e);
+        //     })
+        //     console.log("funciona");
+        console.log("funciona");
+            $.ajax({
+                type: 'get',
+                url: '/comentario.add',
+                data: {},
+                error: function(ts) {console.log(ts.responseText)}
+            }).done(function(respuesta) {
+                console.log(respuesta);
+            });
         }
-    }
+    },
 
 };
 </script>

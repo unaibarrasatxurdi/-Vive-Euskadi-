@@ -28,9 +28,10 @@ Route::group(['middleware' => ['auth']], function() {
     * Logout Route
     */
     Route::get('/logout', [LogoutController::class,'perform']);
-    Route::get('/busqueda/{routes/textoBusqueda}/plan/{documentName}', [ComentariosController::class, 'insertarComentario'])->name('insertarComentario');
-    Route::get('/busqueda/{routes/textoBusqueda}/plan/{documentName}', [ComentariosController::class, 'borrarComentario'])->name('borrarComentario');
+    Route::get('/comentario/get', 'ComentarioController@get')->name('comentario.get');
+    Route::post('/comentario/insertarComentario', 'ComentarioController@insertarComentario')->name('comentario.add');
  });
+ 
 Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'plan']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only('index');
