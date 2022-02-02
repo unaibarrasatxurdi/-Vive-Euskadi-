@@ -29,6 +29,9 @@ class DatabaseSeeder extends Seeder
             'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
         ]);*/
+
+        $this->call(UserSeeder::class);
+
         User::factory(10)->create();
         Planes::factory(10)->create();
         Comentarios::factory(20)->create();
@@ -36,8 +39,6 @@ class DatabaseSeeder extends Seeder
         Planificacion::factory(10)->create();
         Agrupa::factory(10)->create();
 
-        $this->call([
-            UserSeeder::class,
-        ]);
+        
     }
 }

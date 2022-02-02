@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Comentarios;
+use Illuminate\Support\Arr;
+
 class AdminController extends Controller
 {
     /**
@@ -20,15 +22,14 @@ class AdminController extends Controller
     public function adminComent()
     {
         
-        $comentarios = Comentarios::paginate(3);
+        $comentarios = Comentarios::paginate(5);
         return view('admin.comenAd')->with('comentarios', $comentarios);
-        /* return view('admin.comenAd'); */
     }
 
     public function adminUsuario()
     {
        
-        $users = User::paginate(3);
+        $users = User::paginate(8);
         return view('admin.usuAd')->with('users', $users);
     }
 
@@ -100,13 +101,13 @@ class AdminController extends Controller
         
         $comentario = Comentarios::find($IdComentario)->delete();
 
-        return redirect('/admin/gestion-comentarios')->with('success', 'Stock removed.');
+        return redirect()->route('admin.adminComent');
     }
+
     public function destroyUsuario($id)
     {
         
         $user = User::find($id)->delete();
-
-        return redirect('/admin/gestion-usuarios')->with('success', 'Stock removed.');
+        return redirect()->route('admin.adminUsuario');
     }
 }
