@@ -14,9 +14,9 @@ class CreateFavoritosTable extends Migration
     public function up()
     {
         Schema::create('Favoritos', function (Blueprint $table) {
-            $table->foreignId('id')->constrained('users')->onUpdate('cascade');
+            $table->foreignId('id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('DocumentName');
-            $table->foreign('DocumentName')->references('DocumentName')->on('Planes')->onUpdate('cascade');
+            $table->foreign('DocumentName')->references('DocumentName')->on('Planes')->onUpdate('cascade')->onDelete('cascade');
             $table->primary(['id', 'DocumentName']);
         });
     }

@@ -26,7 +26,7 @@
                             <td>{{ $user->email }}</td>
 
                             <td>
-                                <form action="{{ route('admin.destroy',$user->id) }}" method="POST">
+                                <form action="{{url('/admin/gestion-usuarios', $user->id)}}"method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-outline-dark" type="submit">

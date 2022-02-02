@@ -35,5 +35,9 @@ class DatabaseSeeder extends Seeder
         Favoritos::factory(10)->create();
         Planificacion::factory(10)->create();
         Agrupa::factory(10)->create();
+
+        $this->call([
+            UserSeeder::class,
+        ]);
     }
 }
