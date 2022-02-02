@@ -51,7 +51,8 @@ body {
 }
 
 .table {
-    margin: 5% 20% 0 10%;
+    margin: 5% 20% 0 15%;
+    width: 30%;
     background-color: #e1ecf0ff;
 }
 

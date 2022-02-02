@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-3 p-0" id="barraLateral">
                     <div class="img bg-wrap text-center"  id="contDatos">
-                        <div class="col-md-12">
+                        <div class="col-md-12 p-0">
                             <img src="../../images/adminPrueba.jpg" class="img-fluid" id="backAdmin">
                         </div>
                         <div id="datosAdmin">
