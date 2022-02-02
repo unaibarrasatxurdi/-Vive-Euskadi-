@@ -103,6 +103,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        app('App\Http\Controllers\ComentariosController')->borrarComentario($id);
+        return redirect('/user/comentariosUsuario')->with('success', 'Stock removed.');
     }
 }

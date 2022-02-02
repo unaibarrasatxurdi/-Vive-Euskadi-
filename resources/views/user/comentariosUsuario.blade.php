@@ -22,7 +22,7 @@
                         <td>{{ $comentario->IdComentario }}</td>
                         <td>{{ $comentario->Texto }}</td>
                         <td>
-                            <form action="{{ route('admin.destroy',$comentario->id) }}" method="POST">
+                            <form action="{{ route('user.destroy',$comentario->IdComentario) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-outline-dark">
