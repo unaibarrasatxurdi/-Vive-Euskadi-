@@ -163,7 +163,7 @@ export default {
         filtrar: function(filtroTerritorio, filtroResto) {
             var filtrarTerritorio = [];
             var territorioFiltrado = [];
-            
+
             // En caso de estar vacío muestra todos
             if (filtroTerritorio.length === 0 && filtroResto.length === 0) {
                 this.resultado = this.planes;
@@ -171,7 +171,7 @@ export default {
                 // Filtra los planes por territorio y el resto de filtros se aplican a esos planes ya filtrados
                 if(filtroTerritorio.length !== 0) {
                     filtrarTerritorio = new Set(filtroTerritorio);
-                    territorioFiltrado = this.planes.filter(plan => filtrarTerritorio.has(plan.territory));
+                    territorioFiltrado = this.resultado.filter(plan => filtrarTerritorio.has(plan.territory));
                     this.resultado = territorioFiltrado;
                     if (filtroResto.length !== 0) {
                         for (let a = 0; a < filtroResto.length; a++) {
