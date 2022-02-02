@@ -64,7 +64,7 @@
                             </div> 
                         </div>
                     </div>
-                    <div class="container">
+                    <div class="container w-75 m-0">
                         @yield('content')
                     </div>
                     {{-- <datosuser></datosuser>

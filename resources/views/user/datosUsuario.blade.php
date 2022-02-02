@@ -1,14 +1,14 @@
 @extends('layouts.user')
 
 @section('content')
-<main class="col ps-md-2 pt-2">
+<main class="col ps-md-2 pt-2" id="mainDatosUser">
     <div class="page-header mt-5 ms-5 ps-4 pt-1" id="titApartado">
         <h2>Bienvenido</h2>
 </div>
 
-<div class="row" id="componente">
+<div class="row" id="datosUsuario">
     <div class="col">
-        <form>
+        <form class="mt-4">
             <div class="row">
                 <div class="form-group col">
                     <input type="text" class="form-group form-control-lg w-100"  placeholder="Nombre" id="nombre" name="nombre">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="btn border border-dark">Guardar datos</button>
+                <button type="submit" id="botonForm" class="btn border border-dark">Guardar datos</button>
             </div>
         </form>
     </div>
