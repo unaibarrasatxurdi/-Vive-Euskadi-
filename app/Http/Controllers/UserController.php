@@ -13,9 +13,28 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('usuario');
+        return view('layouts.user');
     }
 
+    public function datosUsuario()
+    {
+        return view('user.datosUsuario');
+    }
+
+    public function planesUsuario()
+    {
+        return view('user.planesUsuario');
+    }
+
+    public function planesFavUsuario()
+    {
+        return view('user.planesFavUsuario');
+    }
+
+    public function comentariosUsuario()
+    {
+        return view('user.comentariosUsuario');
+    }
     /**
      * Show the form for creating a new resource.
      *

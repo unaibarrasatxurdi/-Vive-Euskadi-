@@ -19,14 +19,16 @@ class AdminController extends Controller
 
     public function adminComent()
     {
-        /* $comentarios = Comentarios::all();
-        return view('admin.comenAd')->with('comentarios', $comentarios); */
-        return view('admin.comenAd');
+        
+        $comentarios = Comentarios::paginate(3);
+        return view('admin.comenAd')->with('comentarios', $comentarios);
+        /* return view('admin.comenAd'); */
     }
 
     public function adminUsuario()
     {
-        $users = User::all();
+       
+        $users = User::paginate(3);
         return view('admin.usuAd')->with('users', $users);
     }
 
@@ -95,8 +97,12 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $users = User::find($id)->delete();
+        $user = User::find($id)->delete();
 
-        return redirect()->route('admin.usuAd');
+        return redirect()->route("admin.adminUsuario");
+        
+        $comentario = Comentarios::find($id)->delete();
+
+        return redirect()->route("admin.adminComent");
     }
 }

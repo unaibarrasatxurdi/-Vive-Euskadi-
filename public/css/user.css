@@ -1,0 +1,183 @@
+body {
+    background-image: url(../images/bodyAdmin.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#sidebar {
+    background-color: #e1ecf0ff;
+}
+#sidebar-nav {
+    width: 300px;
+}
+#imgAdmin {
+    width: 25%;
+}
+#backAdmin {
+    opacity: 0.4;
+}
+#sidebarAdmin {
+    width: 100%;
+    height: fit-content;
+    display: inline-block;
+    position: relative;
+}
+#datosAdmin {
+    position: absolute;
+    font-style: normal;
+    top: 15%;
+}
+#menuAdmin {
+    background-color: #e1ecf0ff;
+}
+
+#btnMenuUser a {
+    color: black;
+    font-size: 1.4em;
+    text-decoration: none;
+    margin-left: 5%;
+}
+
+
+#btnMenuUser a:hover {
+    background-color: gray;
+    color: black;
+}
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+
+.table {
+    margin: 5% 20% 0 10%;
+    background-color: #e1ecf0ff;
+}
+
+
+/* #btnMenuAdmin {
+    margin: 25% 0 0 5%;
+    
+}
+
+#btnMenuAdmin a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4em;
+} */
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+
+#componente{
+    background-color: #EEDDCD;
+    margin: 5% 10% 0 10%;
+}
+
+input{
+    border: solid;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+form > *{
+    margin-top: 2%;
+    text-align: center;
+}
+
+button{
+    width: 25%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+
+hr {
+    height: 5%;
+}
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+
+#componente{
+    margin: 5% 10% 0 10%;
+}
+
+.card-text{
+    background-color: rgba(0,0,0,0.5);
+    margin-bottom: 2%;
+    height: 100%;
+}
+
+
+
+
+
+#logOut {
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 150px;
+    height: 40px;
+    font-size: 1.3em;
+}
+#logOut:hover {
+   background-color: #1498C2;
+   font-weight: 700;
+}
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+
+#componente{
+    margin: 5% 10% 0 10%;
+}
+
+.card-text{
+    background-color: rgba(0,0,0,0.5);
+    margin-bottom: 2%;
+    height: 100%;
+}
+
+  @font-face {
+    font-family: PlayfairDisplay;
+    src: url('/fonts/PlayfairDisplay-Regular.ttf');
+  }
+ 
+h1{
+    font-family: Astral Sisters;
+}
+.card-header{
+    background-color: #1498C2 !important;
+}
+.card{
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    font-family: PlayfairDisplay;
+}
+.descubre-img{
+    width: 200px;
+    height: 200px;
+}
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+
+table {
+    margin: 5% 20% 0 20%;
+    background-color: #e1ecf0ff;
+}
+
+

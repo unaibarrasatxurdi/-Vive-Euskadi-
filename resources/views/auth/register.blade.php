@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Registro</title>
 </head>
 <x-guest-layout>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -25,7 +26,7 @@
 
                         <!-- Name -->
                         <div>
-                            <x-label for="name" :value="__('Name')" />
+                            <x-label for="name" :value="__('Nombre')" />
 
                             <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
                         </div>
@@ -39,7 +40,7 @@
 
                         <!-- Password -->
                         <div class="mt-4">
-                            <x-label for="password" :value="__('Password')" />
+                            <x-label for="password" :value="__('Contraseña')" />
 
                             <x-input id="password" class="block mt-1 w-full"
                                             type="password"
@@ -49,7 +50,7 @@
 
                         <!-- Confirm Password -->
                         <div class="mt-4">
-                            <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                            <x-label for="password_confirmation" :value="__('Confirmar Contraseña')" />
 
                             <x-input id="password_confirmation" class="block mt-1 w-full"
                                             type="password"
@@ -58,11 +59,11 @@
 
                         <div class="flex flex-col items-center justify-end mt-4">
                             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                                {{ __('Already registered?') }}
+                                {{ __('Ya está registrado?') }}
                             </a>
 
                             <x-button class="ml-4 mt-3">
-                                {{ __('Register') }}
+                                {{ __('Registrarme') }}
                             </x-button>
                         </div>
                     </form>

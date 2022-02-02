@@ -1,16 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-    
-
-
-    <main class="col ps-md-2 pt-2">                    
-        <div class="page-header mt-5 ms-5 ps-4 pt-1" id="titApartado">
-                <h2>Gestión de usuarios</h2>
-        </div>
-        
+    <main class="col p-0">
         <div class="row">
-            <div class="col-8">
+            <div class="col-md-12 mt-5 ms-5 ps-4 pt-1" id="titApartado">
+                <h2>Gestión de usuarios</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
                 <table id="myTable" class="table">
                     <thead>
                         <tr>
@@ -43,8 +41,12 @@
                         @endforeach
                     </tbody>
                 </table>
+                {!! $users->links() !!}
             </div>
         </div>
+
+
+      
     </main>
 
 @endsection
