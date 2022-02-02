@@ -760,9 +760,6 @@ select {
 .h-6 {
   height: 1.5rem;
 }
-.h-0 {
-  height: 0px;
-}
 .min-h-screen {
   min-height: 100vh;
 }

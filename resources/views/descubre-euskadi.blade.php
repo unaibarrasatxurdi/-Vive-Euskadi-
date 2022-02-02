@@ -13,9 +13,10 @@
     <body>
   
         <div id="app">
-        @if (Route::has('login') && Route::has('register'))
+        {{-- Cabecera --}}
+            @if (Route::has('login') && Route::has('register'))
             @auth
-            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-route="{{url('user')}}" user-name="<?php echo Auth::user()->name;?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin?>" admin-route="{{url('admin/gestion-usuarios')}}"></cabecera>
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-route="{{url('user/datosUsuario')}}" user-name="<?php echo Auth::user()->name;?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin?>" admin-route="{{url('admin/gestion-usuarios')}}"></cabecera>
             @else
             <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-login="{{ route('login') }}" user-register="{{ route('register') }}"></cabecera>
             @endauth

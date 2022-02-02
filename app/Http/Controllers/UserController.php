@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Favoritos;
 use App\Models\Comentarios;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -30,14 +31,14 @@ class UserController extends Controller
 
     public function planesFavUsuario()
     {
-        $favoritos = Favoritos::paginate(6);
-        return view('user.planesFavUsuario')->with('favoritos', $favoritos);
+        $favoritos = Favoritos::where('id', Auth::user()->id)->paginate(6);
+        return view('user.planesFavUsuario', ['favoritos'=>$favoritos]);
     }
 
-    public function comentariosUsuario($id)
+    public function comentariosUsuario()
     {
-        $comentarios = Comentarios::paginate(6);
-        return view('user.comentariosUsuario')->with([$id, $comentarios]);
+        $comentarios = Comentarios::where('id', Auth::user()->id)->paginate(6);
+        return view('user.comentariosUsuario',['comentarios'=>$comentarios]);
     }
     /**
      * Show the form for creating a new resource.
