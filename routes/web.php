@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth']], function() {
     * Logout Route
     */
     Route::get('/logout', [LogoutController::class,'perform']);
-    Route::get('/busqueda/insertarFavoritos/{user_id}/{documentName}', [PlanesController::class, 'insertarFavoritos'])->name('insertarFavoritos');
+    Route::get('/busqueda/insertarFavoritos/{user_id}/{documentName}/{territory}', [PlanesController::class, 'insertarFavoritos'])->name('insertarFavoritos');
     Route::get('/busqueda/borrarFavoritos/{user_id}/{documentName}', [PlanesController::class, 'borrarFavoritos'])->name('borrarFavoritos');
     Route::get('/busqueda/selectFavoritos/{user_id}', [PlanesController::class, 'selectFavoritos'])->name('selectFavoritos');
  });

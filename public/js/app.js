@@ -8899,7 +8899,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       height: "15rem"
     });
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').children('svg').click(function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').children('svg').click(function () {
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
       var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
       var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr('id');
@@ -8910,9 +8910,10 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('fill-rule', 'evenodd');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'red');
+        var territory = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().attr('id');
         jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
           type: 'get',
-          url: '/busqueda/insertarFavoritos/' + user_id + '/' + documentName,
+          url: '/busqueda/insertarFavoritos/' + user_id + '/' + documentName + '/' + territory,
           data: {},
           error: function error(ts) {
             console.log(ts.responseText);
@@ -46143,80 +46144,105 @@ var render = function () {
           "div",
           { key: index, staticClass: "d-flex justify-content-center mb-2" },
           [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  "exact-active-class": "active",
-                  to: {
-                    path:
-                      "/busqueda/" +
-                      _vm.$route.params.textoBusqueda +
-                      "/plan/" +
-                      item.documentName,
-                    query: { plan: _vm.userId },
-                  },
-                  "aria-current": "page",
+            _c("router-link", {
+              attrs: {
+                "exact-active-class": "active",
+                to: {
+                  path:
+                    "/busqueda/" +
+                    _vm.$route.params.textoBusqueda +
+                    "/plan/" +
+                    item.documentName,
+                  query: { plan: _vm.userId },
                 },
-                nativeOn: {
-                  click: function ($event) {
-                    return $event.stopImmediatePropagation()
-                  },
-                },
+                "aria-current": "page",
+                custom: "",
               },
-              [
-                _c("div", { staticClass: "card text-white busqueda-card" }, [
-                  _c("img", {
-                    staticClass: "card-img",
-                    attrs: {
-                      src: "/images/Imagenes/alavaDescubre.jpg",
-                      alt: "",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-img-overlay" }, [
-                    _c(
-                      "h5",
-                      {
-                        staticClass: "card-title float-end h5-DocumentName",
-                        attrs: { id: item.documentName },
-                      },
-                      [
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "default",
+                    fn: function (ref) {
+                      var navigate = ref.navigate
+                      return [
+                        _vm._v("-->\r\n            "),
                         _c(
-                          "svg",
+                          "div",
                           {
-                            staticClass: "bi bi-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "40",
-                              height: "40",
-                              fill: "currentColor",
-                              viewBox: "0 0 16 16",
-                            },
+                            staticClass: "card text-white busqueda-card",
+                            on: { click: navigate },
                           },
                           [
-                            _c("path", {
+                            _c("img", {
+                              staticClass: "card-img",
                               attrs: {
-                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                                src: "/images/Imagenes/alavaDescubre.jpg",
+                                alt: "",
                               },
                             }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "card-img-overlay",
+                                attrs: {
+                                  id: item.territory
+                                    .split(" ")[0]
+                                    .split("/")[0],
+                                },
+                              },
+                              [
+                                _c(
+                                  "h5",
+                                  {
+                                    staticClass:
+                                      "card-title float-end h5-DocumentName",
+                                    attrs: { id: item.documentName },
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "bi bi-heart",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "40",
+                                          height: "40",
+                                          fill: "currentColor",
+                                          viewBox: "0 0 16 16",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                                  },
+                                  [_vm._v(_vm._s(item.documentName))]
+                                ),
+                              ]
+                            ),
                           ]
                         ),
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                      },
-                      [_vm._v(_vm._s(item.documentName))]
-                    ),
-                  ]),
-                ]),
-              ]
-            ),
+                    },
+                  },
+                ],
+                null,
+                true
+              ),
+            }),
           ],
           1
         )
