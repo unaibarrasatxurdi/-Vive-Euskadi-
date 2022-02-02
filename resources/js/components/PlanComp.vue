@@ -6,9 +6,9 @@
                     <div class="card" id="headerPlan">
                         <img src="/images/temporales/plan1.jpg" class="img-overlay">
                         <div class="row h-100 w-100 ms-0" id="tituloPlan">
-                            <h3 class="position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white ">{{item.documentName}}</h3>
-                            <div class="container d-flex justify-content-end">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-heart pe-3 pt-1" viewBox="0 0 16 16" id="iconoFavPlan">
+                            <h3 class="position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white" >{{item.documentName}}</h3>
+                            <div class="container d-flex justify-content-end" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-heart pe-3 pt-1 svgCorazon" viewBox="0 0 16 16" id="iconoFavPlan">
                                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                                 </svg>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bookmark pe-1 pt-1" viewBox="0 0 16 16" id="iconoGuardarPlan">
@@ -91,6 +91,8 @@
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
     data (){
         return {
@@ -102,16 +104,48 @@ export default {
           naturaleza:false,
           amigos:false,
           pareja:false,
-          ninios:false
+          ninios:false,
+          userId: null
 
         } 
     },
     mounted (){
+        var este = this;
+        this.userId=this.$route.query.plan;         
         this.planes=JSON.parse(localStorage.getItem("planes"));
         const url= window.location.href;
         var nombre =url.substring(url.lastIndexOf('/') + 1);
-        nombre=decodeURI(nombre);
-       this.resultado= this.planes.filter(plan => plan.documentName.includes(nombre));
+        var nombreSplit = nombre.split('?')[0];
+        nombre=decodeURI(nombreSplit);
+        this.resultado= this.planes.filter(plan => plan.documentName.includes(nombre));
+
+        if(this.userId!=undefined && this.userId!=NaN){
+            $.ajax({
+                type: 'get',
+                url: '/busqueda/selectFavoritos/'+este.userId,
+                data: { },
+                error: function(ts) { console.log(ts.responseText) }})
+                .done(function(respuesta) {
+                    
+                    var resultadoDocumentName= [];
+                    for(var i=0; i<respuesta.length;i++){
+                        resultadoDocumentName.push(respuesta[i].DocumentName);
+                    };
+                    if(resultadoDocumentName.indexOf(este.resultado[0].documentName)>=0){
+                        $('.svgCorazon').removeClass('bi-heart');
+                        $('.svgCorazon').addClass("bi-heart-fill");
+                        $('.svgCorazon').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+                        $('.svgCorazon').children('path').attr('fill-rule','evenodd');
+                        $('.svgCorazon').css('fill', 'red');
+                    }else{
+                        $('.svgCorazon').removeClass('bi-heart-fill');
+                        $('.svgCorazon').addClass("bi-heart");
+                        $('.svgCorazon').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+                        $('.svgCorazon').children('path').removeAttr('fill-rule');
+                        $('.svgCorazon').css('fill', 'white');
+                    }
+                });
+        };
        if(this.resultado[0].gastronomical=="1" || this.resultado[0].cuisine=="1"){
            this.gastronomia=true;
        };
@@ -133,7 +167,7 @@ export default {
        if(this.resultado[0].children=="1"){
            this.ninios=true;
        };
-       console.log(this.amigos);
+    
     }
 };
 </script>

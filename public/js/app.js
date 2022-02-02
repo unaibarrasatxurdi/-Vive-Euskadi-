@@ -8874,8 +8874,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  rellenarFavoritos();
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.busqueda-card').hover(function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
       width: "25rem",
@@ -8895,10 +8899,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       height: "15rem"
     });
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('h5').children('svg').click(function (e) {
-    e.stopPropagation();
-    console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
-
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').children('svg').click(function (e) {
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
       var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
       var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr('id');
@@ -8936,7 +8937,51 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
     return false;
   });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-link').click(function () {
+    rellenarFavoritos();
+  });
 });
+
+function rellenarFavoritos() {
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
+    var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+      type: 'get',
+      url: '/busqueda/selectFavoritos/' + user_id,
+      data: {},
+      error: function error(ts) {
+        console.log(ts.responseText);
+      }
+    }).done(function (respuesta) {
+      var resultadoDocumentName = [];
+
+      for (var i = 0; i < respuesta.length; i++) {
+        resultadoDocumentName.push(respuesta[i].DocumentName);
+      }
+
+      ;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').each(function () {
+        if (resultadoDocumentName.indexOf(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')) >= 0) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('fill-rule', 'evenodd');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'red');
+        } else {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart-fill');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').removeAttr('fill-rule');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'white');
+        }
+      });
+    });
+  }
+
+  ;
+}
+
+;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9216,6 +9261,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -9308,6 +9355,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9319,17 +9367,56 @@ __webpack_require__.r(__webpack_exports__);
       naturaleza: false,
       amigos: false,
       pareja: false,
-      ninios: false
+      ninios: false,
+      userId: null
     };
   },
   mounted: function mounted() {
+    var este = this;
+    this.userId = this.$route.query.plan;
     this.planes = JSON.parse(localStorage.getItem("planes"));
     var url = window.location.href;
     var nombre = url.substring(url.lastIndexOf('/') + 1);
-    nombre = decodeURI(nombre);
+    var nombreSplit = nombre.split('?')[0];
+    nombre = decodeURI(nombreSplit);
     this.resultado = this.planes.filter(function (plan) {
       return plan.documentName.includes(nombre);
     });
+
+    if (this.userId != undefined && this.userId != NaN) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+        type: 'get',
+        url: '/busqueda/selectFavoritos/' + este.userId,
+        data: {},
+        error: function error(ts) {
+          console.log(ts.responseText);
+        }
+      }).done(function (respuesta) {
+        var resultadoDocumentName = [];
+
+        for (var i = 0; i < respuesta.length; i++) {
+          resultadoDocumentName.push(respuesta[i].DocumentName);
+        }
+
+        ;
+
+        if (resultadoDocumentName.indexOf(este.resultado[0].documentName) >= 0) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').removeClass('bi-heart');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').addClass("bi-heart-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('fill-rule', 'evenodd');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').css('fill', 'red');
+        } else {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').removeClass('bi-heart-fill');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').addClass("bi-heart");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').removeAttr('fill-rule');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').css('fill', 'white');
+        }
+      });
+    }
+
+    ;
 
     if (this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1") {
       this.gastronomia = true;
@@ -9372,7 +9459,6 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     ;
-    console.log(this.amigos);
   }
 });
 
@@ -9891,7 +9977,8 @@ var routes = [{
 }, {
   name: 'plan-comp',
   path: '/busqueda/:textoBusqueda/plan/:plan',
-  component: planComp
+  component: planComp,
+  params: "userId"
 }];
 
 /***/ }),
@@ -46056,54 +46143,82 @@ var render = function () {
           "div",
           { key: index, staticClass: "d-flex justify-content-center mb-2" },
           [
-            _c("div", { staticClass: "card text-white busqueda-card" }, [
-              _c("img", {
-                staticClass: "card-img",
-                attrs: { src: "/images/Imagenes/alavaDescubre.jpg", alt: "" },
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-img-overlay" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "card-title float-end",
-                    attrs: { id: item.documentName },
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  "exact-active-class": "active",
+                  to: {
+                    path:
+                      "/busqueda/" +
+                      _vm.$route.params.textoBusqueda +
+                      "/plan/" +
+                      item.documentName,
+                    query: { plan: _vm.userId },
                   },
-                  [
+                  "aria-current": "page",
+                },
+                nativeOn: {
+                  click: function ($event) {
+                    return $event.stopImmediatePropagation()
+                  },
+                },
+              },
+              [
+                _c("div", { staticClass: "card text-white busqueda-card" }, [
+                  _c("img", {
+                    staticClass: "card-img",
+                    attrs: {
+                      src: "/images/Imagenes/alavaDescubre.jpg",
+                      alt: "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
                     _c(
-                      "svg",
+                      "h5",
                       {
-                        staticClass: "bi bi-heart",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "40",
-                          height: "40",
-                          fill: "currentColor",
-                          viewBox: "0 0 16 16",
-                        },
+                        staticClass: "card-title float-end h5-DocumentName",
+                        attrs: { id: item.documentName },
                       },
                       [
-                        _c("path", {
-                          attrs: {
-                            d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "bi bi-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "40",
+                              height: "40",
+                              fill: "currentColor",
+                              viewBox: "0 0 16 16",
+                            },
                           },
-                        }),
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                              },
+                            }),
+                          ]
+                        ),
                       ]
                     ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                  },
-                  [_vm._v(_vm._s(item.documentName))]
-                ),
-              ]),
-            ]),
-          ]
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                      },
+                      [_vm._v(_vm._s(item.documentName))]
+                    ),
+                  ]),
+                ]),
+              ]
+            ),
+          ],
+          1
         )
       }),
       0
@@ -46916,7 +47031,7 @@ var render = function () {
                       "h3",
                       {
                         staticClass:
-                          "position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white ",
+                          "position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white",
                       },
                       [_vm._v(_vm._s(item.documentName))]
                     ),
@@ -46928,7 +47043,7 @@ var render = function () {
                         _c(
                           "svg",
                           {
-                            staticClass: "bi bi-heart pe-3 pt-1",
+                            staticClass: "bi bi-heart pe-3 pt-1 svgCorazon",
                             attrs: {
                               xmlns: "http://www.w3.org/2000/svg",
                               width: "50",

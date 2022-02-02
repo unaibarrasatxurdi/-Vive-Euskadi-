@@ -39,6 +39,12 @@ class PlanesController extends Controller
         DB::delete('delete from favoritos where id = ? and DocumentName = ?',[$id,$documentname]);
     }
 
+    public function selectFavoritos($id)
+    {
+        $results = DB::select('select DocumentName from favoritos where id = ?',[$id]);
+        return $results;
+    }
+
     public function edit($plan)
     {
         

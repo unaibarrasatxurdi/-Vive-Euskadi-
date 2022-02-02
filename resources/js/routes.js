@@ -13,6 +13,8 @@ export const routes =[
         name:'plan-comp',
         path:'/busqueda/:textoBusqueda/plan/:plan',
         component:planComp,
+        params:
+            "userId"
     },
 
 ]
