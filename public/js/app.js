@@ -8736,9 +8736,368 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BusquedaComp.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\resources\\js\\components\\BusquedaComp.vue: Unexpected token (148:0)\n\n\u001b[0m \u001b[90m 146 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 147 |\u001b[39m $(document)\u001b[33m.\u001b[39mready(\u001b[36mfunction\u001b[39m(){\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 148 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 149 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 150 |\u001b[39m     rellenarFavoritos()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 151 |\u001b[39m \u001b[33m>>>\u001b[39m\u001b[33m>>>\u001b[39m\u001b[33m>\u001b[39m \u001b[33mEkaitz\u001b[39m\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:506:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:499:17)\n    at Parser.raise (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:460:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:3699:16)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:12461:22)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11999:23)\n    at Parser.parseUpdate (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11979:21)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11954:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11751:61)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11758:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11728:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11688:21)\n    at Parser.parseExpressionBase (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11624:23)\n    at C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11618:39\n    at Parser.allowInAnd (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:13646:16)\n    at Parser.parseExpression (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11618:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  rellenarFavoritos();
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.busqueda-card').hover(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+      width: "25rem",
+      height: "20rem"
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+      width: "25rem",
+      height: "20rem"
+    });
+  }, function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+      width: "20rem",
+      height: "15rem"
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+      width: "20rem",
+      height: "15rem"
+    });
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').children('svg').click(function () {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
+      var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
+      var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr('id');
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart')) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart-fill");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('fill-rule', 'evenodd');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'red');
+        var territory = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().attr('id');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+          type: 'get',
+          url: '/busqueda/insertarFavoritos/' + user_id + '/' + documentName + '/' + territory,
+          data: {},
+          error: function error(ts) {
+            console.log(ts.responseText);
+          }
+        });
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart-fill')) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart-fill');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').removeAttr('fill-rule');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'white');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+          type: 'get',
+          url: '/busqueda/borrarFavoritos/' + user_id + '/' + documentName,
+          data: {},
+          error: function error(ts) {
+            console.log(ts.responseText);
+          }
+        });
+      }
+    }
+
+    return false;
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-link').click(function () {
+    rellenarFavoritos();
+  });
+});
+
+function rellenarFavoritos() {
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
+    var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+      type: 'get',
+      url: '/busqueda/selectFavoritos/' + user_id,
+      data: {},
+      error: function error(ts) {
+        console.log(ts.responseText);
+      }
+    }).done(function (respuesta) {
+      var resultadoDocumentName = [];
+
+      for (var i = 0; i < respuesta.length; i++) {
+        resultadoDocumentName.push(respuesta[i].DocumentName);
+      }
+
+      ;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').each(function () {
+        if (resultadoDocumentName.indexOf(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')) >= 0) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('fill-rule', 'evenodd');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'red');
+        } else {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart-fill');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').removeAttr('fill-rule');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'white');
+        }
+      });
+    });
+  }
+
+  ;
+}
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      planes: null,
+      resultado: [],
+      filtro: null,
+      id: null,
+      paginate: ['resultado'],
+      cantidadTotal: 0
+    };
+  },
+  props: ['userId'],
+  mounted: function mounted() {
+    var _this = this;
+
+    this.planes = JSON.parse(localStorage.getItem("planes"));
+    var url = window.location.href;
+    this.id = url.substring(url.lastIndexOf('/') + 1);
+    this.resultado = this.planes.filter(function (plan) {
+      return plan.documentName.toLowerCase().includes(decodeURI(_this.id.toLowerCase()));
+    });
+    this.checkbox();
+  },
+  methods: {
+    filtrar: function filtrar(filtroTerritorio, filtroResto) {
+      var _this2 = this;
+
+      var filtrarTerritorio = [];
+      var territorioFiltrado = []; // En caso de estar vacío muestra todos
+
+      if (filtroTerritorio.length === 0 && filtroResto.length === 0) {
+        this.resultado = this.planes;
+      } else {
+        // Filtra los planes por territorio y el resto de filtros se aplican a esos planes ya filtrados
+        if (filtroTerritorio.length !== 0) {
+          filtrarTerritorio = new Set(filtroTerritorio);
+          territorioFiltrado = this.planes.filter(function (plan) {
+            return filtrarTerritorio.has(plan.territory);
+          });
+          this.resultado = territorioFiltrado;
+
+          if (filtroResto.length !== 0) {
+            var _loop = function _loop(a) {
+              _this2.resultado = territorioFiltrado.filter(function (plan) {
+                return plan[filtroResto[a]].includes(1);
+              });
+            };
+
+            for (var a = 0; a < filtroResto.length; a++) {
+              _loop(a);
+            }
+          } // En caso de no haber filtro por territorio, el resto se aplican a todos los planes
+
+        } else {
+          var _loop2 = function _loop2(_a) {
+            _this2.resultado = _this2.resultado.filter(function (plan) {
+              return plan[filtroResto[_a]].includes(1);
+            });
+          };
+
+          for (var _a = 0; _a < filtroResto.length; _a++) {
+            _loop2(_a);
+          }
+        }
+      }
+    },
+    checkbox: function checkbox() {
+      var s = this;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+        var filtroTerritorio = [];
+        var filtroResto = []; // Añadir filtro
+
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("input:checkbox").on("change", function () {
+          if (this.checked) {
+            // Territorios
+            if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Araba" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Gipuzkoa" || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == "Bizkaia") {
+              filtroTerritorio.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
+              // Resto
+              var separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
+              filtroResto.push(separado[0]);
+              filtroResto.push(separado[1]);
+            } else {
+              filtroResto.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val());
+            }
+
+            s.filtrar(filtroTerritorio, filtroResto);
+          } else {
+            // Quitar filtro
+            // Territorios
+            for (var i = 0; i < filtroTerritorio.length; i++) {
+              if (filtroTerritorio[i] === jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val()) {
+                filtroTerritorio.splice([i], 1);
+                console.log("funciona");
+              }
+            } // Resto
+
+
+            for (var j = 0; j < filtroResto.length; j++) {
+              if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().includes("-")) {
+                var _separado = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val().split("-");
+
+                if (filtroResto[j] === _separado[0] || filtroResto[j] === _separado[1]) {
+                  filtroResto.splice([j + 1], 1);
+                  filtroResto.splice([j], 1);
+                }
+              }
+
+              if (filtroResto[j] === jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val()) {
+                filtroResto.splice([j], 1);
+              }
+            }
+
+            s.filtrar(filtroTerritorio, filtroResto);
+          }
+        });
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -8922,9 +9281,213 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlanComp.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\resources\\js\\components\\PlanComp.vue: Unexpected token (124:0)\n\n\u001b[0m \u001b[90m 122 |\u001b[39m           resultado\u001b[33m:\u001b[39m []\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 123 |\u001b[39m           gastronomia\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 124 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 125 |\u001b[39m           agua\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 126 |\u001b[39m           cultura\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 127 |\u001b[39m           naturaleza\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:506:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:499:17)\n    at Parser.raise (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:460:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:3699:16)\n    at Parser.parsePropertyName (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:13176:24)\n    at Parser.parsePropertyDefinition (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:13017:22)\n    at Parser.parseObjectLike (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:12937:21)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:12343:23)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11999:23)\n    at Parser.parseUpdate (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11979:21)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11954:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11751:61)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11758:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11728:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11688:21)\n    at Parser.parseExpressionBase (C:\\xampp\\htdocs\\php\\-Vive-Euskadi-\\node_modules\\@babel\\parser\\lib\\index.js:11624:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      planes: null,
+      resultado: [],
+      gastronomia: false,
+      agua: false,
+      cultura: false,
+      naturaleza: false,
+      amigos: false,
+      pareja: false,
+      ninios: false,
+      userId: null
+    };
+  },
+  mounted: function mounted() {
+    var este = this;
+    this.userId = this.$route.query.plan;
+    this.planes = JSON.parse(localStorage.getItem("planes"));
+    var url = window.location.href;
+    var nombre = url.substring(url.lastIndexOf('/') + 1);
+    var nombreSplit = nombre.split('?')[0];
+    nombre = decodeURI(nombreSplit);
+    this.resultado = this.planes.filter(function (plan) {
+      return plan.documentName.includes(nombre);
+    });
+
+    if (this.userId != undefined && this.userId != NaN) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+        type: 'get',
+        url: '/busqueda/selectFavoritos/' + este.userId,
+        data: {},
+        error: function error(ts) {
+          console.log(ts.responseText);
+        }
+      }).done(function (respuesta) {
+        var resultadoDocumentName = [];
+
+        for (var i = 0; i < respuesta.length; i++) {
+          resultadoDocumentName.push(respuesta[i].DocumentName);
+        }
+
+        ;
+
+        if (resultadoDocumentName.indexOf(este.resultado[0].documentName) >= 0) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').removeClass('bi-heart');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').addClass("bi-heart-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('fill-rule', 'evenodd');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').css('fill', 'red');
+        } else {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').removeClass('bi-heart-fill');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').addClass("bi-heart");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').removeAttr('fill-rule');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').css('fill', 'white');
+        }
+      });
+    }
+
+    ;
+
+    if (this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1") {
+      this.gastronomia = true;
+    }
+
+    ;
+
+    if (this.resultado[0].water == "1") {
+      this.agua = true;
+    }
+
+    ;
+
+    if (this.resultado[0].landscape == "1") {
+      this.naturaleza = true;
+    }
+
+    ;
+
+    if (this.resultado[0].culture == "1") {
+      this.cultura = true;
+    }
+
+    ;
+
+    if (this.resultado[0].friends == "1") {
+      this.amigos = true;
+    }
+
+    ;
+
+    if (this.resultado[0].couple == "1") {
+      this.pareja = true;
+    }
+
+    ;
+
+    if (this.resultado[0].children == "1") {
+      this.ninios = true;
+    }
+
+    ;
+  }
+});
 
 /***/ }),
 
@@ -25147,7 +25710,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n    margin-left: 0;\n    margin-right: 0;\n    right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43]{\n    background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43], #plandatos[data-v-6db35b43]{\n    max-width: 300px;\n}\n#comentarios[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\n.comentarioPlan[data-v-6db35b43] {\n    background-color: rgb(73, 73, 73);\n    border-bottom: 1px solid whitesmoke;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n    margin-left: 0;\n    margin-right: 0;\n    right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43]{\n    background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43], #plandatos[data-v-6db35b43]{\n    max-width: 300px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44492,8 +45055,442 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
-var staticRenderFns = []
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center divUserId",
+        attrs: { id: this.userId },
+      },
+      _vm._l(_vm.paginated("resultado"), function (item, index) {
+        return _c(
+          "div",
+          { key: index, staticClass: "d-flex justify-content-center mb-2" },
+          [
+            _c("router-link", {
+              attrs: {
+                "exact-active-class": "active",
+                to: {
+                  path:
+                    "/busqueda/" +
+                    _vm.$route.params.textoBusqueda +
+                    "/plan/" +
+                    item.documentName,
+                  query: { plan: _vm.userId },
+                },
+                "aria-current": "page",
+                custom: "",
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "default",
+                    fn: function (ref) {
+                      var navigate = ref.navigate
+                      return [
+                        _vm._v("-->\r\n            "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "card text-white busqueda-card",
+                            on: { click: navigate },
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "card-img",
+                              attrs: {
+                                src: "/images/Imagenes/alavaDescubre.jpg",
+                                alt: "",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "card-img-overlay",
+                                attrs: {
+                                  id: item.territory
+                                    .split(" ")[0]
+                                    .split("/")[0],
+                                },
+                              },
+                              [
+                                _c(
+                                  "h5",
+                                  {
+                                    staticClass:
+                                      "card-title float-end h5-DocumentName",
+                                    attrs: { id: item.documentName },
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "bi bi-heart",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          width: "40",
+                                          height: "40",
+                                          fill: "currentColor",
+                                          viewBox: "0 0 16 16",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                                  },
+                                  [_vm._v(_vm._s(item.documentName))]
+                                ),
+                              ]
+                            ),
+                          ]
+                        ),
+                      ]
+                    },
+                  },
+                ],
+                null,
+                true
+              ),
+            }),
+          ],
+          1
+        )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-12 text-center align-items-center" },
+      [
+        _c("paginate", {
+          ref: "paginator",
+          attrs: { name: "resultado", list: this.resultado, per: 15 },
+        }),
+        _vm._v(" "),
+        _c("paginate-links", {
+          staticClass: "justify-content-center",
+          attrs: {
+            for: "resultado",
+            "hide-single-page": true,
+            "show-step-links": true,
+            limit: 5,
+            classes: { ul: "pagination", li: "page-item", a: "page-link" },
+          },
+        }),
+      ],
+      1
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table table-borderless" }, [
+      _c("thead", [
+        _c("tr", [
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Zona")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Ideal para")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Tipo")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("td", { attrs: { scope: "col" } }, [
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { type: "checkbox", value: "Araba", id: "checkAlava" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkAlava" },
+                },
+                [_vm._v("\r\n                    Álava\r\n                ")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "Gipuzkoa",
+                  id: "checkGipuzcoa",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkGipuzcoa" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Guipúzcoa\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "Bizkaia",
+                  id: "checkVizcaya",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkVizcaya" },
+                },
+                [_vm._v("\r\n                    Vizcaya\r\n                ")]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("td", { attrs: { scope: "col" } }, [
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { type: "checkbox", value: "couple", id: "checkPareja" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkPareja" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Planes en pareja\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { type: "checkbox", value: "friends", id: "checkGrupo" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkGrupo" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Planes en grupo\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "children",
+                  id: "checkNiños",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkNiños" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Planes con niños\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("td", { attrs: { scope: "col" } }, [
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "culture",
+                  id: "checkCultura",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkCultura" },
+                },
+                [_vm._v("\r\n                    Cultura\r\n                ")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { type: "checkbox", value: "water", id: "checkDeporte" },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkDeporte" },
+                },
+                [_vm._v("\r\n                    Agua\r\n                ")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "cuisine",
+                  id: "checkGastronomia",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkGastronomia" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Gastronomía\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("td", { attrs: { scope: "col" } }, [
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "landscape",
+                  id: "checkAventura",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkAventura" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Naturaleza y paisajes\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "children-landscape",
+                  id: "checkPequeAventura",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkPequeAventura" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Peque-Aventura\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-check" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  value: "culture-cuisine",
+                  id: "checkUrbanos",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-check-label",
+                  attrs: { for: "checkUrbanos" },
+                },
+                [
+                  _vm._v(
+                    "\r\n                    Planes urbanos\r\n                "
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
 
 
 
@@ -45064,257 +46061,248 @@ var render = function () {
                 "div",
                 { staticClass: "row ms-3", attrs: { id: "plandatos" } },
                 [
-                  _c(
-                    "div",
-                    { staticClass: "p-0", attrs: { id: "datosPlan" } },
-                    [
-                      _c("h3", { staticClass: "text-white text-center" }, [
-                        _vm._v("DATOS DE INTERÉS"),
-                      ]),
+                  _c("div", { attrs: { id: "datosPlan" } }, [
+                    _c("h3", [_vm._v("DATOS DE INTERÉS")]),
+                    _vm._v(" "),
+                    _c("h4", [_vm._v("Para ir con:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _vm.amigos
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-people-fill",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Amigos")]),
+                          ])
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c("div", { staticClass: "m-2" }, [
-                        _c("h4", [_vm._v("Para ir con:")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _vm.amigos
-                            ? _c("div", { staticClass: "col" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "bi bi-people-fill",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      width: "30",
-                                      height: "30",
-                                      fill: "white",
-                                      viewBox: "0 0 16 16",
-                                    },
+                      _vm.ninios
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "svg-inline--fa fa-child fa-w-12",
+                                attrs: {
+                                  "aria-hidden": "true",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  focusable: "false",
+                                  "data-prefix": "fas",
+                                  "data-icon": "child",
+                                  role: "img",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  viewBox: "0 0 384 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d: "M120 72c0-39.765 32.235-72 72-72s72 32.235 72 72c0 39.764-32.235 72-72 72s-72-32.236-72-72zm254.627 1.373c-12.496-12.497-32.758-12.497-45.254 0L242.745 160H141.254L54.627 73.373c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255L104 213.254V480c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V368h16v112c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V213.254l94.627-94.627c12.497-12.497 12.497-32.757 0-45.254z",
                                   },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        d: "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("path", {
-                                      attrs: {
-                                        "fill-rule": "evenodd",
-                                        d: "M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z",
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("path", {
-                                      attrs: {
-                                        d: "M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Amigos")]),
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.ninios
-                            ? _c("div", { staticClass: "col" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass:
-                                      "svg-inline--fa fa-child fa-w-12",
-                                    attrs: {
-                                      "aria-hidden": "true",
-                                      width: "30",
-                                      height: "30",
-                                      fill: "white",
-                                      focusable: "false",
-                                      "data-prefix": "fas",
-                                      "data-icon": "child",
-                                      role: "img",
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      viewBox: "0 0 384 512",
-                                    },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Niños")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.pareja
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-heart-fill",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
                                   },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        fill: "currentColor",
-                                        d: "M120 72c0-39.765 32.235-72 72-72s72 32.235 72 72c0 39.764-32.235 72-72 72s-72-32.236-72-72zm254.627 1.373c-12.496-12.497-32.758-12.497-45.254 0L242.745 160H141.254L54.627 73.373c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255L104 213.254V480c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V368h16v112c0 17.673 14.327 32 32 32h16c17.673 0 32-14.327 32-32V213.254l94.627-94.627c12.497-12.497 12.497-32.757 0-45.254z",
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Niños")]),
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.pareja
-                            ? _c("div", { staticClass: "col" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "bi bi-heart-fill",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      width: "30",
-                                      height: "30",
-                                      fill: "currentColor",
-                                      viewBox: "0 0 16 16",
-                                    },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Pareja")]),
+                          ])
+                        : _vm._e(),
+                    ]),
+                    _vm._v(" "),
+                    _c("h4", [_vm._v("Temática:")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _vm.cultura
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-bank2",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z",
                                   },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        "fill-rule": "evenodd",
-                                        d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z",
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Pareja")]),
-                              ])
-                            : _vm._e(),
-                        ]),
-                        _vm._v(" "),
-                        _c("h4", [_vm._v("Temática:")]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _vm.cultura
-                            ? _c("div", { staticClass: "col" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "bi bi-bank2",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      width: "30",
-                                      height: "30",
-                                      fill: "white",
-                                      viewBox: "0 0 16 16",
-                                    },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Cultura")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.naturaleza
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "svg-inline--fa fa-mountain fa-w-20",
+                                attrs: {
+                                  "aria-hidden": "true",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  focusable: "false",
+                                  "data-prefix": "fas",
+                                  "data-icon": "mountain",
+                                  role: "img",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  viewBox: "0 0 640 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d: "M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z",
                                   },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        d: "M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z",
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Cultura")]),
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.naturaleza
-                            ? _c("div", { staticClass: "col" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass:
-                                      "svg-inline--fa fa-mountain fa-w-20",
-                                    attrs: {
-                                      "aria-hidden": "true",
-                                      width: "30",
-                                      height: "30",
-                                      fill: "white",
-                                      focusable: "false",
-                                      "data-prefix": "fas",
-                                      "data-icon": "mountain",
-                                      role: "img",
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      viewBox: "0 0 640 512",
-                                    },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Naturaleza")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.gastronomia
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "svg-inline--fa fa-utensils fa-w-13",
+                                attrs: {
+                                  "aria-hidden": "true",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  focusable: "false",
+                                  "data-prefix": "fas",
+                                  "data-icon": "utensils",
+                                  role: "img",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  viewBox: "0 0 416 512",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    fill: "currentColor",
+                                    d: "M207.9 15.2c.8 4.7 16.1 94.5 16.1 128.8 0 52.3-27.8 89.6-68.9 104.6L168 486.7c.7 13.7-10.2 25.3-24 25.3H80c-13.7 0-24.7-11.5-24-25.3l12.9-238.1C27.7 233.6 0 196.2 0 144 0 109.6 15.3 19.9 16.1 15.2 19.3-5.1 61.4-5.4 64 16.3v141.2c1.3 3.4 15.1 3.2 16 0 1.4-25.3 7.9-139.2 8-141.8 3.3-20.8 44.7-20.8 47.9 0 .2 2.7 6.6 116.5 8 141.8.9 3.2 14.8 3.4 16 0V16.3c2.6-21.6 44.8-21.4 48-1.1zm119.2 285.7l-15 185.1c-1.2 14 9.9 26 23.9 26h56c13.3 0 24-10.7 24-24V24c0-13.2-10.7-24-24-24-82.5 0-221.4 178.5-64.9 300.9z",
                                   },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        fill: "currentColor",
-                                        d: "M634.92 462.7l-288-448C341.03 5.54 330.89 0 320 0s-21.03 5.54-26.92 14.7l-288 448a32.001 32.001 0 0 0-1.17 32.64A32.004 32.004 0 0 0 32 512h576c11.71 0 22.48-6.39 28.09-16.67a31.983 31.983 0 0 0-1.17-32.63zM320 91.18L405.39 224H320l-64 64-38.06-38.06L320 91.18z",
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Naturaleza")]),
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.gastronomia
-                            ? _c("div", { staticClass: "col" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass:
-                                      "svg-inline--fa fa-utensils fa-w-13",
-                                    attrs: {
-                                      "aria-hidden": "true",
-                                      width: "30",
-                                      height: "30",
-                                      fill: "white",
-                                      focusable: "false",
-                                      "data-prefix": "fas",
-                                      "data-icon": "utensils",
-                                      role: "img",
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      viewBox: "0 0 416 512",
-                                    },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Gastronomía")]),
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.agua
+                        ? _c("div", { staticClass: "col" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-droplet",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "30",
+                                  height: "30",
+                                  fill: "white",
+                                  viewBox: "0 0 16 16",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z",
                                   },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        fill: "currentColor",
-                                        d: "M207.9 15.2c.8 4.7 16.1 94.5 16.1 128.8 0 52.3-27.8 89.6-68.9 104.6L168 486.7c.7 13.7-10.2 25.3-24 25.3H80c-13.7 0-24.7-11.5-24-25.3l12.9-238.1C27.7 233.6 0 196.2 0 144 0 109.6 15.3 19.9 16.1 15.2 19.3-5.1 61.4-5.4 64 16.3v141.2c1.3 3.4 15.1 3.2 16 0 1.4-25.3 7.9-139.2 8-141.8 3.3-20.8 44.7-20.8 47.9 0 .2 2.7 6.6 116.5 8 141.8.9 3.2 14.8 3.4 16 0V16.3c2.6-21.6 44.8-21.4 48-1.1zm119.2 285.7l-15 185.1c-1.2 14 9.9 26 23.9 26h56c13.3 0 24-10.7 24-24V24c0-13.2-10.7-24-24-24-82.5 0-221.4 178.5-64.9 300.9z",
-                                      },
-                                    }),
-                                  ]
-                                ),
+                                }),
                                 _vm._v(" "),
-                                _c("p", [_vm._v("Gastronomía")]),
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.agua
-                            ? _c("div", { staticClass: "col" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "bi bi-droplet",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      width: "30",
-                                      height: "30",
-                                      fill: "white",
-                                      viewBox: "0 0 16 16",
-                                    },
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d: "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z",
                                   },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        "fill-rule": "evenodd",
-                                        d: "M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z",
-                                      },
-                                    }),
-                                    _vm._v(" "),
-                                    _c("path", {
-                                      attrs: {
-                                        "fill-rule": "evenodd",
-                                        d: "M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z",
-                                      },
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v("Agua")]),
-                              ])
-                            : _vm._e(),
-                        ]),
-                      ]),
-                    ]
-                  ),
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Agua")]),
+                          ])
+                        : _vm._e(),
+                    ]),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -45324,56 +46312,6 @@ var render = function () {
         }),
         0
       ),
-      _vm._v(" "),
-      _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
-        _c(
-          "div",
-          { staticClass: "container p-0" },
-          [
-            _c(
-              "h3",
-              {
-                staticClass: "text-white text-center",
-                attrs: { id: "dondeEsta" },
-              },
-              [_vm._v("COMENTARIOS")]
-            ),
-            _vm._v(" "),
-            _c("h4", [_vm._v("Add comment")]),
-            _vm._v(" "),
-            _c(
-              "form",
-              { staticClass: "p-2", attrs: { method: "post", action: "#" } },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("input", {
-                    staticClass: "btn btn-warning",
-                    attrs: { type: "submit", value: "Add Comment" },
-                    on: {
-                      click: function ($event) {
-                        _vm.añadirComentario
-                      },
-                    },
-                  }),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("hr", { staticClass: "m-4" }),
-            _vm._v(" "),
-            _c("div", { key: _vm.index, staticClass: "comentarioPlan p-2" }, [
-              _c("h4", [_vm._v("Antonio")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v("Vamos a rellenar esta mierda a ver qué tal queda."),
-              ]),
-            ]),
-          ],
-          2
-        ),
-      ]),
     ]
   )
 }
@@ -45400,19 +46338,6 @@ var staticRenderFns = [
           },
         }),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", name: "comment_body" },
-      }),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "hidden", name: "post_id", value: "" } }),
     ])
   },
 ]

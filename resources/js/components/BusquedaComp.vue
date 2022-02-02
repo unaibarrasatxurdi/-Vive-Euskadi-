@@ -110,11 +110,6 @@
                 </div>
             </div>
         </router-link>
-   
-       
-
-
-    
     </div>
     </div>
     <div class="col-12 text-center align-items-center">
@@ -249,69 +244,81 @@ export default {
         this.resultado= this.planes.filter(plan => plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase())));
         this.checkbox();
         
-
     },
 
     methods: {
-        filtrar: function(filtro) {
-            if(filtro.length!=0){
-                for(var a=0;a<filtro.length;a++){
-                    if(filtro[a]!==0){
-                        for(var b=0;b<filtro[a].length;b++){
-                            if(a==0){
-                                this.resultado=this.planes.filter(plan => plan.territory.includes(filtro[0][b]));
-                            } else {
-                                this.resultado=this.planes.filter(plan => plan[filtro[1][b]].includes(1));
-                            }
-                        }
-                    } else {
-                        this.resultado=this.planes 
-                    }
-                    
-                } 
+        filtrar: function(filtroTerritorio, filtroResto) {
+            var filtrarTerritorio = [];
+            var territorioFiltrado = [];
+            
+            // En caso de estar vacío muestra todos
+            if (filtroTerritorio.length === 0 && filtroResto.length === 0) {
+                this.resultado = this.planes;
             } else {
-                this.resultado=this.planes  
+                // Filtra los planes por territorio y el resto de filtros se aplican a esos planes ya filtrados
+                if(filtroTerritorio.length !== 0) {
+                    filtrarTerritorio = new Set(filtroTerritorio);
+                    territorioFiltrado = this.planes.filter(plan => filtrarTerritorio.has(plan.territory));
+                    this.resultado = territorioFiltrado;
+                    if (filtroResto.length !== 0) {
+                        for (let a = 0; a < filtroResto.length; a++) {
+                            this.resultado = territorioFiltrado.filter(plan => plan[filtroResto[a]].includes(1));
+                        }
+                    }
+                    // En caso de no haber filtro por territorio, el resto se aplican a todos los planes
+                } else {
+                    for (let a = 0; a < filtroResto.length; a++) {
+                        this.resultado = this.resultado.filter(plan => plan[filtroResto[a]].includes(1));
+                    }
+                }
             }
         },
-        checkbox: function(){
-            var s=this;
+        checkbox: function() {
+            var s = this;
             $(document).ready(function() {
-                var filtro=[[],[]];
+                var filtroTerritorio = [];
+                var filtroResto = [];
+                // Añadir filtro
                 $("input:checkbox").on("change", function() {
                     if(this.checked) {
-                        if($(this).val()=="Araba"||$(this).val()=="Gipuzkoa"||$(this).val()=="Bizkaia"){
-                            filtro[0].push($(this).val());
-                        } else if($(this).val().includes("-")){
-                            let separado=$(this).val().split("-");
-                            filtro[1].push(separado[0]);
-                            filtro[1].push(separado[1]);
+                        // Territorios
+                        if($(this).val() == "Araba" || $(this).val() == "Gipuzkoa" || $(this).val() == "Bizkaia"){
+                            filtroTerritorio.push($(this).val());
+                        } else if($(this).val().includes("-")) {    // Resto
+                            let separado = $(this).val().split("-");
+                            filtroResto.push(separado[0]);
+                            filtroResto.push(separado[1]);
                         } else {
-                            filtro[1].push($(this).val());
-                            }
-                        s.filtrar(filtro);
-                    } else {
-                        for(var i=0;i<filtro.length;i++){
-                            for(var j=0;j<filtro[i].length;j++){
-                                if($(this).val().includes("-")){
-                                    let separado=$(this).val().split("-");
-                                    if(filtro[i][j]==separado[0]||filtro[i][j]==separado[1]){
-                                        filtro[i].splice([j+1],1);
-                                        filtro[i].splice([j],1);
-                                        
-                                    }
-                                }
-                                if(filtro[i][j]==$(this).val()){
-                                    filtro[i].splice([j],1);
-                                }
+                            filtroResto.push($(this).val());
+                        }
+                        s.filtrar(filtroTerritorio, filtroResto);
+                    } else {    // Quitar filtro
+                        // Territorios
+                        for (var i = 0; i < filtroTerritorio.length; i++) {
+                            if(filtroTerritorio[i] === $(this).val()) {
+                                filtroTerritorio.splice([i], 1);
+                                console.log("funciona");
                             }
                         }
-                        s.filtrar(filtro);
+                        // Resto
+                        for (var j = 0; j < filtroResto.length; j++) {
+                            if($(this).val().includes("-")) {
+                                let separado = $(this).val().split("-");
+                                if(filtroResto[j] === separado[0] || filtroResto[j] === separado[1]) {
+                                    filtroResto.splice([j + 1], 1);
+                                    filtroResto.splice([j], 1);
+                                }
+                            }
+                            if(filtroResto[j] === $(this).val()) {
+                                filtroResto.splice([j], 1);
+                            }
+                        }
+                        s.filtrar(filtroTerritorio, filtroResto);
                     } 
                 });
                 
             });
         },
-        
         
     }
 }

@@ -45,7 +45,7 @@
             
             <div class="card flex-column mt-5">
                 <div class="card-header w-100 text-white fs-3">
-                    Gipuzcoa
+                    Guipuzcoa
                 </div>
                 <div class="card flex-row">
                     <div class="card-image border-0 img-fluid">
@@ -54,7 +54,7 @@
                     
                     <div class="card-body-right ms-3">
                         <p class="card-text text-white">            
-                            Gipuzcoa es un territorio plural en el que cada comarca goza de personalidad propia. Desde el azul del Cantábrico hasta los espacios naturales del interior, pasando por ciudades industriales situadas a escasos kilómetros de comarcas rurales.
+                            Guipuzcoa es un territorio plural en el que cada comarca goza de personalidad propia. Desde el azul del Cantábrico hasta los espacios naturales del interior, pasando por ciudades industriales situadas a escasos kilómetros de comarcas rurales.
                             Es el territorio menos extenso en comparación con Álava y Vizcaya, una tierra de contrastes que ha sabido conjugar el arraigo de sus tradiciones, sin dejar de estar en primera línea de la vanguardia tecnológica, empresarial y artística.
                             La costa de Gipuzcoa, a lo largo de 86 km, cuenta con innumerables atractivos. En el litoral occidental, las hermosas villas costeras de Zarautz, Getaria y Mutriku constituyen deseados destinos vacacionales para muchos turistas.</p>
                         <a href="#" class="card-link float-end me-5">Ver más</a>
