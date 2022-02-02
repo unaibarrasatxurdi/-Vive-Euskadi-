@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Id usuario</th>
                         <th>Comentario</th>
                         <th>Opciones</th>
                     </tr>
@@ -20,9 +21,11 @@
                     @foreach($comentarios as $comentario)
                     <tr>
                         <td>{{ $comentario->IdComentario }}</td>
+                        <td>{{ $comentario->id }}</td>
                         <td>{{ $comentario->Texto }}</td>
                         <td>
-                            <form action="{{ route('admin.destroy',$comentario->id) }}" method="POST">
+                            
+                            <form action="{{url('/admin/gestion-comentarios', $comentario->IdComentario)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-outline-dark">

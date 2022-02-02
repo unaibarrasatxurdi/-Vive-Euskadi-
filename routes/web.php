@@ -43,6 +43,9 @@ Route::resource('user', UserController::class);
 
 Route::get('/admin/gestion-usuarios', [AdminController::class, 'adminUsuario']);
 Route::get('/admin/gestion-comentarios', [AdminController::class, 'adminComent']);
+Route::get('/admin/{$id}', [AdminController::class, 'destroyUsuario']);
+Route::get('/admin/{$IdComentario}', [AdminController::class, 'destroyComent']);
+
 Route::resource('admin', AdminController::class);
 
 require __DIR__.'/auth.php';

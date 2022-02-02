@@ -95,14 +95,18 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyComent($IdComentario)
     {
+        
+        $comentario = Comentarios::find($IdComentario)->delete();
+
+        return redirect('/admin/gestion-comentarios')->with('success', 'Stock removed.');
+    }
+    public function destroyUsuario($id)
+    {
+        
         $user = User::find($id)->delete();
 
-        return redirect()->route("admin.adminUsuario");
-        
-        $comentario = Comentarios::find($id)->delete();
-
-        return redirect()->route("admin.adminComent");
+        return redirect('/admin/gestion-usuarios')->with('success', 'Stock removed.');
     }
 }
