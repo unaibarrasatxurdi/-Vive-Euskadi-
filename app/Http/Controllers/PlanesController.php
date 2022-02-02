@@ -29,14 +29,21 @@ class PlanesController extends Controller
         return view('busqueda')->with('id', $id);
     }
 
-    public function insertarFavoritos( $id, $documentname)
+    public function insertarFavoritos( $id, $documentname, $territory)
     {
+        DB::insert('insert into planes (DocumentName, Provincia) values (?, ?) ON DUPLICATE KEY UPDATE DocumentName=DocumentName', [$documentname, $territory]);
         DB::insert('insert into favoritos (id, DocumentName) values (?, ?) ON DUPLICATE KEY UPDATE DocumentName=DocumentName', [$id, $documentname]);
     }
 
     public function borrarFavoritos($id, $documentname)
     {
         DB::delete('delete from favoritos where id = ? and DocumentName = ?',[$id,$documentname]);
+    }
+
+    public function selectFavoritos($id)
+    {
+        $results = DB::select('select DocumentName from favoritos where id = ?',[$id]);
+        return $results;
     }
 
     public function edit($plan)
