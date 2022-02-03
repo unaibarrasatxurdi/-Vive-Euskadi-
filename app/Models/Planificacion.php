@@ -12,6 +12,7 @@ class Planificacion extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'planificacion';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.

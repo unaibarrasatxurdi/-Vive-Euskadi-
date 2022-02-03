@@ -14,6 +14,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Funcion que redirije al layout de usuarios, pero a la sección de admin
     public function index()
     {
         return view('layouts.admin');
@@ -21,14 +22,14 @@ class AdminController extends Controller
 
     public function adminComent()
     {
-        
+        //funcion para mostrar los comentarios desde la base de datos en el apartado de admin
         $comentarios = Comentarios::paginate(5);
         return view('admin.comenAd')->with('comentarios', $comentarios);
     }
 
     public function adminUsuario()
     {
-       
+       //funcion para mostrar los usuarios desde la base de datos en el apartado de admin
         $users = User::paginate(8);
         return view('admin.usuAd')->with('users', $users);
     }
@@ -98,15 +99,14 @@ class AdminController extends Controller
      */
     public function destroyComent($IdComentario)
     {
-        
+        //Funcion que elimina un comentario creado por algun usuario. Se crea un mensaje para confirmar el borrado
         $comentario = Comentarios::find($IdComentario)->delete();
-
         return redirect()->route('admin.adminComent')->with('mensaje','Comentario borrado con éxito');
     }
 
     public function destroyUsuario($id)
     {
-        
+        //Funcion que elimina un usuario creado por algun usuario. Se crea un mensaje para confirmar el borrado
         $user = User::find($id)->delete();
         return redirect()->route('admin.adminUsuario')->with('mensaje','Usuario borrado con éxito');
     }

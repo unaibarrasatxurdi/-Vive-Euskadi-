@@ -5,7 +5,7 @@
     <div class="page-header mt-5 ms-5 ps-4 pt-1" id="titApartado">
         <h2>Los planes de ...</h2>
     </div>
-                    
+
     <div class="row" id="componente">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-        </div>           
+        </div>
     </div>
 </main>
 @endsection

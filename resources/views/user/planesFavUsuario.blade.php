@@ -1,11 +1,12 @@
 @extends('layouts.user')
 
 @section('content')
+<!--En esta vista recogemos los planes favoritos del usuario y mostramos los datos necesarios. Para ello hacemos un foreach y mostramos cada pplan-->
 <main class="col ps-md-2 pt-2">
     <div class="page-header mt-5 ms-5 ps-4 pt-1" id="titApartado">
         <h2>Nombre del plan</h2>
     </div>
-                    
+
     <div class="row" id="planFavUser">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach($favoritos as $favorito)
@@ -18,7 +19,7 @@
                 </div>
             </div>
             @endforeach
-        </div>       
+        </div>
     </div>
 </main>
 @endsection

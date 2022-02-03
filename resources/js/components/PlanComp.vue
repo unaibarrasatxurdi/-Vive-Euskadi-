@@ -1,11 +1,13 @@
 <template>
     <section class="container" id="contenedorPlan">
         <div class="row">
+            <!--El vfor creado aqui recorre los datos recojidos en el json-->
             <div v-for="(item, index) in this.resultado" :key="index" class="row mb-2">
                 <div class="col-6" id="infoPlan">
                     <div class="card" id="headerPlan">
                         <img src="/images/temporales/plan1.jpg" class="img-overlay">
                         <div class="row h-100 w-100 ms-0" id="tituloPlan">
+                            <!--Para mostrar el contenido del json deseado usamos item y despues del punto el dato que deseamos imprimir-->
                             <h3 class="position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white" >{{item.documentName}}</h3>
                             <div class="container d-flex justify-content-end" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-heart pe-3 pt-1 svgCorazon" viewBox="0 0 16 16" id="iconoFavPlan">

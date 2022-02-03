@@ -11,6 +11,7 @@
 <body>
     <div id="app">
         <main class="flex-row" id="contentIndex">
+            <!--Este contenido esta regulado por si ha iniciado sesion o no-->
         {{-- Cabecera --}}
             @if (Route::has('login') && Route::has('register'))
             @auth
@@ -31,6 +32,7 @@
                 {{-- Barra de búsqueda --}}              
                 <barra-busqueda request-busqueda="{{ request()->get('textoBusqueda') }}"  ></barra-busqueda>
 
+                <!--Este router view nos permite navegar entre componentes. Los componentes que estan creados en vuejs.-->
                 {{-- Complemento --}}
                 @if (Route::has('login') && Route::has('register'))
                 @auth

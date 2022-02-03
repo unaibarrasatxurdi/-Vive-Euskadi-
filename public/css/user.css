@@ -5,29 +5,36 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+
 #sidebar {
     background-color: #e1ecf0ff;
 }
+
 #sidebar-nav {
     width: 300px;
 }
+
 #imgAdmin {
     width: 25%;
 }
+
 #backAdmin {
     opacity: 0.4;
 }
+
 #sidebarAdmin {
     width: 100%;
     height: fit-content;
     display: inline-block;
     position: relative;
 }
+
 #datosAdmin {
     position: absolute;
     font-style: normal;
     top: 15%;
 }
+
 #menuAdmin {
     background-color: #e1ecf0ff;
 }
@@ -45,7 +52,7 @@ body {
     color: black;
 }
 
-.descubre-img{
+.descubre-img {
     width: 200px;
     height: 200px;
 }
@@ -57,9 +64,10 @@ body {
     height: 40px;
     font-size: 1.3em;
 }
+
 #logOut:hover {
-   background-color: #1498C2;
-   font-weight: 700;
+    background-color: #1498C2;
+    font-weight: 700;
 }
 
 /*Titulo de cada vista de usuario*/
@@ -75,18 +83,18 @@ body {
     margin: 5% 10% 0 10%;
 }
 
-input{
+input {
     border: solid;
     border-radius: 10px;
     background-color: transparent;
 }
 
-form > *{
+form>* {
     margin: 1%;
     text-align: center;
 }
 
-#botonForm{
+#botonForm {
     width: 25%;
     margin-bottom: 2%;
     margin-top: 2%;
@@ -96,6 +104,7 @@ form > *{
 hr {
     height: 5%;
 }
+
 /*Datos de usuario Fin*/
 
 /*Plan favorito de usuario*/
@@ -105,20 +114,20 @@ hr {
     margin: 5%;
 }
 
-.card-text{
-    background-color: rgba(0,0,0,0.5);
+.card-text {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 @font-face {
     font-family: PlayfairDisplay;
     src: url('/fonts/PlayfairDisplay-Regular.ttf');
-  }
- 
-h1{
+}
+
+h1 {
     font-family: Astral Sisters;
 }
-  
-.card{
+
+.card {
     background-color: rgba(0, 0, 0, 0.5) !important;
     font-family: PlayfairDisplay;
     margin-bottom: 5%;
@@ -132,5 +141,3 @@ table {
     margin: 5% 20% 0 20%;
     background-color: #e1ecf0ff;
 }
-
-
