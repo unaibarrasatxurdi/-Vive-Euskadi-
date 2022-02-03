@@ -9313,18 +9313,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
- // $(document).ready(function() {
-//     $('#añadir').click(function(e) {
-//         e.stopPropagation();
-//         console.log("funciona");
-//         $.ajax({
-//             type: 'get',
-//             url: '/comentario.add',
-//             data: {},
-//             error: function(ts) {console.log(ts.responseText)}
-//         });
-//     });
-// });
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -9337,7 +9325,8 @@ __webpack_require__.r(__webpack_exports__);
       naturaleza: false,
       amigos: false,
       pareja: false,
-      ninios: false
+      ninios: false,
+      comentarios: []
     };
   },
   props: ['userId'],
@@ -9349,7 +9338,6 @@ __webpack_require__.r(__webpack_exports__);
     this.resultado = this.planes.filter(function (plan) {
       return plan.documentName.includes(nombre);
     });
-    this.fetchComments();
 
     if (this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1") {
       this.gastronomia = true;
@@ -9393,32 +9381,18 @@ __webpack_require__.r(__webpack_exports__);
 
     ;
     console.log(this.amigos);
-  } // methods: {
-  //     fetchComments() {
-  //     // const t = this;
-  //     // axios.get('/comentarios/get', {
-  //     //     params: {
-  //     //         DocumentName: this.resultado.documentName
-  //     //     }
-  //     // })
-  //     //     .then(response => {
-  //     //         console.log(response);
-  //     //     }).catch(e => {
-  //     //         console.log(e);
-  //     //     })
-  //     //     console.log("funciona");
-  //     // console.log("funciona");
-  //     //     $.ajax({
-  //     //         type: 'get',
-  //     //         url: '/comentario.add',
-  //     //         data: {},
-  //     //         error: function(ts) {console.log(ts.responseText)}
-  //     //     }).done(function(respuesta) {
-  //     //         console.log(respuesta);
-  //     //     });
-  //     // }
-  // },
-
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+      type: 'get',
+      url: '/' + nombre + '/comentarios',
+      data: {},
+      error: function error(ts) {
+        console.log(ts.responseText);
+      }
+    }).done(function (respuesta) {
+      console.log(respuesta);
+      this.comentarios = respuesta;
+    });
+  }
 });
 
 /***/ }),
@@ -47304,7 +47278,45 @@ var render = function () {
         0
       ),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
+        _c(
+          "div",
+          { staticClass: "container p-0" },
+          [
+            _c(
+              "h3",
+              {
+                staticClass: "text-white text-center",
+                attrs: { id: "dondeEsta" },
+              },
+              [_vm._v("COMENTARIOS")]
+            ),
+            _vm._v(" "),
+            _c("h4", [_vm._v("Add comment")]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("hr", { staticClass: "m-4" }),
+            _vm._v(" "),
+            _vm._l(this.comentarios, function (item, index) {
+              return _c(
+                "div",
+                { key: index, staticClass: "comentarioPlan p-2" },
+                [
+                  _c("h4", [_vm._v(_vm._s(item.DocumentName))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(item.Texto))]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "fw-light text-end" }, [
+                    _vm._v(_vm._s(item.Fecha)),
+                  ]),
+                ]
+              )
+            }),
+          ],
+          2
+        ),
+      ]),
     ]
   )
 }
@@ -47337,47 +47349,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
-      _c("div", { staticClass: "container p-0" }, [
-        _c(
-          "h3",
-          { staticClass: "text-white text-center", attrs: { id: "dondeEsta" } },
-          [_vm._v("COMENTARIOS")]
-        ),
+    return _c(
+      "form",
+      { staticClass: "p-2", attrs: { method: "post", action: "#" } },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "comment_body", required: "" },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "post_id", value: "" },
+          }),
+        ]),
         _vm._v(" "),
-        _c("h4", [_vm._v("Add comment")]),
-        _vm._v(" "),
-        _c(
-          "form",
-          { staticClass: "p-2", attrs: { method: "post", action: "#" } },
-          [
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", name: "comment_body", required: "" },
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "hidden", name: "post_id", value: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                staticClass: "btn btn-warning",
-                attrs: {
-                  type: "button",
-                  id: "añadir",
-                  value: "Añadir comentario",
-                },
-              }),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
-        _c("hr", { staticClass: "m-4" }),
-      ]),
-    ])
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            staticClass: "btn btn-warning",
+            attrs: { type: "button", id: "añadir", value: "Añadir comentario" },
+          }),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true

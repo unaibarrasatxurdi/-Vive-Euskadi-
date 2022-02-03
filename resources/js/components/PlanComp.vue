@@ -103,11 +103,11 @@
                     </div>
                 </form>
                 <hr class="m-4">
-                <!-- <div v-for="item, index in Comentario" :key="index" class="comentarioPlan p-2">
-                    <h4>{{ item.user }}</h4>
-                    <p>Vamos a rellenar esta mierda a ver qué tal queda.</p>
-                    <p class="fw-light text-end">2/09/1880</p>
-                </div> -->
+                <div v-for="(item, index) in this.comentarios" :key="index" class="comentarioPlan p-2">
+                    <h4>{{ item.DocumentName }}</h4>
+                    <p>{{ item.Texto }}</p>
+                    <p class="fw-light text-end">{{ item.Fecha }}</p>
+                </div>
             </div>
         </div>
     </section>
@@ -115,19 +115,6 @@
 
 <script>
 import $ from 'jquery';
-
-// $(document).ready(function() {
-//     $('#añadir').click(function(e) {
-//         e.stopPropagation();
-//         console.log("funciona");
-//         $.ajax({
-//             type: 'get',
-//             url: '/comentario.add',
-//             data: {},
-//             error: function(ts) {console.log(ts.responseText)}
-//         });
-//     });
-// });
 
 export default {
     data () {
@@ -140,7 +127,8 @@ export default {
           naturaleza: false,
           amigos: false,
           pareja: false,
-          ninios: false
+          ninios: false,
+          comentarios: []
 
         } 
     },
@@ -153,7 +141,6 @@ export default {
         var nombre = url.substring(url.lastIndexOf('/') + 1);
         nombre = decodeURI(nombre);
         this.resultado = this.planes.filter(plan => plan.documentName.includes(nombre))
-        this.fetchComments();
 
         if(this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1"){
             this.gastronomia = true;
@@ -177,33 +164,18 @@ export default {
             this.ninios = true;
         };
         console.log(this.amigos);
-    },
 
-    // methods: {
-    //     fetchComments() {
-    //     // const t = this;
-    //     // axios.get('/comentarios/get', {
-    //     //     params: {
-    //     //         DocumentName: this.resultado.documentName
-    //     //     }
-    //     // })
-    //     //     .then(response => {
-    //     //         console.log(response);
-    //     //     }).catch(e => {
-    //     //         console.log(e);
-    //     //     })
-    //     //     console.log("funciona");
-    //     // console.log("funciona");
-    //     //     $.ajax({
-    //     //         type: 'get',
-    //     //         url: '/comentario.add',
-    //     //         data: {},
-    //     //         error: function(ts) {console.log(ts.responseText)}
-    //     //     }).done(function(respuesta) {
-    //     //         console.log(respuesta);
-    //     //     });
-    //     // }
-    // },
+        $.ajax({
+            type: 'get',
+            url: '/' + nombre + '/comentarios',
+            data: {},
+            error: function(ts){ console.log(ts.responseText) }
+        }).done(function(respuesta) {
+            console.log(respuesta);
+            this.comentarios = respuesta;
+        });
+        
+    },
 
 };
 </script>
