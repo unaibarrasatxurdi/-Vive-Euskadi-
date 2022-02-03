@@ -946,6 +946,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
+.bg-ocre{
+  background-color: #EEDDCD;
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1358,11 +1361,14 @@ select {
     align-items: flex-start;
     overflow: hidden;
     visibility: visible;
+    margin: 0;
+    padding: 0;
   }
   .col-sm-8 img{
     min-height: 768px;
     min-width: 1024px;
-    
+    margin: 0;
+    padding: 0;
   }
 }
 @media (min-width: 640px) {

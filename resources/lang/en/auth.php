@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Este usuario no está registrado.',
+    'failed' => 'Alguno de los datos que ha introducido no es correcto.',
     'password' => 'Lacontraseña es incorreta',
     'throttle' => 'Ha excedido el número de intentos. Intentelo de nuevo en :seconds seconds.',
 
