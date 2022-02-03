@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Planes extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    public $table = "planes";
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.

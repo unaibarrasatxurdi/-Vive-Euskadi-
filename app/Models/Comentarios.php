@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comentarios extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    public $table = "comentarios";
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.

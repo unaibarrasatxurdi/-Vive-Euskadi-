@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Planificacion extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    public $table = "planificacion";
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.

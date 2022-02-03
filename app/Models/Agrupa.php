@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Agrupa extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    public $table = "agrupa";
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.

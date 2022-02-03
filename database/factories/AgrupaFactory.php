@@ -16,11 +16,16 @@ class AgrupaFactory extends Factory
      */
     public function definition()
     {
-
         $IdPlanificacion = DB::table('Planificacion')->pluck('IdPlanificacion');
         $documentNames = DB::table('Planes')->pluck('documentName');
-        $aleatorio1=random_int(0,count($IdPlanificacion)-1);
-        $aleatorio2=random_int(0,count($documentNames)-1);
+        do{
+                $aleatorio1=random_int(0,count($IdPlanificacion)-1);
+                $aleatorio2=random_int(0,count($documentNames)-1);
+                $existe = DB::select('select idPlanificacion, DocumentName from agrupa where idPlanificacion = ? and DocumentName = ?', [$IdPlanificacion[$aleatorio1], $documentNames[$aleatorio2]]);
+        }while(count($existe)!=0);
+        
+        
+ 
 
         return [
             'IdPlanificacion' => $IdPlanificacion[$aleatorio1],
