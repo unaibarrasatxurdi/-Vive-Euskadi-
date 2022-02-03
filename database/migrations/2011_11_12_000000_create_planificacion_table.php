@@ -15,7 +15,7 @@ class CreatePlanificacionTable extends Migration
     {
         Schema::create('Planificacion', function (Blueprint $table) {
             $table->increments('IdPlanificacion');
-            $table->foreignId('id')->constrained('users')->onUpdate('cascade');
+            $table->foreignId('id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('NombrePlanificacion');
             $table->string('Descripcion');
         });

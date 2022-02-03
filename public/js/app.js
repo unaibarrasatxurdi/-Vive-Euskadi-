@@ -9313,21 +9313,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+ // $(document).ready(function() {
+//     $('#añadir').click(function(e) {
+//         e.stopPropagation();
+//         console.log("funciona");
+//         $.ajax({
+//             type: 'get',
+//             url: '/comentario.add',
+//             data: {},
+//             error: function(ts) {console.log(ts.responseText)}
+//         });
+//     });
+// });
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#añadir').click(function (e) {
-    e.stopPropagation();
-    console.log("funciona");
-    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-      type: 'get',
-      url: '/comentario.add',
-      data: {},
-      error: function error(ts) {
-        console.log(ts.responseText);
-      }
-    });
-  });
-});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9395,34 +9393,32 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
     ;
     console.log(this.amigos);
-  },
-  methods: {
-    fetchComments: function fetchComments() {
-      // const t = this;
-      // axios.get('/comentarios/get', {
-      //     params: {
-      //         DocumentName: this.resultado.documentName
-      //     }
-      // })
-      //     .then(response => {
-      //         console.log(response);
-      //     }).catch(e => {
-      //         console.log(e);
-      //     })
-      //     console.log("funciona");
-      console.log("funciona");
-      jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-        type: 'get',
-        url: '/comentario.add',
-        data: {},
-        error: function error(ts) {
-          console.log(ts.responseText);
-        }
-      }).done(function (respuesta) {
-        console.log(respuesta);
-      });
-    }
-  }
+  } // methods: {
+  //     fetchComments() {
+  //     // const t = this;
+  //     // axios.get('/comentarios/get', {
+  //     //     params: {
+  //     //         DocumentName: this.resultado.documentName
+  //     //     }
+  //     // })
+  //     //     .then(response => {
+  //     //         console.log(response);
+  //     //     }).catch(e => {
+  //     //         console.log(e);
+  //     //     })
+  //     //     console.log("funciona");
+  //     // console.log("funciona");
+  //     //     $.ajax({
+  //     //         type: 'get',
+  //     //         url: '/comentario.add',
+  //     //         data: {},
+  //     //         error: function(ts) {console.log(ts.responseText)}
+  //     //     }).done(function(respuesta) {
+  //     //         console.log(respuesta);
+  //     //     });
+  //     // }
+  // },
+
 });
 
 /***/ }),

@@ -5,7 +5,71 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-#sidebar {
+
+#barraLateral {
+    background-color: #e1ecf0ff;
+    height: fit-content;
+}
+
+#backAdmin{
+    opacity: 0.4;
+}
+
+#imgAdmin {
+    width: 25%;
+}
+
+#datosAdmin {
+    position: absolute;
+    font-style: normal;
+    top: 15%;
+}
+
+#contDatos {
+    width: 100%;
+    height: fit-content;
+    display: inline-block;
+    position: relative;
+}
+
+#btnMenuAdmin a {
+    color: black;
+    font-size: 1.4em;
+    text-decoration: none;
+    margin-left: 3%;
+}
+
+#btnMenuAdmin a:hover {
+    background-color: gray;
+    color: black;
+}
+
+#titApartado {
+    background-color: #1498C2;
+    width: 400px;
+    height: 50px;
+}
+
+.table {
+    margin: 5% 20% 0 15%;
+    width: 30%;
+    background-color: #e1ecf0ff;
+}
+
+.pagination {
+    margin-top: 5%;
+    margin-left: 40%;
+    /* justify-content: center; */
+}
+.page-link {
+    color: rgb(0, 0, 0) !important;
+}
+.page-item.active .page-link {
+    background-color: #1498C2 !important;
+    color: rgb(0, 0, 0) !important;
+    border-color: transparent !important;
+}
+/* #sidebar {
     background-color: #e1ecf0ff;
 }
 #sidebar-nav {
@@ -17,7 +81,7 @@ body {
 #backAdmin {
     opacity: 0.4;
 }
-#sidebarAdmin {
+#contDatos {
     width: 100%;
     height: fit-content;
     display: inline-block;
@@ -49,12 +113,13 @@ body {
     background-color: #1498C2;
     width: 400px;
     height: 50px;
-}
+} */
 
-.table {
+/* .table {
+    width: 30%;
     margin: 5% 20% 0 10%;
     background-color: #e1ecf0ff;
-}
+} */
 
 
 /* #btnMenuAdmin {
@@ -67,6 +132,19 @@ body {
     color: black;
     font-size: 1.4em;
 } */
+/* .pagination {
+    margin-top: 5%;
+    justify-content: center;
+}
+.page-link {
+    color: rgb(0, 0, 0) !important;
+}
+.page-item.active .page-link {
+    background-color: #1498C2 !important;
+    color: rgb(0, 0, 0) !important;
+    border-color: transparent !important;
+}
+ */
 
 
 

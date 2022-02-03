@@ -116,18 +116,18 @@
 <script>
 import $ from 'jquery';
 
-$(document).ready(function() {
-    $('#añadir').click(function(e) {
-        e.stopPropagation();
-        console.log("funciona");
-        $.ajax({
-            type: 'get',
-            url: '/comentario.add',
-            data: {},
-            error: function(ts) {console.log(ts.responseText)}
-        });
-    });
-});
+// $(document).ready(function() {
+//     $('#añadir').click(function(e) {
+//         e.stopPropagation();
+//         console.log("funciona");
+//         $.ajax({
+//             type: 'get',
+//             url: '/comentario.add',
+//             data: {},
+//             error: function(ts) {console.log(ts.responseText)}
+//         });
+//     });
+// });
 
 export default {
     data () {
@@ -179,31 +179,31 @@ export default {
         console.log(this.amigos);
     },
 
-    methods: {
-        fetchComments() {
-        // const t = this;
-        // axios.get('/comentarios/get', {
-        //     params: {
-        //         DocumentName: this.resultado.documentName
-        //     }
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //     }).catch(e => {
-        //         console.log(e);
-        //     })
-        //     console.log("funciona");
-        console.log("funciona");
-            $.ajax({
-                type: 'get',
-                url: '/comentario.add',
-                data: {},
-                error: function(ts) {console.log(ts.responseText)}
-            }).done(function(respuesta) {
-                console.log(respuesta);
-            });
-        }
-    },
+    // methods: {
+    //     fetchComments() {
+    //     // const t = this;
+    //     // axios.get('/comentarios/get', {
+    //     //     params: {
+    //     //         DocumentName: this.resultado.documentName
+    //     //     }
+    //     // })
+    //     //     .then(response => {
+    //     //         console.log(response);
+    //     //     }).catch(e => {
+    //     //         console.log(e);
+    //     //     })
+    //     //     console.log("funciona");
+    //     // console.log("funciona");
+    //     //     $.ajax({
+    //     //         type: 'get',
+    //     //         url: '/comentario.add',
+    //     //         data: {},
+    //     //         error: function(ts) {console.log(ts.responseText)}
+    //     //     }).done(function(respuesta) {
+    //     //         console.log(respuesta);
+    //     //     });
+    //     // }
+    // },
 
 };
 </script>
