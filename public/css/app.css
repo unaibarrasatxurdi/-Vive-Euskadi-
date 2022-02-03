@@ -45,11 +45,26 @@ body {
   line-height: inherit; /* 2 */
 }
 
-/*
-1. Add the correct height in Firefox.
-2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
-3. Ensure horizontal rules are visible by default.
-*/
+
+.container{
+  margin: 0;
+  padding: 0;
+}
+.row{
+  margin: 0;
+  padding: 0;
+}
+.col-sm-8{
+  margin: 0;
+  padding: 0;
+  visibility: collapse;
+  /*display: none;*/
+}
+.col-sm-4{
+  margin: 0;
+  padding: 0;
+  /*margin-right: -5em;*/
+}
 
 hr {
   height: 0; /* 1 */
@@ -1335,6 +1350,19 @@ select {
   .dark\:text-gray-400 {
     --tw-text-opacity: 1;
     color: rgb(156 163 175 / var(--tw-text-opacity));
+  }
+}
+@media (min-width: 575px) {
+  .col-sm-8{
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    visibility: visible;
+  }
+  .col-sm-8 img{
+    min-height: 768px;
+    min-width: 1024px;
+    
   }
 }
 @media (min-width: 640px) {

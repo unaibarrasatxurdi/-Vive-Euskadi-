@@ -1,4 +1,10 @@
 <x-app-layout>
+    @php
+    Echo.private('App.User.' + userId)
+    .notification((notification) => {
+        console.log(notification.type);
+    });
+    @endphp
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
