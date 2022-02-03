@@ -28,8 +28,6 @@ Route::group(['middleware' => ['auth']], function() {
     * Logout Route
     */
     Route::get('/logout', [LogoutController::class,'perform']);
-    Route::get('/comentario/get', 'ComentarioController@get')->name('comentario.get');
-    Route::post('/comentario/insertarComentario', 'ComentarioController@insertarComentario')->name('comentario.add');
  });
  
 Route::resource('home', HomeController::class)->only('index');
