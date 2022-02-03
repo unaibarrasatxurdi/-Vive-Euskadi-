@@ -16,7 +16,7 @@ class ComentariosFactory extends Factory
      */
     public function definition()
     {
-
+        //coje el Id de usuario y el documentName de la base de datos para crear un comentario
         $IdUsuarios = DB::table('users')->pluck('id');
         $documentNames = DB::table('Planes')->pluck('documentName');
         $aleatorio1=random_int(0,count($IdUsuarios)-1);

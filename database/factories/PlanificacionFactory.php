@@ -16,7 +16,7 @@ class PlanificacionFactory extends Factory
      */
     public function definition()
     {
-
+        //coje el Id de usuario para crear una planificación de este
         $IdUsuarios = DB::table('users')->pluck('id');
         $aleatorio1=random_int(0,count($IdUsuarios)-1);
 

@@ -16,7 +16,7 @@ class AgrupaFactory extends Factory
      */
     public function definition()
     {
-
+        //coje el Id de planificacion y el documentName de la base de datos para agrupar planes dentro de una planificacion
         $IdPlanificacion = DB::table('Planificacion')->pluck('IdPlanificacion');
         $documentNames = DB::table('Planes')->pluck('documentName');
         $aleatorio1=random_int(0,count($IdPlanificacion)-1);
