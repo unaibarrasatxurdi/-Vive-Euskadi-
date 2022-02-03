@@ -7,6 +7,18 @@
                 <h2>Gestión de usuarios</h2>
             </div>
         </div>
+        @if (Session::has('mensaje'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('mensaje') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @elseif (Session::has('mensajeError'))
+    
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ Session::get('mensajeError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
         <div class="row">
             <div class="col-md-8">
                 <table id="myTable" class="table">

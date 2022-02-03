@@ -101,13 +101,13 @@ class AdminController extends Controller
         
         $comentario = Comentarios::find($IdComentario)->delete();
 
-        return redirect()->route('admin.adminComent');
+        return redirect()->route('admin.adminComent')->with('mensaje','Comentario borrado con éxito');
     }
 
     public function destroyUsuario($id)
     {
         
         $user = User::find($id)->delete();
-        return redirect()->route('admin.adminUsuario');
+        return redirect()->route('admin.adminUsuario')->with('mensaje','Usuario borrado con éxito');
     }
 }

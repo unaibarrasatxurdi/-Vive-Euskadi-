@@ -17,7 +17,7 @@ class CreateComentariosTable extends Migration
             $table->increments('IdComentario');
             $table->foreignId('id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('DocumentName');
-            $table->foreign('DocumentName')->references('DocumentName')->on('Planes')->onUpdate('cascade');
+            $table->foreign('DocumentName')->references('DocumentName')->on('Planes')->onUpdate('cascade')->onDelete('cascade');
             //$table->foreign('DocumentName')->constrained('Planes')->onUpdate('cascade');
             $table->string('Texto');
             $table->dateTime('Fecha');
