@@ -92,7 +92,7 @@
         <div class="row" id="comentarios">
             <div class="container p-0">
                 <h3 class="text-white text-center" id="dondeEsta">COMENTARIOS</h3>
-                <h4>Add comment</h4>
+                <h4 class="ps-2">Add comment</h4>
                 <form class="p-2" method="post" action="#">
                     <div class="form-group">
                         <input type="text" name="comment_body" class="form-control" required />
@@ -103,10 +103,8 @@
                     </div>
                 </form>
                 <hr class="m-4">
-                <div v-for="(item, index) in this.comentarios" :key="index" class="comentarioPlan p-2">
-                    <h4>{{ item.DocumentName }}</h4>
-                    <p>{{ item.Texto }}</p>
-                    <p class="fw-light text-end">{{ item.Fecha }}</p>
+                <div id="comentarios" class="p2">
+                    <!-- Aquí se añadirán los comentarios mediante ajax -->
                 </div>
             </div>
         </div>
@@ -127,9 +125,7 @@ export default {
           naturaleza: false,
           amigos: false,
           pareja: false,
-          ninios: false,
-          comentarios: []
-
+          ninios: false
         } 
     },
     
@@ -168,15 +164,22 @@ export default {
         $.ajax({
             type: 'get',
             url: '/' + nombre + '/comentarios',
-            data: {},
-            error: function(ts){ console.log(ts.responseText) }
-        }).done(function(respuesta) {
-            console.log(respuesta);
-            this.comentarios = respuesta;
-        });
-        
+            data: {toma: []},
+            contentType: 'application/json; charset=utf-8',
+            success: function(respuesta) {
+                respuesta.forEach(element => {
+                    var html = `
+                        <div class="comentarioPlan" id="` + element.idComentario + `" style="border-bottom: 1px solid whitesmoke;">
+                            <h4>` + element.name + `</h4>
+                            <p>` + element.Texto + `</p>
+                            <p class="fw-light text-end">` + element.Fecha + `</p>
+                        </div>
+                    `;
+                    $('#comentarios').append(html);
+                });
+            }
+        });        
     },
-
 };
 </script>
 

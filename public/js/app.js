@@ -9311,8 +9311,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -9325,8 +9323,7 @@ __webpack_require__.r(__webpack_exports__);
       naturaleza: false,
       amigos: false,
       pareja: false,
-      ninios: false,
-      comentarios: []
+      ninios: false
     };
   },
   props: ['userId'],
@@ -9384,13 +9381,16 @@ __webpack_require__.r(__webpack_exports__);
     jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
       type: 'get',
       url: '/' + nombre + '/comentarios',
-      data: {},
-      error: function error(ts) {
-        console.log(ts.responseText);
+      data: {
+        toma: []
+      },
+      contentType: 'application/json; charset=utf-8',
+      success: function success(respuesta) {
+        respuesta.forEach(function (element) {
+          var html = "\n                        <div class=\"comentarioPlan\" id=\"" + element.idComentario + "\" style=\"border-bottom: 1px solid whitesmoke;\">\n                            <h4>" + element.name + "</h4>\n                            <p>" + element.Texto + "</p>\n                            <p class=\"fw-light text-end\">" + element.Fecha + "</p>\n                        </div>\n                    ";
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#comentarios').append(html);
+        });
       }
-    }).done(function (respuesta) {
-      console.log(respuesta);
-      this.comentarios = respuesta;
     });
   }
 });
@@ -47278,45 +47278,7 @@ var render = function () {
         0
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
-        _c(
-          "div",
-          { staticClass: "container p-0" },
-          [
-            _c(
-              "h3",
-              {
-                staticClass: "text-white text-center",
-                attrs: { id: "dondeEsta" },
-              },
-              [_vm._v("COMENTARIOS")]
-            ),
-            _vm._v(" "),
-            _c("h4", [_vm._v("Add comment")]),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c("hr", { staticClass: "m-4" }),
-            _vm._v(" "),
-            _vm._l(this.comentarios, function (item, index) {
-              return _c(
-                "div",
-                { key: index, staticClass: "comentarioPlan p-2" },
-                [
-                  _c("h4", [_vm._v(_vm._s(item.DocumentName))]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(item.Texto))]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "fw-light text-end" }, [
-                    _vm._v(_vm._s(item.Fecha)),
-                  ]),
-                ]
-              )
-            }),
-          ],
-          2
-        ),
-      ]),
+      _vm._m(1),
     ]
   )
 }
@@ -47349,29 +47311,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "form",
-      { staticClass: "p-2", attrs: { method: "post", action: "#" } },
-      [
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", name: "comment_body", required: "" },
-          }),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "hidden", name: "post_id", value: "" },
-          }),
-        ]),
+    return _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
+      _c("div", { staticClass: "container p-0" }, [
+        _c(
+          "h3",
+          { staticClass: "text-white text-center", attrs: { id: "dondeEsta" } },
+          [_vm._v("COMENTARIOS")]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            staticClass: "btn btn-warning",
-            attrs: { type: "button", id: "añadir", value: "Añadir comentario" },
-          }),
-        ]),
-      ]
-    )
+        _c("h4", { staticClass: "ps-2" }, [_vm._v("Add comment")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          { staticClass: "p-2", attrs: { method: "post", action: "#" } },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "text", name: "comment_body", required: "" },
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "post_id", value: "" },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("input", {
+                staticClass: "btn btn-warning",
+                attrs: {
+                  type: "button",
+                  id: "añadir",
+                  value: "Añadir comentario",
+                },
+              }),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c("hr", { staticClass: "m-4" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "p2", attrs: { id: "comentarios" } }),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
