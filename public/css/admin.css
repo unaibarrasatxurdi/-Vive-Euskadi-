@@ -32,6 +32,10 @@ body {
     position: relative;
 }
 
+#btnMenuAdmin {
+    height: 500px;
+}
+
 #btnMenuAdmin a {
     color: black;
     font-size: 1.4em;
