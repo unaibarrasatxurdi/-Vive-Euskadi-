@@ -165,63 +165,18 @@
         class="d-flex justify-content-center mb-2"
       >
         <!-- Para navegar entre componentes Vue-->
-        <router-link
-          exact-active-class="active"
-          :to="{
-            path:
-              '/busqueda/' +
-              $route.params.textoBusqueda +
-              '/plan/' +
-              item.documentName,
-            query: { plan: userId },
-          }"
-          aria-current="page"
-          custom
-          v-slot="{ navigate }"
-        >
-          <div class="card text-white busqueda-card" @click="navigate">
-            <img
-              src="/images/Imagenes/alavaDescubre.jpg"
-              class="card-img"
-              alt=""
-            />
-            <div
-              class="card-img-overlay"
-              v-bind:id="item.territory.split(' ')[0].split('/')[0]"
-            >
-              <h5
-                class="card-title float-end h5-DocumentName"
-                v-bind:id="item.documentName"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  fill="currentColor"
-                  class="bi bi-heart"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-                  />
-                </svg>
-              </h5>
-              <p
-                class="
-                  card-text
-                  position-absolute
-                  start-0
-                  bottom-0
-                  end-0
-                  h-25
-                  text-center
-                  fs-5
-                "
-              >
-                {{ item.documentName }}
-              </p>
+       <router-link exact-active-class="active" :to="{path: '/busqueda/'+$route.params.textoBusqueda+'/plan/'+item.documentName, query: { plan: userId}}" aria-current="page" @click.native="$event.stopImmediatePropagation()">
+            <div class="card text-white busqueda-card">
+                <img src="/images/Imagenes/alavaDescubre.jpg" class="card-img" alt="">
+                <div class="card-img-overlay">
+                    <h5 class="card-title float-end h5-DocumentName"  v-bind:id="item.documentName" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-heart"   viewBox="0 0 16 16">
+                            <path  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                    </h5>
+                    <p  class="card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5" >{{item.documentName}}</p>
+                </div>
             </div>
-          </div>
         </router-link>
       </div>
     </div>
@@ -332,50 +287,36 @@ $(document).ready(function () {
 });
 //Rellenar los corazones segun los favoritos del user
 function rellenarFavoritos() {
-  if ($(".divUserId").attr("id") != undefined) {
-    var user_id = parseInt($(".divUserId").attr("id"));
-    $.ajax({
-      type: "get",
-      url: "/busqueda/selectFavoritos/" + user_id,
-      data: {},
-      error: function (ts) {
-        console.log(ts.responseText);
-      },
-    }).done(function (respuesta) {
-      var resultadoDocumentName = [];
-      for (var i = 0; i < respuesta.length; i++) {
-        resultadoDocumentName.push(respuesta[i].DocumentName);
-      }
-      $(".h5-DocumentName").each(function () {
-        if (resultadoDocumentName.indexOf($(this).attr("id")) >= 0) {
-          $(this).children("svg").removeClass("bi-heart");
-          $(this).children("svg").addClass("bi-heart-fill");
-          $(this)
-            .children("svg")
-            .children("path")
-            .attr(
-              "d",
-              "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-            );
-          $(this).children("svg").children("path").attr("fill-rule", "evenodd");
-          $(this).children("svg").css("fill", "red");
-        } else {
-          $(this).children("svg").removeClass("bi-heart-fill");
-          $(this).children("svg").addClass("bi-heart");
-          $(this)
-            .children("svg")
-            .children("path")
-            .attr(
-              "d",
-              "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
-            );
-          $(this).children("svg").children("path").removeAttr("fill-rule");
-          $(this).children("svg").css("fill", "white");
-        }
-      });
-    });
-  }
-}
+                if($('.divUserId').attr('id')!=undefined){
+                    var user_id=parseInt($('.divUserId').attr('id'));
+                    $.ajax({
+                                type: 'get',
+                                url: '/busqueda/selectFavoritos/'+user_id,
+                                data: {},
+                                error: function(ts) { console.log(ts.responseText) }
+                            }).done(function(respuesta) {
+                                var resultadoDocumentName= [];
+                                for(var i=0; i<respuesta.length;i++){
+                                    resultadoDocumentName.push(respuesta[i].DocumentName);
+                                };
+                                $('.h5-DocumentName').each(function () { 
+                                    if(resultadoDocumentName.indexOf($(this).attr('id'))>=0){
+                                        $(this).children('svg').removeClass('bi-heart');
+                                        $(this).children('svg').addClass("bi-heart-fill");
+                                        $(this).children('svg').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+                                        $(this).children('svg').children('path').attr('fill-rule','evenodd');
+                                        $(this).children('svg').css('fill', 'red');
+                                    }else{
+                                        $(this).children('svg').removeClass('bi-heart-fill');
+                                        $(this).children('svg').addClass("bi-heart");
+                                        $(this).children('svg').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+                                        $(this).children('svg').children('path').removeAttr('fill-rule');
+                                        $(this).children('svg').css('fill', 'white');
+                                    }
+                                });
+                            });
+                };
+};
 
 export default {
   data() {
@@ -388,7 +329,7 @@ export default {
       cantidadTotal: 0,
     };
   },
-  props: ["userId"],
+  props: ['userId'],
   mounted() {
     this.planes = JSON.parse(localStorage.getItem("planes"));
     const url = window.location.href;

@@ -237,7 +237,7 @@ export default {
       ninios: false,
       userId: null,
     };
-  },
+  },props:['userId'],
   mounted() {
     //Para tener siempre accesibles las variables de Vue
     var este = this;

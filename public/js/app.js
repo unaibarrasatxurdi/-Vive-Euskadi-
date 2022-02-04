@@ -8704,25 +8704,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['requestBusqueda'],
+  props: ["requestBusqueda"],
   mounted: function mounted() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).ready(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()("#busquedaIndex").submit(function (e) {
         e.preventDefault();
         buscar();
       });
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#button-addon1').on("click", function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#button-addon1").on("click", function () {
         buscar();
       });
-    });
+    }); //Al buscar cambiar de url
 
     function buscar() {
-      var textoBuscar = document.getElementById('search-input').value;
+      var textoBuscar = document.getElementById("search-input").value;
 
       if (textoBuscar == "") {
-        alert('El campo de busqueda no puede estar vacio');
+        alert("El campo de busqueda no puede estar vacio");
       } else {
         window.location.replace("/busqueda/" + textoBuscar);
       }
@@ -8872,15 +8879,91 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  rellenarFavoritos();
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.busqueda-card').hover(function () {
+  rellenarFavoritos(); //Animacion de las cards
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".busqueda-card").hover(function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
       width: "25rem",
       height: "20rem"
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children(".card-img").stop().animate({
       width: "25rem",
       height: "20rem"
     });
@@ -8889,40 +8972,41 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       width: "20rem",
       height: "15rem"
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.card-img').stop().animate({
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children(".card-img").stop().animate({
       width: "20rem",
       height: "15rem"
     });
-  });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').children('svg').click(function () {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
-      var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
-      var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr('id');
+  }); // Agregar o Borrar de Favoritos
 
-      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart')) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".h5-DocumentName").children("svg").click(function () {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(".divUserId").attr("id") != undefined) {
+      var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(".divUserId").attr("id"));
+      var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr("id");
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass("bi-heart")) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass("bi-heart");
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart-fill");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('fill-rule', 'evenodd');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'red');
-        var territory = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().attr('id');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("d", "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("fill-rule", "evenodd");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css("fill", "red");
+        var territory = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().attr("id");
         jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-          type: 'get',
-          url: '/busqueda/insertarFavoritos/' + user_id + '/' + documentName + '/' + territory,
+          type: "get",
+          url: "/busqueda/insertarFavoritos/" + user_id + "/" + documentName + "/" + territory,
           data: {},
           error: function error(ts) {
             console.log(ts.responseText);
           }
         });
-      } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('bi-heart-fill')) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('bi-heart-fill');
+      } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass("bi-heart-fill")) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass("bi-heart-fill");
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('path').removeAttr('fill-rule');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('fill', 'white');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("d", "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").removeAttr("fill-rule");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css("fill", "white");
         jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-          type: 'get',
-          url: '/busqueda/borrarFavoritos/' + user_id + '/' + documentName,
+          type: "get",
+          url: "/busqueda/borrarFavoritos/" + user_id + "/" + documentName,
           data: {},
           error: function error(ts) {
             console.log(ts.responseText);
@@ -8932,11 +9016,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     }
 
     return false;
-  });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-link').click(function () {
+  }); //Rellenar los favoritos del user al cambiar de pagina
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".page-link").click(function () {
     rellenarFavoritos();
   });
-});
+}); //Rellenar los corazones segun los favoritos del user
 
 function rellenarFavoritos() {
   if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
@@ -8985,7 +9070,7 @@ function rellenarFavoritos() {
       resultado: [],
       filtro: null,
       id: null,
-      paginate: ['resultado'],
+      paginate: ["resultado"],
       cantidadTotal: 0
     };
   },
@@ -8995,13 +9080,14 @@ function rellenarFavoritos() {
 
     this.planes = JSON.parse(localStorage.getItem("planes"));
     var url = window.location.href;
-    this.id = url.substring(url.lastIndexOf('/') + 1);
+    this.id = url.substring(url.lastIndexOf("/") + 1);
     this.resultado = this.planes.filter(function (plan) {
       return plan.documentName.toLowerCase().includes(decodeURI(_this.id.toLowerCase()));
     });
     this.checkbox();
   },
   methods: {
+    //Todos los filtrados
     filtrar: function filtrar(filtroTerritorio, filtroResto) {
       var _this2 = this;
 
@@ -9153,127 +9239,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['descubreEuskadi', 'indexRoute', 'userLogin', 'userRegister', 'userRoute', 'userName', 'logOut', 'userAdmin', 'adminRoute']
+  //Todas las variables externas
+  props: ["descubreEuskadi", "indexRoute", "userLogin", "userRegister", "userRoute", "userName", "logOut", "userAdmin", "adminRoute"]
 });
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************************************/
-/***/ (() => {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/IndexComp.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/IndexComp.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -9382,6 +9379,136 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -9398,22 +9525,29 @@ __webpack_require__.r(__webpack_exports__);
       userId: null
     };
   },
+  props: ['userId'],
   mounted: function mounted() {
-    var este = this;
-    this.userId = this.$route.query.plan;
-    this.planes = JSON.parse(localStorage.getItem("planes"));
+    //Para tener siempre accesibles las variables de Vue
+    var este = this; //Obtenemos la id del user via la url
+
+    this.userId = this.$route.query.plan; //Obtenemos el JSON
+
+    this.planes = JSON.parse(localStorage.getItem("planes")); //Obtenemos el nombre del plan desde la url
+
     var url = window.location.href;
-    var nombre = url.substring(url.lastIndexOf('/') + 1);
-    var nombreSplit = nombre.split('?')[0];
-    nombre = decodeURI(nombreSplit);
+    var nombre = url.substring(url.lastIndexOf("/") + 1);
+    var nombreSplit = nombre.split("?")[0];
+    nombre = decodeURI(nombreSplit); //Filtramos segun el texto de busqueda
+
     this.resultado = this.planes.filter(function (plan) {
       return plan.documentName.includes(nombre);
-    });
+    }); //Control de no haber iniciado sesion
 
     if (this.userId != undefined && this.userId != NaN) {
+      //Marcar los favoritos del usuario
       jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-        type: 'get',
-        url: '/busqueda/selectFavoritos/' + este.userId,
+        type: "get",
+        url: "/busqueda/selectFavoritos/" + este.userId,
         data: {},
         error: function error(ts) {
           console.log(ts.responseText);
@@ -9425,67 +9559,50 @@ __webpack_require__.r(__webpack_exports__);
           resultadoDocumentName.push(respuesta[i].DocumentName);
         }
 
-        ;
-
         if (resultadoDocumentName.indexOf(este.resultado[0].documentName) >= 0) {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').removeClass('bi-heart');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').addClass("bi-heart-fill");
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('fill-rule', 'evenodd');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').css('fill', 'red');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").removeClass("bi-heart");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").addClass("bi-heart-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").children("path").attr("d", "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").children("path").attr("fill-rule", "evenodd");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").css("fill", "red");
         } else {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').removeClass('bi-heart-fill');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').addClass("bi-heart");
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').children('path').removeAttr('fill-rule');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgCorazon').css('fill', 'white');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").removeClass("bi-heart-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").addClass("bi-heart");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").children("path").attr("d", "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").children("path").removeAttr("fill-rule");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").css("fill", "white");
         }
       });
-    }
+    } //Obtener los campos que cumple el plan
 
-    ;
 
     if (this.resultado[0].gastronomical == "1" || this.resultado[0].cuisine == "1") {
       this.gastronomia = true;
     }
 
-    ;
-
     if (this.resultado[0].water == "1") {
       this.agua = true;
     }
-
-    ;
 
     if (this.resultado[0].landscape == "1") {
       this.naturaleza = true;
     }
 
-    ;
-
     if (this.resultado[0].culture == "1") {
       this.cultura = true;
     }
-
-    ;
 
     if (this.resultado[0].friends == "1") {
       this.amigos = true;
     }
 
-    ;
-
     if (this.resultado[0].couple == "1") {
       this.pareja = true;
     }
 
-    ;
-
     if (this.resultado[0].children == "1") {
       this.ninios = true;
     }
-
-    ;
   }
 });
 
@@ -9535,7 +9652,8 @@ vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('plan-comp', (__webpack_re
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('cabecera', (__webpack_require__(/*! ./components/Cabecera.vue */ "./resources/js/components/Cabecera.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('piepagina', (__webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('busqueda-comp', (__webpack_require__(/*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue")["default"]));
-vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('barra-busqueda', (__webpack_require__(/*! ./components/BarraBusquedaComp.vue */ "./resources/js/components/BarraBusquedaComp.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('barra-busqueda', (__webpack_require__(/*! ./components/BarraBusquedaComp.vue */ "./resources/js/components/BarraBusquedaComp.vue")["default"])); //importamos rutas, axios y paginacion para usar posteriormente
+
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_axios__WEBPACK_IMPORTED_MODULE_4__["default"], axios);
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].use((vue_paginate__WEBPACK_IMPORTED_MODULE_6___default()));
@@ -9545,13 +9663,16 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]({
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_8__["default"]({
   el: '#app',
+  //importamos en el componete padre el router   
   router: router,
   data: function data() {
     return {
+      //estas dos variables la usaremos para recoger los datos del json
       json: null,
       jsonp: null
     };
   },
+  //Hacemos una funcionalidad que se ejecuta asincronamente en el mounted
   mounted: function mounted() {
     var _this = this;
 
@@ -9566,14 +9687,18 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_8__["default"]({
                 break;
               }
 
-              delete axios.defaults.headers.common['X-Requested-With'];
+              //Linea neesaria para que no cree condlicto en la lectura del json. Borrara los headers.
+              delete axios.defaults.headers.common['X-Requested-With']; //Recogida del json 
+
               _context.next = 4;
               return axios.get('https://opendata.euskadi.eus/contenidos/ds_recursos_turisticos/planes_experiencias_euskadi/opendata/planes.json');
 
             case 4:
               response = _context.sent;
-              _this.jsonp = response.data;
-              _this.json = _this.jsonp.substring(_this.jsonp.indexOf("(") + 1, _this.jsonp.lastIndexOf(")"));
+              _this.jsonp = response.data; //Borramos unos caracteres innecesarios
+
+              _this.json = _this.jsonp.substring(_this.jsonp.indexOf("(") + 1, _this.jsonp.lastIndexOf(")")); //Metemos los datos que necesiamos sobre json en el localStorage
+
               localStorage.setItem("planes", _this.json);
 
             case 8:
@@ -9584,7 +9709,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_8__["default"]({
       }, _callee);
     }))();
   }
-});
+}); //Necesario para el funcionamiento del inicio de sesion.
+
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
 window.$ = jquery__WEBPACK_IMPORTED_MODULE_7__.$;
 alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
@@ -9633,13 +9759,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
+// Apartado orientado a las Rutas de VueJS
 var busquedaComp = function busquedaComp() {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/BusquedaComp.vue */ "./resources/js/components/BusquedaComp.vue"));
 };
 
 var planComp = function planComp() {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/PlanComp.vue */ "./resources/js/components/PlanComp.vue"));
-};
+}; // Declaramos las rutas para importarlas a la app de VueJS
+
 
 var routes = [{
   name: 'busqueda-comp',
@@ -25614,7 +25742,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n@font-face {\r\n    font-family: PlayfairDisplay;\r\n    src: url('/fonts/PlayfairDisplay.ttf');\n}\ntable[data-v-517fb218]{\r\n    background-color:rgba(209, 220, 225, 0.9);\n}\nth[data-v-517fb218]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\n}\ntd[data-v-517fb218]{\r\n    font-family: PlayFairDisplay;\n}\n.card-text[data-v-517fb218]{\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    font-family: PlayFairDisplay;\n}\n.card[data-v-517fb218] {\r\n    width: 20rem;\r\n    height: 15rem;\n}\n.card-img[data-v-517fb218]{\r\n    height: 15rem;\n}\r\n\r\n\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: Astral Sisters;\r\n  src: url(\"/fonts/Astral-Sisters.ttf\");\n}\n@font-face {\r\n  font-family: PlayfairDisplay;\r\n  src: url(\"/fonts/PlayfairDisplay.ttf\");\n}\ntable[data-v-517fb218] {\r\n  background-color: rgba(209, 220, 225, 0.9);\n}\nth[data-v-517fb218] {\r\n  font-family: \"Astral Sisters\";\r\n  font-size: 30px;\n}\ntd[data-v-517fb218] {\r\n  font-family: PlayFairDisplay;\n}\n.card-text[data-v-517fb218] {\r\n  background-color: rgba(0, 0, 0, 0.5);\r\n  font-family: PlayFairDisplay;\n}\n.card[data-v-517fb218] {\r\n  width: 20rem;\r\n  height: 15rem;\n}\n.card-img[data-v-517fb218] {\r\n  height: 15rem;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25638,7 +25766,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: Astral Sisters;\r\n    src: url('/fonts/Astral-Sisters.ttf');\n}\n*[data-v-5497f71d]{\r\n    font-family: 'Astral Sisters';\r\n    font-size: 30px;\r\n    padding-top: 0;\r\n    padding-bottom: 0;\r\n    background-color: #1498C2;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: Astral Sisters;\r\n  src: url(\"/fonts/Astral-Sisters.ttf\");\n}\n*[data-v-5497f71d] {\r\n  font-family: \"Astral Sisters\";\r\n  font-size: 30px;\r\n  padding-top: 0;\r\n  padding-bottom: 0;\r\n  background-color: #1498c2;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25662,7 +25790,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n    font-family: PlayfairDisplay;\r\n    src: url('/fonts/PlayfairDisplay.ttf');\n}\n*[data-v-61a7c374]{\r\n    background-color: #1498C2;\r\n    font-family: 'PlayfairDisplay';\r\n    font-size: 20px;\r\n    margin: 0;\n}\n.redes[data-v-61a7c374]{\r\n    width: 71px;\r\n    height: 55px;\n}\n.patrocinadores[data-v-61a7c374]{\r\n    width: 92px;\r\n    height: 70px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\r\n  font-family: PlayfairDisplay;\r\n  src: url(\"/fonts/PlayfairDisplay.ttf\");\n}\n*[data-v-61a7c374] {\r\n  background-color: #1498c2;\r\n  font-family: \"PlayfairDisplay\";\r\n  font-size: 20px;\r\n  margin: 0;\n}\n.redes[data-v-61a7c374] {\r\n  width: 71px;\r\n  height: 55px;\n}\n.patrocinadores[data-v-61a7c374] {\r\n  width: 92px;\r\n  height: 70px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25686,7 +25814,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#cartasIndex[data-v-3a45d4a6] {\n    width: 100%;\n}\n#cartasIndex > .container[data-v-3a45d4a6] {\n    width: 100%;\n}\n#vizcayaIndex[data-v-3a45d4a6] {\n    width: 18rem;\n}\n#vizcayaIndex > .card[data-v-3a45d4a6] {\n    min-height: 48vh;\n    background-color: rgba(102, 102, 102, 0.664);\n    color: black;\n}\n#guipuzcoaIndex[data-v-3a45d4a6] {\n    width: 18rem;\n}\n#guipuzcoaIndex > .card[data-v-3a45d4a6] {\n    min-height: 48vh;\n    background-color: rgba(102, 102, 102, 0.664);\n    color: black;\n}\n#alavaIndex[data-v-3a45d4a6] {\n    width: 18rem;\n}\n#alavaIndex > .card[data-v-3a45d4a6] {\n    min-height: 48vh;\n    background-color: rgba(102, 102, 102, 0.664);\n    color: black;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#cartasIndex[data-v-3a45d4a6] {\r\n  width: 100%;\n}\n#cartasIndex > .container[data-v-3a45d4a6] {\r\n  width: 100%;\n}\n#vizcayaIndex[data-v-3a45d4a6] {\r\n  width: 18rem;\n}\n#vizcayaIndex > .card[data-v-3a45d4a6] {\r\n  min-height: 48vh;\r\n  background-color: rgba(102, 102, 102, 0.664);\r\n  color: black;\n}\n#guipuzcoaIndex[data-v-3a45d4a6] {\r\n  width: 18rem;\n}\n#guipuzcoaIndex > .card[data-v-3a45d4a6] {\r\n  min-height: 48vh;\r\n  background-color: rgba(102, 102, 102, 0.664);\r\n  color: black;\n}\n#alavaIndex[data-v-3a45d4a6] {\r\n  width: 18rem;\n}\n#alavaIndex > .card[data-v-3a45d4a6] {\r\n  min-height: 48vh;\r\n  background-color: rgba(102, 102, 102, 0.664);\r\n  color: black;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25710,7 +25838,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\n    padding-left: 10%;\n    padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\n    width: 50%;\n    background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\n    border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\n    position: absolute;\n    top: 0;\n    margin-left: 0;\n    margin-right: 0;\n    right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\n    color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\n    color: white;\n}\n#textoPlan[data-v-6db35b43] {\n    color: black;\n}\n#datosPlan[data-v-6db35b43] {\n    color: white;\n    background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43]{\n    background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43], #plandatos[data-v-6db35b43]{\n    max-width: 300px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\r\n  padding-left: 10%;\r\n  padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\r\n  width: 50%;\r\n  background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\r\n  border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\r\n  position: absolute;\r\n  top: 0;\r\n  margin-left: 0;\r\n  margin-right: 0;\r\n  right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\r\n  color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\r\n  color: white;\n}\n#textoPlan[data-v-6db35b43] {\r\n  color: black;\n}\n#datosPlan[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43] {\r\n  background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43],\r\n#plandatos[data-v-6db35b43] {\r\n  max-width: 300px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44584,22 +44712,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Footer_vue_vue_type_template_id_61a7c374_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer.vue?vue&type=template&id=61a7c374&scoped=true& */ "./resources/js/components/Footer.vue?vue&type=template&id=61a7c374&scoped=true&");
-/* harmony import */ var _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.vue?vue&type=script&lang=js& */ "./resources/js/components/Footer.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _Footer_vue_vue_type_style_index_0_id_61a7c374_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer.vue?vue&type=style&index=0&id=61a7c374&scoped=true&lang=css& */ "./resources/js/components/Footer.vue?vue&type=style&index=0&id=61a7c374&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Footer_vue_vue_type_style_index_0_id_61a7c374_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.vue?vue&type=style&index=0&id=61a7c374&scoped=true&lang=css& */ "./resources/js/components/Footer.vue?vue&type=style&index=0&id=61a7c374&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 ;
 
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  script,
   _Footer_vue_vue_type_template_id_61a7c374_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
   _Footer_vue_vue_type_template_id_61a7c374_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -44628,19 +44751,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _IndexComp_vue_vue_type_template_id_3a45d4a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IndexComp.vue?vue&type=template&id=3a45d4a6&scoped=true& */ "./resources/js/components/IndexComp.vue?vue&type=template&id=3a45d4a6&scoped=true&");
-/* harmony import */ var _IndexComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexComp.vue?vue&type=script&lang=js& */ "./resources/js/components/IndexComp.vue?vue&type=script&lang=js&");
-/* harmony import */ var _IndexComp_vue_vue_type_style_index_0_id_3a45d4a6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IndexComp.vue?vue&type=style&index=0&id=3a45d4a6&scoped=true&lang=css& */ "./resources/js/components/IndexComp.vue?vue&type=style&index=0&id=3a45d4a6&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _IndexComp_vue_vue_type_style_index_0_id_3a45d4a6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexComp.vue?vue&type=style&index=0&id=3a45d4a6&scoped=true&lang=css& */ "./resources/js/components/IndexComp.vue?vue&type=style&index=0&id=3a45d4a6&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 ;
 
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _IndexComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  script,
   _IndexComp_vue_vue_type_template_id_3a45d4a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
   _IndexComp_vue_vue_type_template_id_3a45d4a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -44743,42 +44864,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Cabecera_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Cabecera.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Cabecera.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Cabecera_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Footer.vue?vue&type=script&lang=js&":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/Footer.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Footer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default())); 
-
-/***/ }),
-
-/***/ "./resources/js/components/IndexComp.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/IndexComp.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./IndexComp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/IndexComp.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -45066,7 +45151,7 @@ var render = function () {
       "div",
       {
         staticClass:
-          "row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 justify-content-center divUserId",
+          "\n      row row-cols-1 row-cols-md-2 row-cols-lg-3\n      g-4\n      mt-5\n      justify-content-center\n      divUserId\n    ",
         attrs: { id: this.userId },
       },
       _vm._l(_vm.paginated("resultado"), function (item, index) {
@@ -45074,105 +45159,80 @@ var render = function () {
           "div",
           { key: index, staticClass: "d-flex justify-content-center mb-2" },
           [
-            _c("router-link", {
-              attrs: {
-                "exact-active-class": "active",
-                to: {
-                  path:
-                    "/busqueda/" +
-                    _vm.$route.params.textoBusqueda +
-                    "/plan/" +
-                    item.documentName,
-                  query: { plan: _vm.userId },
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  "exact-active-class": "active",
+                  to: {
+                    path:
+                      "/busqueda/" +
+                      _vm.$route.params.textoBusqueda +
+                      "/plan/" +
+                      item.documentName,
+                    query: { plan: _vm.userId },
+                  },
+                  "aria-current": "page",
                 },
-                "aria-current": "page",
-                custom: "",
+                nativeOn: {
+                  click: function ($event) {
+                    return $event.stopImmediatePropagation()
+                  },
+                },
               },
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "default",
-                    fn: function (ref) {
-                      var navigate = ref.navigate
-                      return [
-                        _vm._v("-->\r\n            "),
+              [
+                _c("div", { staticClass: "card text-white busqueda-card" }, [
+                  _c("img", {
+                    staticClass: "card-img",
+                    attrs: {
+                      src: "/images/Imagenes/alavaDescubre.jpg",
+                      alt: "",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-img-overlay" }, [
+                    _c(
+                      "h5",
+                      {
+                        staticClass: "card-title float-end h5-DocumentName",
+                        attrs: { id: item.documentName },
+                      },
+                      [
                         _c(
-                          "div",
+                          "svg",
                           {
-                            staticClass: "card text-white busqueda-card",
-                            on: { click: navigate },
+                            staticClass: "bi bi-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "40",
+                              height: "40",
+                              fill: "currentColor",
+                              viewBox: "0 0 16 16",
+                            },
                           },
                           [
-                            _c("img", {
-                              staticClass: "card-img",
+                            _c("path", {
                               attrs: {
-                                src: "/images/Imagenes/alavaDescubre.jpg",
-                                alt: "",
+                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
                               },
                             }),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "card-img-overlay",
-                                attrs: {
-                                  id: item.territory
-                                    .split(" ")[0]
-                                    .split("/")[0],
-                                },
-                              },
-                              [
-                                _c(
-                                  "h5",
-                                  {
-                                    staticClass:
-                                      "card-title float-end h5-DocumentName",
-                                    attrs: { id: item.documentName },
-                                  },
-                                  [
-                                    _c(
-                                      "svg",
-                                      {
-                                        staticClass: "bi bi-heart",
-                                        attrs: {
-                                          xmlns: "http://www.w3.org/2000/svg",
-                                          width: "40",
-                                          height: "40",
-                                          fill: "currentColor",
-                                          viewBox: "0 0 16 16",
-                                        },
-                                      },
-                                      [
-                                        _c("path", {
-                                          attrs: {
-                                            d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
-                                          },
-                                        }),
-                                      ]
-                                    ),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "p",
-                                  {
-                                    staticClass:
-                                      "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
-                                  },
-                                  [_vm._v(_vm._s(item.documentName))]
-                                ),
-                              ]
-                            ),
                           ]
                         ),
                       ]
-                    },
-                  },
-                ],
-                null,
-                true
-              ),
-            }),
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "card-text position-absolute start-0 bottom-0 end-0 h-25 text-center fs-5",
+                      },
+                      [_vm._v(_vm._s(item.documentName))]
+                    ),
+                  ]),
+                ]),
+              ]
+            ),
           ],
           1
         )
@@ -45235,7 +45295,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkAlava" },
                 },
-                [_vm._v("\r\n                    Álava\r\n                ")]
+                [_vm._v(" Álava ")]
               ),
             ]),
             _vm._v(" "),
@@ -45255,11 +45315,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkGipuzcoa" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Guipúzcoa\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Guipúzcoa\n            ")]
               ),
             ]),
             _vm._v(" "),
@@ -45279,7 +45335,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkVizcaya" },
                 },
-                [_vm._v("\r\n                    Vizcaya\r\n                ")]
+                [_vm._v("\n              Vizcaya\n            ")]
               ),
             ]),
           ]),
@@ -45297,11 +45353,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkPareja" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Planes en pareja\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Planes en pareja\n            ")]
               ),
             ]),
             _vm._v(" "),
@@ -45317,11 +45369,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkGrupo" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Planes en grupo\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Planes en grupo\n            ")]
               ),
             ]),
             _vm._v(" "),
@@ -45341,11 +45389,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkNiños" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Planes con niños\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Planes con niños\n            ")]
               ),
             ]),
           ]),
@@ -45367,7 +45411,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkCultura" },
                 },
-                [_vm._v("\r\n                    Cultura\r\n                ")]
+                [_vm._v("\n              Cultura\n            ")]
               ),
             ]),
             _vm._v(" "),
@@ -45383,7 +45427,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkDeporte" },
                 },
-                [_vm._v("\r\n                    Agua\r\n                ")]
+                [_vm._v(" Agua ")]
               ),
             ]),
             _vm._v(" "),
@@ -45403,11 +45447,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkGastronomia" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Gastronomía\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Gastronomía\n            ")]
               ),
             ]),
           ]),
@@ -45429,11 +45469,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkAventura" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Naturaleza y paisajes\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Naturaleza y paisajes\n            ")]
               ),
             ]),
             _vm._v(" "),
@@ -45453,11 +45489,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkPequeAventura" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Peque-Aventura\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Peque-Aventura\n            ")]
               ),
             ]),
             _vm._v(" "),
@@ -45477,11 +45509,7 @@ var staticRenderFns = [
                   staticClass: "form-check-label",
                   attrs: { for: "checkUrbanos" },
                 },
-                [
-                  _vm._v(
-                    "\r\n                    Planes urbanos\r\n                "
-                  ),
-                ]
+                [_vm._v("\n              Planes urbanos\n            ")]
               ),
             ]),
           ]),
@@ -45541,7 +45569,7 @@ var render = function () {
             attrs: { id: "navbarSupportedContent" },
           },
           [
-            _c("ul", { staticClass: "navbar-nav ms-auto  mb-lg-0" }, [
+            _c("ul", { staticClass: "navbar-nav ms-auto mb-lg-0" }, [
               _c("li", { staticClass: "nav-item" }, [
                 _c(
                   "a",
@@ -45568,7 +45596,13 @@ var render = function () {
                           "aria-expanded": "false",
                         },
                       },
-                      [_vm._v(" " + _vm._s(this.userName) + " ")]
+                      [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(this.userName) +
+                            "\n          "
+                        ),
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -45785,7 +45819,9 @@ var staticRenderFns = [
         _c("div", { staticClass: "col 3 align-self-center" }, [
           _c("div", { staticClass: "row" }, [
             _c("p", { staticClass: "text-center" }, [
-              _vm._v("©Todos los derechos reservados. Vive Euskadi S.L."),
+              _vm._v(
+                "\n          ©Todos los derechos reservados. Vive Euskadi S.L.\n        "
+              ),
             ]),
           ]),
           _vm._v(" "),
@@ -45883,7 +45919,7 @@ var staticRenderFns = [
                   _c("div", { staticClass: "card-text" }, [
                     _c("p", [
                       _vm._v(
-                        "\n                                Vizcaya es hoy una referencia urbanística reconocida internacionalmente porque la fuerza de su vanguardismo se \n                                basa en la integración y el respeto a su pasado industrial.\n                            "
+                        "\n                Vizcaya es hoy una referencia urbanística reconocida\n                internacionalmente porque la fuerza de su vanguardismo se basa\n                en la integración y el respeto a su pasado industrial.\n              "
                       ),
                     ]),
                   ]),
@@ -45906,7 +45942,7 @@ var staticRenderFns = [
                   _c("div", { staticClass: "card-text" }, [
                     _c("p", [
                       _vm._v(
-                        "\n                                Gipuzcoa está llena de municipios con mucho encanto, su costa e interior se encargan de brindarnos un gran \n                                abanico de posibilidades.\n                            "
+                        "\n                Gipuzcoa está llena de municipios con mucho encanto, su costa\n                e interior se encargan de brindarnos un gran abanico de\n                posibilidades.\n              "
                       ),
                     ]),
                   ]),
@@ -45926,7 +45962,7 @@ var staticRenderFns = [
                 _c("div", { staticClass: "card-text" }, [
                   _c("p", [
                     _vm._v(
-                      "\n                                Álava te ofrece multiples posibilidades para disfrutar de lugares ricos en Patrimonio Cultural, Recorridos \n                                entre Naturaleza y/o actividades de diferente índole muy interesantes\n                            "
+                      "\n                Álava te ofrece multiples posibilidades para disfrutar de\n                lugares ricos en Patrimonio Cultural, Recorridos entre\n                Naturaleza y/o actividades de diferente índole muy\n                interesantes\n              "
                     ),
                   ]),
                 ]),
@@ -45987,9 +46023,15 @@ var render = function () {
                       "h3",
                       {
                         staticClass:
-                          "position-absolute w-100 mb-0 bottom-0 start-0 text-center text-white",
+                          "\n                position-absolute\n                w-100\n                mb-0\n                bottom-0\n                start-0\n                text-center text-white\n              ",
                       },
-                      [_vm._v(_vm._s(item.documentName))]
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(item.documentName) +
+                            "\n            "
+                        ),
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
