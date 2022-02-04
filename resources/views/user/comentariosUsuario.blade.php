@@ -11,6 +11,7 @@
         {{ Session::get('mensaje') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    @endif
 <!--Se muestra en una tabla los comentarios de el usuario-->
     <div class="row">
         <div class="col-8">

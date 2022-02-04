@@ -233,6 +233,9 @@
                     <!-- Aquí se añadirán los comentarios mediante ajax -->
       </div>
     </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -253,7 +256,7 @@ export default {
       ninios: false,
       userId: null,
     };
-  },props:['userId'],
+  },
   mounted() {
     //Para tener siempre accesibles las variables de Vue
     var este = this;

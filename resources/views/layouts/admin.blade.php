@@ -65,64 +65,6 @@
         <piepagina></piepagina>
     </div>
 
-    {{-- <div id="app" class="col-xs-12 col-md-12 col-lg-12">
-
-        {{-- Cabecera --}}
-    @if (Route::has('login') && Route::has('register'))
-    @auth
-    <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}" index-route="{{ url('/home')}}" user-route="{{url('user/datosUsuario')}}" user-name="<?php echo Auth::user()->name; ?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin ?>" admin-route="{{url('admin/gestion-usuarios')}}"></cabecera>
-    @else
-    <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}" index-route="{{ url('/home')}}" user-login="{{ route('login') }}" user-register="{{ route('register') }}"></cabecera>
-    @endauth
-    @endif
-
-    <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-2 px-0">
-                <div id="sidebar" class="collapse collapse-horizontal show border-end">
-                    <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
-                        <!-- APARTADO DATOS ADMINISTRADOR -->
-                        <div class="img bg-wrap text-center" id="sidebarAdmin">
-                            <div>
-                                <img src="../../images/adminPrueba.jpg" class="img-fluid" id="backAdmin">
-                            </div>
-                            <div id="datosAdmin">
-                                <img src="../../images/login1.png" id="imgAdmin">
-                                <h3>{{ Auth::user()->name }}</h3>
-                                <h5>{{Auth::user()->email }}</h5>
-                            </div>
-                        </div>
-                        <div id="btnMenuAdmin">
-                            <a href="{{url('/admin/gestion-usuarios')}}" class=" btn text-truncate mt-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                </svg>
-                                <span>Gestión de usuarios</span>
-                            </a>
-                            <a href="{{url('/admin/gestion-comentarios')}}" class=" btn text-truncate mt-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
-                                    <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
-                                    <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                                </svg>
-                                <span>Gestión de comentarios</span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                @yield('content')
-            </div>
-
-        </div>
-    </div>
-    <piepagina></piepagina>
-
-
-
-    </div> --}}
-
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
