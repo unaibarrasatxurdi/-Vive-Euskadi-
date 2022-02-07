@@ -215,24 +215,24 @@
             </div>
           </div>
         </div>
-        <div class="row" id="comentarios">
-            <div class="container p-0">
-                <h3 class="text-white text-center" id="dondeEsta">COMENTARIOS</h3>
-                <h4 class="ps-2">Add comment</h4>
-                <form class="p-2" method="post" action="#">
-                    <div class="form-group">
-                        <input type="text" name="comment_body" class="form-control" required />
-                        <input type="hidden" name="post_id" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="button" class="btn btn-warning" id="añadir" value="Añadir comentario" />
-                    </div>
-                </form>
-                <hr class="m-4">
-                <div id="comentarios" class="p2">
-                    <!-- Aquí se añadirán los comentarios mediante ajax -->
       </div>
     </div>
+    <div class="row" id="comentarios">
+      <div class="container p-0">
+        <h3 class="text-white text-center" id="dondeEsta">COMENTARIOS</h3>
+        <h4 class="ps-2">Add comment</h4>
+        <form class="p-2" method="post" action="#">
+            <div class="form-group">
+                <input type="text" name="comment_body" class="form-control" required />
+                <input type="hidden" name="post_id" value="" />
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-warning" id="añadir" value="Añadir comentario" />
+            </div>
+        </form>
+        <hr class="m-4">
+        <div id="comentarios" class="p2">
+            <!-- Aquí se añadirán los comentarios mediante ajax -->
         </div>
       </div>
     </div>
@@ -342,24 +342,24 @@ export default {
       this.ninios = true;
     }
     
-     $.ajax({
-            type: 'get',
-            url: '/' + nombre + '/comentarios',
-            data: {toma: []},
-            contentType: 'application/json; charset=utf-8',
-            success: function(respuesta) {
-                respuesta.forEach(element => {
-                    var html = `
-                        <div class="comentarioPlan" id="` + element.idComentario + `" style="border-bottom: 1px solid whitesmoke;">
-                            <h4>` + element.name + `</h4>
-                            <p>` + element.Texto + `</p>
-                            <p class="fw-light text-end">` + element.Fecha + `</p>
-                        </div>
-                    `;
-                    $('#comentarios').append(html);
-                });
-            }
+    $.ajax({
+      type: 'get',
+      url: '/' + nombre + '/comentarios',
+      data: {toma: []},
+      contentType: 'application/json; charset=utf-8',
+      success: function(respuesta) {
+        respuesta.forEach(element => {
+            var html = `
+                <div class="comentarioPlan" id="` + element.idComentario + `" style="border-bottom: 1px solid whitesmoke;">
+                    <h4>` + element.name + `</h4>
+                    <p>` + element.Texto + `</p>
+                    <p class="fw-light text-end">` + element.Fecha + `</p>
+                </div>
+            `;
+            $('#comentarios').append(html);
         });
+      }
+    });
   },
   
 };
@@ -404,11 +404,23 @@ export default {
   color: white;
   background-color: rgb(61, 61, 61);
 }
+
 h3 {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 #ubicacion,
 #plandatos {
   max-width: 300px;
+}
+
+#comentarios {
+  color: white;
+  background-color: rgb(61, 61, 61);
+}
+
+.comentarioPlan {
+  background-color: rgb(73, 73, 73);
+  border-bottom: 1px solid whitesmoke;
 }
 </style>

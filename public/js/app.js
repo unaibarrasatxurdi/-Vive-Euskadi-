@@ -9631,7 +9631,7 @@ __webpack_require__.r(__webpack_exports__);
       contentType: 'application/json; charset=utf-8',
       success: function success(respuesta) {
         respuesta.forEach(function (element) {
-          var html = "\n                        <div class=\"comentarioPlan\" id=\"" + element.idComentario + "\" style=\"border-bottom: 1px solid whitesmoke;\">\n                            <h4>" + element.name + "</h4>\n                            <p>" + element.Texto + "</p>\n                            <p class=\"fw-light text-end\">" + element.Fecha + "</p>\n                        </div>\n                    ";
+          var html = "\n                <div class=\"comentarioPlan\" id=\"" + element.idComentario + "\" style=\"border-bottom: 1px solid whitesmoke;\">\n                    <h4>" + element.name + "</h4>\n                    <p>" + element.Texto + "</p>\n                    <p class=\"fw-light text-end\">" + element.Fecha + "</p>\n                </div>\n            ";
           jquery__WEBPACK_IMPORTED_MODULE_0___default()('#comentarios').append(html);
         });
       }
@@ -25871,7 +25871,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\r\n  padding-left: 10%;\r\n  padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\r\n  width: 50%;\r\n  background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\r\n  border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\r\n  position: absolute;\r\n  top: 0;\r\n  margin-left: 0;\r\n  margin-right: 0;\r\n  right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\r\n  color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\r\n  color: white;\n}\n#textoPlan[data-v-6db35b43] {\r\n  color: black;\n}\n#datosPlan[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43] {\r\n  background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43],\r\n#plandatos[data-v-6db35b43] {\r\n  max-width: 300px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\r\n  padding-left: 10%;\r\n  padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\r\n  width: 50%;\r\n  background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\r\n  border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\r\n  position: absolute;\r\n  top: 0;\r\n  margin-left: 0;\r\n  margin-right: 0;\r\n  right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\r\n  color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\r\n  color: white;\n}\n#textoPlan[data-v-6db35b43] {\r\n  color: black;\n}\n#datosPlan[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43] {\r\n  background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43],\r\n#plandatos[data-v-6db35b43] {\r\n  max-width: 300px;\n}\n#comentarios[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\n.comentarioPlan[data-v-6db35b43] {\r\n  background-color: rgb(73, 73, 73);\r\n  border-bottom: 1px solid whitesmoke;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46383,12 +46383,12 @@ var render = function () {
               _vm._v(" "),
               _vm._m(0, true),
             ]),
-            _vm._v(" "),
-            _vm._m(1, true),
           ])
         }),
         0
       ),
+      _vm._v(" "),
+      _vm._m(1),
     ]
   )
 }

@@ -13,6 +13,7 @@ class ComentariosController extends Controller
         // $result = DB::select('select * from comentarios where DocumentName = ?', [$documentName]);
         $result = DB::select('SELECT c.idComentario, c.DocumentName, c.Texto, c.Fecha, u.name FROM comentarios c, users u WHERE DocumentName = ? AND u.id = c.id', [$documentName]);
         return $result;
+        
     }
     //Función que hace una inserccion en la tabla de comentarios usando la id del usuario y el plan en el que se ha hecho el comentario
     public function insertarComentario( $id, $documentname) {
