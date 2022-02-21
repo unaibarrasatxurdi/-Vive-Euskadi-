@@ -24,6 +24,10 @@ class AdminController extends Controller
     {
         //funcion para mostrar los comentarios desde la base de datos en el apartado de admin
         $comentarios = Comentarios::paginate(5);
+        foreach($comentarios as $comentario){
+            $filaUser = User::findOrFail($comentario->id);
+            Arr::add($comentario, 'nombre_usuario', $filaUser->name);
+        }
         return view('admin.comenAd')->with('comentarios', $comentarios);
     }
 
@@ -99,7 +103,7 @@ class AdminController extends Controller
      */
     public function destroyComent($id)
     {
-        $comentario = Comentarios::where('idComentario',$id)->firstOrFail()->delete();
+        $comentario = Comentarios::where('IdComentario',$id)->delete();
         return redirect()->route('admin.adminComent')->with('mensaje','Comentario borrado con éxito');
     }
 
