@@ -149,6 +149,66 @@
         </tr>
       </tbody>
     </table>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  AAAAAAAAAAAAAAAAAA
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Lista de planificaciones</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form id="add-plan-form" class="p-2" novalidate>
+            <div class="row mb-3 gx-3">
+              <div class="col">
+                <p>Guardar en Planificacion:</p>
+                <select name="planificacion" id="planificacion">
+                  
+                </select>
+              </div>
+
+             
+            </div>
+
+
+
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Nueva Planificacion
+            </button>
+            <div class="collapse" id="collapseExample">
+               <form id="add-planificacion-form" class="p-2" novalidate>
+                  <div class="row mb-3 gx-3">
+                    <div class="col">
+                      <input type="text" name="lname" class="form-control form-control-lg" placeholder="Nombre Planificacion" required>
+                      <div class="invalid-feedback">El nombre es obligatorio</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <textarea class="form-control" placeholder="Descripcion" id="descripcion" rows="3"></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <button class="btn btn-primary" id="crearPlanificacion" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      Crear
+                    </button>
+                  </div>
+               </form>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar en lista</button>
+      </div>
+    </div>
+  </div>
+</div>
     <div
       class="
         row row-cols-1 row-cols-md-2 row-cols-lg-3
@@ -159,6 +219,7 @@
       "
       :id="this.userId"
     >
+     
       <div
         v-for="(item, index) in paginated('resultado')"
         :key="index"
@@ -203,31 +264,9 @@
 <script>
 import $ from "jquery";
 
-
-export default {
-  data() {
-    return {
-      planes: null,
-      resultado: [],
-      filtro: null,
-      id: null,
-      paginate: ["resultado"],
-      cantidadTotal: 0,
-    };
-  },
-  props: ['userId'],
-  mounted() {
-    this.planes = JSON.parse(localStorage.getItem("planes"));
-    const url = window.location.href;
-    this.id = url.substring(url.lastIndexOf("/") + 1);
-    this.resultado = this.planes.filter((plan) =>
-      plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase()))
-    );
-    this.checkbox();
-    
 $(document).ready(function () {
   rellenarFavoritos();
-
+ 
   //Animacion de las cards
   $(".busqueda-card").hover(
     function () {
@@ -337,10 +376,61 @@ function rellenarFavoritos() {
                                     }
                                 });
                             });
-                }else{
-                   $(".h5-DocumentName").remove();
                 };
 };
+
+
+export default {
+  data() {
+    return {
+      planes: null,
+      resultado: [],
+      filtro: null,
+      id: null,
+      user_id: null,
+      paginate: ["resultado"],
+      cantidadTotal: 0,
+    };
+  },
+  props: ['userId'],
+  mounted() {
+    var esto = this;
+    this.planes = JSON.parse(localStorage.getItem("planes"));
+    const url = window.location.href;
+    this.id = url.substring(url.lastIndexOf("/") + 1);
+    this.resultado = this.planes.filter((plan) =>
+      plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase()))
+    );
+    this.checkbox();
+    this.user_id=parseInt($('.divUserId').attr('id'));
+    $('#crearPlanificacion').click(function (e) { 
+      e.preventDefault();
+      
+    });
+    $.ajax({
+            type: "get",
+            url:
+              "/busqueda/selectPlanificaciones/" +esto.user_id,
+            data: {},
+            error: function (ts) {
+              console.log(ts.responseText);
+            },
+            success: function(data) {
+             var opciones='';
+              if(data.length >0){
+                for(var i=0;i<data.length;i++){
+                  opciones += "<option value='"+data[i].idPlanifiacion+"'>"+data[i].NombrePlanificacion+"</option>";
+                }
+              }else{
+                opciones += "<option value='none'>No hay planificaciones</option>";
+              }
+              $('#planificacion').html(opciones);
+               
+
+            },
+          }); 
+
+
   },
 
   methods: {
@@ -466,5 +556,9 @@ td {
 }
 .card-img {
   height: 15rem;
+}
+.modal-wrapper{
+  display: table-cell;
+  vertical-align: middle;
 }
 </style>

@@ -32,6 +32,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/busqueda/insertarFavoritos/{user_id}/{documentName}/{territory}', [PlanesController::class, 'insertarFavoritos'])->name('insertarFavoritos');
     Route::get('/busqueda/borrarFavoritos/{user_id}/{documentName}', [PlanesController::class, 'borrarFavoritos'])->name('borrarFavoritos');
     Route::get('/busqueda/selectFavoritos/{user_id}', [PlanesController::class, 'selectFavoritos'])->name('selectFavoritos');
+
+    Route::get('/busqueda/insertPlanificaciones/{user_id}/{nombre_planificacion}/{descripcion}', [PlanesController::class, 'insertPlanificaciones'])->name('insertPlanificaciones');
+    Route::get('/busqueda/selectPlanificaciones/{user_id}', [PlanesController::class, 'selectPlanificaciones'])->name('selectPlanificaciones');
  });
 Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'busqueda']]);
