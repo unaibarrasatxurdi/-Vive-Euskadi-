@@ -28,6 +28,10 @@ class PlanesController extends Controller
     {
         return view('busqueda')->with('id', $id);
     }
+    public function plan($id, $nombre)
+    {
+        return view('busqueda')->with('id', $id)->with('nombre',$nombre);
+    }
     //Funcion que hace una insercion en la tabla planes y otra en favoritoss. Esta funcion esta hecha para que un plan se inserte en favoritos
     public function insertarFavoritos( $id, $documentname, $territory)
     {

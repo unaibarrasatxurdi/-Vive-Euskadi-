@@ -34,8 +34,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/busqueda/selectFavoritos/{user_id}', [PlanesController::class, 'selectFavoritos'])->name('selectFavoritos');
  });
 Route::resource('home', HomeController::class)->only('index');
-Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'plan']]);
+Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'busqueda']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only('index');
+
+Route::get('/busqueda/{id}/plan/{nombre}', [PlanesController::class, 'plan'])->name('plan');
 
 Route::get('/user/datosUsuario', [UserController::class, 'datosUsuario']);
 Route::get('/user/planesUsuario', [UserController::class, 'planesUsuario']);
