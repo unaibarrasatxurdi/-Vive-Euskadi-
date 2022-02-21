@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ComentariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,9 @@ Route::group(['middleware' => ['auth']], function() {
     * Logout Route
     */
     Route::get('/logout', [LogoutController::class,'perform']);
+    Route::get('/busqueda/insertarFavoritos/{user_id}/{documentName}/{territory}', [PlanesController::class, 'insertarFavoritos'])->name('insertarFavoritos');
+    Route::get('/busqueda/borrarFavoritos/{user_id}/{documentName}', [PlanesController::class, 'borrarFavoritos'])->name('borrarFavoritos');
+    Route::get('/busqueda/selectFavoritos/{user_id}', [PlanesController::class, 'selectFavoritos'])->name('selectFavoritos');
  });
 Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'plan']]);
@@ -46,8 +50,5 @@ Route::delete('/admin/destroyComent/{id}', [AdminController::class, 'destroyCome
 
 Route::resource('admin', AdminController::class);
 
-
-
-
-
+Route::get('/{documentName}/comentarios', [ComentariosController::class, 'mostrarComentarios'])->name('comentariosPlan');
 require __DIR__.'/auth.php';

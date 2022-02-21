@@ -13,6 +13,8 @@ class LogoutController extends Controller
      *
      * @return \Illuminate\Routing\Redirector
      */
+
+    //Función que cierra la sesión iniciada por el usuario y redirije a la vista home
     public function perform()
     {
         Session::flush();

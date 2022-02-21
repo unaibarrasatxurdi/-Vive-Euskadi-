@@ -11,6 +11,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Funcion que redirije a nuestro indice
     public function index()
     {
         return view('index');

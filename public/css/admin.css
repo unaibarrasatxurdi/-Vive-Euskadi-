@@ -11,7 +11,7 @@ body {
     height: fit-content;
 }
 
-#backAdmin{
+#backAdmin {
     opacity: 0.4;
 }
 
@@ -65,98 +65,16 @@ body {
     margin-left: 40%;
     /* justify-content: center; */
 }
+
 .page-link {
     color: rgb(0, 0, 0) !important;
 }
+
 .page-item.active .page-link {
     background-color: #1498C2 !important;
     color: rgb(0, 0, 0) !important;
     border-color: transparent !important;
 }
-/* #sidebar {
-    background-color: #e1ecf0ff;
-}
-#sidebar-nav {
-    width: 300px;
-}
-#imgAdmin {
-    width: 25%;
-}
-#backAdmin {
-    opacity: 0.4;
-}
-#contDatos {
-    width: 100%;
-    height: fit-content;
-    display: inline-block;
-    position: relative;
-}
-#datosAdmin {
-    position: absolute;
-    font-style: normal;
-    top: 15%;
-}
-#menuAdmin {
-    background-color: #e1ecf0ff;
-}
-
-#btnMenuAdmin a {
-    color: black;
-    font-size: 1.4em;
-    text-decoration: none;
-    margin-left: 3%;
-}
-
-
-#btnMenuAdmin a:hover {
-    background-color: gray;
-    color: black;
-}
-
-#titApartado {
-    background-color: #1498C2;
-    width: 400px;
-    height: 50px;
-} */
-
-/* .table {
-    width: 30%;
-    margin: 5% 20% 0 10%;
-    background-color: #e1ecf0ff;
-} */
-
-
-/* #btnMenuAdmin {
-    margin: 25% 0 0 5%;
-    
-}
-
-#btnMenuAdmin a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.4em;
-} */
-/* .pagination {
-    margin-top: 5%;
-    justify-content: center;
-}
-.page-link {
-    color: rgb(0, 0, 0) !important;
-}
-.page-item.active .page-link {
-    background-color: #1498C2 !important;
-    color: rgb(0, 0, 0) !important;
-    border-color: transparent !important;
-}
- */
-
-
-
-
-
-
-
-
 
 #logOut {
     border-radius: 10px;
@@ -165,10 +83,8 @@ body {
     height: 40px;
     font-size: 1.3em;
 }
+
 #logOut:hover {
-   background-color: #1498C2;
-   font-weight: 700;
+    background-color: #1498C2;
+    font-weight: 700;
 }
-
-
-

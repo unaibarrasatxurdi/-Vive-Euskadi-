@@ -9,7 +9,7 @@
     overflow: hidden;
 }
 
-#videoIndex > video {
+#videoIndex>video {
     margin-top: -10%;
     width: 100%;
 }

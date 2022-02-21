@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Vive Euskadi | Home</title>
 </head>
+
 <body>
     <div id="app">
         <main class="flex-row" id="contentIndex">
-            
+
             {{-- Cabecera --}}
             @if (Route::has('login') && Route::has('register'))
             @auth
-            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-route="{{url('user')}}" user-name="<?php echo Auth::user()->name;?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin?>" admin-route="{{url('admin/gestion-usuarios')}}"></cabecera>
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}" index-route="{{ url('/home')}}" user-route="{{url('user/datosUsuario')}}" user-name="<?php echo Auth::user()->name; ?>" log-out="{{route('logout')}}" user-Admin="<?php echo Auth::user()->admin ?>" admin-route="{{url('admin/gestion-usuarios')}}"></cabecera>
             @else
-            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}"  index-route="{{ url('/home')}}" user-login="{{ route('login') }}" user-register="{{ route('register') }}"></cabecera>
+            <cabecera descubre-euskadi="{{ url('descubre-euskadi')}}" index-route="{{ url('/home')}}" user-login="{{ route('login') }}" user-register="{{ route('register') }}"></cabecera>
             @endauth
             @endif
-            
-            
+
+
             {{-- Vídeo --}}
             <section class="videoWrapper" id="videoIndex">
                 <video playsinline autoplay muted loop>
@@ -42,4 +44,5 @@
     {{-- Script --}}
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 </html>

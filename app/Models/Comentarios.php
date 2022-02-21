@@ -12,6 +12,8 @@ class Comentarios extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'comentarios';
+
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.

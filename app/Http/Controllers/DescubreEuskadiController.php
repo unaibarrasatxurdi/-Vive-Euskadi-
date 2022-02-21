@@ -11,6 +11,7 @@ class DescubreEuskadiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Funcion que redirije a la vista de descubre euskadi
     public function index()
     {
         return view('descubre-euskadi');

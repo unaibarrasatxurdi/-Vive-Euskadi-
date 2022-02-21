@@ -16,6 +16,7 @@ class PlanesFactory extends Factory
      */
     public function definition()
     {
+        //lee el json de la web para generar nombres y probbincias que tengan sentido
         $url = "https://opendata.euskadi.eus/contenidos/ds_recursos_turisticos/planes_experiencias_euskadi/opendata/planes.json";
         
 

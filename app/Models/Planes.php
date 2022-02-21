@@ -12,6 +12,7 @@ class Planes extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'planes';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
