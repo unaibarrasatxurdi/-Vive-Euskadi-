@@ -22,7 +22,7 @@
               >
                 {{ item.documentName }}
               </h3>
-              <div class="container d-flex justify-content-end">
+              <div class="container d-flex justify-content-end" v-if="userId != undefined">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="50"
@@ -275,7 +275,7 @@ export default {
     );
 
     //Control de no haber iniciado sesion
-    if (this.userId != undefined && this.userId != NaN) {
+    if (this.userId != undefined && this.userId != NaN && this.userId != null) {
       //Marcar los favoritos del usuario
       $.ajax({
         type: "get",

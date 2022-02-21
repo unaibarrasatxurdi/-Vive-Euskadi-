@@ -4484,6 +4484,12 @@ function queueJob(job) {
     queue.push(job);
   queueFlush();
 }
+function dequeueJob(job) {
+  const index = queue.indexOf(job);
+  if (index !== -1) {
+    queue.splice(index, 1);
+  }
+}
 function queueFlush() {
   if (!flushing && !flushPending) {
     flushPending = true;
@@ -5077,6 +5083,7 @@ var directiveOrder = [
   "init",
   "for",
   "model",
+  "modelable",
   "transition",
   "show",
   "if",
@@ -5265,7 +5272,10 @@ function setStylesFromObject(el, value) {
   let previousStyles = {};
   Object.entries(value).forEach(([key, value2]) => {
     previousStyles[key] = el.style[key];
-    el.style.setProperty(kebabCase(key), value2);
+    if (!key.startsWith("--")) {
+      key = kebabCase(key);
+    }
+    el.style.setProperty(key, value2);
   });
   setTimeout(() => {
     if (el.style.length === 0) {
@@ -5854,7 +5864,7 @@ var Alpine = {
   get raw() {
     return raw;
   },
-  version: "3.8.1",
+  version: "3.9.0",
   flushAndStopDeferringMutations,
   disableEffectScheduling,
   setReactivityEngine,
@@ -5978,6 +5988,31 @@ magic("id", (el) => (name, key = null) => {
 
 // packages/alpinejs/src/magics/$el.js
 magic("el", (el) => el);
+
+// packages/alpinejs/src/directives/x-modelable.js
+directive("modelable", (el, {expression}, {effect: effect3, evaluate: evaluate2, evaluateLater: evaluateLater2}) => {
+  let func = evaluateLater2(expression);
+  let innerGet = () => {
+    let result;
+    func((i) => result = i);
+    return result;
+  };
+  let evaluateInnerSet = evaluateLater2(`${expression} = __placeholder`);
+  let innerSet = (val) => evaluateInnerSet(() => {
+  }, {scope: {__placeholder: val}});
+  let initialValue = innerGet();
+  if (el._x_modelable_hook)
+    initialValue = el._x_modelable_hook(initialValue);
+  innerSet(initialValue);
+  queueMicrotask(() => {
+    if (!el._x_model)
+      return;
+    let outerGet = el._x_model.get;
+    let outerSet = el._x_model.set;
+    effect3(() => innerSet(outerGet()));
+    effect3(() => outerSet(innerGet()));
+  });
+});
 
 // packages/alpinejs/src/directives/x-teleport.js
 directive("teleport", (el, {expression}, {cleanup}) => {
@@ -6452,6 +6487,9 @@ function loop(el, iteratorNames, evaluateItems, evaluateKey) {
     }
     for (let i = 0; i < removes.length; i++) {
       let key = removes[i];
+      if (!!lookup[key]._x_effects) {
+        lookup[key]._x_effects.forEach(dequeueJob);
+      }
       lookup[key].remove();
       lookup[key] = null;
       delete lookup[key];
@@ -6568,6 +6606,11 @@ directive("if", (el, {expression}, {effect: effect3, cleanup}) => {
     });
     el._x_currentIfEl = clone2;
     el._x_undoIf = () => {
+      walk(clone2, (node) => {
+        if (!!node._x_effects) {
+          node._x_effects.forEach(dequeueJob);
+        }
+      });
       clone2.remove();
       delete el._x_currentIfEl;
     };
@@ -8955,114 +8998,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  rellenarFavoritos(); //Animacion de las cards
-
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".busqueda-card").hover(function () {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
-      width: "25rem",
-      height: "20rem"
-    });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children(".card-img").stop().animate({
-      width: "25rem",
-      height: "20rem"
-    });
-  }, function () {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
-      width: "20rem",
-      height: "15rem"
-    });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children(".card-img").stop().animate({
-      width: "20rem",
-      height: "15rem"
-    });
-  }); // Agregar o Borrar de Favoritos
-
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".h5-DocumentName").children("svg").click(function () {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(".divUserId").attr("id") != undefined) {
-      var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(".divUserId").attr("id"));
-      var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr("id");
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass("bi-heart")) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass("bi-heart");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart-fill");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("d", "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("fill-rule", "evenodd");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css("fill", "red");
-        var territory = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().attr("id");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-          type: "get",
-          url: "/busqueda/insertarFavoritos/" + user_id + "/" + documentName + "/" + territory,
-          data: {},
-          error: function error(ts) {
-            console.log(ts.responseText);
-          }
-        });
-      } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass("bi-heart-fill")) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass("bi-heart-fill");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("d", "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").removeAttr("fill-rule");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css("fill", "white");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-          type: "get",
-          url: "/busqueda/borrarFavoritos/" + user_id + "/" + documentName,
-          data: {},
-          error: function error(ts) {
-            console.log(ts.responseText);
-          }
-        });
-      }
-    }
-
-    return false;
-  }); //Rellenar los favoritos del user al cambiar de pagina
-
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(".page-link").click(function () {
-    rellenarFavoritos();
-  });
-}); //Rellenar los corazones segun los favoritos del user
-
-function rellenarFavoritos() {
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
-    var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
-    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-      type: 'get',
-      url: '/busqueda/selectFavoritos/' + user_id,
-      data: {},
-      error: function error(ts) {
-        console.log(ts.responseText);
-      }
-    }).done(function (respuesta) {
-      var resultadoDocumentName = [];
-
-      for (var i = 0; i < respuesta.length; i++) {
-        resultadoDocumentName.push(respuesta[i].DocumentName);
-      }
-
-      ;
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').each(function () {
-        if (resultadoDocumentName.indexOf(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')) >= 0) {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart-fill");
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('fill-rule', 'evenodd');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'red');
-        } else {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart-fill');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart");
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').removeAttr('fill-rule');
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'white');
-        }
-      });
-    });
-  }
-
-  ;
-}
-
-;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9085,6 +9020,116 @@ function rellenarFavoritos() {
       return plan.documentName.toLowerCase().includes(decodeURI(_this.id.toLowerCase()));
     });
     this.checkbox();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+      rellenarFavoritos(); //Animacion de las cards
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".busqueda-card").hover(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+          width: "25rem",
+          height: "20rem"
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children(".card-img").stop().animate({
+          width: "25rem",
+          height: "20rem"
+        });
+      }, function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).stop().animate({
+          width: "20rem",
+          height: "15rem"
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children(".card-img").stop().animate({
+          width: "20rem",
+          height: "15rem"
+        });
+      }); // Agregar o Borrar de Favoritos
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".h5-DocumentName").children("svg").click(function () {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(".divUserId").attr("id") != undefined) {
+          var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()(".divUserId").attr("id"));
+          var documentName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().attr("id");
+
+          if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass("bi-heart")) {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass("bi-heart");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart-fill");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("d", "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("fill-rule", "evenodd");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css("fill", "red");
+            var territory = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().attr("id");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+              type: "get",
+              url: "/busqueda/insertarFavoritos/" + user_id + "/" + documentName + "/" + territory,
+              data: {},
+              error: function error(ts) {
+                console.log(ts.responseText);
+              }
+            });
+          } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass("bi-heart-fill")) {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass("bi-heart-fill");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass("bi-heart");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").attr("d", "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children("path").removeAttr("fill-rule");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css("fill", "white");
+            jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+              type: "get",
+              url: "/busqueda/borrarFavoritos/" + user_id + "/" + documentName,
+              data: {},
+              error: function error(ts) {
+                console.log(ts.responseText);
+              }
+            });
+          }
+        }
+
+        return false;
+      }); //Rellenar los favoritos del user al cambiar de pagina
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".page-link").click(function () {
+        rellenarFavoritos();
+      });
+    }); //Rellenar los corazones segun los favoritos del user
+
+    function rellenarFavoritos() {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id') != undefined) {
+        var user_id = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.divUserId').attr('id'));
+        jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+          type: 'get',
+          url: '/busqueda/selectFavoritos/' + user_id,
+          data: {},
+          error: function error(ts) {
+            console.log(ts.responseText);
+          }
+        }).done(function (respuesta) {
+          var resultadoDocumentName = [];
+
+          for (var i = 0; i < respuesta.length; i++) {
+            resultadoDocumentName.push(respuesta[i].DocumentName);
+          }
+
+          ;
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').each(function () {
+            if (resultadoDocumentName.indexOf(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')) >= 0) {
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart');
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart-fill");
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z');
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('fill-rule', 'evenodd');
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'red');
+            } else {
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').removeClass('bi-heart-fill');
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').addClass("bi-heart");
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').attr('d', 'm8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z');
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').children('path').removeAttr('fill-rule');
+              jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('svg').css('fill', 'white');
+            }
+          });
+        });
+      } else {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".h5-DocumentName").remove();
+      }
+
+      ;
+    }
+
+    ;
   },
   methods: {
     //Todos los filtrados
@@ -9561,7 +9606,7 @@ __webpack_require__.r(__webpack_exports__);
       return plan.documentName.includes(nombre);
     }); //Control de no haber iniciado sesion
 
-    if (this.userId != undefined && this.userId != NaN) {
+    if (this.userId != undefined && this.userId != NaN && this.userId != null) {
       //Marcar los favoritos del usuario
       jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
         type: "get",
@@ -44608,7 +44653,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ plugin)
 /* harmony export */ });
 /* module decorator */ module = __webpack_require__.hmd(module);
-function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function plugin(e,n){if(!plugin.installed){var o=isAxiosLike(n)?migrateToMultipleInstances(n):n;if(isValidConfig(o)){plugin.installed=!0;var i=getVueVersion(e);if(i){var t=i<3?registerOnVue2:registerOnVue3;Object.keys(o).forEach((function(n){t(e,n,o[n])}))}else console.error("[vue-axios] unknown Vue version")}else console.error("[vue-axios] configuration is invalid, expected options are either <axios_instance> or { <registration_key>: <axios_instance> }")}}function registerOnVue2(e,n,o){Object.defineProperty(e.prototype,n,{get:function(){return o}}),e[n]=o}function registerOnVue3(e,n,o){e.config.globalProperties[n]=o,e[n]=o}function isAxiosLike(e){return e&&"function"==typeof e.get&&"function"==typeof e.post}function migrateToMultipleInstances(e){return{axios:e,$http:e}}function isValidConfig(e){return"object"===_typeof(e)&&Object.keys(e).every((function(n){return isAxiosLike(e[n])}))}function getVueVersion(e){return e&&e.version&&Number(e.version.split(".")[0])}"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=plugin:"function"==typeof define&&__webpack_require__.amdO?define([],(function(){return plugin})):window.Vue&&window.axios&&window.Vue.use&&Vue.use(plugin,window.axios);
+function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function plugin(e,n){if(!e.vueAxiosInstalled){var o=isAxiosLike(n)?migrateToMultipleInstances(n):n;if(isValidConfig(o)){var t=getVueVersion(e);if(t){var i=t<3?registerOnVue2:registerOnVue3;Object.keys(o).forEach((function(n){i(e,n,o[n])})),e.vueAxiosInstalled=!0}else console.error("[vue-axios] unknown Vue version")}else console.error("[vue-axios] configuration is invalid, expected options are either <axios_instance> or { <registration_key>: <axios_instance> }")}}function registerOnVue2(e,n,o){Object.defineProperty(e.prototype,n,{get:function(){return o}}),e[n]=o}function registerOnVue3(e,n,o){e.config.globalProperties[n]=o,e[n]=o}function isAxiosLike(e){return e&&"function"==typeof e.get&&"function"==typeof e.post}function migrateToMultipleInstances(e){return{axios:e,$http:e}}function isValidConfig(e){return"object"===_typeof(e)&&Object.keys(e).every((function(n){return isAxiosLike(e[n])}))}function getVueVersion(e){return e&&e.version&&Number(e.version.split(".")[0])}"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=plugin:"function"==typeof define&&__webpack_require__.amdO?define([],(function(){return plugin})):window.Vue&&window.axios&&window.Vue.use&&Vue.use(plugin,window.axios);
 
 /***/ }),
 
@@ -46067,55 +46112,59 @@ var render = function () {
                       ]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "container d-flex justify-content-end" },
-                      [
-                        _c(
-                          "svg",
+                    _vm.userId != undefined
+                      ? _c(
+                          "div",
                           {
-                            staticClass: "bi bi-heart pe-3 pt-1 svgCorazon",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "50",
-                              height: "50",
-                              fill: "white",
-                              viewBox: "0 0 16 16",
-                              id: "iconoFavPlan",
-                            },
+                            staticClass: "container d-flex justify-content-end",
                           },
                           [
-                            _c("path", {
-                              attrs: {
-                                d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-heart pe-3 pt-1 svgCorazon",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "50",
+                                  height: "50",
+                                  fill: "white",
+                                  viewBox: "0 0 16 16",
+                                  id: "iconoFavPlan",
+                                },
                               },
-                            }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "bi bi-bookmark pe-1 pt-1",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "40",
-                              height: "40",
-                              fill: "currentColor",
-                              viewBox: "0 0 16 16",
-                              id: "iconoGuardarPlan",
-                            },
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d: "M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z",
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-bookmark pe-1 pt-1",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "40",
+                                  height: "40",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16",
+                                  id: "iconoGuardarPlan",
+                                },
                               },
-                            }),
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z",
+                                  },
+                                }),
+                              ]
+                            ),
                           ]
-                        ),
-                      ]
-                    ),
+                        )
+                      : _vm._e(),
                   ]
                 ),
               ]),

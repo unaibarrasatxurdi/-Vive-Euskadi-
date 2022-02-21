@@ -203,6 +203,28 @@
 <script>
 import $ from "jquery";
 
+
+export default {
+  data() {
+    return {
+      planes: null,
+      resultado: [],
+      filtro: null,
+      id: null,
+      paginate: ["resultado"],
+      cantidadTotal: 0,
+    };
+  },
+  props: ['userId'],
+  mounted() {
+    this.planes = JSON.parse(localStorage.getItem("planes"));
+    const url = window.location.href;
+    this.id = url.substring(url.lastIndexOf("/") + 1);
+    this.resultado = this.planes.filter((plan) =>
+      plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase()))
+    );
+    this.checkbox();
+    
 $(document).ready(function () {
   rellenarFavoritos();
 
@@ -315,29 +337,10 @@ function rellenarFavoritos() {
                                     }
                                 });
                             });
+                }else{
+                   $(".h5-DocumentName").remove();
                 };
 };
-
-export default {
-  data() {
-    return {
-      planes: null,
-      resultado: [],
-      filtro: null,
-      id: null,
-      paginate: ["resultado"],
-      cantidadTotal: 0,
-    };
-  },
-  props: ['userId'],
-  mounted() {
-    this.planes = JSON.parse(localStorage.getItem("planes"));
-    const url = window.location.href;
-    this.id = url.substring(url.lastIndexOf("/") + 1);
-    this.resultado = this.planes.filter((plan) =>
-      plan.documentName.toLowerCase().includes(decodeURI(this.id.toLowerCase()))
-    );
-    this.checkbox();
   },
 
   methods: {
