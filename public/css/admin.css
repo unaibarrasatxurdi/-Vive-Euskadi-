@@ -54,12 +54,18 @@ body {
     height: 50px;
 }
 
-.table {
+#myTable {
     margin: 5% 20% 0 15%;
-    width: 30%;
+    width: 80%;
     background-color: #e1ecf0ff;
 }
 
+
+#btnCrear{
+    margin-right: 115px;
+    background: #1498C2;
+    color: black;
+}
 .pagination {
     margin-top: 5%;
     margin-left: 40%;
@@ -87,4 +93,9 @@ body {
 #logOut:hover {
     background-color: #1498C2;
     font-weight: 700;
+}
+
+#contBtnNuevo {
+    display: flex;
+    align-items: flex-end;
 }

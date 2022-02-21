@@ -30,7 +30,7 @@ class AdminController extends Controller
     public function adminUsuario()
     {
        //funcion para mostrar los usuarios desde la base de datos en el apartado de admin
-        $users = User::paginate(8);
+        $users = User::paginate(5);
         return view('admin.usuAd')->with('users', $users);
     }
 
@@ -97,10 +97,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyComent($IdComentario)
+    public function destroyComent($id)
     {
-        //Funcion que elimina un comentario creado por algun usuario. Se crea un mensaje para confirmar el borrado
-        $comentario = Comentarios::find($IdComentario)->delete();
+        $comentario = Comentarios::where('idComentario',$id)->firstOrFail()->delete();
         return redirect()->route('admin.adminComent')->with('mensaje','Comentario borrado con éxito');
     }
 

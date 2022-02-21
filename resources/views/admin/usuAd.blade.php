@@ -1,7 +1,130 @@
 @extends('layouts.admin')
 
 @section('content')
-    <main class="col p-0">
+<main class="col p-0">
+    <div class="row">
+        <div class="col-md-12 mt-5 ms-5 ps-4 pt-1" id="titApartado">
+            <h2>Gestión de usuarios</h2>
+        </div>
+    </div>
+    @if (Session::has('mensaje'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ Session::get('mensaje') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @elseif (Session::has('mensajeError'))
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ Session::get('mensajeError') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+    <div class="row">
+        <div class="col-12 text-end" id="contBtnCrear">
+            <button class="btn btn-primary" type="button" id="btnCrear">{{ __('Crear nuevo usuario') }}</button>
+        </div>  
+        <div class="col-12">
+            <table class="table table-striped table-hover" id="myTable">
+                <thead class="thead">
+                    <tr>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+
+                            <td>
+                                <form action="{{-- {{ route('items.destroy',$item->id) }} --}}" method="POST">
+                                    <a class="btn btn-sm btn-primary " href="{{-- {{ route('items.show',$item->id) }} --}}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                    <a class="btn btn-sm btn-success" href="{{-- {{ route('items.edit',$item->id) }} --}}"><i class="fa fa-fw fa-edit"></i> Modificar</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        
+        
+        </div>  
+
+        
+    </div>
+
+
+
+
+
+    <!--<div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-end mx-5">
+                        <a href="{{-- {{ route('items.create') }} --}}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                            {{ __('Crear nuevo usuario') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body p-0 m-0">
+
+                    <div>
+                        <table class="table table-striped table-hover" id="myTable">
+                            <thead class="thead">
+                                <tr>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Email</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+
+                                        <td>
+                                            <form action="{{-- {{ route('items.destroy',$item->id) }} --}}" method="POST">
+                                                <a class="btn btn-sm btn-primary " href="{{-- {{ route('items.show',$item->id) }} --}}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                <a class="btn btn-sm btn-success" href="{{-- {{ route('items.edit',$item->id) }} --}}"><i class="fa fa-fw fa-edit"></i> Modificar</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>-->
+
+
+</main>
+
+
+     <!--<main class="col p-0">
         <div class="row">
             <div class="col-md-12 mt-5 ms-5 ps-4 pt-1" id="titApartado">
                 <h2>Gestión de usuarios</h2>
@@ -19,14 +142,15 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
-        <div class="float-right">
-            <a href="{{-- {{ route('socios.create') }} --}}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-              {{ __('Crear nuevo Socio') }}
-            </a>
-        </div>
-        <div class="row">
+        
+       <div class="row">
             <div class="col-md-8">
                 <table id="myTable" class="table">
+                    <div class="text-end">
+                        <a href="{{-- {{ route('socios.create') }} --}}" class="btn btn-primary btn-sm">
+                          {{ __('Crear nuevo usuario') }}
+                        </a>
+                    </div>
                     <thead>
                         <tr>
                             <th>Usuario</th>
@@ -68,6 +192,6 @@
 
 
       
-    </main>
+    </main>-->
 
 @endsection
