@@ -352,7 +352,7 @@ export default {
       
       $.ajax({
           type: "get",
-          url: '/' + this.userId + '/' + this.nombre + '/' + comentario + '/insertar',
+          url: '/' + this.userId + '/' + this.nombre + '/' + comentario + '/' + this.resultado.territory + '/insertar',
           data: {},
           error: function (ts) {
             console.log(ts.responseText);

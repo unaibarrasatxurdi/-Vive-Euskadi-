@@ -9674,7 +9674,7 @@ __webpack_require__.r(__webpack_exports__);
       var comentario = this.comentario;
       jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
         type: "get",
-        url: '/' + this.userId + '/' + this.nombre + '/' + comentario + '/insertar',
+        url: '/' + this.userId + '/' + this.nombre + '/' + comentario + '/' + this.resultado.territory + '/insertar',
         data: {},
         error: function error(ts) {
           console.log(ts.responseText);

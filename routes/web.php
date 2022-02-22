@@ -51,5 +51,5 @@ Route::delete('/admin/destroyComent/{id}', [AdminController::class, 'destroyCome
 Route::resource('admin', AdminController::class);
 
 Route::get('/{documentName}/comentarios', [ComentariosController::class, 'mostrarComentarios'])->name('comentariosPlan');
-Route::get('/{idUser}/{plan}/{comentario}/insertar', [ComentariosController::class, 'insertarComentario']);
+Route::get('/{idUser}/{plan}/{comentario}/{territorio}/insertar', [ComentariosController::class, 'insertarComentario']);
 require __DIR__.'/auth.php';

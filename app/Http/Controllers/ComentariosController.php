@@ -16,7 +16,8 @@ class ComentariosController extends Controller
         
     }
     //Función que hace una inserccion en la tabla de comentarios usando la id del usuario y el plan en el que se ha hecho el comentario
-    public function insertarComentario( $idUser, $plan, $comentario) {
+    public function insertarComentario( $idUser, $plan, $comentario, $territorio) {
+        DB::insert('insert into planes (DocumentName, Provincia) values (?, ?) ON DUPLICATE KEY UPDATE DocumentName=DocumentName', [$plan, $territorio]);
         DB::insert('insert into comentarios (id, DocumentName, Texto, Fecha) values (?, ?, ?, ?) ON DUPLICATE KEY UPDATE DocumentName = DocumentName', [$idUser, $plan, $comentario, now()]);
     }
 
