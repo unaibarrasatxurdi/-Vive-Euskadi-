@@ -50,7 +50,6 @@
                                 </button>
                             </form>
                         </td>
-                        
                     </tr>
                     @endforeach
 
