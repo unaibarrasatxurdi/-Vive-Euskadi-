@@ -9219,7 +9219,6 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           ;
-          console.log(respuesta);
           jquery__WEBPACK_IMPORTED_MODULE_0___default()('.h5-DocumentName').each(function () {
             if (resultadoDocumentName.indexOf(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')) >= 0) {
               jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.iconoGuardarPlan').removeClass("bi-bookmark");
@@ -9818,6 +9817,36 @@ __webpack_require__.r(__webpack_exports__);
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").children("path").attr("d", "m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z");
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").children("path").removeAttr("fill-rule");
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(".svgCorazon").css("fill", "white");
+        }
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+        type: 'get',
+        url: '/busqueda/selectPlanesPlanificacion/' + este.userId,
+        data: {},
+        error: function error(ts) {
+          console.log(ts.responseText);
+        }
+      }).done(function (respuesta) {
+        var resultadoDocumentName = [];
+
+        for (var i = 0; i < respuesta.length; i++) {
+          resultadoDocumentName.push(respuesta[i].DocumentName);
+        }
+
+        ;
+
+        if (resultadoDocumentName.indexOf(este.resultado[0].documentName) >= 0) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').removeClass("bi-bookmark");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').addClass("bi-bookmark-check-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').children('path').attr('d', 'M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').children('path').attr('fill-rule', 'evenodd');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').css('fill', '#d850fc');
+        } else {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').removeClass("bi-bookmark-check-fill");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').addClass("bi-bookmark");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').children('path').attr('d', 'M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').children('path').removeAttr('fill-rule');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.svgBookmark').css('fill', 'white');
         }
       });
     } //Obtener los campos que cumple el plan
@@ -46533,7 +46562,8 @@ var render = function () {
                             _c(
                               "svg",
                               {
-                                staticClass: "bi bi-bookmark pe-1 pt-1",
+                                staticClass:
+                                  "bi bi-bookmark pe-1 pt-1 svgBookmark",
                                 attrs: {
                                   xmlns: "http://www.w3.org/2000/svg",
                                   width: "40",

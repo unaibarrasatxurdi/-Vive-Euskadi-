@@ -441,7 +441,6 @@ function rellenarGuardarPlan() {
                                 for(var i=0; i<respuesta.length;i++){
                                     resultadoDocumentName.push(respuesta[i].DocumentName);
                                 };
-                                console.log(respuesta);
                                 $('.h5-DocumentName').each(function () { 
                                     if(resultadoDocumentName.indexOf($(this).attr('id'))>=0){
                                         $(this).children('.iconoGuardarPlan').removeClass("bi-bookmark");
