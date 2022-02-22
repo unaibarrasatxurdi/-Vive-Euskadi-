@@ -56,6 +56,7 @@ const app = new Vue({
             //Metemos los datos que necesiamos sobre json en el localStorage
             localStorage.setItem("planes", this.json); 
         }
+        
       },
 });
 

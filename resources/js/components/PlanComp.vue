@@ -220,18 +220,15 @@
     <div class="row" id="comentarios">
       <div class="container p-0">
         <h3 class="text-white text-center" id="dondeEsta">COMENTARIOS</h3>
-        <h4 class="ps-2">Add comment</h4>
-        <form class="p-2" method="post" action="#">
+        <h4 class="ps-2">Añadir comentario</h4>
+        <form class="p-2" id="ComentarioForm" method="post" @submit.prevent="insertarComentario">
             <div class="form-group">
-                <input type="text" name="comment_body" class="form-control" required />
-                <input type="hidden" name="post_id" value="" />
-            </div>
-            <div class="form-group">
-                <input type="button" class="btn btn-warning" id="añadir" value="Añadir comentario" />
+                <input type="text" id="textoComentario" v-model="comentario" name="comment_body" class="form-control" required />
+                <input type="submit" class="btn btn-warning" id="añadir" value="Añadir comentario" />
             </div>
         </form>
         <hr class="m-4">
-        <div id="comentarios" class="p2">
+        <div id="comentariosMostrados" class="p2">
             <!-- Aquí se añadirán los comentarios mediante ajax -->
         </div>
       </div>
@@ -255,6 +252,8 @@ export default {
       pareja: false,
       ninios: false,
       userId: null,
+      comentario: null,
+      nombre: null,
     };
   },
   mounted() {
@@ -269,6 +268,7 @@ export default {
     var nombre = url.substring(url.lastIndexOf("/") + 1);
     var nombreSplit = nombre.split("?")[0];
     nombre = decodeURI(nombreSplit);
+    this.nombre = decodeURI(nombreSplit);
     //Filtramos segun el texto de busqueda
     this.resultado = this.planes.filter((plan) =>
       plan.documentName.includes(nombre)
@@ -341,25 +341,49 @@ export default {
     if (this.resultado[0].children == "1") {
       this.ninios = true;
     }
-    
-    $.ajax({
-      type: 'get',
-      url: '/' + nombre + '/comentarios',
-      data: {toma: []},
-      contentType: 'application/json; charset=utf-8',
-      success: function(respuesta) {
-        respuesta.forEach(element => {
-            var html = `
-                <div class="comentarioPlan" id="` + element.idComentario + `" style="border-bottom: 1px solid whitesmoke;">
-                    <h4>` + element.name + `</h4>
-                    <p>` + element.Texto + `</p>
-                    <p class="fw-light text-end">` + element.Fecha + `</p>
-                </div>
-            `;
-            $('#comentarios').append(html);
+    // Carga los comentarios
+    this.mostrarComentarios();
+  },
+
+  methods: {
+    // Crea un nuevo comentario
+    insertarComentario() {
+      var comentario = this.comentario;
+      
+      $.ajax({
+          type: "get",
+          url: '/' + this.userId + '/' + this.nombre + '/' + comentario + '/insertar',
+          data: {},
+          error: function (ts) {
+            console.log(ts.responseText);
+          },
         });
-      }
-    });
+        // Recarga los comentarios para mostrar el nuevo
+        this.mostrarComentarios();
+    },
+
+    // Muestra los comentariso
+    mostrarComentarios() {
+      $.ajax({
+        type: 'get',
+        url: '/' + this.nombre + '/comentarios',
+        data: {toma: []},
+        contentType: 'application/json; charset=utf-8',
+        success: function(respuesta) {
+          var html = '';
+          respuesta.forEach(element => {
+              html += `
+                  <div class="comentarioPlan p-2" id="` + element.idComentario + `" style="border-bottom: 1px solid whitesmoke;">
+                      <h4>` + element.name + `</h4>
+                      <p>` + element.Texto + `</p>
+                      <p class="fw-light text-end">` + element.Fecha + `</p>
+                  </div>
+              `;
+          });
+          $('#comentariosMostrados').html(html);
+        }
+      });
+    }
   },
   
 };
@@ -414,7 +438,7 @@ h3 {
   max-width: 300px;
 }
 
-#comentarios {
+#comentarios, #comentariosMostrados {
   color: white;
   background-color: rgb(61, 61, 61);
 }

@@ -4484,6 +4484,12 @@ function queueJob(job) {
     queue.push(job);
   queueFlush();
 }
+function dequeueJob(job) {
+  const index = queue.indexOf(job);
+  if (index !== -1) {
+    queue.splice(index, 1);
+  }
+}
 function queueFlush() {
   if (!flushing && !flushPending) {
     flushPending = true;
@@ -5077,6 +5083,7 @@ var directiveOrder = [
   "init",
   "for",
   "model",
+  "modelable",
   "transition",
   "show",
   "if",
@@ -5265,7 +5272,10 @@ function setStylesFromObject(el, value) {
   let previousStyles = {};
   Object.entries(value).forEach(([key, value2]) => {
     previousStyles[key] = el.style[key];
-    el.style.setProperty(kebabCase(key), value2);
+    if (!key.startsWith("--")) {
+      key = kebabCase(key);
+    }
+    el.style.setProperty(key, value2);
   });
   setTimeout(() => {
     if (el.style.length === 0) {
@@ -5854,7 +5864,7 @@ var Alpine = {
   get raw() {
     return raw;
   },
-  version: "3.8.1",
+  version: "3.9.0",
   flushAndStopDeferringMutations,
   disableEffectScheduling,
   setReactivityEngine,
@@ -5978,6 +5988,31 @@ magic("id", (el) => (name, key = null) => {
 
 // packages/alpinejs/src/magics/$el.js
 magic("el", (el) => el);
+
+// packages/alpinejs/src/directives/x-modelable.js
+directive("modelable", (el, {expression}, {effect: effect3, evaluate: evaluate2, evaluateLater: evaluateLater2}) => {
+  let func = evaluateLater2(expression);
+  let innerGet = () => {
+    let result;
+    func((i) => result = i);
+    return result;
+  };
+  let evaluateInnerSet = evaluateLater2(`${expression} = __placeholder`);
+  let innerSet = (val) => evaluateInnerSet(() => {
+  }, {scope: {__placeholder: val}});
+  let initialValue = innerGet();
+  if (el._x_modelable_hook)
+    initialValue = el._x_modelable_hook(initialValue);
+  innerSet(initialValue);
+  queueMicrotask(() => {
+    if (!el._x_model)
+      return;
+    let outerGet = el._x_model.get;
+    let outerSet = el._x_model.set;
+    effect3(() => innerSet(outerGet()));
+    effect3(() => outerSet(innerGet()));
+  });
+});
 
 // packages/alpinejs/src/directives/x-teleport.js
 directive("teleport", (el, {expression}, {cleanup}) => {
@@ -6452,6 +6487,9 @@ function loop(el, iteratorNames, evaluateItems, evaluateKey) {
     }
     for (let i = 0; i < removes.length; i++) {
       let key = removes[i];
+      if (!!lookup[key]._x_effects) {
+        lookup[key]._x_effects.forEach(dequeueJob);
+      }
       lookup[key].remove();
       lookup[key] = null;
       delete lookup[key];
@@ -6568,6 +6606,11 @@ directive("if", (el, {expression}, {effect: effect3, cleanup}) => {
     });
     el._x_currentIfEl = clone2;
     el._x_undoIf = () => {
+      walk(clone2, (node) => {
+        if (!!node._x_effects) {
+          node._x_effects.forEach(dequeueJob);
+        }
+      });
       clone2.remove();
       delete el._x_currentIfEl;
     };
@@ -9525,9 +9568,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -9541,7 +9581,9 @@ __webpack_require__.r(__webpack_exports__);
       amigos: false,
       pareja: false,
       ninios: false,
-      userId: null
+      userId: null,
+      comentario: null,
+      nombre: null
     };
   },
   mounted: function mounted() {
@@ -9555,7 +9597,8 @@ __webpack_require__.r(__webpack_exports__);
     var url = window.location.href;
     var nombre = url.substring(url.lastIndexOf("/") + 1);
     var nombreSplit = nombre.split("?")[0];
-    nombre = decodeURI(nombreSplit); //Filtramos segun el texto de busqueda
+    nombre = decodeURI(nombreSplit);
+    this.nombre = decodeURI(nombreSplit); //Filtramos segun el texto de busqueda
 
     this.resultado = this.planes.filter(function (plan) {
       return plan.documentName.includes(nombre);
@@ -9620,22 +9663,44 @@ __webpack_require__.r(__webpack_exports__);
 
     if (this.resultado[0].children == "1") {
       this.ninios = true;
-    }
+    } // Carga los comentarios
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
-      type: 'get',
-      url: '/' + nombre + '/comentarios',
-      data: {
-        toma: []
-      },
-      contentType: 'application/json; charset=utf-8',
-      success: function success(respuesta) {
-        respuesta.forEach(function (element) {
-          var html = "\n                <div class=\"comentarioPlan\" id=\"" + element.idComentario + "\" style=\"border-bottom: 1px solid whitesmoke;\">\n                    <h4>" + element.name + "</h4>\n                    <p>" + element.Texto + "</p>\n                    <p class=\"fw-light text-end\">" + element.Fecha + "</p>\n                </div>\n            ";
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#comentarios').append(html);
-        });
-      }
-    });
+
+    this.mostrarComentarios();
+  },
+  methods: {
+    // Crea un nuevo comentario
+    insertarComentario: function insertarComentario() {
+      var comentario = this.comentario;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+        type: "get",
+        url: '/' + this.userId + '/' + this.nombre + '/' + comentario + '/insertar',
+        data: {},
+        error: function error(ts) {
+          console.log(ts.responseText);
+        }
+      }); // Recarga los comentarios para mostrar el nuevo
+
+      this.mostrarComentarios();
+    },
+    // Muestra los comentariso
+    mostrarComentarios: function mostrarComentarios() {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+        type: 'get',
+        url: '/' + this.nombre + '/comentarios',
+        data: {
+          toma: []
+        },
+        contentType: 'application/json; charset=utf-8',
+        success: function success(respuesta) {
+          var html = '';
+          respuesta.forEach(function (element) {
+            html += "\n                  <div class=\"comentarioPlan p-2\" id=\"" + element.idComentario + "\" style=\"border-bottom: 1px solid whitesmoke;\">\n                      <h4>" + element.name + "</h4>\n                      <p>" + element.Texto + "</p>\n                      <p class=\"fw-light text-end\">" + element.Fecha + "</p>\n                  </div>\n              ";
+          });
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#comentariosMostrados').html(html);
+        }
+      });
+    }
   }
 });
 
@@ -25871,7 +25936,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\r\n  padding-left: 10%;\r\n  padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\r\n  width: 50%;\r\n  background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\r\n  border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\r\n  position: absolute;\r\n  top: 0;\r\n  margin-left: 0;\r\n  margin-right: 0;\r\n  right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\r\n  color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\r\n  color: white;\n}\n#textoPlan[data-v-6db35b43] {\r\n  color: black;\n}\n#datosPlan[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43] {\r\n  background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43],\r\n#plandatos[data-v-6db35b43] {\r\n  max-width: 300px;\n}\n#comentarios[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\n.comentarioPlan[data-v-6db35b43] {\r\n  background-color: rgb(73, 73, 73);\r\n  border-bottom: 1px solid whitesmoke;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#contenedorPlan[data-v-6db35b43] {\r\n  padding-left: 10%;\r\n  padding-right: 10%;\n}\n#infoPlan[data-v-6db35b43] {\r\n  width: 50%;\r\n  background-color: whitesmoke;\n}\n#headerPlan[data-v-6db35b43] {\r\n  border: 0;\n}\n#tituloPlan[data-v-6db35b43] {\r\n  position: absolute;\r\n  top: 0;\r\n  margin-left: 0;\r\n  margin-right: 0;\r\n  right: 0;\n}\n#iconoFavPlan[data-v-6db35b43] {\r\n  color: red;\n}\n#iconoGuardarPlan[data-v-6db35b43] {\r\n  color: white;\n}\n#textoPlan[data-v-6db35b43] {\r\n  color: black;\n}\n#datosPlan[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\nh3[data-v-6db35b43] {\r\n  background-color: rgba(0, 0, 0, 0.5);\n}\n#ubicacion[data-v-6db35b43],\r\n#plandatos[data-v-6db35b43] {\r\n  max-width: 300px;\n}\n#comentarios[data-v-6db35b43], #comentariosMostrados[data-v-6db35b43] {\r\n  color: white;\r\n  background-color: rgb(61, 61, 61);\n}\n.comentarioPlan[data-v-6db35b43] {\r\n  background-color: rgb(73, 73, 73);\r\n  border-bottom: 1px solid whitesmoke;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44608,7 +44673,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ plugin)
 /* harmony export */ });
 /* module decorator */ module = __webpack_require__.hmd(module);
-function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function plugin(e,n){if(!plugin.installed){var o=isAxiosLike(n)?migrateToMultipleInstances(n):n;if(isValidConfig(o)){plugin.installed=!0;var i=getVueVersion(e);if(i){var t=i<3?registerOnVue2:registerOnVue3;Object.keys(o).forEach((function(n){t(e,n,o[n])}))}else console.error("[vue-axios] unknown Vue version")}else console.error("[vue-axios] configuration is invalid, expected options are either <axios_instance> or { <registration_key>: <axios_instance> }")}}function registerOnVue2(e,n,o){Object.defineProperty(e.prototype,n,{get:function(){return o}}),e[n]=o}function registerOnVue3(e,n,o){e.config.globalProperties[n]=o,e[n]=o}function isAxiosLike(e){return e&&"function"==typeof e.get&&"function"==typeof e.post}function migrateToMultipleInstances(e){return{axios:e,$http:e}}function isValidConfig(e){return"object"===_typeof(e)&&Object.keys(e).every((function(n){return isAxiosLike(e[n])}))}function getVueVersion(e){return e&&e.version&&Number(e.version.split(".")[0])}"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=plugin:"function"==typeof define&&__webpack_require__.amdO?define([],(function(){return plugin})):window.Vue&&window.axios&&window.Vue.use&&Vue.use(plugin,window.axios);
+function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function plugin(e,n){if(!e.vueAxiosInstalled){var o=isAxiosLike(n)?migrateToMultipleInstances(n):n;if(isValidConfig(o)){var t=getVueVersion(e);if(t){var i=t<3?registerOnVue2:registerOnVue3;Object.keys(o).forEach((function(n){i(e,n,o[n])})),e.vueAxiosInstalled=!0}else console.error("[vue-axios] unknown Vue version")}else console.error("[vue-axios] configuration is invalid, expected options are either <axios_instance> or { <registration_key>: <axios_instance> }")}}function registerOnVue2(e,n,o){Object.defineProperty(e.prototype,n,{get:function(){return o}}),e[n]=o}function registerOnVue3(e,n,o){e.config.globalProperties[n]=o,e[n]=o}function isAxiosLike(e){return e&&"function"==typeof e.get&&"function"==typeof e.post}function migrateToMultipleInstances(e){return{axios:e,$http:e}}function isValidConfig(e){return"object"===_typeof(e)&&Object.keys(e).every((function(n){return isAxiosLike(e[n])}))}function getVueVersion(e){return e&&e.version&&Number(e.version.split(".")[0])}"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=plugin:"function"==typeof define&&__webpack_require__.amdO?define([],(function(){return plugin})):window.Vue&&window.axios&&window.Vue.use&&Vue.use(plugin,window.axios);
 
 /***/ }),
 
@@ -46388,7 +46453,80 @@ var render = function () {
         0
       ),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
+        _c("div", { staticClass: "container p-0" }, [
+          _c(
+            "h3",
+            {
+              staticClass: "text-white text-center",
+              attrs: { id: "dondeEsta" },
+            },
+            [_vm._v("COMENTARIOS")]
+          ),
+          _vm._v(" "),
+          _c("h4", { staticClass: "ps-2" }, [_vm._v("Añadir comentario")]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "p-2",
+              attrs: { id: "ComentarioForm", method: "post" },
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.insertarComentario.apply(null, arguments)
+                },
+              },
+            },
+            [
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.comentario,
+                      expression: "comentario",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "textoComentario",
+                    name: "comment_body",
+                    required: "",
+                  },
+                  domProps: { value: _vm.comentario },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.comentario = $event.target.value
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "btn btn-warning",
+                  attrs: {
+                    type: "submit",
+                    id: "añadir",
+                    value: "Añadir comentario",
+                  },
+                }),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c("hr", { staticClass: "m-4" }),
+          _vm._v(" "),
+          _c("div", {
+            staticClass: "p2",
+            attrs: { id: "comentariosMostrados" },
+          }),
+        ]),
+      ]),
     ]
   )
 }
@@ -46414,54 +46552,6 @@ var staticRenderFns = [
             loading: "lazy",
           },
         }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row", attrs: { id: "comentarios" } }, [
-      _c("div", { staticClass: "container p-0" }, [
-        _c(
-          "h3",
-          { staticClass: "text-white text-center", attrs: { id: "dondeEsta" } },
-          [_vm._v("COMENTARIOS")]
-        ),
-        _vm._v(" "),
-        _c("h4", { staticClass: "ps-2" }, [_vm._v("Add comment")]),
-        _vm._v(" "),
-        _c(
-          "form",
-          { staticClass: "p-2", attrs: { method: "post", action: "#" } },
-          [
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", name: "comment_body", required: "" },
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "hidden", name: "post_id", value: "" },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                staticClass: "btn btn-warning",
-                attrs: {
-                  type: "button",
-                  id: "añadir",
-                  value: "Añadir comentario",
-                },
-              }),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
-        _c("hr", { staticClass: "m-4" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "p2", attrs: { id: "comentarios" } }),
       ]),
     ])
   },
