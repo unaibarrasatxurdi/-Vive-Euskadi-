@@ -33,8 +33,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/busqueda/borrarFavoritos/{user_id}/{documentName}', [PlanesController::class, 'borrarFavoritos'])->name('borrarFavoritos');
     Route::get('/busqueda/selectFavoritos/{user_id}', [PlanesController::class, 'selectFavoritos'])->name('selectFavoritos');
 
-    Route::get('/busqueda/insertPlanificaciones/{user_id}/{nombre_planificacion}/{descripcion}', [PlanesController::class, 'insertPlanificaciones'])->name('insertPlanificaciones');
+    Route::get('/busqueda/insertarPlanificacion/{user_id}/{nombre_planificacion}/{descripcion}', [PlanesController::class, 'insertarPlanificacion'])->name('insertarPlanificacion');
     Route::get('/busqueda/selectPlanificaciones/{user_id}', [PlanesController::class, 'selectPlanificaciones'])->name('selectPlanificaciones');
+
+    Route::get('/busqueda/insertarPlanPlanificacion/{id_planificacion}/{nombrePlan}', [PlanesController::class, 'insertarPlanPlanificacion'])->name('insertarPlanPlanificacion');
+
+    Route::get('/busqueda/selectPlanesPlanificacion/{user_id}', [PlanesController::class, 'selectPlanesPlanificacion'])->name('selectPlanesPlanificacion');
  });
 Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'busqueda']]);

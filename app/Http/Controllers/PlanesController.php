@@ -54,11 +54,23 @@ class PlanesController extends Controller
 
     public function insertarPlanificacion( $id, $nombre, $descripcion)
     {
-        DB::insert('insert into planificacion(id, NombrePlanificacion, Descripcion) values (?, ?, ?) ON DUPLICATE KEY UPDATE NombrePlanificacion=NombrePlanificacion', [$id, $nombre, $descripcion]);
+        DB::insert('insert into planificacion (id, NombrePlanificacion, Descripcion) values (?, ?, ?) ON DUPLICATE KEY UPDATE NombrePlanificacion=NombrePlanificacion', [$id, $nombre, $descripcion]);
     }
     public function selectPlanificaciones($id)
     {
         $results = DB::select('select * from planificacion where id = ?',[$id]);
+        return $results;
+    }
+
+    public function insertarPlanPlanificacion( $idPlanificacion, $nombrePlan,)
+    {
+        DB::insert('insert into planes (DocumentName, Provincia) values (?, ?) ON DUPLICATE KEY UPDATE DocumentName=DocumentName', [$nombrePlan, 'undefined']);
+        DB::insert('insert into agrupa (IdPlanificacion, DocumentName) values (?, ?) ON DUPLICATE KEY UPDATE DocumentName=DocumentName', [$idPlanificacion, $nombrePlan]);
+    }
+
+    public function selectPlanesPlanificacion( $id)
+    {
+        $results = DB::select('select DocumentName from agrupa, planificacion where agrupa.IdPlanificacion=planificacion.IdPlanificacion and id = ? Group by DocumentName',[$id]);
         return $results;
     }
 
