@@ -22,6 +22,29 @@ class ComentariosController extends Controller
 
     //Función que eliminara el comentario recibiendo el id de el comentario a borrar 
     public function borrarComentario($IdComentario) {
-        DB::delete('DELETE FROM comentarios WHERE IdComentario = ?',[$IdComentario]);
+        
+        if ($IdComentario != null) {
+            Comentarios::where('IdComentario', $IdComentario)->delete(); 
+            return redirect()->route('user.comentariosUsuario')->with('mensaje','Comentario borrado con éxito'); 
+        }
+        
+        return redirect()->route('user.comentariosUsuario')->with('mensaje','No id');
+    }
+
+    public function editarComentarios($IdComentario){ 
+        $comentario=Comentarios::where('IdComentario', $IdComentario)->first();
+        
+        return view('user.comentariosEditar', ['comentario'=>$comentario]);
+    }
+
+    public function updateComentarios(Request $peticion, $IdComentario){
+        $peticion->validate([
+            'texto' => 'required',
+        ]);
+        $comentarios = Comentarios::where('IdComentario', $IdComentario)->first();
+        $comentarios->Texto = $peticion->input('texto');
+        $comentarios->save();
+        
+        return redirect()->route('user.comentariosUsuario')->with('mensaje','Comentario modificado con exito');
     }
 }

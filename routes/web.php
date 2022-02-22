@@ -40,7 +40,7 @@ Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only('ind
 Route::get('/user/datosUsuario', [UserController::class, 'datosUsuario']);
 Route::get('/user/planesUsuario', [UserController::class, 'planesUsuario']);
 Route::get('/user/planesFavUsuario', [UserController::class, 'planesFavUsuario']);
-Route::get('/user/comentariosUsuario', [UserController::class, 'comentariosUsuario']);
+Route::get('/user/comentariosUsuario', [UserController::class, 'comentariosUsuario'])->name('user.comentariosUsuario');
 Route::resource('user', UserController::class);
 
 Route::get('/admin/gestion-usuarios', [AdminController::class, 'adminUsuario'])->name('admin.adminUsuario');;
@@ -51,4 +51,8 @@ Route::delete('/admin/destroyComent/{id}', [AdminController::class, 'destroyCome
 Route::resource('admin', AdminController::class);
 
 Route::get('/{documentName}/comentarios', [ComentariosController::class, 'mostrarComentarios'])->name('comentariosPlan');
+Route::delete('/user/comentariosDelete/{id}', [ComentariosController::class, 'borrarComentario'])->name('user.comentarioDestroy');
+Route::get('/user/comentariosEdit/{id}', [ComentariosController::class, 'editarComentarios'])->name('user.comentarioEdit');
+Route::PUT('/user/comentariosEdit/{id}', [ComentariosController::class, 'updateComentarios'])->name('user.comentarioUpdate');
+
 require __DIR__.'/auth.php';
