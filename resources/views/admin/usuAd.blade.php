@@ -44,7 +44,7 @@
 
                             <td>
                                 <form action="{{ route('admin.destroyUsuario',$user->id) }}" method="POST">
-                                    <a class="btn btn-sm btn-success" href="{{-- {{ route('items.edit',$item->id) }} --}}"><i class="fa fa-fw fa-edit"></i> Modificar</a>
+                                    <a class="btn btn-sm btn-success" href="{{ route('admin.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Modificar</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
