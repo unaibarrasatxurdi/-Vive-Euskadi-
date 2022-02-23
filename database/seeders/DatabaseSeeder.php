@@ -29,11 +29,25 @@ class DatabaseSeeder extends Seeder
             'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
         ]);*/
-        User::factory(10)->create();
+
+        $this->call(UserSeeder::class);
+
+        for ($i=0; $i <10 ; $i++) { 
+            User::factory(1)->create();
+            Planes::factory(1)->create();
+            Comentarios::factory(1)->create();
+            Comentarios::factory(1)->create();
+            Favoritos::factory(1)->create();
+            Planificacion::factory(1)->create();
+            Agrupa::factory(1)->create();
+        }
+        /*User::factory(10)->create();
         Planes::factory(10)->create();
         Comentarios::factory(20)->create();
         Favoritos::factory(10)->create();
         Planificacion::factory(10)->create();
-        Agrupa::factory(10)->create();
+        Agrupa::factory(10)->create();*/
+
+        
     }
 }

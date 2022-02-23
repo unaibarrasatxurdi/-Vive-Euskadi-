@@ -16,11 +16,14 @@ class FavoritosFactory extends Factory
      */
     public function definition()
     {
-
+        //coje el Id de usuario y el documentName de la base de datos para añadirlo a favoritos
         $IdUsuarios = DB::table('users')->pluck('id');
         $documentNames = DB::table('Planes')->pluck('documentName');
-        $aleatorio1=random_int(0,count($IdUsuarios)-1);
-        $aleatorio2=random_int(0,count($documentNames)-1);
+        do{     
+            $aleatorio1=random_int(0,count($IdUsuarios)-1);
+            $aleatorio2=random_int(0,count($documentNames)-1);
+            $existe = DB::select('select * from favoritos where id = :id and DocumentName = :documentName', ['id' => $IdUsuarios[$aleatorio1], 'documentName' => $documentNames[$aleatorio2]]);
+        }while(count($existe)!=0);
 
         return [
             'id' => $IdUsuarios[$aleatorio1],
