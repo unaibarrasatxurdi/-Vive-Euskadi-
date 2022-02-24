@@ -81,7 +81,6 @@ class AdminController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-
         return view('admin.edit', compact('user'));
     }
 
@@ -92,9 +91,24 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $requestData = $request->all();
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            if($foto->isValid()){
+                $extension = $foto->extension();
+                $nombreFichero = $user->id.'.'.$extension;
+                copy($foto->getRealPath(), public_path("imagenes").'\\'.$nombreFichero);
+                $requestData['foto'] = $nombreFichero;
+            }
+        }
+        
+
+        $user->update($requestData);
+
+        return redirect()->route('admin.adminUsuario')
+            ->with('success', 'El usuario '.$user->name.' ha sido modificado correctamente.');
     }
 
     /**

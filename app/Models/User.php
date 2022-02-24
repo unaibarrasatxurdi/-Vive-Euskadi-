@@ -11,6 +11,13 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+
+    static $rules = [
+		'name' => 'required',
+		'email' => 'required',
+		'admin' => 'required',
+		'foto' => 'required',
+    ];
     use HasApiTokens, HasFactory, Notifiable;
     public $table = "users";
     /**
@@ -22,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'foto',
     ];
 
     /**

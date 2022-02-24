@@ -4,18 +4,14 @@
 @extends('layouts.admin')
 
 @section('content')
-<main class="col p-0 d-flex justify-content-center">
+<main class="col p-0 d-flex justify-content-center file-select">
    <section id="contNewUser">
       <form action="" method="post">
-         <div class="drag-drop">
-            <input type="file" multiple="multiple" id="photo" />
-            <span class="fa-stack fa-2x">
-                <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
-                <i class="fa fa-circle fa-stack-1x top medium"></i>
-                <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
-            </span>
-            <span class="desc">Pulse aquí para añadir una foto</span>
+         
+         <div class="d-flex justify-content-center">
+               <img src="/images/Imagenes/bodyDescubre.jpg" class="img-fluid circular--square" alt="" id="imgUser">
         </div>
+        <input type="file" name="" id="">
         <div class="mb-3">
          <input type="text" class="border rounded-pill border-primary shadow form-control" placeholder="Nombre" required autofocus>
       </div>

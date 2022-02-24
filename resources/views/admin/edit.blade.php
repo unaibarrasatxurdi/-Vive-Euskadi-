@@ -15,8 +15,19 @@
                    <span class="card-title">Editar {{ $user->name }}</span>
                </div>
                <div class="card-body">
-                   <form method="POST" action="{{-- {{ route('items.update', $item->id) }} --}}"  role="form" enctype="multipart/form-data">
-                     <div class="drag-drop">
+                   <form method="POST" action="{{ route('admin.update', $user->id) }}"  role="form" enctype="multipart/form-data">
+                    
+                    <div class="d-flex justify-content-center">
+                        <img src="/images/Imagenes/bodyDescubre.jpg" class="img-fluid circular--square" alt="" id="imgUser">
+                 </div>
+
+
+
+
+                     {{-- <div class="drag-drop">
+                        @if($user->foto)
+                        <img src="/imagenes/{{ $user->foto }}" style="width: 100px; height: 100px;" alt="">
+                        @endif
                         <input type="file" multiple="multiple" id="photo" />
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
@@ -24,7 +35,7 @@
                             <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
                         </span>
                         <span class="desc">Pulse aquí para añadir una foto</span>
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                      <label for="">Nombre: </label>  
@@ -38,7 +49,9 @@
 
                     <div class="mb-3">
                      <label for="">Nivel: </label>  
-                     <select name="" id="" class="form-control  mb-3" value={{ $user->admin }}>
+                     <select name="" id="" class="form-control  mb-3">
+                         <option value={{ $user->admin }}>{{ $user->admin == 1 ? "Administrador" : "Usuario" }}</option>
+                         <option value={{ $user->admin }}>{{ $user->admin == 1 ? "Usuario" : "Administrador" }}</option>
                      </select>            
                     </div>
 
