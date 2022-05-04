@@ -16,7 +16,6 @@ class User extends Authenticatable
 		'name' => 'required',
 		'email' => 'required',
 		'admin' => 'required',
-		'foto' => 'required',
     ];
     use HasApiTokens, HasFactory, Notifiable;
     public $table = "users";

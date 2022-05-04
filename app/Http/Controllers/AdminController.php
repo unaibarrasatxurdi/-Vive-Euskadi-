@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Comentarios;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -91,24 +92,23 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $admin)
     {
+        
         $requestData = $request->all();
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
             if($foto->isValid()){
                 $extension = $foto->extension();
-                $nombreFichero = $user->id.'.'.$extension;
-                copy($foto->getRealPath(), public_path("imagenes").'\\'.$nombreFichero);
+                $nombreFichero = $admin->id.'.'.$extension;
+                copy($foto->getRealPath(), public_path("images\\Imagenes").'\\'.$nombreFichero);
                 $requestData['foto'] = $nombreFichero;
             }
         }
-        
 
-        $user->update($requestData);
-
+        $admin->update($requestData);
         return redirect()->route('admin.adminUsuario')
-            ->with('success', 'El usuario '.$user->name.' ha sido modificado correctamente.');
+            ->with('success', 'El usuario '.$admin->name.' ha sido modificado correctamente.'); 
     }
 
     /**

@@ -16,42 +16,46 @@
                </div>
                <div class="card-body">
                    <form method="POST" action="{{ route('admin.update', $user->id) }}"  role="form" enctype="multipart/form-data">
-                    
-                    <div class="d-flex justify-content-center">
+                    {{ method_field('PATCH') }}
+                    @csrf
+
+                   {{--  <div class="d-flex justify-content-center">
                         <img src="/images/Imagenes/bodyDescubre.jpg" class="img-fluid circular--square" alt="" id="imgUser">
-                 </div>
+                    </div> --}}
 
 
 
 
-                     {{-- <div class="drag-drop">
+                     <div class="drag-drop">
                         @if($user->foto)
-                        <img src="/imagenes/{{ $user->foto }}" style="width: 100px; height: 100px;" alt="">
+                            <img src="/images/Imagenes/{{ $user->foto }}" style="width: 100px; height: 100px;" alt="">
                         @endif
-                        <input type="file" multiple="multiple" id="photo" />
-                        <span class="fa-stack fa-2x">
+                    </div>
+                    <div>
+                        <input name="foto" type="file"/>
+                        {{-- <span class="fa-stack fa-2x">
                             <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
                             <i class="fa fa-circle fa-stack-1x top medium"></i>
                             <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
-                        </span>
+                        </span> --}}
                         <span class="desc">Pulse aquí para añadir una foto</span>
-                    </div> --}}
-
-                    <div class="mb-3">
-                     <label for="">Nombre: </label>  
-                     <input type="text"class="form-control" value={{ $user->name }}>                    
                     </div>
 
                     <div class="mb-3">
-                     <label for="">Email: </label>  
-                     <input type="email" class="form-control" value={{ $user->email }}>                   
+                     <label for="nombre">Nombre: </label>  
+                     <input id="nombre" type="text" name="name" class="form-control" value={{ $user->name }}>                    
                     </div>
 
                     <div class="mb-3">
-                     <label for="">Nivel: </label>  
-                     <select name="" id="" class="form-control  mb-3">
-                         <option value={{ $user->admin }}>{{ $user->admin == 1 ? "Administrador" : "Usuario" }}</option>
-                         <option value={{ $user->admin }}>{{ $user->admin == 1 ? "Usuario" : "Administrador" }}</option>
+                     <label for="email">Email: </label>  
+                     <input type="email" name="email" class="form-control" value={{ $user->email }}>                   
+                    </div>
+
+                    <div class="mb-3">
+                     <label for="admin">Nivel: </label>  
+                     <select name="admin" class="form-control mb-3">
+                         <option value={{ $user->admin == 1 ? "1" : "0" }}>{{ $user->admin == 1 ? "Administrador" : "Usuario" }}</option>
+                         <option value={{ $user->admin == 1 ? "0" : "1" }}>{{ $user->admin == 1 ? "Usuario" : "Administrador" }}</option>
                      </select>            
                     </div>
 

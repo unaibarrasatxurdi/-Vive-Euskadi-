@@ -11,7 +11,7 @@
             <form class="mt-4">
                 <div class="row">
                     <div class="form-group col">
-                        <input type="text" class="form-group form-control-lg w-100" placeholder="Nombre" id="nombre" name="nombre">
+                        <input type="text" class="form-group form-control-lg w-100" placeholder="Nombre" id="nombre" name="nombre" value={{ $user->name }}>
                     </div>
                     <div class="form-group col">
                         <input type="text" class="form-group form-control-lg w-100" placeholder="Apellidos" name="apellidos" id="apellidos">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <input type="text" class="form-group form-control-lg w-100" placeholder="Email" id="email" name="email">
+                        <input type="text" class="form-group form-control-lg w-100" placeholder="Email" id="email" name="email" value={{ $user->email }}>
                     </div>
                 </div>
                 <div class="row">

@@ -37,7 +37,7 @@ Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'plan']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only('index');
 
-Route::get('/user/datosUsuario', [UserController::class, 'datosUsuario']);
+Route::get('/user/datosUsuario/{id}', [UserController::class, 'datosUsuario'])->name('user.miPerfil');
 Route::get('/user/planesUsuario', [UserController::class, 'planesUsuario']);
 Route::get('/user/planesFavUsuario', [UserController::class, 'planesFavUsuario']);
 Route::get('/user/comentariosUsuario', [UserController::class, 'comentariosUsuario']);
