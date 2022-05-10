@@ -28,7 +28,7 @@
 
                      <div class="drag-drop">
                         @if($user->foto)
-                            <img src="/images/Imagenes/{{ $user->foto }}" style="width: 100px; height: 100px;" alt="">
+                            <img src="/images/Usuarios/{{ $user->foto }}" style="width: 100px; height: 100px;" alt="">
                         @endif
                     </div>
                     <div>

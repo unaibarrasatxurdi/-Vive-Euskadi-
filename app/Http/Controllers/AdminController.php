@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\Comentarios;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -48,7 +51,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $user = new User();
+        return view('admin.create', compact('user'));
     }
 
     /**
@@ -59,7 +63,44 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->all();
+        $validator = Validator::make($requestData, User::$rules, User::$messages, User::$customAttributes);
+
+        if ($validator->fails()) {
+            return redirect()->route('admin.create')
+                        ->withErrors($validator)->withInput();
+        }
+
+        Arr::set($requestData,'password', Hash::make($requestData['password']));
+        $user = User::create($requestData);
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            if($foto->isValid()){
+                $extension = $foto->extension();
+                $nombreFichero = $user->id.'.'.$extension;
+                copy($foto->getRealPath(), public_path("images\\Usuarios").'\\'.$nombreFichero);
+                $requestData['foto'] = $nombreFichero;
+            }
+            $user->update($requestData);
+        }
+        return redirect()->route('admin.adminUsuario')
+        ->with('mensaje', 'El usuario ha sido añadido correctamente');
+        /* $requestData = $request->all();
+        request()->validate(User::$rules);
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            if($foto->isValid()){
+                $extension = $foto->extension();
+                $nombreFichero = $requestData['id'].'.'.$extension;
+                copy($foto->getRealPath(), public_path("images\\Usuarios").'\\'.$nombreFichero);
+                $requestData['foto'] = $nombreFichero;
+            }
+        }
+
+        User::create($requestData);
+
+        return redirect()->route('admin.adminUsuario')
+            ->with('success', 'El usuario ha sido añadido correctamente'); */
     }
 
     /**
@@ -101,14 +142,14 @@ class AdminController extends Controller
             if($foto->isValid()){
                 $extension = $foto->extension();
                 $nombreFichero = $admin->id.'.'.$extension;
-                copy($foto->getRealPath(), public_path("images\\Imagenes").'\\'.$nombreFichero);
+                copy($foto->getRealPath(), public_path("images\\Usuarios").'\\'.$nombreFichero);
                 $requestData['foto'] = $nombreFichero;
             }
         }
 
         $admin->update($requestData);
         return redirect()->route('admin.adminUsuario')
-            ->with('success', 'El usuario '.$admin->name.' ha sido modificado correctamente.'); 
+            ->with('mensaje', 'El usuario '.$admin->name.' ha sido modificado correctamente.'); 
     }
 
     /**
