@@ -85,22 +85,6 @@ class AdminController extends Controller
         }
         return redirect()->route('admin.adminUsuario')
         ->with('mensaje', 'El usuario ha sido añadido correctamente');
-        /* $requestData = $request->all();
-        request()->validate(User::$rules);
-        if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-            if($foto->isValid()){
-                $extension = $foto->extension();
-                $nombreFichero = $requestData['id'].'.'.$extension;
-                copy($foto->getRealPath(), public_path("images\\Usuarios").'\\'.$nombreFichero);
-                $requestData['foto'] = $nombreFichero;
-            }
-        }
-
-        User::create($requestData);
-
-        return redirect()->route('admin.adminUsuario')
-            ->with('success', 'El usuario ha sido añadido correctamente'); */
     }
 
     /**
