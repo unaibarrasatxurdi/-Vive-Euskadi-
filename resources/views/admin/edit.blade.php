@@ -62,8 +62,7 @@
                     <div class="d-md-flex justify-content-md-center align-items-md-center mb-3">
                      <button type="submit" class="btn btn-primary">Guardar</button>
                      <a href="/admin/gestion-usuarios" class="btn btn-primary mx-2">Volver atrás</a>
-                    
-                  </div>
+                    </div>
                    </form>
                </div>
            </div>
