@@ -37,14 +37,14 @@ Route::resource('home', HomeController::class)->only('index');
 Route::resource('busqueda', PlanesController::class, ['names' => ['show' => 'plan']]);
 Route::resource('descubre-euskadi', DescubreEuskadiController::class)->only('index');
 
-Route::get('/user/datosUsuario', [UserController::class, 'datosUsuario']);
+Route::get('/user/datosUsuario/{id}', [UserController::class, 'datosUsuario'])->name('user.miPerfil');
 Route::get('/user/planesUsuario', [UserController::class, 'planesUsuario']);
 Route::get('/user/planesFavUsuario', [UserController::class, 'planesFavUsuario']);
 Route::get('/user/comentariosUsuario', [UserController::class, 'comentariosUsuario'])->name('user.comentariosUsuario');
 Route::resource('user', UserController::class);
 
-Route::get('/admin/gestion-usuarios', [AdminController::class, 'adminUsuario'])->name('admin.adminUsuario');;
-Route::get('/admin/gestion-comentarios', [AdminController::class, 'adminComent'])->name('admin.adminComent');;
+Route::get('/admin/gestion-usuarios', [AdminController::class, 'adminUsuario'])->name('admin.adminUsuario');
+Route::get('/admin/gestion-comentarios', [AdminController::class, 'adminComent'])->name('admin.adminComent');
 Route::delete('/admin/destroyUsuario/{id}', [AdminController::class, 'destroyUsuario'])->name('admin.destroyUsuario');
 Route::delete('/admin/destroyComent/{id}', [AdminController::class, 'destroyComent'])->name('admin.destroyComent');
 
@@ -54,5 +54,7 @@ Route::get('/{documentName}/comentarios', [ComentariosController::class, 'mostra
 Route::delete('/user/comentariosDelete/{id}', [ComentariosController::class, 'borrarComentario'])->name('user.comentarioDestroy');
 Route::get('/user/comentariosEdit/{id}', [ComentariosController::class, 'editarComentarios'])->name('user.comentarioEdit');
 Route::PUT('/user/comentariosEdit/{id}', [ComentariosController::class, 'updateComentarios'])->name('user.comentarioUpdate');
+Route::get('/comentario/{IdComentario}', [ComentariosController::class, 'edit'])->name('comentarios.edit');
+Route::patch('/comentario/{IdComentario}/update', [ComentariosController::class, 'update'])->name('comentarios.update');
 
 require __DIR__.'/auth.php';

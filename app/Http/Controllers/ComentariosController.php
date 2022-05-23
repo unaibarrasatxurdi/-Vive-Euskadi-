@@ -47,4 +47,20 @@ class ComentariosController extends Controller
         
         return redirect()->route('user.comentariosUsuario')->with('mensaje','Comentario modificado con exito');
     }
+    public function edit($IdComentario)
+    {
+        $comentario = Comentarios::find($IdComentario);
+        return view('comentarios.edit', compact('comentario'));
+    }
+    
+    public function update(Request $request, Comentarios $IdComentario)
+    {
+
+        $requestData = $request->all();
+        /* $comentario = Comentarios::where('IdComentario',$IdComentario)->firstOrFail(); */
+        $IdComentario->update($requestData);
+        return redirect()->route('admin.adminComent')
+            ->with('mensaje', 'El comentario ha sido modificado correctamente');
+        
+    }
 }
